@@ -8,8 +8,12 @@
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.x.x"
+  },
   "devDependencies": {
-    "typescript": "~6.0.2",
-    "vite": "^8.0.12"
+    "@types/node": "^20.x.x",
+    "typescript": "^5.x.x",
+    "vite": "^6.x.x"
   }
 }
