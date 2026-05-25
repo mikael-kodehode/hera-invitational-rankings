@@ -165,5 +165,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </div>
   </body>
 `
-initiateListeners()
-insertPlayerData()
+document.addEventListener('DOMContentLoaded', () => {
+  initiateListeners();
+  insertPlayerData();
+});

@@ -38,22 +38,26 @@ export const initiateListeners = () => {
     else navRatingsButton?.classList.add("active-page-nav")
     console.log(page)
   }
-
-  GrubbyButton?.addEventListener('click', () => {
-    if(GrubbyProfile) activateProfile(GrubbyProfile)
-  });
-  Day9Button?.addEventListener('click', () => {
-    if(Day9Profile) activateProfile(Day9Profile)
-  });
-  AtriocButton?.addEventListener('click', () => {
-    if(AtriocProfile) activateProfile(AtriocProfile)
-  });
-  navRatingsButton?.addEventListener('click', () => {
-    if(ratingsContainer) activatePage(ratingsContainer)
-  })
-  navHomeButton?.addEventListener('click', () => {
-    if(homeContainer) activatePage(homeContainer)
-  })
+  try {
+    GrubbyButton?.addEventListener('click', () => {
+      if(GrubbyProfile) activateProfile(GrubbyProfile)
+    });
+    Day9Button?.addEventListener('click', () => {
+      if(Day9Profile) activateProfile(Day9Profile)
+    });
+    AtriocButton?.addEventListener('click', () => {
+      if(AtriocProfile) activateProfile(AtriocProfile)
+    });
+    navRatingsButton?.addEventListener('click', () => {
+      if(ratingsContainer) activatePage(ratingsContainer)
+    })
+    navHomeButton?.addEventListener('click', () => {
+      if(homeContainer) activatePage(homeContainer)
+    })
+  } catch {
+    throw new Error("Adding listeners failed");
+    
+  }
 };
 
 export const insertPlayerData = async () => {
@@ -72,25 +76,30 @@ export const insertPlayerData = async () => {
   const atriocRating = document.querySelector("#atrioc-rating")
   const atriocStreak = document.querySelector("#atrioc-streak")
 
-  const data = await initiatePlayerData()
-  console.log(data)
-
-  if(grubbyMatches) grubbyMatches.innerHTML = data[PlayerID.Grubby].matches_played.toString()
-  if(grubbyStreak) grubbyStreak.innerHTML = data[PlayerID.Grubby].streak.toString()
-  if(grubbyRating) grubbyRating.innerHTML = data[PlayerID.Grubby].rating.toString()
-  if(grubbyWinPercentage) grubbyWinPercentage.innerHTML = data[PlayerID.Grubby].win_percentage.toString()
-
-  if(day9Matches) day9Matches.innerHTML = data[PlayerID.Day9].matches_played.toString()
-  if(day9Streak) day9Streak.innerHTML = data[PlayerID.Day9].streak.toString()
-  if(day9Rating) day9Rating.innerHTML = data[PlayerID.Day9].rating.toString()
-  if(day9WinPercentage) day9WinPercentage.innerHTML = data[PlayerID.Day9].win_percentage.toString()
-
-  if(atriocMatches) atriocMatches.innerHTML = data[PlayerID.Atrioc].matches_played.toString()
-  if(atriocStreak) atriocStreak.innerHTML = data[PlayerID.Atrioc].streak.toString()
-  if(atriocRating) atriocRating.innerHTML = data[PlayerID.Atrioc].rating.toString()
-  if(atriocWinPercentage) atriocWinPercentage.innerHTML = data[PlayerID.Atrioc].win_percentage.toString()
-
-  fillRatingTable(data)
+  try {
+    const data = await initiatePlayerData()
+    console.log(data)
+  
+    if(grubbyMatches) grubbyMatches.innerHTML = data[PlayerID.Grubby].matches_played.toString()
+    if(grubbyStreak) grubbyStreak.innerHTML = data[PlayerID.Grubby].streak.toString()
+    if(grubbyRating) grubbyRating.innerHTML = data[PlayerID.Grubby].rating.toString()
+    if(grubbyWinPercentage) grubbyWinPercentage.innerHTML = data[PlayerID.Grubby].win_percentage.toString()
+  
+    if(day9Matches) day9Matches.innerHTML = data[PlayerID.Day9].matches_played.toString()
+    if(day9Streak) day9Streak.innerHTML = data[PlayerID.Day9].streak.toString()
+    if(day9Rating) day9Rating.innerHTML = data[PlayerID.Day9].rating.toString()
+    if(day9WinPercentage) day9WinPercentage.innerHTML = data[PlayerID.Day9].win_percentage.toString()
+  
+    if(atriocMatches) atriocMatches.innerHTML = data[PlayerID.Atrioc].matches_played.toString()
+    if(atriocStreak) atriocStreak.innerHTML = data[PlayerID.Atrioc].streak.toString()
+    if(atriocRating) atriocRating.innerHTML = data[PlayerID.Atrioc].rating.toString()
+    if(atriocWinPercentage) atriocWinPercentage.innerHTML = data[PlayerID.Atrioc].win_percentage.toString()
+  
+    fillRatingTable(data)
+  } catch {
+    throw new Error("Insert data failed");
+    
+  }
 }
 
 export const fillRatingTable = (playerData: Record<string, DatabaseItem>) => {
