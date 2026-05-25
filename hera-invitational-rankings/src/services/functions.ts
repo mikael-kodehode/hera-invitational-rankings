@@ -188,12 +188,12 @@ export const insertPlayerData = async () => {
 export const fillRatingTable = (playerData: Record<string, DatabaseItem>) => {
   const ratingTable = document.querySelector("#ratings-table")
   const playerArray = Object.values(playerData)
-  for (const player of playerArray) {
+  const sortedPlayerArrayAfterRating = [...playerArray].sort((a, b) => b.rating - a.rating);
+  for (const player of sortedPlayerArrayAfterRating) {
     
     const trElement = document.createElement("tr")
     trElement.innerHTML = `
-      <td></td>
-      <td>${player.username}</td>
+      <td><span class="fi fi-${player.nationality}"></span>  ${player.username}</td>
       <td>${player.rating}</td>
       <td>${player.win_percentage} %</td>
     `

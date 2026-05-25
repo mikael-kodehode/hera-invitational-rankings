@@ -9,7 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.x.x"
+    "@supabase/supabase-js": "^2.x.x",
+    "flag-icons": "^7.5.0"
   },
   "devDependencies": {
     "@types/node": "^20.x.x",
