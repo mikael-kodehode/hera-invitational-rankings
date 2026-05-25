@@ -1,5 +1,4 @@
 import './style.css'
-import { initiateListeners, insertPlayerData } from './services/functions'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <head>
