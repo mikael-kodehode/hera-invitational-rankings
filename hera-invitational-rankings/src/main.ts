@@ -1,4 +1,5 @@
 import './style.css'
+import { initiateListeners } from './services/functions'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <head>
@@ -164,3 +165,4 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </div>
   </body>
 `
+initiateListeners()
