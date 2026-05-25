@@ -54,6 +54,7 @@ export const initiateListeners = () => {
     else navRatingsButton?.classList.add("active-page-nav")
     console.log(page)
   }
+
   try {
     GrubbyButton?.addEventListener('click', () => {
       if(GrubbyProfile) activateProfile(GrubbyProfile)
@@ -87,8 +88,7 @@ export const initiateListeners = () => {
       if(homeContainer) activatePage(homeContainer)
     })
   } catch {
-    throw new Error("Adding listeners failed");
-    
+    throw new Error("Adding listeners failed"); 
   }
 };
 

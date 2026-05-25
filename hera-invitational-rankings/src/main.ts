@@ -1,6 +1,8 @@
 import './style.css'
+
 import { initiateListeners, insertPlayerData } from './services/functions'
 import 'flag-icons/css/flag-icons.min.css';
+
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <head>
@@ -94,7 +96,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             </div>
           </div>
         </article>
-
+        
         <article  id="Day9Profile" class="player-profile" hidden>
           <h3>Day9</h3>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
@@ -269,6 +271,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <footer class="w3-content w3-padding-64 w3-text-grey w3-large">
       <p>
         *Disclaimer: The number of matches and win percentage might not be completely accurate due to reasons like infrequent updates.
+
       <!-- End footer -->
       </footer>
 
