@@ -4,10 +4,10 @@ import type { DatabaseItem } from '../types.ts';
 
 // Vite requires 'import.meta.env' for environment variables.
 // Adding 'as string' ensures TypeScript doesn't complain about them being undefined.
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string;
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+export const supabaseClient = createClient(supabaseUrl, supabaseAnonKey);
 
 /**
  * Fetches all public rows from your specified table.
@@ -15,8 +15,8 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey);
  */
 export const fetchPlayerData = async (): Promise<DatabaseItem[]> => {
   // We type the table target so 'data' inherits the DatabaseItem[] shape
-  const { data, error } = await supabase
-    .from('your_table_name') // Replace with your actual table name
+  const { data, error } = await supabaseClient
+    .from('PlayerStatistics')
     .select('*');
 
   if (error) {

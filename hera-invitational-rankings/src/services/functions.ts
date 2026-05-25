@@ -6,9 +6,20 @@ export const initiateListeners = () => {
   const GrubbyButton = document.querySelector('#GrubbyButton');
   const Day9Button = document.querySelector('#Day9Button');
   const AtriocButton = document.querySelector('#AtriocButton');
+  const DeathnoteButton = document.querySelector('#DeathnoteButton');
+  const GunnarButton = document.querySelector('#GunnarButton');
+  const CooperButton = document.querySelector('#CooperButton');
+  const KnoffButton = document.querySelector('#KnoffButton');
+  const SingSingButton = document.querySelector('#SingSingButton');
+
   const GrubbyProfile = document.querySelector("#GrubbyProfile")
   const Day9Profile = document.querySelector("#Day9Profile")
   const AtriocProfile = document.querySelector("#AtriocProfile")
+  const DeathnoteProfile = document.querySelector("#DeathnoteProfile")
+  const GunnarProfile = document.querySelector("#GunnarProfile")
+  const CooperProfile = document.querySelector("#CooperProfile")
+  const KnoffProfile = document.querySelector("#KnoffProfile")
+  const SingSingProfile = document.querySelector("#SingSingProfile")
 
   const homeContainer = document.querySelector("#home")
   const ratingsContainer = document.querySelector("#ratings")
@@ -19,6 +30,11 @@ export const initiateListeners = () => {
     GrubbyProfile?.setAttribute("hidden", "true")
     Day9Profile?.setAttribute("hidden", "true")
     AtriocProfile?.setAttribute("hidden","true")
+    DeathnoteProfile?.setAttribute("hidden", "true")
+    GunnarProfile?.setAttribute("hidden", "true")
+    CooperProfile?.setAttribute("hidden","true")
+    KnoffProfile?.setAttribute("hidden", "true")
+    SingSingProfile?.setAttribute("hidden","true")
 
     profile.removeAttribute("hidden")
   };
@@ -39,21 +55,41 @@ export const initiateListeners = () => {
     console.log(page)
   }
 
-  GrubbyButton?.addEventListener('click', () => {
-    if(GrubbyProfile) activateProfile(GrubbyProfile)
-  });
-  Day9Button?.addEventListener('click', () => {
-    if(Day9Profile) activateProfile(Day9Profile)
-  });
-  AtriocButton?.addEventListener('click', () => {
-    if(AtriocProfile) activateProfile(AtriocProfile)
-  });
-  navRatingsButton?.addEventListener('click', () => {
-    if(ratingsContainer) activatePage(ratingsContainer)
-  })
-  navHomeButton?.addEventListener('click', () => {
-    if(homeContainer) activatePage(homeContainer)
-  })
+  try {
+    GrubbyButton?.addEventListener('click', () => {
+      if(GrubbyProfile) activateProfile(GrubbyProfile)
+    });
+    Day9Button?.addEventListener('click', () => {
+      if(Day9Profile) activateProfile(Day9Profile)
+    });
+    AtriocButton?.addEventListener('click', () => {
+      if(AtriocProfile) activateProfile(AtriocProfile)
+    });
+    DeathnoteButton?.addEventListener('click', () => {
+      if(DeathnoteProfile) activateProfile(DeathnoteProfile)
+    });
+    GunnarButton?.addEventListener('click', () => {
+      if(GunnarProfile) activateProfile(GunnarProfile)
+    });
+    CooperButton?.addEventListener('click', () => {
+      if(CooperProfile) activateProfile(CooperProfile)
+    });
+    KnoffButton?.addEventListener('click', () => {
+      if(KnoffProfile) activateProfile(KnoffProfile)
+    });
+    SingSingButton?.addEventListener('click', () => {
+      if(SingSingProfile) activateProfile(SingSingProfile)
+    });
+
+    navRatingsButton?.addEventListener('click', () => {
+      if(ratingsContainer) activatePage(ratingsContainer)
+    })
+    navHomeButton?.addEventListener('click', () => {
+      if(homeContainer) activatePage(homeContainer)
+    })
+  } catch {
+    throw new Error("Adding listeners failed"); 
+  }
 };
 
 export const insertPlayerData = async () => {
@@ -71,26 +107,82 @@ export const insertPlayerData = async () => {
   const atriocWinPercentage = document.querySelector("#atrioc-win-percentage")
   const atriocRating = document.querySelector("#atrioc-rating")
   const atriocStreak = document.querySelector("#atrioc-streak")
+  
+  const deathnoteMatches = document.querySelector("#deathnote-matches")
+  const deathnoteWinPercentage = document.querySelector("#deathnote-win-percentage")
+  const deathnoteRating = document.querySelector("#deathnote-rating")
+  const deathnoteStreak = document.querySelector("#deathnote-streak")
+  
+  const gunnarMatches = document.querySelector("#gunnar-matches")
+  const gunnarWinPercentage = document.querySelector("#gunnar-win-percentage")
+  const gunnarRating = document.querySelector("#gunnar-rating")
+  const gunnarStreak = document.querySelector("#gunnar-streak")
+  
+  const cooperMatches = document.querySelector("#cooper-matches")
+  const cooperWinPercentage = document.querySelector("#cooper-win-percentage")
+  const cooperRating = document.querySelector("#cooper-rating")
+  const cooperStreak = document.querySelector("#cooper-streak")
+  
+  const knoffMatches = document.querySelector("#knoff-matches")
+  const knoffWinPercentage = document.querySelector("#knoff-win-percentage")
+  const knoffRating = document.querySelector("#knoff-rating")
+  const knoffStreak = document.querySelector("#knoff-streak")
+  
+  const singsingMatches = document.querySelector("#singsing-matches")
+  const singsingWinPercentage = document.querySelector("#singsing-win-percentage")
+  const singsingRating = document.querySelector("#singsing-rating")
+  const singsingStreak = document.querySelector("#singsing-streak")
 
-  const data = await initiatePlayerData()
-  console.log(data)
+  try {
+    const data = await initiatePlayerData()
+    console.log(data)
+  
+    if(grubbyMatches) grubbyMatches.innerHTML = data[PlayerID.Grubby].matches_played.toString()
+    if(grubbyStreak) grubbyStreak.innerHTML = data[PlayerID.Grubby].streak.toString()
+    if(grubbyRating) grubbyRating.innerHTML = data[PlayerID.Grubby].rating.toString()
+    if(grubbyWinPercentage) grubbyWinPercentage.innerHTML = data[PlayerID.Grubby].win_percentage.toString()
+  
+    if(day9Matches) day9Matches.innerHTML = data[PlayerID.Day9].matches_played.toString()
+    if(day9Streak) day9Streak.innerHTML = data[PlayerID.Day9].streak.toString()
+    if(day9Rating) day9Rating.innerHTML = data[PlayerID.Day9].rating.toString()
+    if(day9WinPercentage) day9WinPercentage.innerHTML = data[PlayerID.Day9].win_percentage.toString()
+  
+    if(atriocMatches) atriocMatches.innerHTML = data[PlayerID.Atrioc].matches_played.toString()
+    if(atriocStreak) atriocStreak.innerHTML = data[PlayerID.Atrioc].streak.toString()
+    if(atriocRating) atriocRating.innerHTML = data[PlayerID.Atrioc].rating.toString()
+    if(atriocWinPercentage) atriocWinPercentage.innerHTML = data[PlayerID.Atrioc].win_percentage.toString()
+    
+    if(deathnoteMatches) deathnoteMatches.innerHTML = data[PlayerID.Deathnote].matches_played.toString()
+    if(deathnoteStreak) deathnoteStreak.innerHTML = data[PlayerID.Deathnote].streak.toString()
+    if(deathnoteRating) deathnoteRating.innerHTML = data[PlayerID.Deathnote].rating.toString()
+    if(deathnoteWinPercentage) deathnoteWinPercentage.innerHTML = data[PlayerID.Deathnote].win_percentage.toString()
+    
+    if(gunnarMatches) gunnarMatches.innerHTML = data[PlayerID.Gunnar].matches_played.toString()
+    if(gunnarStreak) gunnarStreak.innerHTML = data[PlayerID.Gunnar].streak.toString()
+    if(gunnarRating) gunnarRating.innerHTML = data[PlayerID.Gunnar].rating.toString()
+    if(gunnarWinPercentage) gunnarWinPercentage.innerHTML = data[PlayerID.Gunnar].win_percentage.toString()
+  
+    if(cooperMatches) cooperMatches.innerHTML = data[PlayerID.Cooper].matches_played.toString()
+    if(cooperStreak) cooperStreak.innerHTML = data[PlayerID.Cooper].streak.toString()
+    if(cooperRating) cooperRating.innerHTML = data[PlayerID.Cooper].rating.toString()
+    if(cooperWinPercentage) cooperWinPercentage.innerHTML = data[PlayerID.Cooper].win_percentage.toString()
+  
+    if(knoffMatches) knoffMatches.innerHTML = data[PlayerID.Knoff].matches_played.toString()
+    if(knoffStreak) knoffStreak.innerHTML = data[PlayerID.Knoff].streak.toString()
+    if(knoffRating) knoffRating.innerHTML = data[PlayerID.Knoff].rating.toString()
+    if(knoffWinPercentage) knoffWinPercentage.innerHTML = data[PlayerID.Knoff].win_percentage.toString()
+    
+    if(singsingMatches) singsingMatches.innerHTML = data[PlayerID.SingSing].matches_played.toString()
+    if(singsingStreak) singsingStreak.innerHTML = data[PlayerID.SingSing].streak.toString()
+    if(singsingRating) singsingRating.innerHTML = data[PlayerID.SingSing].rating.toString()
+    if(singsingWinPercentage) singsingWinPercentage.innerHTML = data[PlayerID.SingSing].win_percentage.toString()
+    
 
-  if(grubbyMatches) grubbyMatches.innerHTML = data[PlayerID.Grubby].matches_played.toString()
-  if(grubbyStreak) grubbyStreak.innerHTML = data[PlayerID.Grubby].streak.toString()
-  if(grubbyRating) grubbyRating.innerHTML = data[PlayerID.Grubby].rating.toString()
-  if(grubbyWinPercentage) grubbyWinPercentage.innerHTML = data[PlayerID.Grubby].win_percentage.toString()
-
-  if(day9Matches) day9Matches.innerHTML = data[PlayerID.Day9].matches_played.toString()
-  if(day9Streak) day9Streak.innerHTML = data[PlayerID.Day9].streak.toString()
-  if(day9Rating) day9Rating.innerHTML = data[PlayerID.Day9].rating.toString()
-  if(day9WinPercentage) day9WinPercentage.innerHTML = data[PlayerID.Day9].win_percentage.toString()
-
-  if(atriocMatches) atriocMatches.innerHTML = data[PlayerID.Atrioc].matches_played.toString()
-  if(atriocStreak) atriocStreak.innerHTML = data[PlayerID.Atrioc].streak.toString()
-  if(atriocRating) atriocRating.innerHTML = data[PlayerID.Atrioc].rating.toString()
-  if(atriocWinPercentage) atriocWinPercentage.innerHTML = data[PlayerID.Atrioc].win_percentage.toString()
-
-  fillRatingTable(data)
+      fillRatingTable(data)
+  } catch {
+    throw new Error("Insert data failed");
+    
+  }
 }
 
 export const fillRatingTable = (playerData: Record<string, DatabaseItem>) => {
