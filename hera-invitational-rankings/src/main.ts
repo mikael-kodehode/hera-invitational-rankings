@@ -165,4 +165,3 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </div>
   </body>
 `
-insertPlayerData()
