@@ -18,6 +18,11 @@ export const PlayerID = {
   Atrioc: 518351,
   Day9: 2065858,
   Grubby: 1819870,
+  Gunnar : 7304675,
+  Cooper : 10453910,
+  Knoff : 228122,
+  SingSing : 255573,
+  Deathnote : 6481045
 } as const
 
 export type PlayersID = typeof PlayerID[keyof typeof PlayerID]
