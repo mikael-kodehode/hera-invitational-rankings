@@ -168,4 +168,5 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 document.addEventListener('DOMContentLoaded', () => {
   initiateListeners();
   insertPlayerData();
+  console.log('loaded')
 });
