@@ -4,8 +4,8 @@ import type { DatabaseItem } from '../types.ts';
 
 // Vite requires 'import.meta.env' for environment variables.
 // Adding 'as string' ensures TypeScript doesn't complain about them being undefined.
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string;
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 export const supabaseClient = createClient(supabaseUrl, supabaseAnonKey);
 
