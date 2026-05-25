@@ -7,16 +7,16 @@ import type { DatabaseItem } from '../types.ts';
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string;
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+export const supabaseClient = createClient(supabaseUrl, supabaseAnonKey);
 
 /**
  * Fetches all public rows from your specified table.
  * Returns an array of your typed DatabaseItems.
  */
-export const fetchPublicData = async (): Promise<DatabaseItem[]> => {
+export const fetchPlayerData = async (): Promise<DatabaseItem[]> => {
   // We type the table target so 'data' inherits the DatabaseItem[] shape
-  const { data, error } = await supabase
-    .from('your_table_name') // Replace with your actual table name
+  const { data, error } = await supabaseClient
+    .from('PlayerStatistics')
     .select('*');
 
   if (error) {

@@ -1,6 +1,11 @@
 @import url('https://www.w3schools.com/w3css/4/w3.css');
 body, h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif; /* Applies your loaded Google font */
+  background-color: black;
+  color: white;
+}
+h2 {
+  font-size: 3rem;
 }
 .w3-container,.w3-panel {
     padding: 0.01em 16px
@@ -19,10 +24,15 @@ body, h1, h2, h3, h4, h5, h6 {
 /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
 #main {
   margin-left: 120px;
-  background-color: black;
 }
 nav {
   color: white;
+}
+.page-nav li {
+  padding: 2.5rem 0 !important;
+}
+.page-nav li p {
+  margin-bottom: 0;
 }
 .some-links-container {
   display: flex;
@@ -43,6 +53,9 @@ nav {
   display: inline-block;
   padding: 0.5em;
   cursor: pointer;
+}
+.active-page-nav {
+  background-color: black;
 }
 /* Remove margins from "page content" on small screens */
 @media only screen and (max-width: 600px) {#main {margin-left: 0}}
