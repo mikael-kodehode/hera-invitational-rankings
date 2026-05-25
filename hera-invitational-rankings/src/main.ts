@@ -157,7 +157,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
       
       <!-- Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. -->
-      <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+      <footer class="w3-content w3-padding-64 w3-text-grey w3-large">
+      <p>
+        *Disclaimer: The number of matches and win percentage might not be completely accurate due to reasons like infrequent updates.
       <!-- End footer -->
       </footer>
 
