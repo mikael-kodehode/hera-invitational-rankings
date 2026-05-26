@@ -14,28 +14,27 @@ export interface DatabaseItem {
   rating: number;
 }
 
-export const PlayerID = {
+export const PlayerIDFromName = {
   Atrioc: 518351,
   Day9: 2065858,
   Grubby: 1819870,
   Gunnar : 7304675,
-  Cooper : 10453910,
+  CooperTV : 10453910,
   Knoff : 228122,
   SingSing : 255573,
   Deathnote : 6481045
 } as const
 
-export const PlayerNationality = {
-  Atrioc: "usa",
-  Day9: "usa",
-  Grubby: "netherlands",
-  Gunnar : "us",
-  Cooper : "austria",
-  Knoff : "sweden",
-  SingSing : "netherlands",
-  Deathnote : "russia"
-} as const
+export const StreamerNameFromProfileID: Record<number, string> = {
+  518351: "Atrioc",
+  2065858: "Day9",
+  1819870: "Grubby",
+  7304675: "Gunnar",
+  10453910: "CooperTV",
+  228122: "Knoff",
+  255573: "SingSing",
+  6481045: "Deathnote"
+}
 
-
-export type PlayersID = typeof PlayerID[keyof typeof PlayerID]
-export type PlayerNationality = typeof PlayerNationality[keyof typeof PlayerNationality]
+export type StreamerNameFromProfileID = typeof StreamerNameFromProfileID[keyof typeof StreamerNameFromProfileID]
+export type PlayerIDFromName = typeof PlayerIDFromName[keyof typeof PlayerIDFromName]
