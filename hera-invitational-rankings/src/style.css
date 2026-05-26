@@ -114,6 +114,27 @@ tbody tr:hover {
   cursor: pointer;
 }
 
+.aoe-insights-logo {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+
+.streamer-links-ul {
+  display: flex;
+  list-style-type: none;
+  width: 100%;
+  justify-content: right;
+}
+
+.streamer-links-ul li {
+  padding: 1rem;
+}
+
+.streamer-links-ul a {
+  text-decoration: none;
+}
+
 /* Ensure numbers align properly to the right if you have stats/currency */
 .numeric {
   text-align: right;
