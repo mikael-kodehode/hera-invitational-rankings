@@ -99,10 +99,10 @@ export const initiateListeners = () => {
     navHomeButton?.addEventListener('click', () => {
       if(homeContainer) activatePage(homeContainer)
     })
-    smallScreenNavHomeButton?.addEventListener('click', () => {
+    smallScreenNavRatingsButton?.addEventListener('click', () => {
       if(ratingsContainer) activatePage(ratingsContainer)
     })
-    smallScreenNavRatingsButton?.addEventListener('click', () => {
+    smallScreenNavHomeButton?.addEventListener('click', () => {
       if(homeContainer) activatePage(homeContainer)
     })
 
