@@ -64,7 +64,6 @@ export const initiateListeners = () => {
     
     if(homeContainer?.classList.contains("active-page")) navHomeButton?.classList.add("active-page-nav")
     else navRatingsButton?.classList.add("active-page-nav")
-    console.log(page)
   }
 
   try {
@@ -154,7 +153,6 @@ export const insertPlayerData = async () => {
 
   try {
     const data = await initiatePlayerData()
-    console.log(data)
   
     if(grubbyMatches) grubbyMatches.innerHTML = data[PlayerIDFromName.Grubby].matches_played.toString()
     if(grubbyStreak) grubbyStreak.innerHTML = data[PlayerIDFromName.Grubby].streak.toString()
@@ -231,7 +229,6 @@ export const initiatePlayerData = async () => {
 }
 
 export const getStreamerName = (profile: DatabaseItem, defaultName: string = "Unknown"): string => {
-  console.log(profile)
   const idAsNumber = Number(profile.profile_id);
   if(!StreamerNameFromProfileID[idAsNumber]) return defaultName 
   if(StreamerNameFromProfileID[idAsNumber] === profile.username) return profile.username
