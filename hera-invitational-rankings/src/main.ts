@@ -66,9 +66,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <div class="w3-button" id="AtriocButton">Atrioc</div>
           <div class="w3-button" id="DeathnoteButton">Deathnote</div>
           <div class="w3-button" id="GunnarButton">Gunnar</div>
-          <div class="w3-button" id="CooperButton">Cooper</div>
+          <div class="w3-button" id="CooperTVButton">CooperTV</div>
           <div class="w3-button" id="KnoffButton">Knoff</div>
           <div class="w3-button" id="SingSingButton">SingSing</div>
+          <div class="w3-button" id="UthermalButton">Uthermal</div>
+          <div class="w3-button" id="PiGButton">PiG</div>
         </nav>
 
         <article id="GrubbyProfile" class="player-profile">
@@ -181,23 +183,23 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           </div>
         </article>
 
-        <article  id="CooperProfile" class="player-profile" hidden>
+        <article  id="CooperTVProfile" class="player-profile" hidden>
           <h3>Cooper</h3>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
-              <span id="cooper-matches" class="w3-xlarge"></span><br>
+              <span id="coopertv-matches" class="w3-xlarge"></span><br>
               Matches
             </div>
             <div class="w3-quarter w3-section">
-              <span id="cooper-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
+              <span id="coopertv-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
               Win percentage
             </div>
             <div class="w3-quarter w3-section">
-              <span id="cooper-rating" class="w3-xlarge"></span><br>
+              <span id="coopertv-rating" class="w3-xlarge"></span><br>
               Rating
             </div>
             <div class="w3-quarter w3-section">
-              <span id="cooper-streak" class="w3-xlarge"></span><br>
+              <span id="coopertv-streak" class="w3-xlarge"></span><br>
               Streak
             </div>
           </div>
@@ -242,6 +244,50 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             </div>
             <div class="w3-quarter w3-section">
               <span id="singsing-streak" class="w3-xlarge"></span><br>
+              Streak
+            </div>
+          </div>
+        </article>
+
+        <article  id="UthermalProfile" class="player-profile" hidden>
+          <h3>Uthermal</h3>
+          <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
+            <div class="w3-quarter w3-section">
+              <span id="uthermal-matches" class="w3-xlarge"></span><br>
+              Matches
+            </div>
+            <div class="w3-quarter w3-section">
+              <span id="uthermal-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
+              Win percentage
+            </div>
+            <div class="w3-quarter w3-section">
+              <span id="uthermal-rating" class="w3-xlarge"></span><br>
+              Rating
+            </div>
+            <div class="w3-quarter w3-section">
+              <span id="uthermal-streak" class="w3-xlarge"></span><br>
+              Streak
+            </div>
+          </div>
+        </article>
+
+        <article  id="PiGProfile" class="player-profile" hidden>
+          <h3>PiG</h3>
+          <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
+            <div class="w3-quarter w3-section">
+              <span id="pig-matches" class="w3-xlarge"></span><br>
+              Matches
+            </div>
+            <div class="w3-quarter w3-section">
+              <span id="pig-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
+              Win percentage
+            </div>
+            <div class="w3-quarter w3-section">
+              <span id="pig-rating" class="w3-xlarge"></span><br>
+              Rating
+            </div>
+            <div class="w3-quarter w3-section">
+              <span id="pig-streak" class="w3-xlarge"></span><br>
               Streak
             </div>
           </div>

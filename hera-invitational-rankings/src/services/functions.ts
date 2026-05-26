@@ -8,18 +8,22 @@ export const initiateListeners = () => {
   const AtriocButton = document.querySelector('#AtriocButton');
   const DeathnoteButton = document.querySelector('#DeathnoteButton');
   const GunnarButton = document.querySelector('#GunnarButton');
-  const CooperButton = document.querySelector('#CooperButton');
+  const CooperTVButton = document.querySelector('#CooperTVButton');
   const KnoffButton = document.querySelector('#KnoffButton');
   const SingSingButton = document.querySelector('#SingSingButton');
+  const UthermalButton = document.querySelector('#UthermalButton');
+  const PiGButton = document.querySelector('#PiGButton');
 
   const GrubbyProfile = document.querySelector("#GrubbyProfile")
   const Day9Profile = document.querySelector("#Day9Profile")
   const AtriocProfile = document.querySelector("#AtriocProfile")
   const DeathnoteProfile = document.querySelector("#DeathnoteProfile")
   const GunnarProfile = document.querySelector("#GunnarProfile")
-  const CooperProfile = document.querySelector("#CooperProfile")
+  const CooperTVProfile = document.querySelector("#CooperTVProfile")
   const KnoffProfile = document.querySelector("#KnoffProfile")
   const SingSingProfile = document.querySelector("#SingSingProfile")
+  const UthermalProfile = document.querySelector("#UthermalProfile")
+  const PiGProfile = document.querySelector("#PiGProfile")
 
   const homeContainer = document.querySelector("#home")
   const ratingsContainer = document.querySelector("#ratings")
@@ -34,18 +38,22 @@ export const initiateListeners = () => {
     AtriocProfile?.setAttribute("hidden","true")
     DeathnoteProfile?.setAttribute("hidden", "true")
     GunnarProfile?.setAttribute("hidden", "true")
-    CooperProfile?.setAttribute("hidden","true")
+    CooperTVProfile?.setAttribute("hidden","true")
     KnoffProfile?.setAttribute("hidden", "true")
     SingSingProfile?.setAttribute("hidden","true")
+    UthermalProfile?.setAttribute("hidden", "true")
+    PiGProfile?.setAttribute("hidden","true")
 
     GrubbyButton?.classList.remove("active-streamer-article")
     Day9Button?.classList.remove("active-streamer-article")
     AtriocButton?.classList.remove("active-streamer-article")
     DeathnoteButton?.classList.remove("active-streamer-article")
     GunnarButton?.classList.remove("active-streamer-article")
-    CooperButton?.classList.remove("active-streamer-article")
+    CooperTVButton?.classList.remove("active-streamer-article")
     KnoffButton?.classList.remove("active-streamer-article")
     SingSingButton?.classList.remove("active-streamer-article")
+    UthermalButton?.classList.remove("active-streamer-article")
+    PiGButton?.classList.remove("active-streamer-article")
 
     profileButton.classList.add("active-streamer-article")
     profile.removeAttribute("hidden")
@@ -82,14 +90,20 @@ export const initiateListeners = () => {
     GunnarButton?.addEventListener('click', () => {
       if(GunnarProfile) activateProfile(GunnarProfile, GunnarButton)
     });
-    CooperButton?.addEventListener('click', () => {
-      if(CooperProfile) activateProfile(CooperProfile, CooperButton)
+    CooperTVButton?.addEventListener('click', () => {
+      if(CooperTVProfile) activateProfile(CooperTVProfile, CooperTVButton)
     });
     KnoffButton?.addEventListener('click', () => {
       if(KnoffProfile) activateProfile(KnoffProfile, KnoffButton)
     });
     SingSingButton?.addEventListener('click', () => {
       if(SingSingProfile) activateProfile(SingSingProfile, SingSingButton)
+    });
+    UthermalButton?.addEventListener('click', () => {
+      if(UthermalProfile) activateProfile(UthermalProfile, UthermalButton)
+    });
+    PiGButton?.addEventListener('click', () => {
+      if(PiGProfile) activateProfile(PiGProfile, PiGButton)
     });
 
     navRatingsButton?.addEventListener('click', () => {
@@ -136,10 +150,10 @@ export const insertPlayerData = async () => {
   const gunnarRating = document.querySelector("#gunnar-rating")
   const gunnarStreak = document.querySelector("#gunnar-streak")
   
-  const cooperMatches = document.querySelector("#cooper-matches")
-  const cooperWinPercentage = document.querySelector("#cooper-win-percentage")
-  const cooperRating = document.querySelector("#cooper-rating")
-  const cooperStreak = document.querySelector("#cooper-streak")
+  const coopertvMatches = document.querySelector("#coopertv-matches")
+  const coopertvWinPercentage = document.querySelector("#coopertv-win-percentage")
+  const coopertvRating = document.querySelector("#coopertv-rating")
+  const coopertvStreak = document.querySelector("#coopertv-streak")
   
   const knoffMatches = document.querySelector("#knoff-matches")
   const knoffWinPercentage = document.querySelector("#knoff-win-percentage")
@@ -150,6 +164,16 @@ export const insertPlayerData = async () => {
   const singsingWinPercentage = document.querySelector("#singsing-win-percentage")
   const singsingRating = document.querySelector("#singsing-rating")
   const singsingStreak = document.querySelector("#singsing-streak")
+  
+  const uthermalMatches = document.querySelector("#uthermal-matches")
+  const uthermalWinPercentage = document.querySelector("#uthermal-win-percentage")
+  const uthermalRating = document.querySelector("#uthermal-rating")
+  const uthermalStreak = document.querySelector("#uthermal-streak")
+  
+  const pigMatches = document.querySelector("#pig-matches")
+  const pigWinPercentage = document.querySelector("#pig-win-percentage")
+  const pigRating = document.querySelector("#pig-rating")
+  const pigStreak = document.querySelector("#pig-streak")
 
   try {
     const data = await initiatePlayerData()
@@ -179,10 +203,10 @@ export const insertPlayerData = async () => {
     if(gunnarRating) gunnarRating.innerHTML = data[PlayerIDFromName.Gunnar].rating.toString()
     if(gunnarWinPercentage) gunnarWinPercentage.innerHTML = data[PlayerIDFromName.Gunnar].win_percentage.toString()
   
-    if(cooperMatches) cooperMatches.innerHTML = data[PlayerIDFromName.CooperTV].matches_played.toString()
-    if(cooperStreak) cooperStreak.innerHTML = data[PlayerIDFromName.CooperTV].streak.toString()
-    if(cooperRating) cooperRating.innerHTML = data[PlayerIDFromName.CooperTV].rating.toString()
-    if(cooperWinPercentage) cooperWinPercentage.innerHTML = data[PlayerIDFromName.CooperTV].win_percentage.toString()
+    if(coopertvMatches) coopertvMatches.innerHTML = data[PlayerIDFromName.CooperTV].matches_played.toString()
+    if(coopertvStreak) coopertvStreak.innerHTML = data[PlayerIDFromName.CooperTV].streak.toString()
+    if(coopertvRating) coopertvRating.innerHTML = data[PlayerIDFromName.CooperTV].rating.toString()
+    if(coopertvWinPercentage) coopertvWinPercentage.innerHTML = data[PlayerIDFromName.CooperTV].win_percentage.toString()
   
     if(knoffMatches) knoffMatches.innerHTML = data[PlayerIDFromName.Knoff].matches_played.toString()
     if(knoffStreak) knoffStreak.innerHTML = data[PlayerIDFromName.Knoff].streak.toString()
@@ -193,7 +217,17 @@ export const insertPlayerData = async () => {
     if(singsingStreak) singsingStreak.innerHTML = data[PlayerIDFromName.SingSing].streak.toString()
     if(singsingRating) singsingRating.innerHTML = data[PlayerIDFromName.SingSing].rating.toString()
     if(singsingWinPercentage) singsingWinPercentage.innerHTML = data[PlayerIDFromName.SingSing].win_percentage.toString()
+  
+    if(uthermalMatches) uthermalMatches.innerHTML = data[PlayerIDFromName.Uthermal].matches_played.toString()
+    if(uthermalStreak) uthermalStreak.innerHTML = data[PlayerIDFromName.Uthermal].streak.toString()
+    if(uthermalRating) uthermalRating.innerHTML = data[PlayerIDFromName.Uthermal].rating.toString()
+    if(uthermalWinPercentage) uthermalWinPercentage.innerHTML = data[PlayerIDFromName.Uthermal].win_percentage.toString()
     
+    if(pigMatches) pigMatches.innerHTML = data[PlayerIDFromName.PiG].matches_played.toString()
+    if(pigStreak) pigStreak.innerHTML = data[PlayerIDFromName.PiG].streak.toString()
+    if(pigRating) pigRating.innerHTML = data[PlayerIDFromName.PiG].rating.toString()
+    if(pigWinPercentage) pigWinPercentage.innerHTML = data[PlayerIDFromName.PiG].win_percentage.toString()
+
 
       fillRatingTable(data)
   } catch {
