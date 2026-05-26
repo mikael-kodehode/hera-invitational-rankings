@@ -25,6 +25,8 @@ export const initiateListeners = () => {
   const ratingsContainer = document.querySelector("#ratings")
   const navHomeButton = document.querySelector("#nav-home")
   const navRatingsButton = document.querySelector("#nav-ratings")
+  const smallScreenNavHomeButton = document.querySelector("#small-screen-nav-home")
+  const smallScreenNavRatingsButton = document.querySelector("#small-screen-nav-ratings")
 
   const activateProfile = (profile: Element, profileButton: Element) => {
     GrubbyProfile?.setAttribute("hidden", "true")
@@ -97,6 +99,13 @@ export const initiateListeners = () => {
     navHomeButton?.addEventListener('click', () => {
       if(homeContainer) activatePage(homeContainer)
     })
+    smallScreenNavHomeButton?.addEventListener('click', () => {
+      if(ratingsContainer) activatePage(ratingsContainer)
+    })
+    smallScreenNavRatingsButton?.addEventListener('click', () => {
+      if(homeContainer) activatePage(homeContainer)
+    })
+
   } catch {
     throw new Error("Adding listeners failed"); 
   }
