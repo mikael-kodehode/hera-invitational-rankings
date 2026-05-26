@@ -15,13 +15,13 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
     <!-- Icon Bar (Sidebar - hidden on small screens) -->
     <nav class="page-nav w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-      <li id="nav-home" class="w3-bar-item w3-button active-page-nav">
-        <i class="fa fa-home w3-xxlarge"></i>
-        <p>HOME</p>
-      </li>
-      <li id="nav-ratings" class="w3-bar-item w3-button">
-        <i class="fa fa-user w3-xxlarge"></i>
+      <li id="nav-ratings" class="w3-bar-item w3-button active-page-nav">
+        <i class="fa fa-trophy w3-xxlarge"></i>
         <p>RATINGS</p>
+      </li>
+      <li id="nav-home" class="w3-bar-item w3-button ">
+        <i class="fa fa-user w3-xxlarge"></i>
+        <p>Profiles</p>
       </li>
     </nav>
 
@@ -59,11 +59,10 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         </div>
       </header>
 
-      <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="home">
+      <div class="w3-content w3-justify w3-padding-64" id="home" hidden>
         <nav class="nav-streamer-article container-flex" id="playerProfileNav">
           <div class="active-streamer-article w3-button" id="GrubbyButton">Grubby</div>
           <div class="w3-button" id="Day9Button">Day9</div>
-          <div class="w3-button" id="AtriocButton">Atrioc</div>
           <div class="w3-button" id="DeathnoteButton">Deathnote</div>
           <div class="w3-button" id="GunnarButton">Gunnar</div>
           <div class="w3-button" id="CooperTVButton">CooperTV</div>
@@ -71,14 +70,34 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <div class="w3-button" id="SingSingButton">SingSing</div>
           <div class="w3-button" id="UthermalButton">Uthermal</div>
           <div class="w3-button" id="PiGButton">PiG</div>
+          <div class="w3-button" id="YamatoCannonButton">YamatoCannon</div>
         </nav>
 
         <article id="GrubbyProfile" class="player-profile">
           <h3>Grubby</h3>
+          <div>
+            <ul class="streamer-links-ul">
+              <li>
+                <a href="https://www.youtube.com/FollowGrubby" target="_blank">
+                  <i class="fa-brands fa-youtube"></i> Youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://www.twitch.tv/grubby" target="_blank">
+                  <i class="fa-brands fa-twitch"></i> Twitch
+                </a>
+              </li>
+              <li>
+                <a href="https://www.aoe2insights.com/user/1819870" target="_blank">
+                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                </a>
+              </li>
+            </ul>
+          </div>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
               <span id="grubby-matches" class="w3-xlarge"></span><br>
-              Matches
+              Ranked matches 1v1
             </div>
             <div class="w3-quarter w3-section">
               <span id="grubby-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
@@ -97,10 +116,29 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         
         <article  id="Day9Profile" class="player-profile" hidden>
           <h3>Day9</h3>
+          <div>
+            <ul class="streamer-links-ul">
+              <li>
+                <a href="https://www.youtube.com/day9tv" target="_blank">
+                  <i class="fa-brands fa-youtube"></i> Youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://www.twitch.tv/day9tv" target="_blank">
+                  <i class="fa-brands fa-twitch"></i> Twitch
+                </a>
+              </li>
+              <li>
+                <a href="https://www.aoe2insights.com/user/2065858" target="_blank">
+                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                </a>
+              </li>
+            </ul>
+          </div>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
               <span id="day9-matches" class="w3-xlarge"></span><br>
-              Matches
+              Ranked matches 1v1
             </div>
             <div class="w3-quarter w3-section">
               <span id="day9-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
@@ -117,34 +155,31 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           </div>
         </article>
 
-        <article  id="AtriocProfile" class="player-profile" hidden>
-          <h3>Atrioc</h3>
-          <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
-            <div class="w3-quarter w3-section">
-              <span id="atrioc-matches" class="w3-xlarge"></span><br>
-              Matches
-            </div>
-            <div class="w3-quarter w3-section">
-              <span id="atrioc-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
-              Win percentage
-            </div>
-            <div class="w3-quarter w3-section">
-              <span id="atrioc-rating" class="w3-xlarge"></span><br>
-              Rating
-            </div>
-            <div class="w3-quarter w3-section">
-              <span id="atrioc-streak" class="w3-xlarge"></span><br>
-              Streak
-            </div>
-          </div>
-        </article>
-
         <article  id="DeathnoteProfile" class="player-profile" hidden>
           <h3>Deathnote</h3>
+          <div>
+            <ul class="streamer-links-ul">
+              <li>
+                <a href="https://www.youtube.com/channel/UChGsaIBM_pEKkdXjYcJdpzA" target="_blank">
+                  <i class="fa-brands fa-youtube"></i> Youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://www.twitch.tv/followdeathnote" target="_blank">
+                  <i class="fa-brands fa-twitch"></i> Twitch
+                </a>
+              </li>
+              <li>
+                <a href="https://www.aoe2insights.com/user/6481045" target="_blank">
+                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                </a>
+              </li>
+            </ul>
+          </div>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
               <span id="deathnote-matches" class="w3-xlarge"></span><br>
-              Matches
+              Ranked matches 1v1
             </div>
             <div class="w3-quarter w3-section">
               <span id="deathnote-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
@@ -163,10 +198,29 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
         <article  id="GunnarProfile" class="player-profile" hidden>
           <h3>Gunnar</h3>
+          <div>
+            <ul class="streamer-links-ul">
+              <li>
+                <a href="https://www.youtube.com/GunnarDota" target="_blank">
+                  <i class="fa-brands fa-youtube"></i> Youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://www.twitch.tv/gunnar" target="_blank">
+                  <i class="fa-brands fa-twitch"></i> Twitch
+                </a>
+              </li>
+              <li>
+                <a href="https://www.aoe2insights.com/user/7304675" target="_blank">
+                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                </a>
+              </li>
+            </ul>
+          </div>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
               <span id="gunnar-matches" class="w3-xlarge"></span><br>
-              Matches
+              Ranked matches 1v1
             </div>
             <div class="w3-quarter w3-section">
               <span id="gunnar-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
@@ -184,11 +238,30 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         </article>
 
         <article  id="CooperTVProfile" class="player-profile" hidden>
-          <h3>Cooper</h3>
+          <h3>CooperTV</h3>
+          <div>
+            <ul class="streamer-links-ul">
+              <li>
+                <a href="https://www.youtube.com/channel/UC1tTkPsQy_eSv4_9-ka-3GQ" target="_blank">
+                  <i class="fa-brands fa-youtube"></i> Youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://www.twitch.tv/coopertv" target="_blank">
+                  <i class="fa-brands fa-twitch"></i> Twitch
+                </a>
+              </li>
+              <li>
+                <a href="https://www.aoe2insights.com/user/705858" target="_blank">
+                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                </a>
+              </li>
+            </ul>
+          </div>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
               <span id="coopertv-matches" class="w3-xlarge"></span><br>
-              Matches
+              Ranked matches 1v1
             </div>
             <div class="w3-quarter w3-section">
               <span id="coopertv-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
@@ -207,10 +280,29 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
         <article  id="KnoffProfile" class="player-profile" hidden>
           <h3>Knoff</h3>
+          <div>
+            <ul class="streamer-links-ul">
+              <li>
+                <a href="https://www.youtube.com/@campknoff" target="_blank">
+                  <i class="fa-brands fa-youtube"></i> Youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://www.twitch.tv/knoff" target="_blank">
+                  <i class="fa-brands fa-twitch"></i> Twitch
+                </a>
+              </li>
+              <li>
+                <a href="https://www.aoe2insights.com/user/228122" target="_blank">
+                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                </a>
+              </li>
+            </ul>
+          </div>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
               <span id="knoff-matches" class="w3-xlarge"></span><br>
-              Matches
+              Ranked matches 1v1
             </div>
             <div class="w3-quarter w3-section">
               <span id="knoff-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
@@ -229,10 +321,29 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
         <article  id="SingSingProfile" class="player-profile" hidden>
           <h3>SingSing</h3>
+          <div>
+            <ul class="streamer-links-ul">
+              <li>
+                <a href="https://www.youtube.com/channel/UC6c3OP2fWzaH5Nq5kh4m_SA" target="_blank">
+                  <i class="fa-brands fa-youtube"></i> Youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://www.twitch.tv/singsing" target="_blank">
+                  <i class="fa-brands fa-twitch"></i> Twitch
+                </a>
+              </li>
+              <li>
+                <a href="https://www.aoe2insights.com/user/255573" target="_blank">
+                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                </a>
+              </li>
+            </ul>
+          </div>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
               <span id="singsing-matches" class="w3-xlarge"></span><br>
-              Matches
+              Ranked matches 1v1
             </div>
             <div class="w3-quarter w3-section">
               <span id="singsing-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
@@ -251,10 +362,29 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
         <article  id="UthermalProfile" class="player-profile" hidden>
           <h3>Uthermal</h3>
+          <div>
+            <ul class="streamer-links-ul">
+              <li>
+                <a href="https://www.youtube.com/uthermal" target="_blank">
+                  <i class="fa-brands fa-youtube"></i> Youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://www.twitch.tv/uthermalsc2" target="_blank">
+                  <i class="fa-brands fa-twitch"></i> Twitch
+                </a>
+              </li>
+              <li>
+                <a href="https://www.aoe2insights.com/user/4473383" target="_blank">
+                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                </a>
+              </li>
+            </ul>
+          </div>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
               <span id="uthermal-matches" class="w3-xlarge"></span><br>
-              Matches
+              Ranked matches 1v1
             </div>
             <div class="w3-quarter w3-section">
               <span id="uthermal-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
@@ -271,12 +401,31 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           </div>
         </article>
 
-        <article  id="PiGProfile" class="player-profile" hidden>
+         <article  id="PiGProfile" class="player-profile" hidden>
           <h3>PiG</h3>
+          <div>
+            <ul class="streamer-links-ul">
+              <li>
+                <a href="https://www.youtube.com/PiGstarcraft" target="_blank">
+                  <i class="fa-brands fa-youtube"></i> Youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://www.twitch.tv/x5_pig" target="_blank">
+                  <i class="fa-brands fa-twitch"></i> Twitch
+                </a>
+              </li>
+              <li>
+                <a href="https://www.aoe2insights.com/user/5735770" target="_blank">
+                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                </a>
+              </li>
+            </ul>
+          </div>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
               <span id="pig-matches" class="w3-xlarge"></span><br>
-              Matches
+              Ranked matches 1v1
             </div>
             <div class="w3-quarter w3-section">
               <span id="pig-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
@@ -292,15 +441,98 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             </div>
           </div>
         </article>
-      </div>
 
-      <div class="table-container" id="ratings" hidden >
+          <article  id="AhmpyProfile" class="player-profile" hidden>
+          <h3>Ahmpy</h3>
+          <div>
+            <ul class="streamer-links-ul">
+              <li>
+                <a href="https://www.youtube.com/@Ahmpy" target="_blank">
+                  <i class="fa-brands fa-youtube"></i> Youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://www.twitch.tv/ahmpy" target="_blank">
+                  <i class="fa-brands fa-twitch"></i> Twitch
+                </a>
+              </li>
+              <li>
+                <a href="https://www.aoe2insights.com/user/25478303" target="_blank">
+                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
+            <div class="w3-quarter w3-section">
+              <span id="ahmpy-matches" class="w3-xlarge"></span><br>
+              Ranked matches 1v1
+            </div>
+            <div class="w3-quarter w3-section">
+              <span id="ahmpy-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
+              Win percentage
+            </div>
+            <div class="w3-quarter w3-section">
+              <span id="ahmpy-rating" class="w3-xlarge"></span><br>
+              Rating
+            </div>
+            <div class="w3-quarter w3-section">
+              <span id="ahmpy-streak" class="w3-xlarge"></span><br>
+              Streak
+            </div>
+          </div>
+        </article>
+
+        <article  id="YamatoCannonProfile" class="player-profile" hidden>
+          <h3>YamatoCannon</h3>
+          <div>
+            <ul class="streamer-links-ul">
+              <li>
+                <a href="https://www.youtube.com/channel/UCRRfSRlDq2ma7xp_8HYvYeA" target="_blank">
+                  <i class="fa-brands fa-youtube"></i> Youtube
+                </a>
+              </li>
+              <li>
+                <a href="https://www.twitch.tv/yamatocannon" target="_blank">
+                  <i class="fa-brands fa-twitch"></i> Twitch
+                </a>
+              </li>
+              <li>
+                <a href="https://www.aoe2insights.com/user/25503675" target="_blank">
+                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
+            <div class="w3-quarter w3-section">
+              <span id="yamatocannon-matches" class="w3-xlarge"></span><br>
+              Ranked matches 1v1
+            </div>
+            <div class="w3-quarter w3-section">
+              <span id="yamatocannon-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
+              Win percentage
+            </div>
+            <div class="w3-quarter w3-section">
+              <span id="yamatocannon-rating" class="w3-xlarge"></span><br>
+              Rating
+            </div>
+            <div class="w3-quarter w3-section">
+              <span id="yamatocannon-streak" class="w3-xlarge"></span><br>
+              Streak
+            </div>
+          </div>
+        </article>
+     </div>
+
+      <div class="table-container" id="ratings" >
         <table>
           <thead>
             <tr>
               <th>Name</th>
               <th>Rating</th>
               <th>Win %</th>
+              <th>Ranked matches 1v1</th>
             </tr>
           </thead>
           <tbody id="ratings-table">
