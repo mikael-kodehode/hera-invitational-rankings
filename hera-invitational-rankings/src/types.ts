@@ -40,5 +40,11 @@ export const StreamerNameFromProfileID: Record<number, string> = {
   5735770: "PiG"
 }
 
+export const Links = {
+  aoe2insights: "https://www.aoe2insights.com/user/",
+  twitch: "https://www.twitch.tv/",
+  youtube: "https://www.youtube.com/@"
+}
+
 export type StreamerNameFromProfileID = typeof StreamerNameFromProfileID[keyof typeof StreamerNameFromProfileID]
 export type PlayerIDFromName = typeof PlayerIDFromName[keyof typeof PlayerIDFromName]

@@ -45,11 +45,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <i class="fa-brands fa-youtube"></i> Youtube
           </a>
 
-          <a href="https://twitch.tv/yourchannel" target="_blank">
+          <a href="https://twitch.tv/hera" target="_blank">
             <i class="fa-brands fa-twitch"></i> Twitch
           </a>
 
-          <a href="https://discord.gg/yourinvite" target="_blank">
+          <a href="https://discord.gg/invite/fpheyyUCg9" target="_blank">
             <i class="fa-brands fa-discord"></i> Discord
           </a>
 
