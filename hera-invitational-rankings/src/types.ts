@@ -25,4 +25,17 @@ export const PlayerID = {
   Deathnote : 6481045
 } as const
 
+export const PlayerNationality = {
+  Atrioc: "usa",
+  Day9: "usa",
+  Grubby: "netherlands",
+  Gunnar : "us",
+  Cooper : "austria",
+  Knoff : "sweden",
+  SingSing : "netherlands",
+  Deathnote : "russia"
+} as const
+
+
 export type PlayersID = typeof PlayerID[keyof typeof PlayerID]
+export type PlayerNationality = typeof PlayerNationality[keyof typeof PlayerNationality]

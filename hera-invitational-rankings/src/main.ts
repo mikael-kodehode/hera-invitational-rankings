@@ -1,6 +1,7 @@
 import './style.css'
 
 import { initiateListeners, insertPlayerData } from './services/functions'
+import 'flag-icons/css/flag-icons.min.css';
 
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
@@ -10,7 +11,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   </head>
-  <body class="w3-black">
+  <body class="">
 
     <!-- Icon Bar (Sidebar - hidden on small screens) -->
     <nav class="page-nav w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
@@ -37,7 +38,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <!-- Page Content -->
     <div class="" id="main">
       <!-- Header/Home -->
-      <header class="w3-container w3-padding-32 w3-center w3-black" id="header">
+      <header class="w3-container w3-padding-32 w3-center" id="header">
         <h1 class="w3-jumbo">Hera's Invitational Rankings</h1>
         <p>Hera's links:</p>
 
@@ -61,24 +62,19 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       </header>
 
       <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="home">
-        <h2>Invited players</h2
-        <div class="hidden main-content" id="om-content">
-        <nav class="" id="playerProfileNav">
-          <li class="" id="GrubbyButton">Grubby</li>
-          <li class="" id="Day9Button">Day9</li>
-          <li class="" id="AtriocButton">Atrioc</li>
-          <li class="" id="DeathnoteButton">Deathnote</li>
-          <li class="" id="GunnarButton">Gunnar</li>
-          <li class="" id="CooperButton">Cooper</li>
-          <li class="" id="KnoffButton">Knoff</li>
-          <li class="" id="SingSingButton">SingSing</li>
+        <nav class="nav-streamer-article container-flex" id="playerProfileNav">
+          <div class="active-streamer-article w3-button" id="GrubbyButton">Grubby</div>
+          <div class="w3-button" id="Day9Button">Day9</div>
+          <div class="w3-button" id="AtriocButton">Atrioc</div>
+          <div class="w3-button" id="DeathnoteButton">Deathnote</div>
+          <div class="w3-button" id="GunnarButton">Gunnar</div>
+          <div class="w3-button" id="CooperButton">Cooper</div>
+          <div class="w3-button" id="KnoffButton">Knoff</div>
+          <div class="w3-button" id="SingSingButton">SingSing</div>
         </nav>
 
         <article id="GrubbyProfile" class="player-profile">
           <h3>Grubby</h3>
-          <p class="">
-            Jeg heter Mikael Ødegaard. Etter mer enn 2500 arbeidstimer med service og kundekontakt har jeg blitt erfaren i profesjonell kommunikasjon og blitt opptatt av å tilfredsstille folks behov. <br> <br>På grunn av min generasjon har jeg hatt en kjærlighet for data siden jeg var 5 år gammel. Spillene var simplere, men mer imponerende. <br><br>Gjennom hele barndommen hjalp min far meg med å lage ting i Excel. Tabeller og planer etc. Så da jeg fikk min første laptop som 13 år begynte jeg selv med å lage modeller og tabeller i Excel.
-          </p>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
               <span id="grubby-matches" class="w3-xlarge"></span><br>
@@ -101,9 +97,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         
         <article  id="Day9Profile" class="player-profile" hidden>
           <h3>Day9</h3>
-          <p class="">
-            Jeg heter Mikael Ødegaard. Etter mer enn 2500 arbeidstimer med service og kundekontakt har jeg blitt erfaren i profesjonell kommunikasjon og blitt opptatt av å tilfredsstille folks behov. <br> <br>På grunn av min generasjon har jeg hatt en kjærlighet for data siden jeg var 5 år gammel. Spillene var simplere, men mer imponerende. <br><br>Gjennom hele barndommen hjalp min far meg med å lage ting i Excel. Tabeller og planer etc. Så da jeg fikk min første laptop som 13 år begynte jeg selv med å lage modeller og tabeller i Excel.
-          </p>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
               <span id="day9-matches" class="w3-xlarge"></span><br>
@@ -126,9 +119,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
         <article  id="AtriocProfile" class="player-profile" hidden>
           <h3>Atrioc</h3>
-          <p class="">
-            Jeg heter Mikael Ødegaard. Etter mer enn 2500 arbeidstimer med service og kundekontakt har jeg blitt erfaren i profesjonell kommunikasjon og blitt opptatt av å tilfredsstille folks behov. <br> <br>På grunn av min generasjon har jeg hatt en kjærlighet for data siden jeg var 5 år gammel. Spillene var simplere, men mer imponerende. <br><br>Gjennom hele barndommen hjalp min far meg med å lage ting i Excel. Tabeller og planer etc. Så da jeg fikk min første laptop som 13 år begynte jeg selv med å lage modeller og tabeller i Excel.
-          </p>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
               <span id="atrioc-matches" class="w3-xlarge"></span><br>
@@ -151,9 +141,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
         <article  id="DeathnoteProfile" class="player-profile" hidden>
           <h3>Deathnote</h3>
-          <p class="">
-            Jeg heter Mikael Ødegaard. Etter mer enn 2500 arbeidstimer med service og kundekontakt har jeg blitt erfaren i profesjonell kommunikasjon og blitt opptatt av å tilfredsstille folks behov. <br> <br>På grunn av min generasjon har jeg hatt en kjærlighet for data siden jeg var 5 år gammel. Spillene var simplere, men mer imponerende. <br><br>Gjennom hele barndommen hjalp min far meg med å lage ting i Excel. Tabeller og planer etc. Så da jeg fikk min første laptop som 13 år begynte jeg selv med å lage modeller og tabeller i Excel.
-          </p>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
               <span id="deathnote-matches" class="w3-xlarge"></span><br>
@@ -176,9 +163,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
         <article  id="GunnarProfile" class="player-profile" hidden>
           <h3>Gunnar</h3>
-          <p class="">
-            Jeg heter Mikael Ødegaard. Etter mer enn 2500 arbeidstimer med service og kundekontakt har jeg blitt erfaren i profesjonell kommunikasjon og blitt opptatt av å tilfredsstille folks behov. <br> <br>På grunn av min generasjon har jeg hatt en kjærlighet for data siden jeg var 5 år gammel. Spillene var simplere, men mer imponerende. <br><br>Gjennom hele barndommen hjalp min far meg med å lage ting i Excel. Tabeller og planer etc. Så da jeg fikk min første laptop som 13 år begynte jeg selv med å lage modeller og tabeller i Excel.
-          </p>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
               <span id="gunnar-matches" class="w3-xlarge"></span><br>
@@ -201,9 +185,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
         <article  id="CooperProfile" class="player-profile" hidden>
           <h3>Cooper</h3>
-          <p class="">
-            Jeg heter Mikael Ødegaard. Etter mer enn 2500 arbeidstimer med service og kundekontakt har jeg blitt erfaren i profesjonell kommunikasjon og blitt opptatt av å tilfredsstille folks behov. <br> <br>På grunn av min generasjon har jeg hatt en kjærlighet for data siden jeg var 5 år gammel. Spillene var simplere, men mer imponerende. <br><br>Gjennom hele barndommen hjalp min far meg med å lage ting i Excel. Tabeller og planer etc. Så da jeg fikk min første laptop som 13 år begynte jeg selv med å lage modeller og tabeller i Excel.
-          </p>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
               <span id="cooper-matches" class="w3-xlarge"></span><br>
@@ -226,9 +207,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
         <article  id="KnoffProfile" class="player-profile" hidden>
           <h3>Knoff</h3>
-          <p class="">
-            Jeg heter Mikael Ødegaard. Etter mer enn 2500 arbeidstimer med service og kundekontakt har jeg blitt erfaren i profesjonell kommunikasjon og blitt opptatt av å tilfredsstille folks behov. <br> <br>På grunn av min generasjon har jeg hatt en kjærlighet for data siden jeg var 5 år gammel. Spillene var simplere, men mer imponerende. <br><br>Gjennom hele barndommen hjalp min far meg med å lage ting i Excel. Tabeller og planer etc. Så da jeg fikk min første laptop som 13 år begynte jeg selv med å lage modeller og tabeller i Excel.
-          </p>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
               <span id="knoff-matches" class="w3-xlarge"></span><br>
@@ -251,9 +229,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
         <article  id="SingSingProfile" class="player-profile" hidden>
           <h3>SingSing</h3>
-          <p class="">
-            Jeg heter Mikael Ødegaard. Etter mer enn 2500 arbeidstimer med service og kundekontakt har jeg blitt erfaren i profesjonell kommunikasjon og blitt opptatt av å tilfredsstille folks behov. <br> <br>På grunn av min generasjon har jeg hatt en kjærlighet for data siden jeg var 5 år gammel. Spillene var simplere, men mer imponerende. <br><br>Gjennom hele barndommen hjalp min far meg med å lage ting i Excel. Tabeller og planer etc. Så da jeg fikk min første laptop som 13 år begynte jeg selv med å lage modeller og tabeller i Excel.
-          </p>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
               <span id="singsing-matches" class="w3-xlarge"></span><br>
@@ -275,11 +250,10 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         </article>
       </div>
 
-      <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="ratings" hidden >
+      <div class="table-container" id="ratings" hidden >
         <table>
           <thead>
             <tr>
-              <th></th>
               <th>Name</th>
               <th>Rating</th>
               <th>Win %</th>
