@@ -22,7 +22,9 @@ export const PlayerIDFromName = {
   CooperTV : 10453910,
   Knoff : 228122,
   SingSing : 255573,
-  Deathnote : 6481045
+  Deathnote : 6481045,
+  Uthermal: 4473383,
+  PiG: 5735770
 } as const
 
 export const StreamerNameFromProfileID: Record<number, string> = {
@@ -33,7 +35,9 @@ export const StreamerNameFromProfileID: Record<number, string> = {
   10453910: "CooperTV",
   228122: "Knoff",
   255573: "SingSing",
-  6481045: "Deathnote"
+  6481045: "Deathnote",
+  4473383: "Uthermal",
+  5735770: "PiG"
 }
 
 export type StreamerNameFromProfileID = typeof StreamerNameFromProfileID[keyof typeof StreamerNameFromProfileID]

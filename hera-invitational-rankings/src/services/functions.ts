@@ -25,6 +25,8 @@ export const initiateListeners = () => {
   const ratingsContainer = document.querySelector("#ratings")
   const navHomeButton = document.querySelector("#nav-home")
   const navRatingsButton = document.querySelector("#nav-ratings")
+  const smallScreenNavHomeButton = document.querySelector("#small-screen-nav-home")
+  const smallScreenNavRatingsButton = document.querySelector("#small-screen-nav-ratings")
 
   const activateProfile = (profile: Element, profileButton: Element) => {
     GrubbyProfile?.setAttribute("hidden", "true")
@@ -62,7 +64,6 @@ export const initiateListeners = () => {
     
     if(homeContainer?.classList.contains("active-page")) navHomeButton?.classList.add("active-page-nav")
     else navRatingsButton?.classList.add("active-page-nav")
-    console.log(page)
   }
 
   try {
@@ -97,6 +98,13 @@ export const initiateListeners = () => {
     navHomeButton?.addEventListener('click', () => {
       if(homeContainer) activatePage(homeContainer)
     })
+    smallScreenNavRatingsButton?.addEventListener('click', () => {
+      if(ratingsContainer) activatePage(ratingsContainer)
+    })
+    smallScreenNavHomeButton?.addEventListener('click', () => {
+      if(homeContainer) activatePage(homeContainer)
+    })
+
   } catch {
     throw new Error("Adding listeners failed"); 
   }
@@ -145,7 +153,6 @@ export const insertPlayerData = async () => {
 
   try {
     const data = await initiatePlayerData()
-    console.log(data)
   
     if(grubbyMatches) grubbyMatches.innerHTML = data[PlayerIDFromName.Grubby].matches_played.toString()
     if(grubbyStreak) grubbyStreak.innerHTML = data[PlayerIDFromName.Grubby].streak.toString()
@@ -222,7 +229,6 @@ export const initiatePlayerData = async () => {
 }
 
 export const getStreamerName = (profile: DatabaseItem, defaultName: string = "Unknown"): string => {
-  console.log(profile)
   const idAsNumber = Number(profile.profile_id);
   if(!StreamerNameFromProfileID[idAsNumber]) return defaultName 
   if(StreamerNameFromProfileID[idAsNumber] === profile.username) return profile.username
