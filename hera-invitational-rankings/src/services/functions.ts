@@ -25,7 +25,7 @@ export const initiateListeners = () => {
   const UthermalProfile = document.querySelector("#UthermalProfile")
   const PiGProfile = document.querySelector("#PiGProfile")
 
-  const GrubbyProfileInfo = document.querySelector("#grubby-profile-info")
+  //const GrubbyProfileInfo = document.querySelector("#grubby-profile-info")
 
   const homeContainer = document.querySelector("#home")
   const ratingsContainer = document.querySelector("#ratings")
