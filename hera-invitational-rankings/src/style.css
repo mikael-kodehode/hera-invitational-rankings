@@ -45,8 +45,6 @@ nav {
 .some-links-container a i {
   font-size: 1.5rem;
 }
-#playerProfileNav {
-}
 #playerProfileNav li {
   display: inline-block;
   padding: 0.5em;
@@ -103,9 +101,6 @@ thead tr {
   background-color: #1e293b; /* Dark modern slate */
   color: #ffffff;
   font-weight: bold;
-}
-
-tbody tr {
 }
 
 /* Zebra striping for better readability */
