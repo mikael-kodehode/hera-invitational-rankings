@@ -62,17 +62,15 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       </header>
 
       <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="home">
-        <h2>Invited players</h2
-        <div class="hidden main-content" id="om-content">
-        <nav class="" id="playerProfileNav">
-          <li class="" id="GrubbyButton">Grubby</li>
-          <li class="" id="Day9Button">Day9</li>
-          <li class="" id="AtriocButton">Atrioc</li>
-          <li class="" id="DeathnoteButton">Deathnote</li>
-          <li class="" id="GunnarButton">Gunnar</li>
-          <li class="" id="CooperButton">Cooper</li>
-          <li class="" id="KnoffButton">Knoff</li>
-          <li class="" id="SingSingButton">SingSing</li>
+        <nav class="nav-streamer-article container-flex" id="playerProfileNav">
+          <div class="active-streamer-article w3-button" id="GrubbyButton">Grubby</div>
+          <div class="w3-button" id="Day9Button">Day9</div>
+          <div class="w3-button" id="AtriocButton">Atrioc</div>
+          <div class="w3-button" id="DeathnoteButton">Deathnote</div>
+          <div class="w3-button" id="GunnarButton">Gunnar</div>
+          <div class="w3-button" id="CooperButton">Cooper</div>
+          <div class="w3-button" id="KnoffButton">Knoff</div>
+          <div class="w3-button" id="SingSingButton">SingSing</div>
         </nav>
 
         <article id="GrubbyProfile" class="player-profile">

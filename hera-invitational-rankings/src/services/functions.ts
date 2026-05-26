@@ -26,7 +26,7 @@ export const initiateListeners = () => {
   const navHomeButton = document.querySelector("#nav-home")
   const navRatingsButton = document.querySelector("#nav-ratings")
 
-  const activateProfile = (profile: Element) => {
+  const activateProfile = (profile: Element, profileButton: Element) => {
     GrubbyProfile?.setAttribute("hidden", "true")
     Day9Profile?.setAttribute("hidden", "true")
     AtriocProfile?.setAttribute("hidden","true")
@@ -36,6 +36,16 @@ export const initiateListeners = () => {
     KnoffProfile?.setAttribute("hidden", "true")
     SingSingProfile?.setAttribute("hidden","true")
 
+    GrubbyButton?.classList.remove("active-streamer-article")
+    Day9Button?.classList.remove("active-streamer-article")
+    AtriocButton?.classList.remove("active-streamer-article")
+    DeathnoteButton?.classList.remove("active-streamer-article")
+    GunnarButton?.classList.remove("active-streamer-article")
+    CooperButton?.classList.remove("active-streamer-article")
+    KnoffButton?.classList.remove("active-streamer-article")
+    SingSingButton?.classList.remove("active-streamer-article")
+
+    profileButton.classList.add("active-streamer-article")
     profile.removeAttribute("hidden")
   };
 
@@ -57,28 +67,28 @@ export const initiateListeners = () => {
 
   try {
     GrubbyButton?.addEventListener('click', () => {
-      if(GrubbyProfile) activateProfile(GrubbyProfile)
+      if(GrubbyProfile) activateProfile(GrubbyProfile, GrubbyButton)
     });
     Day9Button?.addEventListener('click', () => {
-      if(Day9Profile) activateProfile(Day9Profile)
+      if(Day9Profile) activateProfile(Day9Profile, Day9Button)
     });
     AtriocButton?.addEventListener('click', () => {
-      if(AtriocProfile) activateProfile(AtriocProfile)
+      if(AtriocProfile) activateProfile(AtriocProfile, AtriocButton)
     });
     DeathnoteButton?.addEventListener('click', () => {
-      if(DeathnoteProfile) activateProfile(DeathnoteProfile)
+      if(DeathnoteProfile) activateProfile(DeathnoteProfile, DeathnoteButton)
     });
     GunnarButton?.addEventListener('click', () => {
-      if(GunnarProfile) activateProfile(GunnarProfile)
+      if(GunnarProfile) activateProfile(GunnarProfile, GunnarButton)
     });
     CooperButton?.addEventListener('click', () => {
-      if(CooperProfile) activateProfile(CooperProfile)
+      if(CooperProfile) activateProfile(CooperProfile, CooperButton)
     });
     KnoffButton?.addEventListener('click', () => {
-      if(KnoffProfile) activateProfile(KnoffProfile)
+      if(KnoffProfile) activateProfile(KnoffProfile, KnoffButton)
     });
     SingSingButton?.addEventListener('click', () => {
-      if(SingSingProfile) activateProfile(SingSingProfile)
+      if(SingSingProfile) activateProfile(SingSingProfile, SingSingButton)
     });
 
     navRatingsButton?.addEventListener('click', () => {
