@@ -1,5 +1,5 @@
 import { fetchPlayerData } from "./api";
-import { PlayerID } from "../types";
+import { PlayerIDFromName, StreamerNameFromProfileID } from "../types";
 import type { DatabaseItem } from "../types";
   
 export const initiateListeners = () => {
@@ -147,45 +147,45 @@ export const insertPlayerData = async () => {
     const data = await initiatePlayerData()
     console.log(data)
   
-    if(grubbyMatches) grubbyMatches.innerHTML = data[PlayerID.Grubby].matches_played.toString()
-    if(grubbyStreak) grubbyStreak.innerHTML = data[PlayerID.Grubby].streak.toString()
-    if(grubbyRating) grubbyRating.innerHTML = data[PlayerID.Grubby].rating.toString()
-    if(grubbyWinPercentage) grubbyWinPercentage.innerHTML = data[PlayerID.Grubby].win_percentage.toString()
+    if(grubbyMatches) grubbyMatches.innerHTML = data[PlayerIDFromName.Grubby].matches_played.toString()
+    if(grubbyStreak) grubbyStreak.innerHTML = data[PlayerIDFromName.Grubby].streak.toString()
+    if(grubbyRating) grubbyRating.innerHTML = data[PlayerIDFromName.Grubby].rating.toString()
+    if(grubbyWinPercentage) grubbyWinPercentage.innerHTML = data[PlayerIDFromName.Grubby].win_percentage.toString()
   
-    if(day9Matches) day9Matches.innerHTML = data[PlayerID.Day9].matches_played.toString()
-    if(day9Streak) day9Streak.innerHTML = data[PlayerID.Day9].streak.toString()
-    if(day9Rating) day9Rating.innerHTML = data[PlayerID.Day9].rating.toString()
-    if(day9WinPercentage) day9WinPercentage.innerHTML = data[PlayerID.Day9].win_percentage.toString()
+    if(day9Matches) day9Matches.innerHTML = data[PlayerIDFromName.Day9].matches_played.toString()
+    if(day9Streak) day9Streak.innerHTML = data[PlayerIDFromName.Day9].streak.toString()
+    if(day9Rating) day9Rating.innerHTML = data[PlayerIDFromName.Day9].rating.toString()
+    if(day9WinPercentage) day9WinPercentage.innerHTML = data[PlayerIDFromName.Day9].win_percentage.toString()
   
-    if(atriocMatches) atriocMatches.innerHTML = data[PlayerID.Atrioc].matches_played.toString()
-    if(atriocStreak) atriocStreak.innerHTML = data[PlayerID.Atrioc].streak.toString()
-    if(atriocRating) atriocRating.innerHTML = data[PlayerID.Atrioc].rating.toString()
-    if(atriocWinPercentage) atriocWinPercentage.innerHTML = data[PlayerID.Atrioc].win_percentage.toString()
+    if(atriocMatches) atriocMatches.innerHTML = data[PlayerIDFromName.Atrioc].matches_played.toString()
+    if(atriocStreak) atriocStreak.innerHTML = data[PlayerIDFromName.Atrioc].streak.toString()
+    if(atriocRating) atriocRating.innerHTML = data[PlayerIDFromName.Atrioc].rating.toString()
+    if(atriocWinPercentage) atriocWinPercentage.innerHTML = data[PlayerIDFromName.Atrioc].win_percentage.toString()
     
-    if(deathnoteMatches) deathnoteMatches.innerHTML = data[PlayerID.Deathnote].matches_played.toString()
-    if(deathnoteStreak) deathnoteStreak.innerHTML = data[PlayerID.Deathnote].streak.toString()
-    if(deathnoteRating) deathnoteRating.innerHTML = data[PlayerID.Deathnote].rating.toString()
-    if(deathnoteWinPercentage) deathnoteWinPercentage.innerHTML = data[PlayerID.Deathnote].win_percentage.toString()
+    if(deathnoteMatches) deathnoteMatches.innerHTML = data[PlayerIDFromName.Deathnote].matches_played.toString()
+    if(deathnoteStreak) deathnoteStreak.innerHTML = data[PlayerIDFromName.Deathnote].streak.toString()
+    if(deathnoteRating) deathnoteRating.innerHTML = data[PlayerIDFromName.Deathnote].rating.toString()
+    if(deathnoteWinPercentage) deathnoteWinPercentage.innerHTML = data[PlayerIDFromName.Deathnote].win_percentage.toString()
     
-    if(gunnarMatches) gunnarMatches.innerHTML = data[PlayerID.Gunnar].matches_played.toString()
-    if(gunnarStreak) gunnarStreak.innerHTML = data[PlayerID.Gunnar].streak.toString()
-    if(gunnarRating) gunnarRating.innerHTML = data[PlayerID.Gunnar].rating.toString()
-    if(gunnarWinPercentage) gunnarWinPercentage.innerHTML = data[PlayerID.Gunnar].win_percentage.toString()
+    if(gunnarMatches) gunnarMatches.innerHTML = data[PlayerIDFromName.Gunnar].matches_played.toString()
+    if(gunnarStreak) gunnarStreak.innerHTML = data[PlayerIDFromName.Gunnar].streak.toString()
+    if(gunnarRating) gunnarRating.innerHTML = data[PlayerIDFromName.Gunnar].rating.toString()
+    if(gunnarWinPercentage) gunnarWinPercentage.innerHTML = data[PlayerIDFromName.Gunnar].win_percentage.toString()
   
-    if(cooperMatches) cooperMatches.innerHTML = data[PlayerID.Cooper].matches_played.toString()
-    if(cooperStreak) cooperStreak.innerHTML = data[PlayerID.Cooper].streak.toString()
-    if(cooperRating) cooperRating.innerHTML = data[PlayerID.Cooper].rating.toString()
-    if(cooperWinPercentage) cooperWinPercentage.innerHTML = data[PlayerID.Cooper].win_percentage.toString()
+    if(cooperMatches) cooperMatches.innerHTML = data[PlayerIDFromName.CooperTV].matches_played.toString()
+    if(cooperStreak) cooperStreak.innerHTML = data[PlayerIDFromName.CooperTV].streak.toString()
+    if(cooperRating) cooperRating.innerHTML = data[PlayerIDFromName.CooperTV].rating.toString()
+    if(cooperWinPercentage) cooperWinPercentage.innerHTML = data[PlayerIDFromName.CooperTV].win_percentage.toString()
   
-    if(knoffMatches) knoffMatches.innerHTML = data[PlayerID.Knoff].matches_played.toString()
-    if(knoffStreak) knoffStreak.innerHTML = data[PlayerID.Knoff].streak.toString()
-    if(knoffRating) knoffRating.innerHTML = data[PlayerID.Knoff].rating.toString()
-    if(knoffWinPercentage) knoffWinPercentage.innerHTML = data[PlayerID.Knoff].win_percentage.toString()
+    if(knoffMatches) knoffMatches.innerHTML = data[PlayerIDFromName.Knoff].matches_played.toString()
+    if(knoffStreak) knoffStreak.innerHTML = data[PlayerIDFromName.Knoff].streak.toString()
+    if(knoffRating) knoffRating.innerHTML = data[PlayerIDFromName.Knoff].rating.toString()
+    if(knoffWinPercentage) knoffWinPercentage.innerHTML = data[PlayerIDFromName.Knoff].win_percentage.toString()
     
-    if(singsingMatches) singsingMatches.innerHTML = data[PlayerID.SingSing].matches_played.toString()
-    if(singsingStreak) singsingStreak.innerHTML = data[PlayerID.SingSing].streak.toString()
-    if(singsingRating) singsingRating.innerHTML = data[PlayerID.SingSing].rating.toString()
-    if(singsingWinPercentage) singsingWinPercentage.innerHTML = data[PlayerID.SingSing].win_percentage.toString()
+    if(singsingMatches) singsingMatches.innerHTML = data[PlayerIDFromName.SingSing].matches_played.toString()
+    if(singsingStreak) singsingStreak.innerHTML = data[PlayerIDFromName.SingSing].streak.toString()
+    if(singsingRating) singsingRating.innerHTML = data[PlayerIDFromName.SingSing].rating.toString()
+    if(singsingWinPercentage) singsingWinPercentage.innerHTML = data[PlayerIDFromName.SingSing].win_percentage.toString()
     
 
       fillRatingTable(data)
@@ -203,7 +203,7 @@ export const fillRatingTable = (playerData: Record<string, DatabaseItem>) => {
     
     const trElement = document.createElement("tr")
     trElement.innerHTML = `
-      <td><span class="fi fi-${player.nationality}"></span>  ${player.username}</td>
+      <td><span class="fi fi-${player.nationality}"></span>  ${getStreamerName(player.profile_id)}</td>
       <td>${player.rating}</td>
       <td>${player.win_percentage} %</td>
     `
@@ -220,3 +220,11 @@ export const initiatePlayerData = async () => {
   }, {} as Record<string, typeof playerData[number]>);
   return players
 }
+
+export const getStreamerName = (profileId: string | number, defaultName: string = "Unknown"): string => {
+  console.log(profileId)
+  const idAsNumber = Number(profileId);
+  
+  // Look up the name. If it doesn't exist, fall back to the default database name
+  return StreamerNameFromProfileID[idAsNumber] ?? defaultName;
+};
