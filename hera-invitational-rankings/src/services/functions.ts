@@ -203,7 +203,7 @@ export const fillRatingTable = (playerData: Record<string, DatabaseItem>) => {
     
     const trElement = document.createElement("tr")
     trElement.innerHTML = `
-      <td><span class="fi fi-${player.nationality}"></span>  ${getStreamerName(player.profile_id)}</td>
+      <td><span class="fi fi-${player.nationality}"></span>  ${getStreamerName(player)}</td>
       <td>${player.rating}</td>
       <td>${player.win_percentage} %</td>
     `
@@ -221,10 +221,10 @@ export const initiatePlayerData = async () => {
   return players
 }
 
-export const getStreamerName = (profileId: string | number, defaultName: string = "Unknown"): string => {
-  console.log(profileId)
-  const idAsNumber = Number(profileId);
-  
-  // Look up the name. If it doesn't exist, fall back to the default database name
-  return StreamerNameFromProfileID[idAsNumber] ?? defaultName;
+export const getStreamerName = (profile: DatabaseItem, defaultName: string = "Unknown"): string => {
+  console.log(profile)
+  const idAsNumber = Number(profile.profile_id);
+  if(!StreamerNameFromProfileID[idAsNumber]) return defaultName 
+  if(StreamerNameFromProfileID[idAsNumber] === profile.username) return profile.username
+  else return StreamerNameFromProfileID[idAsNumber] + ` (${profile.username})`
 };
