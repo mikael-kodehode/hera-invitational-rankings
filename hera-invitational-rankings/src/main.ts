@@ -81,7 +81,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               Matches
             </div>
             <div class="w3-quarter w3-section">
-              <span id="grubby-win-percentage" class="w3-xlarge"></span><br>
+              <span id="grubby-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
               Win percentage
             </div>
             <div class="w3-quarter w3-section">
@@ -103,7 +103,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               Matches
             </div>
             <div class="w3-quarter w3-section">
-              <span id="day9-win-percentage" class="w3-xlarge"></span><br>
+              <span id="day9-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
               Win percentage
             </div>
             <div class="w3-quarter w3-section">
@@ -125,7 +125,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               Matches
             </div>
             <div class="w3-quarter w3-section">
-              <span id="atrioc-win-percentage" class="w3-xlarge"></span><br>
+              <span id="atrioc-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
               Win percentage
             </div>
             <div class="w3-quarter w3-section">
@@ -147,7 +147,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               Matches
             </div>
             <div class="w3-quarter w3-section">
-              <span id="deathnote-win-percentage" class="w3-xlarge"></span><br>
+              <span id="deathnote-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
               Win percentage
             </div>
             <div class="w3-quarter w3-section">
@@ -169,7 +169,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               Matches
             </div>
             <div class="w3-quarter w3-section">
-              <span id="gunnar-win-percentage" class="w3-xlarge"></span><br>
+              <span id="gunnar-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
               Win percentage
             </div>
             <div class="w3-quarter w3-section">
@@ -191,7 +191,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               Matches
             </div>
             <div class="w3-quarter w3-section">
-              <span id="cooper-win-percentage" class="w3-xlarge"></span><br>
+              <span id="cooper-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
               Win percentage
             </div>
             <div class="w3-quarter w3-section">
@@ -213,7 +213,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               Matches
             </div>
             <div class="w3-quarter w3-section">
-              <span id="knoff-win-percentage" class="w3-xlarge"></span><br>
+              <span id="knoff-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
               Win percentage
             </div>
             <div class="w3-quarter w3-section">
@@ -235,7 +235,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               Matches
             </div>
             <div class="w3-quarter w3-section">
-              <span id="singsing-win-percentage" class="w3-xlarge"></span><br>
+              <span id="singsing-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
               Win percentage
             </div>
             <div class="w3-quarter w3-section">
