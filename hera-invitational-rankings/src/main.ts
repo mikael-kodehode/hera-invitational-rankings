@@ -25,7 +25,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       </li>
       <li id="nav-home" class="w3-bar-item w3-button ">
         <i class="fa fa-user w3-xxlarge"></i>
-        <p>Profiles</p>
+        <p>PROFILES</p>
       </li>
     </nav>
 
@@ -77,6 +77,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <div class="w3-button profile-nav-button" id="PiGButton">PiG</div>
             <div class="w3-button profile-nav-button" id="YamatoCannonButton">YamatoCannon</div>
             <div class="w3-button profile-nav-button" id="AhmpyButton">Ahmpy</div>
+            <div class="w3-button profile-nav-button" id="LowkoButton">LowKo</div>
           </div>
         </nav>
 
@@ -98,7 +99,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/1819870" target="_blank">
-                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
@@ -147,7 +148,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/2065858" target="_blank">
-                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
@@ -196,7 +197,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/6481045" target="_blank">
-                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
@@ -245,7 +246,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/7304675" target="_blank">
-                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
@@ -294,7 +295,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/705858" target="_blank">
-                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
@@ -343,7 +344,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/228122" target="_blank">
-                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
@@ -392,7 +393,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/255573" target="_blank">
-                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
@@ -441,7 +442,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/4473383" target="_blank">
-                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
@@ -490,7 +491,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/5735770" target="_blank">
-                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
@@ -539,7 +540,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/25478303" target="_blank">
-                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
@@ -588,7 +589,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/25503675" target="_blank">
-                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
@@ -617,6 +618,55 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           </div>
           <h3>Trivia</h3>
           <div id="yamatocannon-trivia" class="player-trivia-container"></div>
+        </article>
+
+        <article id="LowkoProfile" class="player-profile">
+          <h3>LowKo</h3>
+          <div class="player-intro-container">
+            <div class="player-info-links-container">
+              <div id="lowko-profile-info"></div>
+              <ul class="streamer-links-ul">
+                <li>
+                  <a href="https://www.youtube.com/morelowko" target="_blank">
+                    <i class="fa-brands fa-youtube"></i> Youtube
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.twitch.tv/lowkotv" target="_blank">
+                    <i class="fa-brands fa-twitch"></i> Twitch
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.aoe2insights.com/user/338838" target="_blank">
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <img class="player-profile-picture" src="/lowko-profile-picture.jpg"/>
+            </div>
+          </div>
+          <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
+            <div class="w3-quarter w3-section">
+              <span id="lowko-matches" class="w3-xlarge"></span><br>
+              Ranked matches 1v1
+            </div>
+            <div class="w3-quarter w3-section">
+              <span id="lowko-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
+              Win percentage
+            </div>
+            <div class="w3-quarter w3-section">
+              <span id="lowko-rating" class="w3-xlarge"></span><br>
+              Rating
+            </div>
+            <div class="w3-quarter w3-section">
+              <span id="lowko-streak" class="w3-xlarge"></span><br>
+              Streak
+            </div>
+          </div>
+          <h3>Trivia</h3>
+          <div id="lowko-trivia" class="player-trivia-container"></div>
         </article>
      </div>
 
