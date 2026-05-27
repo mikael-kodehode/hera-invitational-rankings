@@ -1,9 +1,12 @@
 import { inject } from '@vercel/analytics';
+import { injectSpeedInsights } from '@vercel/speed-insights';
+
 import './style.css'
 
 import { initiateListeners, insertPlayerData } from './services/functions'
 import 'flag-icons/css/flag-icons.min.css';
 
+injectSpeedInsights();
 inject()
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <head>
