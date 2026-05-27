@@ -1,9 +1,10 @@
+import { inject } from '@vercel/analytics';
 import './style.css'
 
 import { initiateListeners, insertPlayerData } from './services/functions'
 import 'flag-icons/css/flag-icons.min.css';
 
-
+inject()
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <head>
     <title>W3.CSS Template</title>
