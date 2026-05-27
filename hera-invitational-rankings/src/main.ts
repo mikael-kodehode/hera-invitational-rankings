@@ -533,6 +533,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               <th>Rating</th>
               <th>Win %</th>
               <th>Ranked matches 1v1</th>
+              <th>Watch</th>
             </tr>
           </thead>
           <tbody id="ratings-table">

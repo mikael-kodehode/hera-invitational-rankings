@@ -1,5 +1,5 @@
 import { fetchPlayerData } from "./api";
-import { PlayerIDFromName, StreamerNameFromProfileID } from "../types";
+import { Links, PlayerIDFromName, StreamerNameFromProfileID, StreamerSocials } from "../types";
 import type { DatabaseItem } from "../types";
   
 export const initiateListeners = () => {
@@ -260,18 +260,27 @@ export const fillRatingTable = (playerData: Record<string, DatabaseItem>) => {
   const playerArray = Object.values(playerData)
   const sortedPlayerArrayAfterRating = [...playerArray].sort((a, b) => b.rating - a.rating);
   for (const player of sortedPlayerArrayAfterRating) {
-    
+
+    const name = StreamerNameFromProfileID[player.profile_id]
     const trElement = document.createElement("tr")
     trElement.innerHTML = `
-      <td><span class="fi fi-${player.nationality}"></span>  ${getStreamerName(player)}</td>
+      <td class="rating-table-name-column"><span class="fi fi-${player.nationality}"></span>  ${getStreamerName(player)}</td>
       <td>${player.rating}</td>
       <td>${player.win_percentage} %</td>
       <td>${player.matches_played}</td>
+      <td>
+        <a href='${Links.twitch}${StreamerSocials[name].twitch}'><i class="fa-brands fa-twitch"></i>
+        ${(player.live)? 
+          `<span class="live-indicator">
+            <span class="live-dot"></span>
+            LIVE
+          </span>` : ''
+        }
+      </td>
     `
     ratingTable?.appendChild(trElement)
   }
 }
-
 export const initiatePlayerData = async () => {
   const playerData = await fetchPlayerData()
   if(!playerData) throw new Error("playerData falsy",)
@@ -287,4 +296,4 @@ export const getStreamerName = (profile: DatabaseItem, defaultName: string = "Un
   if(!StreamerNameFromProfileID[idAsNumber]) return defaultName 
   if(StreamerNameFromProfileID[idAsNumber] === profile.username) return profile.username
   else return StreamerNameFromProfileID[idAsNumber] + ` (${profile.username})`
-};
+};   

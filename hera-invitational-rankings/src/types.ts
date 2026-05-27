@@ -12,6 +12,7 @@ export interface DatabaseItem {
   losses: number;
   streak: number;
   rating: number;
+  live: boolean;
 }
 
 export const PlayerIDFromName = {
@@ -44,52 +45,52 @@ export const StreamerNameFromProfileID: Record<number, string> = {
   25503675: "YamatoCannon"
 }
 
-export const StreamerSocials = {
-  Grubby: {
+export const StreamerSocials: Record<string, {twitch:string,youtube:string}> = {
+  "Grubby": {
     twitch: "grubby",
     youtube: "FollowGrubbby"
   },
-  Day9: {
+  "Day9": {
     twitch: "day9tv",
     youtube: "day9tv"
   },
-  Atrioc: {
+  "Atrioc": {
     twitch: "atrioc",
     youtube: "atrioc"
   },
-  Gunnar: {
+  "Gunnar": {
     twitch: "gunnar",
     youtube: "GunnarDota"
   },
-  CooperTV: {
+  "CooperTV": {
     twitch: "coopertv",
     youtube: "UC1tTkPsQy_eSv4_9-ka-3GQ"
   },
-  Knoff: {
+  "Knoff": {
     twitch: "knoff",
     youtube: "@campknoff"
   },
-  SingSing: {
+  "SingSing": {
     twitch: "singsing",
     youtube: "UC6c3OP2fWzaH5Nq5kh4m_SA"
   },
-  Deathnote: {
+  "Deathnote": {
     twitch: "followdeathnote",
     youtube: "UChGsaIBM_pEKkdXjYcJdpzA"
   },
-  Uthermal: {
+  "Uthermal": {
     twitch: "uthermalsc2",
     youtube: "uthermal"
   },
-  PiG: {
+  "PiG": {
     twitch: "x5_pig",
     youtube: "PiGstarcraft"
   },
-  Ahmpy: {
+  "Ahmpy": {
     twitch: "ahmpy",
     youtube: "@Ahmpy"
   },
-  YamatoCannon: {
+  "YamatoCannon": {
     twitch: "yamatocannon",
     youtube: "UCRRfSRlDq2ma7xp_8HYvYeA"
   }
@@ -105,3 +106,4 @@ export type StreamerSocials = typeof StreamerSocials[keyof typeof StreamerSocial
 export type Links = typeof Links[keyof typeof Links]
 export type StreamerNameFromProfileID = typeof StreamerNameFromProfileID[keyof typeof StreamerNameFromProfileID]
 export type PlayerIDFromName = typeof PlayerIDFromName[keyof typeof PlayerIDFromName]
+
