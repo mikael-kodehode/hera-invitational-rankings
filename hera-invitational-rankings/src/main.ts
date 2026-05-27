@@ -72,6 +72,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <div class="w3-button profile-nav-button" id="uThermalButton">uThermal</div>
             <div class="w3-button profile-nav-button" id="PiGButton">PiG</div>
             <div class="w3-button profile-nav-button" id="YamatoCannonButton">YamatoCannon</div>
+            <div class="w3-button profile-nav-button" id="AhmpyButton">Ahmpy</div>
           </div>
         </nav>
 
@@ -124,26 +125,32 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <div id="grubby-trivia" class="player-trivia-container"></div>
         </article>
         
-        <article  id="Day9Profile" class="player-profile" hidden>
+        <article id="Day9Profile" class="player-profile" hidden>
           <h3>Day9</h3>
-          <div>
-            <ul class="streamer-links-ul">
-              <li>
-                <a href="https://www.youtube.com/day9tv" target="_blank">
-                  <i class="fa-brands fa-youtube"></i> Youtube
-                </a>
-              </li>
-              <li>
-                <a href="https://www.twitch.tv/day9tv" target="_blank">
-                  <i class="fa-brands fa-twitch"></i> Twitch
-                </a>
-              </li>
-              <li>
-                <a href="https://www.aoe2insights.com/user/2065858" target="_blank">
-                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
-                </a>
-              </li>
-            </ul>
+          <div class="player-intro-container">
+            <div class="player-info-links-container">
+              <div id="day9-profile-info"></div>
+              <ul class="streamer-links-ul">
+                <li>
+                  <a href="https://www.youtube.com/day9tv" target="_blank">
+                    <i class="fa-brands fa-youtube"></i> Youtube
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.twitch.tv/day9" target="_blank">
+                    <i class="fa-brands fa-twitch"></i> Twitch
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.aoe2insights.com/user/2065858" target="_blank">
+                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <img class="player-profile-picture" src="/day9-profile-picture.webp"/>
+            </div>
           </div>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
@@ -163,28 +170,36 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               Streak
             </div>
           </div>
+          <h3>Trivia</h3>
+          <div id="day9-trivia" class="player-trivia-container"></div>
         </article>
 
-        <article  id="DeathnoteProfile" class="player-profile" hidden>
+        <article id="DeathnoteProfile" class="player-profile" hidden>
           <h3>Deathnote</h3>
-          <div>
-            <ul class="streamer-links-ul">
-              <li>
-                <a href="https://www.youtube.com/channel/UChGsaIBM_pEKkdXjYcJdpzA" target="_blank">
-                  <i class="fa-brands fa-youtube"></i> Youtube
-                </a>
-              </li>
-              <li>
-                <a href="https://www.twitch.tv/followdeathnote" target="_blank">
-                  <i class="fa-brands fa-twitch"></i> Twitch
-                </a>
-              </li>
-              <li>
-                <a href="https://www.aoe2insights.com/user/6481045" target="_blank">
-                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
-                </a>
-              </li>
-            </ul>
+          <div class="player-intro-container">
+            <div class="player-info-links-container">
+              <div id="deathnote-profile-info"></div>
+              <ul class="streamer-links-ul">
+                <li>
+                  <a href="https://www.youtube.com/channel/UChGsaIBM_pEKkdXjYcJdpzA" target="_blank">
+                    <i class="fa-brands fa-youtube"></i> Youtube
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.twitch.tv/followdeathnote" target="_blank">
+                    <i class="fa-brands fa-twitch"></i> Twitch
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.aoe2insights.com/user/6481045" target="_blank">
+                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <img class="player-profile-picture" src="/deathnote-profile-picture.jpg"/>
+            </div>
           </div>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
@@ -204,28 +219,36 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               Streak
             </div>
           </div>
+          <h3>Trivia</h3>
+          <div id="deathnote-trivia" class="player-trivia-container"></div>
         </article>
 
-        <article  id="GunnarProfile" class="player-profile" hidden>
+        <article id="GunnarProfile" class="player-profile" hidden>
           <h3>Gunnar</h3>
-          <div>
-            <ul class="streamer-links-ul">
-              <li>
-                <a href="https://www.youtube.com/GunnarDota" target="_blank">
-                  <i class="fa-brands fa-youtube"></i> Youtube
-                </a>
-              </li>
-              <li>
-                <a href="https://www.twitch.tv/gunnar" target="_blank">
-                  <i class="fa-brands fa-twitch"></i> Twitch
-                </a>
-              </li>
-              <li>
-                <a href="https://www.aoe2insights.com/user/7304675" target="_blank">
-                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
-                </a>
-              </li>
-            </ul>
+          <div class="player-intro-container">
+            <div class="player-info-links-container">
+              <div id="gunnar-profile-info"></div>
+              <ul class="streamer-links-ul">
+                <li>
+                  <a href="https://www.youtube.com/GunnarDota" target="_blank">
+                    <i class="fa-brands fa-youtube"></i> Youtube
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.twitch.tv/gunnar" target="_blank">
+                    <i class="fa-brands fa-twitch"></i> Twitch
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.aoe2insights.com/user/7304675" target="_blank">
+                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <img class="player-profile-picture" src="/gunnar-profile-picture.webp"/>
+            </div>
           </div>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
@@ -245,28 +268,36 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               Streak
             </div>
           </div>
+          <h3>Trivia</h3>
+          <div id="gunnar-trivia" class="player-trivia-container"></div>
         </article>
 
-        <article  id="CooperTVProfile" class="player-profile" hidden>
+        <article id="CooperTVProfile" class="player-profile" hidden>
           <h3>CooperTV</h3>
-          <div>
-            <ul class="streamer-links-ul">
-              <li>
-                <a href="https://www.youtube.com/channel/UC1tTkPsQy_eSv4_9-ka-3GQ" target="_blank">
-                  <i class="fa-brands fa-youtube"></i> Youtube
-                </a>
-              </li>
-              <li>
-                <a href="https://www.twitch.tv/coopertv" target="_blank">
-                  <i class="fa-brands fa-twitch"></i> Twitch
-                </a>
-              </li>
-              <li>
-                <a href="https://www.aoe2insights.com/user/705858" target="_blank">
-                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
-                </a>
-              </li>
-            </ul>
+          <div class="player-intro-container">
+            <div class="player-info-links-container">
+              <div id="coopertv-profile-info"></div>
+              <ul class="streamer-links-ul">
+                <li>
+                  <a href="https://www.youtube.com/channel/UC1tTkPsQy_eSv4_9-ka-3GQ" target="_blank">
+                    <i class="fa-brands fa-youtube"></i> Youtube
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.twitch.tv/coopertv" target="_blank">
+                    <i class="fa-brands fa-twitch"></i> Twitch
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.aoe2insights.com/user/705858" target="_blank">
+                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <img class="player-profile-picture" src="/coopertv-profile-picture.png"/>
+            </div>
           </div>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
@@ -286,28 +317,36 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               Streak
             </div>
           </div>
+          <h3>Trivia</h3>
+          <div id="coopertv-trivia" class="player-trivia-container"></div>
         </article>
 
-        <article  id="KnoffProfile" class="player-profile" hidden>
+        <article id="KnoffProfile" class="player-profile" hidden>
           <h3>Knoff</h3>
-          <div>
-            <ul class="streamer-links-ul">
-              <li>
-                <a href="https://www.youtube.com/@campknoff" target="_blank">
-                  <i class="fa-brands fa-youtube"></i> Youtube
-                </a>
-              </li>
-              <li>
-                <a href="https://www.twitch.tv/knoff" target="_blank">
-                  <i class="fa-brands fa-twitch"></i> Twitch
-                </a>
-              </li>
-              <li>
-                <a href="https://www.aoe2insights.com/user/228122" target="_blank">
-                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
-                </a>
-              </li>
-            </ul>
+          <div class="player-intro-container">
+            <div class="player-info-links-container">
+              <div id="knoff-profile-info"></div>
+              <ul class="streamer-links-ul">
+                <li>
+                  <a href="https://www.youtube.com/@campknoff" target="_blank">
+                    <i class="fa-brands fa-youtube"></i> Youtube
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.twitch.tv/knoff" target="_blank">
+                    <i class="fa-brands fa-twitch"></i> Twitch
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.aoe2insights.com/user/228122" target="_blank">
+                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <img class="player-profile-picture" src="/knoff-profile-picture.png"/>
+            </div>
           </div>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
@@ -327,28 +366,36 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               Streak
             </div>
           </div>
+          <h3>Trivia</h3>
+          <div id="knoff-trivia" class="player-trivia-container"></div>
         </article>
 
-        <article  id="SingSingProfile" class="player-profile" hidden>
+        <article id="SingSingProfile" class="player-profile" hidden>
           <h3>SingSing</h3>
-          <div>
-            <ul class="streamer-links-ul">
-              <li>
-                <a href="https://www.youtube.com/channel/UC6c3OP2fWzaH5Nq5kh4m_SA" target="_blank">
-                  <i class="fa-brands fa-youtube"></i> Youtube
-                </a>
-              </li>
-              <li>
-                <a href="https://www.twitch.tv/singsing" target="_blank">
-                  <i class="fa-brands fa-twitch"></i> Twitch
-                </a>
-              </li>
-              <li>
-                <a href="https://www.aoe2insights.com/user/255573" target="_blank">
-                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
-                </a>
-              </li>
-            </ul>
+          <div class="player-intro-container">
+            <div class="player-info-links-container">
+              <div id="singsing-profile-info"></div>
+              <ul class="streamer-links-ul">
+                <li>
+                  <a href="https://www.youtube.com/channel/UC6c3OP2fWzaH5Nq5kh4m_SA" target="_blank">
+                    <i class="fa-brands fa-youtube"></i> Youtube
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.twitch.tv/singsing" target="_blank">
+                    <i class="fa-brands fa-twitch"></i> Twitch
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.aoe2insights.com/user/255573" target="_blank">
+                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <img class="player-profile-picture" src="/singsing-profile-picture.webp"/>
+            </div>
           </div>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
@@ -368,28 +415,36 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               Streak
             </div>
           </div>
+          <h3>Trivia</h3>
+          <div id="singsing-trivia" class="player-trivia-container"></div>
         </article>
 
-        <article  id="uThermalProfile" class="player-profile" hidden>
+        <article id="uThermalProfile" class="player-profile" hidden>
           <h3>uThermal</h3>
-          <div>
-            <ul class="streamer-links-ul">
-              <li>
-                <a href="https://www.youtube.com/uthermal" target="_blank">
-                  <i class="fa-brands fa-youtube"></i> Youtube
-                </a>
-              </li>
-              <li>
-                <a href="https://www.twitch.tv/uthermalsc2" target="_blank">
-                  <i class="fa-brands fa-twitch"></i> Twitch
-                </a>
-              </li>
-              <li>
-                <a href="https://www.aoe2insights.com/user/4473383" target="_blank">
-                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
-                </a>
-              </li>
-            </ul>
+          <div class="player-intro-container">
+            <div class="player-info-links-container">
+              <div id="uthermal-profile-info"></div>
+              <ul class="streamer-links-ul">
+                <li>
+                  <a href="https://www.youtube.com/uthermal" target="_blank">
+                    <i class="fa-brands fa-youtube"></i> Youtube
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.twitch.tv/uthermalsc2" target="_blank">
+                    <i class="fa-brands fa-twitch"></i> Twitch
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.aoe2insights.com/user/4473383" target="_blank">
+                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <img class="player-profile-picture" src="/uthermal-profile-picture.jpg"/>
+            </div>
           </div>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
@@ -409,28 +464,36 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               Streak
             </div>
           </div>
+          <h3>Trivia</h3>
+          <div id="uthermal-trivia" class="player-trivia-container"></div>
         </article>
 
-         <article  id="PiGProfile" class="player-profile" hidden>
+         <article id="PiGProfile" class="player-profile" hidden>
           <h3>PiG</h3>
-          <div>
-            <ul class="streamer-links-ul">
-              <li>
-                <a href="https://www.youtube.com/PiGstarcraft" target="_blank">
-                  <i class="fa-brands fa-youtube"></i> Youtube
-                </a>
-              </li>
-              <li>
-                <a href="https://www.twitch.tv/x5_pig" target="_blank">
-                  <i class="fa-brands fa-twitch"></i> Twitch
-                </a>
-              </li>
-              <li>
-                <a href="https://www.aoe2insights.com/user/5735770" target="_blank">
-                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
-                </a>
-              </li>
-            </ul>
+          <div class="player-intro-container">
+            <div class="player-info-links-container">
+              <div id="pig-profile-info"></div>
+              <ul class="streamer-links-ul">
+                <li>
+                  <a href="https://www.youtube.com/PiGstarcraft" target="_blank">
+                    <i class="fa-brands fa-youtube"></i> Youtube
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.twitch.tv/x5_pig" target="_blank">
+                    <i class="fa-brands fa-twitch"></i> Twitch
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.aoe2insights.com/user/5735770" target="_blank">
+                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <img class="player-profile-picture" src="/pig-profile-picture.jpg"/>
+            </div>
           </div>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
@@ -450,28 +513,36 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               Streak
             </div>
           </div>
+          <h3>Trivia</h3>
+          <div id="pig-trivia" class="player-trivia-container"></div>
         </article>
 
-          <article  id="AhmpyProfile" class="player-profile" hidden>
+          <article id="AhmpyProfile" class="player-profile" hidden>
           <h3>Ahmpy</h3>
-          <div>
-            <ul class="streamer-links-ul">
-              <li>
-                <a href="https://www.youtube.com/@Ahmpy" target="_blank">
-                  <i class="fa-brands fa-youtube"></i> Youtube
-                </a>
-              </li>
-              <li>
-                <a href="https://www.twitch.tv/ahmpy" target="_blank">
-                  <i class="fa-brands fa-twitch"></i> Twitch
-                </a>
-              </li>
-              <li>
-                <a href="https://www.aoe2insights.com/user/25478303" target="_blank">
-                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
-                </a>
-              </li>
-            </ul>
+          <div class="player-intro-container">
+            <div class="player-info-links-container">
+              <div id="ahmpy-profile-info"></div>
+              <ul class="streamer-links-ul">
+                <li>
+                  <a href="https://www.youtube.com/@Ahmpy" target="_blank">
+                    <i class="fa-brands fa-youtube"></i> Youtube
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.twitch.tv/ahmpy" target="_blank">
+                    <i class="fa-brands fa-twitch"></i> Twitch
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.aoe2insights.com/user/25478303" target="_blank">
+                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <img class="player-profile-picture" src="/ahmpy-profile-picture.png"/>
+            </div>
           </div>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
@@ -491,28 +562,36 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               Streak
             </div>
           </div>
+          <h3>Trivia</h3>
+          <div id="ahmpy-trivia" class="player-trivia-container"></div>
         </article>
 
-        <article  id="YamatoCannonProfile" class="player-profile" hidden>
+        <article id="YamatoCannonProfile" class="player-profile" hidden>
           <h3>YamatoCannon</h3>
-          <div>
-            <ul class="streamer-links-ul">
-              <li>
-                <a href="https://www.youtube.com/channel/UCRRfSRlDq2ma7xp_8HYvYeA" target="_blank">
-                  <i class="fa-brands fa-youtube"></i> Youtube
-                </a>
-              </li>
-              <li>
-                <a href="https://www.twitch.tv/yamatocannon" target="_blank">
-                  <i class="fa-brands fa-twitch"></i> Twitch
-                </a>
-              </li>
-              <li>
-                <a href="https://www.aoe2insights.com/user/25503675" target="_blank">
-                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
-                </a>
-              </li>
-            </ul>
+          <div class="player-intro-container">
+            <div class="player-info-links-container">
+              <div id="yamatocannon-profile-info"></div>
+              <ul class="streamer-links-ul">
+                <li>
+                  <a href="https://www.youtube.com/channel/UCRRfSRlDq2ma7xp_8HYvYeA" target="_blank">
+                    <i class="fa-brands fa-youtube"></i> Youtube
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.twitch.tv/yamatocannon" target="_blank">
+                    <i class="fa-brands fa-twitch"></i> Twitch
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.aoe2insights.com/user/25503675" target="_blank">
+                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <img class="player-profile-picture" src="/yamatocannon-profile-picture.jpg"/>
+            </div>
           </div>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
@@ -532,6 +611,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               Streak
             </div>
           </div>
+          <h3>Trivia</h3>
+          <div id="yamatocannon-trivia" class="player-trivia-container"></div>
         </article>
      </div>
 

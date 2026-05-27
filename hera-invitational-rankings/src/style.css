@@ -68,6 +68,10 @@ nav {
   min-width: 0;
 }
 
+article {
+  margin: 0 2rem;
+}
+
 .player-intro-container {
   display: flex;
   justify-content: space-between;
@@ -78,11 +82,11 @@ nav {
 }
 
 .player-profile-picture {
-  height: 150px;
+  height: 400px;
 }
 
 .player-info-links-container {
-  width: 70%;
+  width: 55%;
 }
 
 .player-trivia-container li{
