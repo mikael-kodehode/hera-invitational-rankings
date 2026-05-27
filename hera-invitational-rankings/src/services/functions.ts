@@ -334,7 +334,7 @@ const renderEngine = () => {
       <td>${player.streak}</td>
       <td>${player.matches_played}</td>
       <td>
-        <a href='${Links.twitch}${player.twitch}'><i class="fa-brands fa-twitch"></i></a>
+        <a href='${Links.twitch}${player.twitch}' target='_blank'><i class="fa-brands fa-twitch"></i></a>
         ${(player.live) ? 
           `<span class="live-indicator">
             <span class="live-dot"></span>
