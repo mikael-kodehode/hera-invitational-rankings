@@ -98,7 +98,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/1819870" target="_blank">
-                    <img class="aoe-insights-logo" src="public/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
@@ -147,7 +147,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/2065858" target="_blank">
-                    <img class="aoe-insights-logo" src="public/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
@@ -196,7 +196,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/6481045" target="_blank">
-                    <img class="aoe-insights-logo" src="public/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
@@ -245,7 +245,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/7304675" target="_blank">
-                    <img class="aoe-insights-logo" src="public/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
@@ -294,7 +294,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/705858" target="_blank">
-                    <img class="aoe-insights-logo" src="public/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
@@ -343,7 +343,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/228122" target="_blank">
-                    <img class="aoe-insights-logo" src="public/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
@@ -392,7 +392,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/255573" target="_blank">
-                    <img class="aoe-insights-logo" src="public/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
@@ -441,7 +441,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/4473383" target="_blank">
-                    <img class="aoe-insights-logo" src="public/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
@@ -490,7 +490,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/5735770" target="_blank">
-                    <img class="aoe-insights-logo" src="public/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
@@ -539,7 +539,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/25478303" target="_blank">
-                    <img class="aoe-insights-logo" src="public/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
@@ -588,7 +588,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </li>
                 <li>
                   <a href="https://www.aoe2insights.com/user/25503675" target="_blank">
-                    <img class="aoe-insights-logo" src="public/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
                   </a>
                 </li>
               </ul>
