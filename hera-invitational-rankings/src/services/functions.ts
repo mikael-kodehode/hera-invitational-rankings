@@ -328,7 +328,7 @@ const renderEngine = () => {
     const trElement = document.createElement("tr");
     
     trElement.innerHTML = `
-      <td class="rating-table-name-column"><span class="fi fi-${player.nationality}"></span>  ${player.name}</td>
+      <td class="rating-table-name-column"><span class="fi fi-${player.nationality}"></span>  ${player.name} (${player.username})</td>
       <td>${player.rating}</td>
       <td>${player.win_percentage} %</td>
       <td>${player.streak}</td>
