@@ -247,7 +247,6 @@ export const insertPlayerData = async () => {
   try {
     const data = await initiatePlayerData()
     fillRatingTable(data)
-    console.log(uthermalStreak)
     if(grubbyProfileInfoElement) grubbyProfileInfoElement.innerHTML = grubbyProfileInfo
     if(grubbyTriviaElement) grubbyTriviaElement.innerHTML = grubbyTrivia
     if(grubbyMatches) grubbyMatches.innerHTML = data['Grubby'].matches_played.toString()
@@ -419,10 +418,8 @@ const renderEngine = () => {
  */
 export const handleTableSort = (columnKey: string) => {
   if (currentSortColumn === columnKey) {
-    console.log("columnkey truthy", currentSortColumn)
     isAscending = !isAscending; // Flip sorting direction
   } else {
-    console.log("columnkey falsy", currentSortColumn)
     currentSortColumn = columnKey;
   }
 
@@ -449,7 +446,6 @@ export const initiatePlayerData = async () => {
       accumulator[currentItem.name] = currentItem;
       return accumulator;
     }, {} as Record<string, typeof playerData[number]>);
-    console.log(players)
     return players
   } catch (error) {
     throw new Error("InitiatePlayerData() failed");
