@@ -12,6 +12,7 @@ import { uthermalProfileInfo, uthermalTrivia } from "../profiles/uthermal";
 import { pigProfileInfo, pigTrivia } from "../profiles/pig";
 import { yamatocannonProfileInfo, yamatocannonTrivia } from "../profiles/yamatocannon";
 import { ahmpyProfileInfo, ahmpyTrivia } from "../profiles/ahmpy";
+import { lowkoProfileInfo, lowkoTrivia } from "../profiles/lowko";
   
 export const initiateListeners = () => {
   const GrubbyButton = document.querySelector('#GrubbyButton');
@@ -26,6 +27,7 @@ export const initiateListeners = () => {
   const PiGButton = document.querySelector('#PiGButton');
   const YamatoCannonButton = document.querySelector('#YamatoCannonButton');
   const AhmpyButton = document.querySelector('#AhmpyButton');
+  const LowkoButton = document.querySelector('#LowkoButton');
 
   const GrubbyProfile = document.querySelector("#GrubbyProfile")
   const Day9Profile = document.querySelector("#Day9Profile")
@@ -39,8 +41,7 @@ export const initiateListeners = () => {
   const PiGProfile = document.querySelector("#PiGProfile")
   const YamatoCannonProfile = document.querySelector("#YamatoCannonProfile")
   const AhmpyProfile = document.querySelector("#AhmpyProfile")
-
-  //const GrubbyProfileInfo = document.querySelector("#grubby-profile-info")
+  const LowkoProfile = document.querySelector("#LowkoProfile")
 
   const homeContainer = document.querySelector("#home")
   const ratingsContainer = document.querySelector("#ratings")
@@ -62,6 +63,7 @@ export const initiateListeners = () => {
     PiGProfile?.setAttribute("hidden","true")
     YamatoCannonProfile?.setAttribute("hidden","true")
     AhmpyProfile?.setAttribute("hidden","true")
+    LowkoProfile?.setAttribute("hidden","true")
 
     GrubbyButton?.classList.remove("active-streamer-article")
     Day9Button?.classList.remove("active-streamer-article")
@@ -75,6 +77,7 @@ export const initiateListeners = () => {
     PiGButton?.classList.remove("active-streamer-article")
     YamatoCannonButton?.classList.remove("active-streamer-article")
     AhmpyButton?.classList.remove("active-streamer-article")
+    LowkoButton?.classList.remove("active-streamer-article")
 
     profileButton.classList.add("active-streamer-article")
     profile.removeAttribute("hidden")
@@ -131,6 +134,9 @@ export const initiateListeners = () => {
     });
     AhmpyButton?.addEventListener('click', () => {
       if(AhmpyProfile) activateProfile(AhmpyProfile, AhmpyButton)
+    });
+    LowkoButton?.addEventListener('click', () => {
+      if(LowkoProfile) activateProfile(LowkoProfile, LowkoButton)
     });
 
     navRatingsButton?.addEventListener('click', () => {
@@ -244,6 +250,13 @@ export const insertPlayerData = async () => {
   const ahmpyRating = document.querySelector("#ahmpy-rating")
   const ahmpyStreak = document.querySelector("#ahmpy-streak")
   
+  const lowkoProfileInfoElement = document.querySelector("#lowko-profile-info")
+  const lowkoTriviaElement = document.querySelector("#lowko-trivia")
+  const lowkoMatches = document.querySelector("#lowko-matches")
+  const lowkoWinPercentage = document.querySelector("#lowko-win-percentage")
+  const lowkoRating = document.querySelector("#lowko-rating")
+  const lowkoStreak = document.querySelector("#lowko-streak")
+  
   try {
     const data = await initiatePlayerData()
     fillRatingTable(data)
@@ -328,6 +341,13 @@ export const insertPlayerData = async () => {
     if(ahmpyStreak) ahmpyStreak.innerHTML = data['Ahmpy'].streak.toString()
     if(ahmpyRating) ahmpyRating.innerHTML = data['Ahmpy'].rating.toString()
     if(ahmpyWinPercentage) ahmpyWinPercentage.innerHTML = data['Ahmpy'].win_percentage.toString()
+
+    if(lowkoProfileInfoElement) lowkoProfileInfoElement.innerHTML = lowkoProfileInfo
+    if(lowkoTriviaElement) lowkoTriviaElement.innerHTML = lowkoTrivia
+    if(lowkoMatches) lowkoMatches.innerHTML = data['LowKo'].matches_played.toString()
+    if(lowkoStreak) lowkoStreak.innerHTML = data['LowKo'].streak.toString()
+    if(lowkoRating) lowkoRating.innerHTML = data['LowKo'].rating.toString()
+    if(lowkoWinPercentage) lowkoWinPercentage.innerHTML = data['LowKo'].win_percentage.toString()
 
   } catch {
     throw new Error("Insert data failed");
