@@ -68,6 +68,31 @@ nav {
   min-width: 0;
 }
 
+.player-intro-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-profile p{
+  line-height: 2rem;
+}
+
+.player-profile-picture {
+  height: 150px;
+}
+
+.player-info-links-container {
+  width: 70%;
+}
+
+.player-trivia-container li{
+  margin-bottom: 1rem;
+}
+
+.player-trivia-container li:last-child {
+  margin-bottom: 0 !important;
+}
+
 .thead {
   height: 100px;
 }
@@ -124,7 +149,7 @@ tbody tr:hover {
   display: flex;
   list-style-type: none;
   width: 100%;
-  justify-content: right;
+  padding-left: 0;
 }
 
 .streamer-links-ul li {

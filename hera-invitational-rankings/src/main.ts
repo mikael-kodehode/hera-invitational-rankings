@@ -61,38 +61,46 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
       <div class="w3-content w3-justify w3-padding-64" id="home" hidden>
         <nav class="nav-streamer-article container-flex" id="playerProfileNav">
-          <div class="active-streamer-article w3-button" id="GrubbyButton">Grubby</div>
-          <div class="w3-button" id="Day9Button">Day9</div>
-          <div class="w3-button" id="DeathnoteButton">Deathnote</div>
-          <div class="w3-button" id="GunnarButton">Gunnar</div>
-          <div class="w3-button" id="CooperTVButton">CooperTV</div>
-          <div class="w3-button" id="KnoffButton">Knoff</div>
-          <div class="w3-button" id="SingSingButton">SingSing</div>
-          <div class="w3-button" id="UthermalButton">Uthermal</div>
-          <div class="w3-button" id="PiGButton">PiG</div>
-          <div class="w3-button" id="YamatoCannonButton">YamatoCannon</div>
+          <div>
+            <div class="active-streamer-article w3-button" id="GrubbyButton">Grubby</div>
+            <div class="w3-button profile-nav-button" id="Day9Button">Day9</div>
+            <div class="w3-button profile-nav-button" id="DeathnoteButton">Deathnote</div>
+            <div class="w3-button profile-nav-button" id="GunnarButton">Gunnar</div>
+            <div class="w3-button profile-nav-button" id="CooperTVButton">CooperTV</div>
+            <div class="w3-button profile-nav-button" id="KnoffButton">Knoff</div>
+            <div class="w3-button profile-nav-button" id="SingSingButton">SingSing</div>
+            <div class="w3-button profile-nav-button" id="uThermalButton">uThermal</div>
+            <div class="w3-button profile-nav-button" id="PiGButton">PiG</div>
+            <div class="w3-button profile-nav-button" id="YamatoCannonButton">YamatoCannon</div>
+          </div>
         </nav>
 
         <article id="GrubbyProfile" class="player-profile">
           <h3>Grubby</h3>
-          <div>
-            <ul class="streamer-links-ul">
-              <li>
-                <a href="https://www.youtube.com/FollowGrubby" target="_blank">
-                  <i class="fa-brands fa-youtube"></i> Youtube
-                </a>
-              </li>
-              <li>
-                <a href="https://www.twitch.tv/grubby" target="_blank">
-                  <i class="fa-brands fa-twitch"></i> Twitch
-                </a>
-              </li>
-              <li>
-                <a href="https://www.aoe2insights.com/user/1819870" target="_blank">
-                  <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
-                </a>
-              </li>
-            </ul>
+          <div class="player-intro-container">
+            <div class="player-info-links-container">
+              <div id="grubby-profile-info"></div>
+              <ul class="streamer-links-ul">
+                <li>
+                  <a href="https://www.youtube.com/FollowGrubby" target="_blank">
+                    <i class="fa-brands fa-youtube"></i> Youtube
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.twitch.tv/grubby" target="_blank">
+                    <i class="fa-brands fa-twitch"></i> Twitch
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.aoe2insights.com/user/1819870" target="_blank">
+                    <img class="aoe-insights-logo" src="https://www.aoe2insights.com/static/images/logo.webp" /> AoE2 Insights
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <img class="player-profile-picture" src="/grubby-profile-picture.jpg"/>
+            </div>
           </div>
           <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
             <div class="w3-quarter w3-section">
@@ -112,6 +120,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               Streak
             </div>
           </div>
+          <h3>Trivia</h3>
+          <div id="grubby-trivia" class="player-trivia-container"></div>
         </article>
         
         <article  id="Day9Profile" class="player-profile" hidden>
@@ -360,8 +370,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           </div>
         </article>
 
-        <article  id="UthermalProfile" class="player-profile" hidden>
-          <h3>Uthermal</h3>
+        <article  id="uThermalProfile" class="player-profile" hidden>
+          <h3>uThermal</h3>
           <div>
             <ul class="streamer-links-ul">
               <li>
@@ -530,10 +540,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <thead>
             <tr>
               <th>Name</th>
-              <th>Rating</th>
-              <th>Win %</th>
-              <th>Ranked matches 1v1</th>
-              <th>Watch</th>
+              <th class="sortable asc" data-sort="rating">Rating</th>
+              <th class="sortable" data-sort="win_percentage">Win %</th>
+              <th class="sortable" data-sort="streak">Streak</th>
+              <th class="sortable" data-sort="matches_played">Ranked matches 1v1</th>
+              <th class="sortable" data-sort="live">Watch</th>
             </tr>
           </thead>
           <tbody id="ratings-table">
