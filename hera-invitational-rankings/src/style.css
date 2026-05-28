@@ -4,6 +4,9 @@ body, h1, h2, h3, h4, h5, h6 {
   background-color: #10141a;
   color: white;
 }
+html {
+  scroll-behavior: auto;
+}
 h2 {
   font-size: 3rem;
 }
@@ -13,6 +16,12 @@ h2 {
 .w3-black, .w3-hover-black:hover {
     color: #fff !important;
     background-color: #000 !important;
+}
+#nav-profiles-icon {
+  padding: 1rem 0;
+}
+.streamer-article {
+  padding: 8px 0 !important;
 }
 .w3-row-padding img {
   margin-bottom: 12px
@@ -28,7 +37,7 @@ h2 {
 nav {
   color: white;
 }
-.page-nav li {
+#nav-ratings {
   padding: 2.5rem 0 !important;
 }
 .page-nav li p {
@@ -53,6 +62,14 @@ nav {
 .active-page-nav, .active-streamer-article {
   background-color: #ccc;
   color:black;
+}
+.nav-link {
+  transition: color 0.3s ease;
+}
+.nav-link.active {
+  color: #ffffff;
+  font-weight: bold;
+  border-bottom: 2px solid #ffffff;
 }
 .container-flex {
   display: flex;
@@ -79,6 +96,10 @@ article {
 .player-intro-container {
   display: flex;
   justify-content: space-between;
+}
+
+.player-profile {
+  padding: 3.5rem 0;
 }
 
 .player-profile p{

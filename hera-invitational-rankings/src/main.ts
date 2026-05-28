@@ -3,7 +3,7 @@ import { injectSpeedInsights } from '@vercel/speed-insights';
 
 import './style.css'
 
-import { initiateListeners, insertPlayerData } from './services/functions'
+import { initiateListeners, initiateObservers, insertPlayerData } from './services/functions'
 import 'flag-icons/css/flag-icons.min.css';
 
 injectSpeedInsights();
@@ -19,14 +19,47 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
     <!-- Icon Bar (Sidebar - hidden on small screens) -->
     <nav class="page-nav w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-      <li id="nav-ratings" class="w3-bar-item w3-button active-page-nav">
+      <a href="#ratings" id="nav-ratings" class="w3-bar-item w3-button active-page-nav nav-link" >
         <i class="fa fa-trophy w3-xxlarge"></i>
-        <p>RATINGS</p>
-      </li>
-      <li id="nav-home" class="w3-bar-item w3-button ">
+        <br/><br/>
+        RATINGS
+      </a>
+      <li id="nav-profiles-icon" class="w3-bar-item nav-link">
         <i class="fa fa-user w3-xxlarge"></i>
-        <p>PROFILES</p>
       </li>
+       <a href="#GrubbyProfile" id="GrubbyButton" class="streamer-article w3-bar-item w3-button nav-link">
+        GRUBBY
+      </a>
+      <a href="#Day9Profile" id="Day9Button" class="streamer-article w3-bar-item w3-button nav-link">
+        DAY9
+      </a>
+      <a href="#DeathnoteProfile" id="DeathnoteButton" class="streamer-article w3-bar-item w3-button nav-link">
+        DEATHNOTE
+      </a>
+      <a href="#GunnarProfile" id="GunnarButton" class="streamer-article w3-bar-item w3-button nav-link">
+        GUNNAR
+      </a>
+      <a href="#KnoffProfile" id="KnoffButton" class="streamer-article w3-bar-item w3-button nav-link">
+        KNOFF
+      </a>
+      <a href="#SingSingProfile" id="SingSingButton" class="streamer-article w3-bar-item w3-button nav-link">
+        SINGSING
+      </a>
+      <a href="#uThermalProfile" id="uThermalButton" class="streamer-article w3-bar-item w3-button nav-link">
+        UTHERMAL
+      </a>
+      <a href="#PiGProfile" id="PiGButton" class="streamer-article w3-bar-item w3-button nav-link">
+        PIG
+      </a>
+      <a href="#AhmpyProfile" id="AhmpyButton" class="streamer-article w3-bar-item w3-button nav-link">
+        AHMPY
+      </a>
+      <a href="#YamatoCannonProfile" id="YamatoCannonButton" class="streamer-article w3-bar-item w3-button nav-link">
+        YAMATOCANNON
+      </a>
+      <a href="#LowkoProfile" id="LowkoButton" class="streamer-article w3-bar-item w3-button nav-link">
+        LOWKO
+      </a>
     </nav>
 
     <!-- Navbar on small screens (Hidden on medium and large screens) -->
@@ -63,25 +96,25 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         </div>
       </header>
 
-      <div class="w3-content w3-justify w3-padding-64" id="home" hidden>
-        <nav class="nav-streamer-article container-flex" id="playerProfileNav">
-          <div>
-            <div class="active-streamer-article w3-button" id="GrubbyButton">Grubby</div>
-            <div class="w3-button profile-nav-button" id="Day9Button">Day9</div>
-            <div class="w3-button profile-nav-button" id="DeathnoteButton">Deathnote</div>
-            <div class="w3-button profile-nav-button" id="GunnarButton">Gunnar</div>
-            <div class="w3-button profile-nav-button" id="CooperTVButton">CooperTV</div>
-            <div class="w3-button profile-nav-button" id="KnoffButton">Knoff</div>
-            <div class="w3-button profile-nav-button" id="SingSingButton">SingSing</div>
-            <div class="w3-button profile-nav-button" id="uThermalButton">uThermal</div>
-            <div class="w3-button profile-nav-button" id="PiGButton">PiG</div>
-            <div class="w3-button profile-nav-button" id="YamatoCannonButton">YamatoCannon</div>
-            <div class="w3-button profile-nav-button" id="AhmpyButton">Ahmpy</div>
-            <div class="w3-button profile-nav-button" id="LowkoButton">LowKo</div>
-          </div>
-        </nav>
+      <div class="table-container for-scroll-observer" id="ratings" >
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th class="sortable asc" data-sort="rating">Rating</th>
+              <th class="sortable" data-sort="win_percentage">Win %</th>
+              <th class="sortable" data-sort="streak">Streak</th>
+              <th class="sortable" data-sort="matches_played">Ranked matches 1v1</th>
+              <th class="sortable" data-sort="live">Watch</th>
+            </tr>
+          </thead>
+          <tbody id="ratings-table">
+          </tbody>
+        </table>
+      </div>
 
-        <article id="GrubbyProfile" class="player-profile">
+      <div class="w3-content w3-justify w3-padding-64" id="home">
+        <article id="GrubbyProfile" class="player-profile for-scroll-observer">
           <h3>Grubby</h3>
           <div class="player-intro-container">
             <div class="player-info-links-container">
@@ -155,7 +188,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <div id="grubby-trivia" class="player-trivia-container"></div>
         </article>
         
-        <article id="Day9Profile" class="player-profile" hidden>
+        <article id="Day9Profile" class="player-profile for-scroll-observer">
           <h3>Day9</h3>
           <div class="player-intro-container">
             <div class="player-info-links-container">
@@ -229,7 +262,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <div id="day9-trivia" class="player-trivia-container"></div>
         </article>
 
-        <article id="DeathnoteProfile" class="player-profile" hidden>
+        <article id="DeathnoteProfile" class="player-profile for-scroll-observer" >
           <h3>Deathnote</h3>
           <div class="player-intro-container">
             <div class="player-info-links-container">
@@ -283,7 +316,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <div id="deathnote-trivia" class="player-trivia-container"></div>
         </article>
 
-        <article id="GunnarProfile" class="player-profile" hidden>
+        <article id="GunnarProfile" class="player-profile for-scroll-observer" >
           <h3>Gunnar</h3>
           <div class="player-intro-container">
             <div class="player-info-links-container">
@@ -347,76 +380,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <div id="gunnar-trivia" class="player-trivia-container"></div>
         </article>
 
-        <article id="CooperTVProfile" class="player-profile" hidden>
-          <h3>CooperTV</h3>
-          <div class="player-intro-container">
-            <div class="player-info-links-container">
-              <div id="coopertv-profile-info"></div>
-              <ul class="streamer-links-ul">
-                <li title="https://www.youtube.com/channel/UC1tTkPsQy_eSv4_9-ka-3GQ">
-                  <a href="https://www.youtube.com/channel/UC1tTkPsQy_eSv4_9-ka-3GQ" target="_blank">
-                    <i class="fa-brands fa-youtube"></i>
-                  </a>
-                </li>
-                <li title="https://www.twitch.tv/coopertv">
-                  <a href="https://www.twitch.tv/coopertv" target="_blank">
-                    <i class="fa-brands fa-twitch"></i>
-                  </a>
-                </li>
-                <li title="https://www.aoe2insights.com/user/705858">
-                  <a href="https://www.aoe2insights.com/user/705858" target="_blank">
-                    <img  src="/aoeinsights-logo.webp" />
-                  </a>
-                </li>
-                <li title="https://liquipedia.net/counterstrike/Cooper">
-                  <a href="https://liquipedia.net/counterstrike/Cooper" target="_blank">
-                    <img src="/liquipedia_icon_menu.png" />
-                  </a>
-                </li>
-                <li title="https://discord.gg/GxAVJABwFs">
-                  <a href="https://discord.gg/GxAVJABwFs" target="_blank">
-                    <i class="fa-brands fa-discord"></i>
-                  </a>
-                </li>
-                <li title="https://www.instagram.com/co0pertv">
-                  <a href="https://www.instagram.com/co0pertv" target="_blank">
-                    <i class="fa-brands fa-instagram"></i>
-                  </a>
-                </li>
-                <li title="https://www.tiktok.com/@co0pertv">
-                  <a href="https://www.tiktok.com/@co0pertv" target="_blank">
-                    <i class="fa-brands fa-tiktok"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <img class="player-profile-picture" src="/coopertv-profile-picture.png"/>
-            </div>
-          </div>
-          <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
-            <div class="w3-quarter w3-section">
-              <span id="coopertv-matches" class="w3-xlarge"></span><br>
-              Ranked matches 1v1
-            </div>
-            <div class="w3-quarter w3-section">
-              <span id="coopertv-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
-              Win percentage
-            </div>
-            <div class="w3-quarter w3-section">
-              <span id="coopertv-rating" class="w3-xlarge"></span><br>
-              Rating
-            </div>
-            <div class="w3-quarter w3-section">
-              <span id="coopertv-streak" class="w3-xlarge"></span><br>
-              Streak
-            </div>
-          </div>
-          <h3>Trivia</h3>
-          <div id="coopertv-trivia" class="player-trivia-container"></div>
-        </article>
-
-        <article id="KnoffProfile" class="player-profile" hidden>
+        <article id="KnoffProfile" class="player-profile for-scroll-observer" >
           <h3>Knoff</h3>
           <div class="player-intro-container">
             <div class="player-info-links-container">
@@ -485,7 +449,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <div id="knoff-trivia" class="player-trivia-container"></div>
         </article>
 
-        <article id="SingSingProfile" class="player-profile" hidden>
+        <article id="SingSingProfile" class="player-profile for-scroll-observer" >
           <h3>SingSing</h3>
           <div class="player-intro-container">
             <div class="player-info-links-container">
@@ -549,7 +513,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <div id="singsing-trivia" class="player-trivia-container"></div>
         </article>
 
-        <article id="uThermalProfile" class="player-profile" hidden>
+        <article id="uThermalProfile" class="player-profile for-scroll-observer" >
           <h3>uThermal</h3>
           <div class="player-intro-container">
             <div class="player-info-links-container">
@@ -613,7 +577,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <div id="uthermal-trivia" class="player-trivia-container"></div>
         </article>
 
-         <article id="PiGProfile" class="player-profile" hidden>
+         <article id="PiGProfile" class="player-profile for-scroll-observer" >
           <h3>PiG</h3>
           <div class="player-intro-container">
             <div class="player-info-links-container">
@@ -682,7 +646,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <div id="pig-trivia" class="player-trivia-container"></div>
         </article>
 
-          <article id="AhmpyProfile" class="player-profile" hidden>
+          <article id="AhmpyProfile" class="player-profile for-scroll-observer" >
           <h3>Ahmpy</h3>
           <div class="player-intro-container">
             <div class="player-info-links-container">
@@ -731,7 +695,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <div id="ahmpy-trivia" class="player-trivia-container"></div>
         </article>
 
-        <article id="YamatoCannonProfile" class="player-profile" hidden>
+        <article id="YamatoCannonProfile" class="player-profile for-scroll-observer" >
           <h3>YamatoCannon</h3>
           <div class="player-intro-container">
             <div class="player-info-links-container">
@@ -795,7 +759,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <div id="yamatocannon-trivia" class="player-trivia-container"></div>
         </article>
 
-        <article id="LowkoProfile" class="player-profile" hidden>
+        <article id="LowkoProfile" class="player-profile for-scroll-observer" >
           <h3>LowKo</h3>
           <div class="player-intro-container">
             <div class="player-info-links-container">
@@ -865,23 +829,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         </article>
      </div>
 
-      <div class="table-container" id="ratings" >
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th class="sortable asc" data-sort="rating">Rating</th>
-              <th class="sortable" data-sort="win_percentage">Win %</th>
-              <th class="sortable" data-sort="streak">Streak</th>
-              <th class="sortable" data-sort="matches_played">Ranked matches 1v1</th>
-              <th class="sortable" data-sort="live">Watch</th>
-            </tr>
-          </thead>
-          <tbody id="ratings-table">
-          </tbody>
-        </table>
-      </div>
-
       
       <!-- Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. -->
       <footer class="w3-content w3-padding-64 w3-text-grey w3-large">
@@ -898,5 +845,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 document.addEventListener('DOMContentLoaded', () => {
   initiateListeners();
   insertPlayerData();
+  initiateObservers();
   console.log('loaded')
 });
