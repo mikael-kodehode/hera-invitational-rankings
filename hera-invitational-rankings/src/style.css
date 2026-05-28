@@ -72,6 +72,10 @@ article {
   margin: 0 2rem;
 }
 
+.liquipedia-icon {
+  color: #ffffff;
+}
+
 .player-intro-container {
   display: flex;
   justify-content: space-between;
@@ -87,6 +91,9 @@ article {
 
 .player-info-links-container {
   width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .player-trivia-container li{
@@ -143,9 +150,9 @@ tbody tr:hover {
   cursor: pointer;
 }
 
-.aoe-insights-logo {
-  width: 15px;
-  height: 15px;
+.streamer-links-ul img {
+  width: 30px;
+  height: 30px;
   margin-right: 5px;
 }
 
@@ -162,6 +169,10 @@ tbody tr:hover {
 
 .streamer-links-ul a {
   text-decoration: none;
+}
+
+.streamer-links-ul i {
+  font-size: 2rem;
 }
 
 /* Ensure numbers align properly to the right if you have stats/currency */

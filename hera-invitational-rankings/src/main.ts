@@ -87,19 +87,44 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <div class="player-info-links-container">
               <div id="grubby-profile-info"></div>
               <ul class="streamer-links-ul">
-                <li>
+                <li title="https://www.youtube.com/FollowGrubby">
                   <a href="https://www.youtube.com/FollowGrubby" target="_blank">
-                    <i class="fa-brands fa-youtube"></i> Youtube
+                    <i class="fa-brands fa-youtube"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.twitch.tv/grubby">
                   <a href="https://www.twitch.tv/grubby" target="_blank">
-                    <i class="fa-brands fa-twitch"></i> Twitch
+                    <i class="fa-brands fa-twitch"></i> 
                   </a>
                 </li>
-                <li>
+                <li title="https://www.aoe2insights.com/user/1819870">
                   <a href="https://www.aoe2insights.com/user/1819870" target="_blank">
-                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img  src="/aoeinsights-logo.webp" /> 
+                  </a>
+                </li>
+                <li title="https://en.wikipedia.org/wiki/Grubby">
+                  <a href="https://en.wikipedia.org/wiki/Grubby" target="_blank">
+                    <i class="fa-brands fa-wikipedia-w"></i> 
+                  </a>
+                </li>
+                <li title="https://liquipedia.net/warcraft/Grubby">
+                  <a href="https://liquipedia.net/warcraft/Grubby" target="_blank">
+                    <img src="/liquipedia_icon_menu.png" />
+                  </a>
+                </li>
+                <li title="https://discord.gg/grubby">
+                  <a href="https://discord.gg/grubby" target="_blank">
+                    <i class="fa-brands fa-discord"></i> 
+                  </a>
+                </li>
+                <li title="http://instagram.com/followgrubby">
+                  <a href="http://instagram.com/followgrubby" target="_blank">
+                    <i class="fa-brands fa-instagram"></i> 
+                  </a>
+                </li>
+                <li title="https://www.tiktok.com/@grubbytiktok">
+                  <a href="https://www.tiktok.com/@grubbytiktok" target="_blank">
+                    <i class="fa-brands fa-tiktok"></i> 
                   </a>
                 </li>
               </ul>
@@ -136,19 +161,44 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <div class="player-info-links-container">
               <div id="day9-profile-info"></div>
               <ul class="streamer-links-ul">
-                <li>
+                <li title="https://www.youtube.com/day9tv">
                   <a href="https://www.youtube.com/day9tv" target="_blank">
-                    <i class="fa-brands fa-youtube"></i> Youtube
+                    <i class="fa-brands fa-youtube"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.twitch.tv/day9">
                   <a href="https://www.twitch.tv/day9" target="_blank">
-                    <i class="fa-brands fa-twitch"></i> Twitch
+                    <i class="fa-brands fa-twitch"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.aoe2insights.com/user/2065858">
                   <a href="https://www.aoe2insights.com/user/2065858" target="_blank">
-                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img  src="/aoeinsights-logo.webp" />
+                  </a>
+                </li>
+                <li title="https://en.wikipedia.org/wiki/Sean_Plott">
+                  <a href="https://en.wikipedia.org/wiki/Sean_Plott" target="_blank">
+                    <i class="fa-brands fa-wikipedia-w"></i> 
+                  </a>
+                </li>
+                <li title="https://liquipedia.net/starcraft/Day(9)">
+                  <a href="https://liquipedia.net/starcraft/Day(9)" target="_blank">
+                    <img src="/liquipedia_icon_menu.png" />
+                  </a>
+                </li>
+                <li title="https://day9.tv/">
+                  <a href="https://day9.tv/" target="_blank">
+                    <img src="/day9tv-web-logo.webp" />
+                  </a>
+                </li>
+                <li title="https://discordapp.com/invite/day9tv">
+                  <a href="https://discordapp.com/invite/day9tv" target="_blank">
+                    <i class="fa-brands fa-discord"></i> 
+                  </a>
+                </li>
+                <li title="https://www.reddit.com/r/day9">
+                  <a href="https://www.reddit.com/r/day9" target="_blank">
+                    <img src="/iconmonstr-reddit-5.png" />
                   </a>
                 </li>
               </ul>
@@ -185,19 +235,24 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <div class="player-info-links-container">
               <div id="deathnote-profile-info"></div>
               <ul class="streamer-links-ul">
-                <li>
+                <li title="https://www.youtube.com/channel/UChGsaIBM_pEKkdXjYcJdpzA">
                   <a href="https://www.youtube.com/channel/UChGsaIBM_pEKkdXjYcJdpzA" target="_blank">
-                    <i class="fa-brands fa-youtube"></i> Youtube
+                    <i class="fa-brands fa-youtube"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.twitch.tv/followdeathnote">
                   <a href="https://www.twitch.tv/followdeathnote" target="_blank">
-                    <i class="fa-brands fa-twitch"></i> Twitch
+                    <i class="fa-brands fa-twitch"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.aoe2insights.com/user/6481045">
                   <a href="https://www.aoe2insights.com/user/6481045" target="_blank">
-                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img src="/aoeinsights-logo.webp" /> 
+                  </a>
+                </li>
+                <li title="https://liquipedia.net/warcraft/Deathnote">
+                  <a href="https://liquipedia.net/warcraft/Deathnote" target="_blank">
+                    <img src="/liquipedia_icon_menu.png" /> 
                   </a>
                 </li>
               </ul>
@@ -234,19 +289,34 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <div class="player-info-links-container">
               <div id="gunnar-profile-info"></div>
               <ul class="streamer-links-ul">
-                <li>
+                <li title="https://www.youtube.com/GunnarDota">
                   <a href="https://www.youtube.com/GunnarDota" target="_blank">
-                    <i class="fa-brands fa-youtube"></i> Youtube
+                    <i class="fa-brands fa-youtube"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.twitch.tv/gunnar">
                   <a href="https://www.twitch.tv/gunnar" target="_blank">
-                    <i class="fa-brands fa-twitch"></i> Twitch
+                    <i class="fa-brands fa-twitch"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.aoe2insights.com/user/7304675">
                   <a href="https://www.aoe2insights.com/user/7304675" target="_blank">
-                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img  src="/aoeinsights-logo.webp" />
+                  </a>
+                </li>
+                <li title="https://liquipedia.net/dota2/Gunnar">
+                  <a href="https://liquipedia.net/dota2/Gunnar" target="_blank">
+                    <img src="/liquipedia_icon_menu.png" />
+                  </a>
+                </li>
+                <li title="https://www.instagram.com/nico_lopez114">
+                  <a href="https://www.instagram.com/nico_lopez114" target="_blank">
+                    <i class="fa-brands fa-instagram"></i> 
+                  </a>
+                </li>
+                <li title="https://tiktok.com/@gunnardota">
+                  <a href="https://tiktok.com/@gunnardota" target="_blank">
+                    <i class="fa-brands fa-tiktok"></i> 
                   </a>
                 </li>
               </ul>
@@ -283,19 +353,39 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <div class="player-info-links-container">
               <div id="coopertv-profile-info"></div>
               <ul class="streamer-links-ul">
-                <li>
+                <li title="https://www.youtube.com/channel/UC1tTkPsQy_eSv4_9-ka-3GQ">
                   <a href="https://www.youtube.com/channel/UC1tTkPsQy_eSv4_9-ka-3GQ" target="_blank">
-                    <i class="fa-brands fa-youtube"></i> Youtube
+                    <i class="fa-brands fa-youtube"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.twitch.tv/coopertv">
                   <a href="https://www.twitch.tv/coopertv" target="_blank">
-                    <i class="fa-brands fa-twitch"></i> Twitch
+                    <i class="fa-brands fa-twitch"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.aoe2insights.com/user/705858">
                   <a href="https://www.aoe2insights.com/user/705858" target="_blank">
-                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img  src="/aoeinsights-logo.webp" />
+                  </a>
+                </li>
+                <li title="https://liquipedia.net/counterstrike/Cooper">
+                  <a href="https://liquipedia.net/counterstrike/Cooper" target="_blank">
+                    <img src="/liquipedia_icon_menu.png" />
+                  </a>
+                </li>
+                <li title="https://discord.gg/GxAVJABwFs">
+                  <a href="https://discord.gg/GxAVJABwFs" target="_blank">
+                    <i class="fa-brands fa-discord"></i>
+                  </a>
+                </li>
+                <li title="https://www.instagram.com/co0pertv">
+                  <a href="https://www.instagram.com/co0pertv" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                </li>
+                <li title="https://www.tiktok.com/@co0pertv">
+                  <a href="https://www.tiktok.com/@co0pertv" target="_blank">
+                    <i class="fa-brands fa-tiktok"></i>
                   </a>
                 </li>
               </ul>
@@ -332,19 +422,39 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <div class="player-info-links-container">
               <div id="knoff-profile-info"></div>
               <ul class="streamer-links-ul">
-                <li>
+                <li title="https://www.youtube.com/@campknoff">
                   <a href="https://www.youtube.com/@campknoff" target="_blank">
-                    <i class="fa-brands fa-youtube"></i> Youtube
+                    <i class="fa-brands fa-youtube"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.twitch.tv/knoff">
                   <a href="https://www.twitch.tv/knoff" target="_blank">
-                    <i class="fa-brands fa-twitch"></i> Twitch
+                    <i class="fa-brands fa-twitch"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.aoe2insights.com/user/228122">
                   <a href="https://www.aoe2insights.com/user/228122" target="_blank">
-                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img  src="/aoeinsights-logo.webp" />
+                  </a>
+                </li>
+                <li title="https://liquipedia.net/warcraft/KnOfF">
+                  <a href="https://liquipedia.net/warcraft/KnOfF" target="_blank">
+                    <img src="/liquipedia_icon_menu.png" />
+                  </a>
+                </li>
+                <li title="https://www.campknoff.com/">
+                  <a href="https://www.campknoff.com/" target="_blank">
+                    <img src="/campknoff.webp" />
+                  </a>
+                </li>
+                <li title="https://discord.gg/5aKRjMyGRa">
+                  <a href="https://discord.gg/5aKRjMyGRa" target="_blank">
+                    <i class="fa-brands fa-discord"></i>
+                  </a>
+                </li>
+                <li title="https://www.instagram.com/ptknopf/">
+                  <a href="https://www.instagram.com/ptknopf/" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
                   </a>
                 </li>
               </ul>
@@ -381,19 +491,34 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <div class="player-info-links-container">
               <div id="singsing-profile-info"></div>
               <ul class="streamer-links-ul">
-                <li>
+                <li title="https://www.youtube.com/channel/UC6c3OP2fWzaH5Nq5kh4m_SA">
                   <a href="https://www.youtube.com/channel/UC6c3OP2fWzaH5Nq5kh4m_SA" target="_blank">
-                    <i class="fa-brands fa-youtube"></i> Youtube
+                    <i class="fa-brands fa-youtube"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.twitch.tv/singsing">
                   <a href="https://www.twitch.tv/singsing" target="_blank">
-                    <i class="fa-brands fa-twitch"></i> Twitch
+                    <i class="fa-brands fa-twitch"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.aoe2insights.com/user/255573">
                   <a href="https://www.aoe2insights.com/user/255573" target="_blank">
-                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img  src="/aoeinsights-logo.webp" />
+                  </a>
+                </li>
+                <li title="https://liquipedia.net/dota2/SingSing">
+                  <a href="https://liquipedia.net/dota2/SingSing" target="_blank">
+                    <img src="/liquipedia_icon_menu.png" />
+                  </a>
+                </li>
+                <li title="https://www.instagram.com/wehsing">
+                  <a href="https://www.instagram.com/wehsing" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                </li>
+                <li title="https://www.tiktok.com/@singsingclips">
+                  <a href="https://www.tiktok.com/@singsingclips" target="_blank">
+                    <i class="fa-brands fa-tiktok"></i>
                   </a>
                 </li>
               </ul>
@@ -430,19 +555,34 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <div class="player-info-links-container">
               <div id="uthermal-profile-info"></div>
               <ul class="streamer-links-ul">
-                <li>
+                <li title="https://www.youtube.com/uthermal">
                   <a href="https://www.youtube.com/uthermal" target="_blank">
-                    <i class="fa-brands fa-youtube"></i> Youtube
+                    <i class="fa-brands fa-youtube"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.twitch.tv/uthermalsc2">
                   <a href="https://www.twitch.tv/uthermalsc2" target="_blank">
-                    <i class="fa-brands fa-twitch"></i> Twitch
+                    <i class="fa-brands fa-twitch"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.aoe2insights.com/user/4473383">
                   <a href="https://www.aoe2insights.com/user/4473383" target="_blank">
-                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img  src="/aoeinsights-logo.webp" />
+                  </a>
+                </li>
+                <li title="https://liquipedia.net/starcraft2/UThermal">
+                  <a href="https://liquipedia.net/starcraft2/UThermal" target="_blank">
+                    <img src="/liquipedia_icon_menu.png" />
+                  </a>
+                </li>
+                <li title="https://discord.com/invite/0sOOTkUVcpQxHvTs">
+                  <a href="https://discord.com/invite/0sOOTkUVcpQxHvTs" target="_blank">
+                    <i class="fa-brands fa-discord"></i>
+                  </a>
+                </li>
+                <li title="https://www.instagram.com/marcxd_">
+                  <a href="https://www.instagram.com/marcxd_" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
                   </a>
                 </li>
               </ul>
@@ -479,19 +619,39 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <div class="player-info-links-container">
               <div id="pig-profile-info"></div>
               <ul class="streamer-links-ul">
-                <li>
+                <li title="https://www.youtube.com/PiGstarcraft">
                   <a href="https://www.youtube.com/PiGstarcraft" target="_blank">
-                    <i class="fa-brands fa-youtube"></i> Youtube
+                    <i class="fa-brands fa-youtube"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.twitch.tv/x5_pig">
                   <a href="https://www.twitch.tv/x5_pig" target="_blank">
-                    <i class="fa-brands fa-twitch"></i> Twitch
+                    <i class="fa-brands fa-twitch"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.aoe2insights.com/user/5735770">
                   <a href="https://www.aoe2insights.com/user/5735770" target="_blank">
-                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img  src="/aoeinsights-logo.webp" />
+                  </a>
+                </li>
+                <li title="https://liquipedia.net/starcraft2/PiG">
+                  <a href="https://liquipedia.net/starcraft2/PiG" target="_blank">
+                    <img src="/liquipedia_icon_menu.png" />
+                  </a>
+                </li>
+                <li title="https://www.pigstarcraft.com/">
+                  <a href="https://www.pigstarcraft.com/" target="_blank">
+                    <img src="/pig-web-logo.png" />
+                  </a>
+                </li>
+                <li title="https://www.patreon.com/cw/PiGSC2">
+                  <a href="https://www.patreon.com/cw/PiGSC2" target="_blank">
+                    <i class="fa-brands fa-patreon"></i>
+                  </a>
+                </li>
+                <li title="https://discord.gg/SkhbzCM">
+                  <a href="https://discord.gg/SkhbzCM" target="_blank">
+                    <i class="fa-brands fa-discord"></i>
                   </a>
                 </li>
               </ul>
@@ -528,19 +688,19 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <div class="player-info-links-container">
               <div id="ahmpy-profile-info"></div>
               <ul class="streamer-links-ul">
-                <li>
+                <li title="https://www.youtube.com/@Ahmpy">
                   <a href="https://www.youtube.com/@Ahmpy" target="_blank">
-                    <i class="fa-brands fa-youtube"></i> Youtube
+                    <i class="fa-brands fa-youtube"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.twitch.tv/ahmpy">
                   <a href="https://www.twitch.tv/ahmpy" target="_blank">
-                    <i class="fa-brands fa-twitch"></i> Twitch
+                    <i class="fa-brands fa-twitch"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.aoe2insights.com/user/25478303">
                   <a href="https://www.aoe2insights.com/user/25478303" target="_blank">
-                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img  src="/aoeinsights-logo.webp" />
                   </a>
                 </li>
               </ul>
@@ -577,19 +737,34 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
             <div class="player-info-links-container">
               <div id="yamatocannon-profile-info"></div>
               <ul class="streamer-links-ul">
-                <li>
+                <li title="https://www.youtube.com/channel/UCRRfSRlDq2ma7xp_8HYvYeA">
                   <a href="https://www.youtube.com/channel/UCRRfSRlDq2ma7xp_8HYvYeA" target="_blank">
-                    <i class="fa-brands fa-youtube"></i> Youtube
+                    <i class="fa-brands fa-youtube"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.twitch.tv/yamatocannon">
                   <a href="https://www.twitch.tv/yamatocannon" target="_blank">
-                    <i class="fa-brands fa-twitch"></i> Twitch
+                    <i class="fa-brands fa-twitch"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.aoe2insights.com/user/25503675">
                   <a href="https://www.aoe2insights.com/user/25503675" target="_blank">
-                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img  src="/aoeinsights-logo.webp" />
+                  </a>
+                </li>
+                <li title="https://liquipedia.net/leagueoflegends/YamatoCannon">
+                  <a href="https://liquipedia.net/leagueoflegends/YamatoCannon" target="_blank">
+                    <img src="/liquipedia_icon_menu.png" />
+                  </a>
+                </li>
+                <li title="https://discord.gg/ycsdVJJuFP">
+                  <a href="https://discord.gg/ycsdVJJuFP" target="_blank">
+                    <i class="fa-brands fa-discord"></i>
+                  </a>
+                </li>
+                <li title="https://www.instagram.com/yamatocannon1/">
+                  <a href="https://www.instagram.com/yamatocannon1/" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
                   </a>
                 </li>
               </ul>
@@ -620,25 +795,45 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <div id="yamatocannon-trivia" class="player-trivia-container"></div>
         </article>
 
-        <article id="LowkoProfile" class="player-profile">
+        <article id="LowkoProfile" class="player-profile" hidden>
           <h3>LowKo</h3>
           <div class="player-intro-container">
             <div class="player-info-links-container">
               <div id="lowko-profile-info"></div>
               <ul class="streamer-links-ul">
-                <li>
+                <li title="https://www.youtube.com/morelowko">
                   <a href="https://www.youtube.com/morelowko" target="_blank">
-                    <i class="fa-brands fa-youtube"></i> Youtube
+                    <i class="fa-brands fa-youtube"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.twitch.tv/lowkotv">
                   <a href="https://www.twitch.tv/lowkotv" target="_blank">
-                    <i class="fa-brands fa-twitch"></i> Twitch
+                    <i class="fa-brands fa-twitch"></i>
                   </a>
                 </li>
-                <li>
+                <li title="https://www.aoe2insights.com/user/338838">
                   <a href="https://www.aoe2insights.com/user/338838" target="_blank">
-                    <img class="aoe-insights-logo" src="/aoeinsights-logo.webp" /> AoE2 Insights
+                    <img  src="/aoeinsights-logo.webp" />
+                  </a>
+                </li>
+                <li title="https://liquipedia.net/starcraft2/Lowko">
+                  <a href="https://liquipedia.net/starcraft2/Lowko" target="_blank">
+                    <img src="/liquipedia_icon_menu.png" />
+                  </a>
+                </li>
+                <li title="http://patreon.com/lowkotv">
+                  <a href="http://patreon.com/lowkotv" target="_blank">
+                    <i class="fa-brands fa-patreon"></i>
+                  </a>
+                </li>
+                <li title="https://discord.gg/lowkotv">
+                  <a href="https://discord.gg/lowkotv" target="_blank">
+                    <i class="fa-brands fa-discord"></i>
+                  </a>
+                </li>
+                <li title="http://instagram.com/lowkotv">
+                  <a href="http://instagram.com/lowkotv" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
                   </a>
                 </li>
               </ul>
@@ -691,7 +886,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <!-- Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. -->
       <footer class="w3-content w3-padding-64 w3-text-grey w3-large">
       <p>
-        *Disclaimer: The number of matches and win percentage might not be completely accurate due to reasons like infrequent updates.
+        *This is an unofficial fan site and is not affiliated with Hera, Hera's Invitational, or the event organizers.
 
       <!-- End footer -->
       </footer>
