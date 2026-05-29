@@ -378,10 +378,10 @@ const renderEngine = () => {
     trElement.innerHTML = `
       <td class="rating-table-name-column"><span class="fi fi-${player.nationality}"></span>  ${player.name} (${player.username})</td>
       <td>${player.rating}</td>
-      <td>${player.win_percentage} %</td>
-      <td>${player.streak}</td>
+      <td class="collapse-win-percentage">${player.win_percentage} %</td>
+      <td class="collapse-streak">${player.streak}</td>
       <td>${player.matches_played}</td>
-      <td>
+      <td class="live-tracker-td">
         <a href='${Links.twitch}${player.twitch}' target='_blank'><i class="fa-brands fa-twitch"></i></a>
         ${(player.live) ? 
           `<span class="live-indicator">
