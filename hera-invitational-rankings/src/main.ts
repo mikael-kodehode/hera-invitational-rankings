@@ -63,7 +63,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </nav>
 
     <!-- Navbar on small screens (Hidden on medium and large screens) -->
-    <div class="w3-bottom w3-hide-large w3-hide-medium" id="myNavbar">
+    <nav class="w3-bottom w3-hide-large w3-hide-medium" id="myNavbar">
       <div class="w3-bar w3-black w3-center w3-small">
         <a href="#ratings" id="active-page-nav small-screen-nav-home" class="nav-link w3-bar-item  for-scroll-observer" style="width:25% !important">Ratings</a>
         <a href="#GrubbyProfile" id="small-screen-nav-ratings" class="nav-link w3-bar-item  for-scroll-observer" style="width:25% !important">Grubby</a>
@@ -78,7 +78,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <a href="#YamatoCannonProfile" id="small-screen-nav-home" class="nav-link w3-bar-item  for-scroll-observer" style="width:25% !important">YamatoCannon</a>
         <a href="#LowkoProfile" id="small-screen-nav-ratings" class="nav-link w3-bar-item  for-scroll-observer" style="width:25% !important">LowKo</a>
       </div>
-    </div>
+    </nav>
 
     <!-- Page Content -->
     <div class="" id="main">
@@ -843,9 +843,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       
       <!-- Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. -->
       <footer class="w3-content w3-padding-64 w3-text-grey w3-large">
-      <p>
-        *This is an unofficial fan site and is not affiliated with Hera, Hera's Invitational, or the event organizers.
-
+        <p>
+          *This is an unofficial fan site and is not affiliated with Hera, Hera's Invitational, or the event organizers.
+        </p>
       <!-- End footer -->
       </footer>
 

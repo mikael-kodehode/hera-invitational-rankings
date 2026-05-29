@@ -188,7 +188,10 @@ tbody tr:hover {
   background-color: #686e74;
   cursor: pointer;
 }
-
+footer p {
+  padding: 2rem;
+  margin: 0 2rem 4rem;
+}
 .streamer-links-ul img {
   width: 30px;
   height: 30px;
