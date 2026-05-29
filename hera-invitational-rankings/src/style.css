@@ -1,8 +1,17 @@
 @import url('https://www.w3schools.com/w3css/4/w3.css');
+:root {
+  /* Declaring the variables */
+  --primary-color: #10141a; 
+  --secondary-color: #222;
+  --third-color: #303030;
+}
 body, h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif; /* Applies your loaded Google font */
-  background-color: #10141a;
   color: white;
+}
+html {
+  scroll-behavior: auto;
+  background-color: var(--primary-color);
 }
 h2 {
   font-size: 3rem;
@@ -14,6 +23,15 @@ h2 {
     color: #fff !important;
     background-color: #000 !important;
 }
+#nav-profiles-icon {
+  padding: 1rem 0;
+  text-align: center
+}
+.streamer-article {
+  padding: 8px 0 !important;
+}
+CSS
+
 .w3-row-padding img {
   margin-bottom: 12px
 }
@@ -28,7 +46,7 @@ h2 {
 nav {
   color: white;
 }
-.page-nav li {
+#nav-ratings {
   padding: 2.5rem 0 !important;
 }
 .page-nav li p {
@@ -50,9 +68,21 @@ nav {
   padding: 0.5em;
   cursor: pointer;
 }
+.page-nav {
+  background-color: var(--secondary-color);
+}
 .active-page-nav, .active-streamer-article {
   background-color: #ccc;
   color:black;
+}
+.nav-link {
+  transition: color 0.3s ease;
+  width: 100%;
+}
+.nav-link.active {
+  color: #ffffff;
+  font-weight: bold;
+  border-bottom: 2px solid #ffffff;
 }
 .container-flex {
   display: flex;
@@ -79,6 +109,11 @@ article {
 .player-intro-container {
   display: flex;
   justify-content: space-between;
+  gap: 2rem
+}
+
+.player-profile {
+  padding: 3.5rem 0;
 }
 
 .player-profile p{
@@ -86,7 +121,8 @@ article {
 }
 
 .player-profile-picture {
-  height: 400px;
+  height: auto;
+  width: clamp(80px, 35vw, 350px);
 }
 
 .player-info-links-container {
@@ -123,14 +159,14 @@ table {
   border-collapse: collapse; /* Fixes overlapping double borders */
   font-family: sans-serif;
   font-size: 1.25rem;
-  background-color: #303030;
+  background-color: var(--third-color);
   text-align: left;
   margin: auto;
 }
 
 th, td {
   padding: 12px 15px; /* Clean spacing */
-  width: 25%;
+  height: 80px
 }
 
 thead tr {
@@ -153,7 +189,6 @@ tbody tr:hover {
 .streamer-links-ul img {
   width: 30px;
   height: 30px;
-  margin-right: 5px;
 }
 
 .streamer-links-ul {
@@ -161,6 +196,7 @@ tbody tr:hover {
   list-style-type: none;
   width: 100%;
   padding-left: 0;
+  flex-wrap: wrap;
 }
 
 .streamer-links-ul li {
@@ -173,6 +209,9 @@ tbody tr:hover {
 
 .streamer-links-ul i {
   font-size: 2rem;
+}
+.profile-image-container {
+  height:fit-content;
 }
 
 /* Ensure numbers align properly to the right if you have stats/currency */
@@ -195,7 +234,6 @@ tbody tr:hover {
 #ratings .rating-table-name-column {
   text-align: start;
 }
-
 /* Container to keep elements aligned */
 .live-indicator {
   display: inline-flex;
@@ -228,6 +266,9 @@ tbody tr:hover {
   border-radius: 50%;
   animation: pulse 1.5s infinite ease-in-out;
 }
+.live-tracker-td a {
+  display:block;
+}
 
 /* Animation timeline for the ripple effect */
 @keyframes pulse {
@@ -240,6 +281,45 @@ tbody tr:hover {
     opacity: 0;          /* Fades completely out */
   }
 }
-
+@media (max-width: 370px) {
+  .th, td {
+    padding: 12px 8px;
+  }
+}
+@media (max-width: 430px) {
+  .profile-image-container {
+    margin: auto;
+  }
+  h3 {
+    text-align: center;
+  }
+}
 /* Remove margins from "page content" on small screens */
-@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+@media only screen and (max-width: 600px) {
+  #main {margin-left: 0}
+}
+@media (max-width: 900px) {
+  .player-intro-container {
+    flex-direction: column-reverse;
+    gap: 0;
+  }
+  .player-profile-picture {
+    width:260px;
+  }
+  .player-info-links-container {
+    width:auto;
+  }
+}
+@media (max-width: 950px) {
+  .collapse-win-percentage {
+    display: none;
+  }
+  th, td {
+    padding: 12px 10px;
+  }
+}
+@media (max-width: 1100px) {
+  .collapse-streak {
+    display: none;
+  }
+}

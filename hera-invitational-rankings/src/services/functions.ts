@@ -5,7 +5,6 @@ import { grubbyProfileInfo, grubbyTrivia } from "../profiles/grubby";
 import { day9ProfileInfo, day9Trivia } from "../profiles/day9";
 import { deathnoteProfileInfo, deathnoteTrivia } from "../profiles/deathnote";
 import { gunnarProfileInfo, gunnarTrivia } from "../profiles/gunnar";
-import { coopertvProfileInfo, coopertvTrivia } from "../profiles/coopertv";
 import { knoffProfileInfo, knoffTrivia } from "../profiles/knoff";
 import { singsingProfileInfo, singsingTrivia } from "../profiles/singsing";
 import { uthermalProfileInfo, uthermalTrivia } from "../profiles/uthermal";
@@ -29,128 +28,73 @@ export const initiateListeners = () => {
   const AhmpyButton = document.querySelector('#AhmpyButton');
   const LowkoButton = document.querySelector('#LowkoButton');
 
-  const GrubbyProfile = document.querySelector("#GrubbyProfile")
-  const Day9Profile = document.querySelector("#Day9Profile")
-  // const AtriocProfile = document.querySelector("#AtriocProfile")
-  const DeathnoteProfile = document.querySelector("#DeathnoteProfile")
-  const GunnarProfile = document.querySelector("#GunnarProfile")
-  const CooperTVProfile = document.querySelector("#CooperTVProfile")
-  const KnoffProfile = document.querySelector("#KnoffProfile")
-  const SingSingProfile = document.querySelector("#SingSingProfile")
-  const uThermalProfile = document.querySelector("#uThermalProfile")
-  const PiGProfile = document.querySelector("#PiGProfile")
-  const YamatoCannonProfile = document.querySelector("#YamatoCannonProfile")
-  const AhmpyProfile = document.querySelector("#AhmpyProfile")
-  const LowkoProfile = document.querySelector("#LowkoProfile")
-
-  const homeContainer = document.querySelector("#home")
-  const ratingsContainer = document.querySelector("#ratings")
-  const navHomeButton = document.querySelector("#nav-home")
   const navRatingsButton = document.querySelector("#nav-ratings")
-  const smallScreenNavHomeButton = document.querySelector("#small-screen-nav-home")
-  const smallScreenNavRatingsButton = document.querySelector("#small-screen-nav-ratings")
 
-  const activateProfile = (profile: Element, profileButton: Element) => {
-    GrubbyProfile?.setAttribute("hidden", "true")
-    Day9Profile?.setAttribute("hidden", "true")
-    // AtriocProfile?.setAttribute("hidden","true")
-    DeathnoteProfile?.setAttribute("hidden", "true")
-    GunnarProfile?.setAttribute("hidden", "true")
-    CooperTVProfile?.setAttribute("hidden","true")
-    KnoffProfile?.setAttribute("hidden", "true")
-    SingSingProfile?.setAttribute("hidden","true")
-    uThermalProfile?.setAttribute("hidden", "true")
-    PiGProfile?.setAttribute("hidden","true")
-    YamatoCannonProfile?.setAttribute("hidden","true")
-    AhmpyProfile?.setAttribute("hidden","true")
-    LowkoProfile?.setAttribute("hidden","true")
-
-    GrubbyButton?.classList.remove("active-streamer-article")
-    Day9Button?.classList.remove("active-streamer-article")
-    // AtriocButton?.classList.remove("active-streamer-article")
-    DeathnoteButton?.classList.remove("active-streamer-article")
-    GunnarButton?.classList.remove("active-streamer-article")
-    CooperTVButton?.classList.remove("active-streamer-article")
-    KnoffButton?.classList.remove("active-streamer-article")
-    SingSingButton?.classList.remove("active-streamer-article")
-    uThermalButton?.classList.remove("active-streamer-article")
-    PiGButton?.classList.remove("active-streamer-article")
-    YamatoCannonButton?.classList.remove("active-streamer-article")
-    AhmpyButton?.classList.remove("active-streamer-article")
-    LowkoButton?.classList.remove("active-streamer-article")
-
-    profileButton.classList.add("active-streamer-article")
-    profile.removeAttribute("hidden")
-  };
-
-  const activatePage = (page: Element) => {
-    homeContainer?.setAttribute("hidden", "true")
-    ratingsContainer?.setAttribute("hidden", "true")
-    navHomeButton?.classList.remove("active-page-nav")
-    navRatingsButton?.classList.remove("active-page-nav")
-    homeContainer?.classList.remove("active-page")
-    ratingsContainer?.classList.remove("active-page")
-
-    page.classList.add("active-page")
-    page.removeAttribute("hidden")
+  const deactivateActiveNav = () => {
     
-    if(homeContainer?.classList.contains("active-page")) navHomeButton?.classList.add("active-page-nav")
-    else navRatingsButton?.classList.add("active-page-nav")
+    navRatingsButton?.classList.remove("active-page-nav")
+    GrubbyButton?.classList.remove("active-page-nav")
+    Day9Button?.classList.remove("active-page-nav")
+    // AtriocButton?.classList.remove("active-page-nav")
+    DeathnoteButton?.classList.remove("active-page-nav")
+    GunnarButton?.classList.remove("active-page-nav")
+    CooperTVButton?.classList.remove("active-page-nav")
+    KnoffButton?.classList.remove("active-page-nav")
+    SingSingButton?.classList.remove("active-page-nav")
+    uThermalButton?.classList.remove("active-page-nav")
+    PiGButton?.classList.remove("active-page-nav")
+    YamatoCannonButton?.classList.remove("active-page-nav")
+    AhmpyButton?.classList.remove("active-page-nav")
+    LowkoButton?.classList.remove("active-page-nav")
   }
 
   try {
     GrubbyButton?.addEventListener('click', () => {
-      if(GrubbyProfile) activateProfile(GrubbyProfile, GrubbyButton)
+      deactivateActiveNav()
     });
     Day9Button?.addEventListener('click', () => {
-      if(Day9Profile) activateProfile(Day9Profile, Day9Button)
+      deactivateActiveNav()
     });
     // AtriocButton?.addEventListener('click', () => {
     //   if(AtriocProfile) activateProfile(AtriocProfile, AtriocButton)
     // });
     DeathnoteButton?.addEventListener('click', () => {
-      if(DeathnoteProfile) activateProfile(DeathnoteProfile, DeathnoteButton)
+      deactivateActiveNav()
     });
     GunnarButton?.addEventListener('click', () => {
-      if(GunnarProfile) activateProfile(GunnarProfile, GunnarButton)
-    });
-    CooperTVButton?.addEventListener('click', () => {
-      if(CooperTVProfile) activateProfile(CooperTVProfile, CooperTVButton)
+      deactivateActiveNav()
     });
     KnoffButton?.addEventListener('click', () => {
-      if(KnoffProfile) activateProfile(KnoffProfile, KnoffButton)
+      deactivateActiveNav()
     });
     SingSingButton?.addEventListener('click', () => {
-      if(SingSingProfile) activateProfile(SingSingProfile, SingSingButton)
+      deactivateActiveNav()
     });
     uThermalButton?.addEventListener('click', () => {
-      if(uThermalProfile) activateProfile(uThermalProfile, uThermalButton)
+      deactivateActiveNav()
     });
     PiGButton?.addEventListener('click', () => {
-      if(PiGProfile) activateProfile(PiGProfile, PiGButton)
+      deactivateActiveNav()
     });
     YamatoCannonButton?.addEventListener('click', () => {
-      if(YamatoCannonProfile) activateProfile(YamatoCannonProfile, YamatoCannonButton)
+      deactivateActiveNav()
     });
     AhmpyButton?.addEventListener('click', () => {
-      if(AhmpyProfile) activateProfile(AhmpyProfile, AhmpyButton)
+      deactivateActiveNav()
     });
     LowkoButton?.addEventListener('click', () => {
-      if(LowkoProfile) activateProfile(LowkoProfile, LowkoButton)
+      deactivateActiveNav()
     });
 
     navRatingsButton?.addEventListener('click', () => {
-      if(ratingsContainer) activatePage(ratingsContainer)
+      deactivateActiveNav()
     })
-    navHomeButton?.addEventListener('click', () => {
-      if(homeContainer) activatePage(homeContainer)
-    })
-    smallScreenNavRatingsButton?.addEventListener('click', () => {
-      if(ratingsContainer) activatePage(ratingsContainer)
-    })
-    smallScreenNavHomeButton?.addEventListener('click', () => {
-      if(homeContainer) activatePage(homeContainer)
-    })
+    // navHomeButton?.addEventListener('click', () => {
+    //   if(homeContainer) activateMobile(homeContainer)
+    // })
+    // smallScreenNavRatingsButton?.addEventListener('click', () => {
+    //   if(ratingsContainer) activatePage(ratingsContainer)
+    // })
 
     // Click listener attached to the entire table header element group
     document.querySelector('thead')?.addEventListener('click', (event) => {
@@ -200,13 +144,6 @@ export const insertPlayerData = async () => {
   const gunnarWinPercentage = document.querySelector("#gunnar-win-percentage")
   const gunnarRating = document.querySelector("#gunnar-rating")
   const gunnarStreak = document.querySelector("#gunnar-streak")
-  
-  const coopertvProfileInfoElement = document.querySelector("#coopertv-profile-info")
-  const coopertvTriviaElement = document.querySelector("#coopertv-trivia")
-  const coopertvMatches = document.querySelector("#coopertv-matches")
-  const coopertvWinPercentage = document.querySelector("#coopertv-win-percentage")
-  const coopertvRating = document.querySelector("#coopertv-rating")
-  const coopertvStreak = document.querySelector("#coopertv-streak")
   
   const knoffProfileInfoElement = document.querySelector("#knoff-profile-info")
   const knoffTriviaElement = document.querySelector("#knoff-trivia")
@@ -292,14 +229,7 @@ export const insertPlayerData = async () => {
     if(gunnarStreak) gunnarStreak.innerHTML = data['Gunnar'].streak.toString()
     if(gunnarRating) gunnarRating.innerHTML = data['Gunnar'].rating.toString()
     if(gunnarWinPercentage) gunnarWinPercentage.innerHTML = data['Gunnar'].win_percentage.toString()
-  
-    if(coopertvProfileInfoElement) coopertvProfileInfoElement.innerHTML = coopertvProfileInfo
-    if(coopertvTriviaElement) coopertvTriviaElement.innerHTML = coopertvTrivia
-    if(coopertvMatches) coopertvMatches.innerHTML = data['CooperTV'].matches_played.toString()
-    if(coopertvStreak) coopertvStreak.innerHTML = data['CooperTV'].streak.toString()
-    if(coopertvRating) coopertvRating.innerHTML = data['CooperTV'].rating.toString()
-    if(coopertvWinPercentage) coopertvWinPercentage.innerHTML = data['CooperTV'].win_percentage.toString()
-  
+   
     if(knoffProfileInfoElement) knoffProfileInfoElement.innerHTML = knoffProfileInfo
     if(knoffTriviaElement) knoffTriviaElement.innerHTML = knoffTrivia
     if(knoffMatches) knoffMatches.innerHTML = data['Knoff'].matches_played.toString()
@@ -353,6 +283,38 @@ export const insertPlayerData = async () => {
     throw new Error("Insert data failed");
     
   }
+}
+
+export const initiateObservers = () => {
+  const articles = document.querySelectorAll<HTMLElement>(".for-scroll-observer");
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-link");
+
+  const observerOptions = {
+    root: null, // defaults to the browser viewport
+    rootMargin: "-20% 0px -60% 0px", // Triggers when section occupies the sweet spot of the screen
+    threshold: 0, 
+  };
+ 
+ // 3. Define what happens when a section enters the view
+  const observerCallback = (entries: IntersectionObserverEntry[]) => {
+    entries.forEach((entry) => {
+      // We only care if the section is actively intersecting inside our rootMargin bounds
+      if (entry.isIntersecting) {
+        const activeId = entry.target.getAttribute("id");
+
+        // Loop through all links and toggle the 'active' class
+        navLinks.forEach((link) => {
+          if (link.getAttribute("href") === `#${activeId}`) {
+            link.classList.add("active-page-nav");
+          } else {
+            link.classList.remove("active-page-nav");
+          }
+        });
+      }
+    });
+  };
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+  articles.forEach((article) => observer.observe(article));
 }
 
 let currentSortColumn: string = 'rating'; 
@@ -416,10 +378,10 @@ const renderEngine = () => {
     trElement.innerHTML = `
       <td class="rating-table-name-column"><span class="fi fi-${player.nationality}"></span>  ${player.name} (${player.username})</td>
       <td>${player.rating}</td>
-      <td>${player.win_percentage} %</td>
-      <td>${player.streak}</td>
+      <td class="collapse-win-percentage">${player.win_percentage} %</td>
+      <td class="collapse-streak">${player.streak}</td>
       <td>${player.matches_played}</td>
-      <td>
+      <td class="live-tracker-td">
         <a href='${Links.twitch}${player.twitch}' target='_blank'><i class="fa-brands fa-twitch"></i></a>
         ${(player.live) ? 
           `<span class="live-indicator">
@@ -458,6 +420,7 @@ const updateHeaderUI = (activeColumn: string) => {
     }
   });
 };
+
 export const initiatePlayerData = async () => {
   try {
     const playerData = await fetchPlayerData()
@@ -472,3 +435,4 @@ export const initiatePlayerData = async () => {
     
   }
 }
+
