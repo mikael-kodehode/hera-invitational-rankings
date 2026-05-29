@@ -76,7 +76,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <a href="#PiGProfile" id="small-screen-nav-home" class="nav-link w3-bar-item w3-button for-scroll-observer" style="width:25% !important">PiG</a>
         <a href="#AhmpyProfile" id="small-screen-nav-home" class="nav-link w3-bar-item w3-button for-scroll-observer" style="width:25% !important">Ahmpy</a>
         <a href="#YamatoCannonProfile" id="small-screen-nav-home" class="nav-link w3-bar-item w3-button for-scroll-observer" style="width:25% !important">YamatoCannon</a>
-        <a href="#LowkoProfileings" id="small-screen-nav-ratings" class="nav-link w3-bar-item w3-button for-scroll-observer" style="width:25% !important">LowKo</a>
+        <a href="#LowkoProfile" id="small-screen-nav-ratings" class="nav-link w3-bar-item w3-button for-scroll-observer" style="width:25% !important">LowKo</a>
       </div>
     </div>
 
