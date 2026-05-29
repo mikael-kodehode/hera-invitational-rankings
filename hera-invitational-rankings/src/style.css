@@ -78,6 +78,9 @@ nav {
 .nav-link {
   transition: color 0.3s ease;
   width: 100%;
+  text-decoration: none;
+  text-align: center;
+  cursor:pointer;
 }
 .nav-link.active {
   color: #ffffff;
