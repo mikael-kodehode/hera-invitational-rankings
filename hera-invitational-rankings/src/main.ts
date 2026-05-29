@@ -63,10 +63,20 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </nav>
 
     <!-- Navbar on small screens (Hidden on medium and large screens) -->
-    <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-      <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-        <a id="small-screen-nav-home" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
-        <a id="small-screen-nav-ratings" class="w3-bar-item w3-button" style="width:25% !important">RATINGS</a>
+    <div class="w3-bottom w3-hide-large w3-hide-medium" id="myNavbar">
+      <div class="w3-bar w3-black w3-center w3-small">
+        <a href="#ratings" id="small-screen-nav-home" class="nav-link w3-bar-item w3-button for-scroll-observer" style="width:25% !important">Ratings</a>
+        <a href="#GrubbyProfile" id="small-screen-nav-ratings" class="nav-link w3-bar-item w3-button for-scroll-observer" style="width:25% !important">Grubby</a>
+        <a href="#Day9Profile" id="small-screen-nav-home" class="nav-link w3-bar-item w3-button for-scroll-observer" style="width:25% !important">Day9</a>
+        <a href="#DeathnoteProfile" id="small-screen-nav-ratings" class="nav-link w3-bar-item w3-button for-scroll-observer" style="width:25% !important">Deathnote</a>
+        <a href="#GunnarProfile" id="small-screen-nav-ratings" class="nav-link w3-bar-item w3-button for-scroll-observer" style="width:25% !important">Gunnar</a>
+        <a href="#KnoffProfile" id="small-screen-nav-home" class="nav-link w3-bar-item w3-button for-scroll-observer" style="width:25% !important">Knoff</a>
+        <a href="#SingSingProfile" id="small-screen-nav-ratings" class="nav-link w3-bar-item w3-button for-scroll-observer" style="width:25% !important">SingSing</a>
+        <a href="#uThermalProfile" id="small-screen-nav-ratings" class="nav-link w3-bar-item w3-button for-scroll-observer" style="width:25% !important">uThermal</a>
+        <a href="#PiGProfile" id="small-screen-nav-home" class="nav-link w3-bar-item w3-button for-scroll-observer" style="width:25% !important">PiG</a>
+        <a href="#AhmpyProfile" id="small-screen-nav-home" class="nav-link w3-bar-item w3-button for-scroll-observer" style="width:25% !important">Ahmpy</a>
+        <a href="#YamatoCannonProfile" id="small-screen-nav-home" class="nav-link w3-bar-item w3-button for-scroll-observer" style="width:25% !important">YamatoCannon</a>
+        <a href="#LowkoProfileings" id="small-screen-nav-ratings" class="nav-link w3-bar-item w3-button for-scroll-observer" style="width:25% !important">LowKo</a>
       </div>
     </div>
 
