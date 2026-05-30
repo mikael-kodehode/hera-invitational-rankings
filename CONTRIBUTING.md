@@ -22,6 +22,7 @@ If you're ready to dive into the codebase and write some code:
 1. Look for existing issues or open one to discuss your proposed changes.
 2. Fork the repository and create your branch from `main`.
 3. Keep your changes focused—it's much easier to review small, intentional pull requests than giant updates.
+4. PR goes to dev so we can check the preview deployment on Vercel.
 
 ---
 
