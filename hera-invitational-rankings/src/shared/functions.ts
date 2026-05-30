@@ -121,17 +121,17 @@ export const insertPlayerData = async () => {
     fillRatingTable(data)
     if(grubbyProfileInfoElement) grubbyProfileInfoElement.innerHTML = grubbyProfileInfo
     if(grubbyTriviaElement) grubbyTriviaElement.innerHTML = grubbyTrivia
-    if(grubbyMatches) grubbyMatches.innerHTML = data['Grubby'].matches_played.toString()
-    if(grubbyStreak) grubbyStreak.innerHTML = data['Grubby'].streak.toString()
-    if(grubbyRating) grubbyRating.innerHTML = data['Grubby'].rating.toString()
-    if(grubbyWinPercentage) grubbyWinPercentage.innerHTML = data['Grubby'].win_percentage.toString()
+    if(grubbyMatches) grubbyMatches.innerHTML = data['Grubby']?.matches_played?.toString() ?? ''
+    if(grubbyStreak) grubbyStreak.innerHTML = data['Grubby']?.streak?.toString() ?? ''
+    if(grubbyRating) grubbyRating.innerHTML = data['Grubby']?.rating?.toString() ?? ''
+    if(grubbyWinPercentage) grubbyWinPercentage.innerHTML = data['Grubby']?.win_percentage?.toString() ?? ''
   
     if(day9ProfileInfoElement) day9ProfileInfoElement.innerHTML = day9ProfileInfo
     if(day9TriviaElement) day9TriviaElement.innerHTML = day9Trivia
-    if(day9Matches) day9Matches.innerHTML = data['Day9'].matches_played.toString()
-    if(day9Streak) day9Streak.innerHTML = data['Day9'].streak.toString()
-    if(day9Rating) day9Rating.innerHTML = data['Day9'].rating.toString()
-    if(day9WinPercentage) day9WinPercentage.innerHTML = data['Day9'].win_percentage.toString()
+    if(day9Matches) day9Matches.innerHTML = data['Day9']?.matches_played?.toString() ?? ''
+    if(day9Streak) day9Streak.innerHTML = data['Day9']?.streak?.toString() ?? ''
+    if(day9Rating) day9Rating.innerHTML = data['Day9']?.rating?.toString() ?? ''
+    if(day9WinPercentage) day9WinPercentage.innerHTML = data['Day9']?.win_percentage?.toString() ?? ''
   
     // if(atriocMatches) atriocMatches.innerHTML = data[PlayerIDFromName.Atrioc].matches_played.toString()
     // if(atriocStreak) atriocStreak.innerHTML = data[PlayerIDFromName.Atrioc].streak.toString()
@@ -140,66 +140,73 @@ export const insertPlayerData = async () => {
     
     if(deathnoteProfileInfoElement) deathnoteProfileInfoElement.innerHTML = deathnoteProfileInfo
     if(deathnoteTriviaElement) deathnoteTriviaElement.innerHTML = deathnoteTrivia
-    if(deathnoteMatches) deathnoteMatches.innerHTML = data['Deathnote'].matches_played.toString()
-    if(deathnoteStreak) deathnoteStreak.innerHTML = data['Deathnote'].streak.toString()
-    if(deathnoteRating) deathnoteRating.innerHTML = data['Deathnote'].rating.toString()
-    if(deathnoteWinPercentage) deathnoteWinPercentage.innerHTML = data['Deathnote'].win_percentage.toString()
+    if(deathnoteMatches) deathnoteMatches.innerHTML = data['Deathnote']?.matches_played?.toString() ?? ''
+    if(deathnoteStreak) deathnoteStreak.innerHTML = data['Deathnote']?.streak?.toString() ?? ''
+    if(deathnoteRating) deathnoteRating.innerHTML = data['Deathnote']?.rating?.toString() ?? ''
+    if(deathnoteWinPercentage) deathnoteWinPercentage.innerHTML = data['Deathnote']?.win_percentage?.toString() ?? ''
     
     if(gunnarProfileInfoElement) gunnarProfileInfoElement.innerHTML = gunnarProfileInfo
     if(gunnarTriviaElement) gunnarTriviaElement.innerHTML = gunnarTrivia
-    if(gunnarMatches) gunnarMatches.innerHTML = data['Gunnar'].matches_played.toString()
-    if(gunnarStreak) gunnarStreak.innerHTML = data['Gunnar'].streak.toString()
-    if(gunnarRating) gunnarRating.innerHTML = data['Gunnar'].rating.toString()
-    if(gunnarWinPercentage) gunnarWinPercentage.innerHTML = data['Gunnar'].win_percentage.toString()
+    if(gunnarMatches) gunnarMatches.innerHTML = data['Gunnar']?.matches_played?.toString() ?? ''
+    if(gunnarStreak) gunnarStreak.innerHTML = data['Gunnar']?.streak?.toString() ?? ''
+    if(gunnarRating) gunnarRating.innerHTML = data['Gunnar']?.rating?.toString() ?? ''
+    if(gunnarWinPercentage) gunnarWinPercentage.innerHTML = data['Gunnar']?.win_percentage?.toString() ?? ''
    
     if(knoffProfileInfoElement) knoffProfileInfoElement.innerHTML = knoffProfileInfo
     if(knoffTriviaElement) knoffTriviaElement.innerHTML = knoffTrivia
-    if(knoffMatches) knoffMatches.innerHTML = data['Knoff'].matches_played.toString()
-    if(knoffStreak) knoffStreak.innerHTML = data['Knoff'].streak.toString()
-    if(knoffRating) knoffRating.innerHTML = data['Knoff'].rating.toString()
-    if(knoffWinPercentage) knoffWinPercentage.innerHTML = data['Knoff'].win_percentage.toString()
+    if(knoffMatches) knoffMatches.innerHTML = data['Knoff']?.matches_played?.toString() ?? ''
+    if(knoffStreak) knoffStreak.innerHTML = data['Knoff']?.streak?.toString() ?? ''
+    if(knoffRating) knoffRating.innerHTML = data['Knoff']?.rating?.toString() ?? ''
+    if(knoffWinPercentage) knoffWinPercentage.innerHTML = data['Knoff']?.win_percentage?.toString() ?? ''
     
     if(singsingProfileInfoElement) singsingProfileInfoElement.innerHTML = singsingProfileInfo
     if(singsingTriviaElement) singsingTriviaElement.innerHTML = singsingTrivia
-    if(singsingMatches) singsingMatches.innerHTML = data['SingSing'].matches_played.toString()
-    if(singsingStreak) singsingStreak.innerHTML = data['SingSing'].streak.toString()
-    if(singsingRating) singsingRating.innerHTML = data['SingSing'].rating.toString()
-    if(singsingWinPercentage) singsingWinPercentage.innerHTML = data['SingSing'].win_percentage.toString()
+    if(singsingMatches) singsingMatches.innerHTML = data['SingSing']?.matches_played?.toString() ?? ''
+    if(singsingStreak) singsingStreak.innerHTML = data['SingSing']?.streak?.toString() ?? ''
+    if(singsingRating) singsingRating.innerHTML = data['SingSing']?.rating?.toString() ?? ''
+    if(singsingWinPercentage) singsingWinPercentage.innerHTML = data['SingSing']?.win_percentage?.toString() ?? ''
   
     if(uthermalProfileInfoElement) uthermalProfileInfoElement.innerHTML = uthermalProfileInfo
     if(uthermalTriviaElement) uthermalTriviaElement.innerHTML = uthermalTrivia
-    if(uthermalMatches) uthermalMatches.innerHTML = data['uThermal'].matches_played.toString()
-    if(uthermalStreak) uthermalStreak.innerHTML = data['uThermal'].streak.toString()
-    if(uthermalRating) uthermalRating.innerHTML = data['uThermal'].rating.toString()
-    if(uthermalWinPercentage) uthermalWinPercentage.innerHTML = data['uThermal'].win_percentage.toString()
+    if(uthermalMatches) uthermalMatches.innerHTML = data['uThermal']?.matches_played?.toString() ?? ''
+    if(uthermalStreak) uthermalStreak.innerHTML = data['uThermal']?.streak?.toString() ?? ''
+    if(uthermalRating) uthermalRating.innerHTML = data['uThermal']?.rating?.toString() ?? ''
+    if(uthermalWinPercentage) uthermalWinPercentage.innerHTML = data['uThermal']?.win_percentage?.toString() ?? ''
     
     if(pigProfileInfoElement) pigProfileInfoElement.innerHTML = pigProfileInfo
     if(pigTriviaElement) pigTriviaElement.innerHTML = pigTrivia
-    if(pigMatches) pigMatches.innerHTML = data['PiG'].matches_played.toString()
-    if(pigStreak) pigStreak.innerHTML = data['PiG'].streak.toString()
-    if(pigRating) pigRating.innerHTML = data['PiG'].rating.toString()
-    if(pigWinPercentage) pigWinPercentage.innerHTML = data['PiG'].win_percentage.toString()
+    if(pigMatches) pigMatches.innerHTML = data['PiG']?.matches_played?.toString() ?? ''
+    if(pigStreak) pigStreak.innerHTML = data['PiG']?.streak?.toString() ?? ''
+    if(pigRating) pigRating.innerHTML = data['PiG']?.rating?.toString() ?? ''
+    if(pigWinPercentage) pigWinPercentage.innerHTML = data['PiG']?.win_percentage?.toString() ?? ''
     
     if(yamatocannonProfileInfoElement) yamatocannonProfileInfoElement.innerHTML = yamatocannonProfileInfo
     if(yamatocannonTriviaElement) yamatocannonTriviaElement.innerHTML = yamatocannonTrivia
-    if(yamatocannonMatches) yamatocannonMatches.innerHTML = data['YamatoCannon'].matches_played.toString()
-    if(yamatocannonStreak) yamatocannonStreak.innerHTML = data['YamatoCannon'].streak.toString()
-    if(yamatocannonRating) yamatocannonRating.innerHTML = data['YamatoCannon'].rating.toString()
-    if(yamatocannonWinPercentage) yamatocannonWinPercentage.innerHTML = data['YamatoCannon'].win_percentage.toString()
+    if(yamatocannonMatches) yamatocannonMatches.innerHTML = data['YamatoCannon']?.matches_played?.toString() ?? ''
+    if(yamatocannonStreak) yamatocannonStreak.innerHTML = data['YamatoCannon']?.streak?.toString() ?? ''
+    if(yamatocannonRating) yamatocannonRating.innerHTML = data['YamatoCannon']?.rating?.toString() ?? ''
+    if(yamatocannonWinPercentage) yamatocannonWinPercentage.innerHTML = data['YamatoCannon']?.win_percentage?.toString() ?? ''
 
     if(ahmpyProfileInfoElement) ahmpyProfileInfoElement.innerHTML = ahmpyProfileInfo
     if(ahmpyTriviaElement) ahmpyTriviaElement.innerHTML = ahmpyTrivia
-    if(ahmpyMatches) ahmpyMatches.innerHTML = data['Ahmpy'].matches_played.toString()
-    if(ahmpyStreak) ahmpyStreak.innerHTML = data['Ahmpy'].streak.toString()
-    if(ahmpyRating) ahmpyRating.innerHTML = data['Ahmpy'].rating.toString()
-    if(ahmpyWinPercentage) ahmpyWinPercentage.innerHTML = data['Ahmpy'].win_percentage.toString()
+    if(ahmpyMatches) ahmpyMatches.innerHTML = data['Ahmpy']?.matches_played?.toString() ?? ''
+    if(ahmpyStreak) ahmpyStreak.innerHTML = data['Ahmpy']?.streak?.toString() ?? ''
+    if(ahmpyRating) ahmpyRating.innerHTML = data['Ahmpy']?.rating?.toString() ?? ''
+    if(ahmpyWinPercentage) ahmpyWinPercentage.innerHTML = data['Ahmpy']?.win_percentage?.toString() ?? ''
 
     if(lowkoProfileInfoElement) lowkoProfileInfoElement.innerHTML = lowkoProfileInfo
     if(lowkoTriviaElement) lowkoTriviaElement.innerHTML = lowkoTrivia
-    if(lowkoMatches) lowkoMatches.innerHTML = data['LowKo'].matches_played.toString()
-    if(lowkoStreak) lowkoStreak.innerHTML = data['LowKo'].streak.toString()
-    if(lowkoRating) lowkoRating.innerHTML = data['LowKo'].rating.toString()
-    if(lowkoWinPercentage) lowkoWinPercentage.innerHTML = data['LowKo'].win_percentage.toString()
+    if(lowkoMatches) lowkoMatches.innerHTML = data['LowKo']?.matches_played?.toString() ?? ''
+    if(lowkoStreak) lowkoStreak.innerHTML = data['LowKo']?.streak?.toString() ?? ''
+    if(lowkoRating) lowkoRating.innerHTML = data['LowKo']?.rating?.toString() ?? ''
+    if(lowkoWinPercentage) lowkoWinPercentage.innerHTML = data['LowKo']?.win_percentage?.toString() ?? ''
+
+    document.querySelectorAll('[id$="-streak"]').forEach(el => {
+      const val = parseInt(el.textContent || '0', 10)
+      if (val > 0) el.classList.add('text-emerald-400')
+      else if (val < 0) el.classList.add('text-red-400')
+      else el.classList.add('text-slate-400')
+    })
 
   } catch {
     throw new Error("Insert data failed");
@@ -301,23 +308,49 @@ const renderEngine = () => {
   });
 
   // Loop and append elements matching your exact design structure
-  for (const player of playerArray) {
+  for (let i = 0; i < playerArray.length; i++) {
+    const player = playerArray[i];
     const trElement = document.createElement("tr");
+    const rank = i + 1;
+    let rankHtml = `<span class="text-slate-400 font-medium">${rank}</span>`;
+    if (rank === 1) rankHtml = `<span class="text-amber-400 font-bold" title="1st"><i class="fa fa-trophy"></i></span>`;
+    else if (rank === 2) rankHtml = `<span class="text-slate-300 font-bold" title="2nd"><i class="fa fa-medal"></i></span>`;
+    else if (rank === 3) rankHtml = `<span class="text-amber-700 font-bold" title="3rd"><i class="fa fa-medal"></i></span>`;
     
+    trElement.className = 'hover:bg-slate-800/50 transition-colors border-b border-slate-800 last:border-b-0';
     trElement.innerHTML = `
-      <td class="rating-table-name-column"><span class="fi fi-${player.nationality}"></span>  ${player.name} (${player.username})</td>
-      <td>${player.rating}</td>
-      <td class="collapse-win-percentage">${player.win_percentage} %</td>
-      <td class="collapse-streak">${player.streak}</td>
-      <td>${player.matches_played}</td>
-      <td class="live-tracker-td">
-        <a href='${Links.twitch}${player.twitch}' target='_blank'><i class="fa-brands fa-twitch"></i></a>
-        ${(player.live) ? 
-          `<span class="live-indicator">
-            <span class="live-dot"></span>
-            LIVE
-          </span>` : ''
-        }
+      <td class="px-4 py-3 text-center text-sm w-10">${rankHtml}</td>
+      <td class="rating-table-name-column px-4 py-3 text-center">
+        <div class="inline-block text-left w-[160px]">
+          <div class="flex items-center gap-2">
+            <span class="fi fi-${player.nationality} rounded-sm shadow-sm"></span>
+            <div class="truncate">
+              <div class="font-semibold text-slate-100 truncate">${player.name}</div>
+              <div class="text-xs text-slate-400 truncate">${player.username}</div>
+            </div>
+          </div>
+        </div>
+      </td>
+      <td class="px-4 py-3 text-center font-bold text-amber-400">${player.rating}</td>
+      <td class="collapse-win-percentage px-4 py-3 text-center text-slate-300">${player.win_percentage}%</td>
+      <td class="collapse-streak px-4 py-3 text-center">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${player.streak > 0 ? 'bg-emerald-900/30 text-emerald-400' : player.streak < 0 ? 'bg-red-900/30 text-red-400' : 'bg-slate-800 text-slate-400'}">
+          ${player.streak > 0 ? '+' : ''}${player.streak}
+        </span>
+      </td>
+      <td class="px-4 py-3 text-center text-slate-300">${player.matches_played}</td>
+      <td class="live-tracker-td px-4 py-3 text-center min-w-[110px] overflow-visible">
+        <span class="relative inline-block">
+          <a href='${Links.twitch}${player.twitch}' target='_blank' title="Watch ${player.name} on Twitch" class="text-slate-400 hover:text-purple-400 transition-colors">
+            <i class="fa-brands fa-twitch text-lg"></i>
+          </a>
+          ${(player.live) ? 
+            `<span class="absolute left-full top-1/2 -translate-y-1/2 ml-3 inline-flex items-center gap-1 text-red-500 text-[10px] font-bold whitespace-nowrap">
+              <span class="live-dot"></span>
+              LIVE
+            </span>` : ''
+          }
+        </span>
       </td>
     `;
     ratingTable.appendChild(trElement);
@@ -353,7 +386,7 @@ const updateHeaderUI = (activeColumn: string) => {
 export const initiatePlayerData = async () => {
   try {
     const playerData = await fetchPlayerData()
-    if(!playerData) throw new Error("playerData falsy",)
+    if(!playerData) throw new Error("playerData falsy")
     const players = playerData.reduce((accumulator, currentItem) => {
       accumulator[currentItem.name] = currentItem;
       return accumulator;
@@ -417,4 +450,18 @@ export const insertClips = async () => {
       `
     clipGrid.appendChild(card)
   }
+}
+
+export const initSidebarToggle = () => {
+  const toggle = document.getElementById('sidebar-toggle');
+  const nav = document.querySelector('.page-nav');
+  if (!toggle || !nav) return;
+
+  const collapsed = localStorage.getItem('sidebar-collapsed') === 'true';
+  if (collapsed) nav.classList.add('collapsed');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('collapsed');
+    localStorage.setItem('sidebar-collapsed', String(nav.classList.contains('collapsed')));
+  });
 }

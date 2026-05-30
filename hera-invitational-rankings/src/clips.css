@@ -1,18 +1,15 @@
-
-/*css for gallery*/
+/* css for gallery */
 .gallery-container {
   max-width: 1300px;
   margin: 0 auto;
-  background-color: var(--twitch-bg);
-  color: var(--twitch-text);
-  font-family: var(--font-stack);
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .gallery-title {
   font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-slate-100);
 }
 
 /* Responsive Grid System */
@@ -27,6 +24,17 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  background-color: var(--color-slate-900);
+  border: 1px solid var(--color-slate-800);
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: 1rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.clip-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
 }
 
 /* Thumbnail and Overlays */
@@ -34,10 +42,11 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background-color: #000;
+  background-color: var(--color-slate-950);
   overflow: hidden;
   cursor: pointer;
   display: block;
+  border-radius: 0.75rem;
 }
 
 .thumbnail {
@@ -55,8 +64,8 @@
 /* Badges on top of Thumbnail */
 .badge {
   position: absolute;
-  background-color: var(--twitch-overlay-bg);
-  color: var(--twitch-text);
+  background-color: rgba(15, 23, 42, 0.8);
+  color: var(--color-slate-100);
   font-size: 0.75rem;
   font-weight: 600;
   padding: 0.1rem 0.4rem;
@@ -116,20 +125,21 @@
   text-overflow: ellipsis;
   margin-bottom: 0.2rem;
   cursor: pointer;
+  color: var(--color-slate-100);
 }
 
 .clip-name:hover {
-  color: var(--twitch-purple);
+  color: #a78bfa;
 }
 
 .broadcaster, .game {
   font-size: 0.8rem;
-  color: var(--twitch-text-muted);
+  color: var(--color-slate-400);
   line-height: 1.4;
 }
 
 .broadcaster:hover {
-  color: var(--twitch-purple);
+  color: #a78bfa;
   cursor: pointer;
 }
 
@@ -140,11 +150,11 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.85); /* Smooth dark backdrop */
-  z-index: 9999; /* Ensures it sits on top of all card components */
-  display: none; 
+  background-color: rgba(2, 6, 23, 0.9);
+  z-index: 9999;
+  display: none;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
 }
 
 /* Becomes visible when this active class is appended via JS */
@@ -157,15 +167,13 @@
   position: relative;
   width: 90%;
   max-width: 800px;
-  
-  /* 💡 ADD THIS: Ensures the player NEVER drops below Twitch's absolute minimum size limits */
-  min-width: 450px; 
+  min-width: 450px;
   min-height: 300px;
-  
-  background-color: #000;
-  border-radius: 8px;
+  background-color: var(--color-slate-900);
+  border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  border: 1px solid var(--color-slate-800);
 }
 
 /* Maintains clean 16:9 widescreen video scaling aspect ratios */
@@ -198,5 +206,5 @@
 }
 
 .modal-close-btn:hover {
-  color: var(--twitch-purple); /* Reuses your custom Twitch color variable */
+  color: #a78bfa;
 }

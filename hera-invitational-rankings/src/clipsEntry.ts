@@ -1,7 +1,8 @@
 import { loadClips } from "./pages/clips";
-import { insertClips } from "./shared/functions";
+import { insertClips, initSidebarToggle } from "./shared/functions";
 loadClips();
-insertClips()
+insertClips();
+initSidebarToggle()
 
 // Grabbing DOM Elements safely with strict casting
 const closeBtn = document.querySelector<HTMLButtonElement>("#close-modal")

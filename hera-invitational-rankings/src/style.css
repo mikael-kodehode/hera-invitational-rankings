@@ -1,337 +1,170 @@
-@import url('https://www.w3schools.com/w3css/4/w3.css');
-:root {
-  /* Declaring the variables */
-  --primary-color: #10141a; 
-  --secondary-color: #222;
-  --third-color: #303030;
-  --twitch-bg: #0e0e10;
-  --twitch-text: #efeff1;
-  --twitch-text-muted: #adadb8;
-  --twitch-purple: #9146ff;
-  --twitch-overlay-bg: rgba(0, 0, 0, 0.6);
-  --font-stack: Inter, Roobert, "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-body, h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif; /* Applies your loaded Google font */
-  color: white;
-}
+@import "tailwindcss";
+
 html {
-  scroll-behavior: auto;
-  background-color: var(--primary-color);
+  scroll-behavior: smooth;
 }
-h2 {
-  font-size: 3rem;
-}
-.w3-container,.w3-panel {
-    padding: 0.01em 16px
-}
-.w3-black, .w3-hover-black:hover {
-    color: #fff !important;
-    background-color: #000 !important;
-}
-#nav-profiles-icon {
-  padding: 1rem 0;
-  text-align: center
-}
-.streamer-article {
-  padding: 8px 0 !important;
-}
-CSS
 
-.w3-row-padding img {
-  margin-bottom: 12px
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --color-primary-50: #f0f4f8;
+  --color-primary-100: #d9e2ec;
+  --color-primary-200: #bcccdc;
+  --color-primary-300: #9fb3c8;
+  --color-primary-400: #829ab1;
+  --color-primary-500: #627d98;
+  --color-primary-600: #486581;
+  --color-primary-700: #334e68;
+  --color-primary-800: #243b53;
+  --color-primary-900: #102a43;
+  --color-primary-950: #061523;
+  --color-accent: #e11d48;
+  --color-accent-light: #fb7185;
+  --color-accent-dark: #9f1239;
 }
-/* Set the width of the sidebar to 120px */
-.w3-sidebar {
-  width: 120px;background: #222;
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-slate-950);
+  color: var(--color-slate-100);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-#main {
-  margin-left: 120px;
+
+.active-page-nav {
+  color: #fbbf24;
+  font-weight: 600;
 }
-nav {
+
+.page-nav .nav-link.active-page-nav .nav-icon-pill {
+  background: linear-gradient(135deg, #f59e0b, #ea580c);
   color: white;
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.25);
 }
-#nav-ratings, #nav-clips {
-  padding: 2.5rem 0 !important;
-}
-.page-nav li p {
-  margin-bottom: 0;
-}
-.some-links-container {
-  display: flex;
-  justify-content: center;
-}
-.some-links-container a {
-  padding: 0.250rem;
-  text-decoration: none;
-}
-.some-links-container a i {
-  font-size: 1.5rem;
-}
-#playerProfileNav li {
-  display: inline-block;
-  padding: 0.5em;
-  cursor: pointer;
-}
+
+/* Collapsible sidebar */
 .page-nav {
-  background-color: var(--secondary-color);
-}
-.active-page-nav, .active-streamer-article {
-  background-color: #ccc;
-  color:black;
-}
-.nav-link {
-  transition: color 0.3s ease;
-  width: 100%;
-  text-decoration: none;
-  text-align: center;
-  cursor:pointer;
-}
-.nav-link.active {
-  color: #ffffff;
-  font-weight: bold;
-  border-bottom: 2px solid #ffffff;
-}
-.container-flex {
-  display: flex;
-}
-.nav-streamer-article {
-  margin-bottom: 2rem;
-  width: 100%;       /* Spans the full width of its parent */
-  padding: 0;        /* Removes inner padding on the container sides */
-}
-.nav-streamer-article div {
-  padding: 0.875rem 1.25rem;
-  flex: 1;           /* Shorthand for flex-grow: 1, flex-shrink: 1, flex-basis: 0% */
-  min-width: 0;
+  width: 9rem;
+  transition: width 0.2s ease-in-out;
 }
 
-article {
-  margin: 0 2rem;
+.page-nav.collapsed {
+  width: 4rem;
 }
 
-.liquipedia-icon {
-  color: #ffffff;
+.page-nav.collapsed .nav-link > span {
+  display: none;
 }
 
-.player-intro-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem
+.page-nav.collapsed .nav-profiles {
+  display: none;
 }
 
-.player-profile {
-  padding: 3.5rem 0;
+.page-nav.collapsed .sidebar-toggle-icon {
+  transform: rotate(180deg);
 }
 
-.player-profile p{
-  line-height: 2rem;
+@media (min-width: 768px) {
+  .page-nav + #main {
+    margin-left: 9rem;
+    transition: margin-left 0.2s ease-in-out;
+  }
+
+  .page-nav.collapsed + #main {
+    margin-left: 4rem;
+  }
 }
 
-.player-profile-picture {
-  height: auto;
-  width: clamp(80px, 35vw, 350px);
-}
-
-.player-info-links-container {
-  width: 55%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.player-trivia-container li{
-  margin-bottom: 1rem;
-}
-
-.player-trivia-container li:last-child {
-  margin-bottom: 0 !important;
-}
-
-.thead {
-  height: 100px;
-}
-.rating-block {
-  margin: 1rem;
-}
-.table-container {
-  width: 100%;
-  overflow-x: auto;
-  margin: 20px 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
-}
-
-table {
-  width: 80%;
-  border-collapse: collapse; /* Fixes overlapping double borders */
-  font-family: sans-serif;
-  font-size: 1.25rem;
-  background-color: var(--third-color);
-  text-align: left;
-  margin: auto;
-}
-
-th, td {
-  padding: 12px 15px; /* Clean spacing */
-  height: 80px
-}
-
-thead tr {
-  background-color: #1e293b; /* Dark modern slate */
-  color: #ffffff;
-  font-weight: bold;
-}
-
-/* Zebra striping for better readability */
-tbody tr:nth-of-type(even) {
-  background-color: #3f3f3f;
-}
-
-/* Hover effect to track data easily across rows */
-tbody tr:hover {
-  background-color: #686e74;
-  cursor: pointer;
-}
-footer p {
-  padding: 2rem;
-  margin: 0 2rem 4rem;
-}
-.streamer-links-ul img {
-  width: 30px;
-  height: 30px;
-}
-
-.streamer-links-ul {
-  display: flex;
-  list-style-type: none;
-  width: 100%;
-  padding-left: 0;
-  flex-wrap: wrap;
-}
-
-.streamer-links-ul li {
-  padding: 1rem;
-}
-
-.streamer-links-ul a {
-  text-decoration: none;
-}
-
-.streamer-links-ul i {
-  font-size: 2rem;
-}
-.profile-image-container {
-  height:fit-content;
-}
-
-/* Ensure numbers align properly to the right if you have stats/currency */
-.numeric {
-  text-align: right;
-}
-
-#ratings {
-  text-align: center;
-}
-
-#ratings tr {
-  cursor:default;
-}
-
-#ratings td, #ratings th {
-  text-align:center;
-}
-
-#ratings .rating-table-name-column {
-  text-align: start;
-}
-/* Container to keep elements aligned */
-.live-indicator {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: sans-serif;
-  font-weight: bold;
-  font-size: 14px;
-  color: #e50914; /* Crimson Live Text */
-}
-
-/* The solid core circle */
 .live-dot {
   position: relative;
-  width: 10px;
-  height: 10px;
-  background-color: #ff0000;
-  border-radius: 50%;
+  display: inline-block;
+  width: 0.625rem;
+  height: 0.625rem;
+  background-color: var(--color-red-500);
+  border-radius: 9999px;
 }
 
-/* The pulsing outer ripple */
 .live-dot::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #ff0000;
-  border-radius: 50%;
-  animation: pulse 1.5s infinite ease-in-out;
-}
-.live-tracker-td a {
-  display:block;
+  inset: 0;
+  background-color: var(--color-red-500);
+  border-radius: 9999px;
+  animation: dot-pulse 1.5s infinite ease-in-out;
+  will-change: transform, opacity;
 }
 
-/* Animation timeline for the ripple effect */
-@keyframes pulse {
+.sortable {
+  cursor: pointer;
+  user-select: none;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.sortable:hover {
+  background-color: var(--color-slate-600);
+}
+
+.sortable.asc::after {
+  content: ' \25B2';
+  font-size: 0.75rem;
+  line-height: 1rem;
+  margin-left: 0.25rem;
+  opacity: 0.8;
+}
+
+.sortable.desc::after {
+  content: ' \25BC';
+  font-size: 0.75rem;
+  line-height: 1rem;
+  margin-left: 0.25rem;
+  opacity: 0.8;
+}
+
+@keyframes dot-pulse {
   0% {
     transform: scale(1);
-    opacity: 0.6;
+    opacity: 0.7;
   }
   100% {
-    transform: scale(3); /* Grows three times larger */
-    opacity: 0;          /* Fades completely out */
+    transform: scale(3);
+    opacity: 0;
   }
 }
-@media (max-width: 370px) {
-  .th, td {
-    padding: 12px 8px;
-  }
-}
-@media (max-width: 430px) {
-  .profile-image-container {
-    margin: auto;
-  }
-  h3 {
-    text-align: center;
-  }
-}
-/* Remove margins from "page content" on small screens */
-@media only screen and (max-width: 600px) {
-  #main {margin-left: 0}
-}
-@media (max-width: 900px) {
-  .player-intro-container {
-    flex-direction: column-reverse;
-    gap: 0;
-  }
-  .player-profile-picture {
-    width:260px;
-  }
-  .player-info-links-container {
-    width:auto;
-  }
-}
+
 @media (max-width: 950px) {
   .collapse-win-percentage {
     display: none;
   }
-  th, td {
-    padding: 12px 10px;
-  }
 }
+
 @media (max-width: 1100px) {
   .collapse-streak {
     display: none;
   }
 }
+
+.player-profile {
+  position: relative;
+}
+
+.player-profile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, #f59e0b, #ea580c);
+  z-index: 1;
+}
+
+.player-trivia-container ul {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+}
+
+.player-trivia-container li {
+  margin-bottom: 0.5rem;
+}
+
