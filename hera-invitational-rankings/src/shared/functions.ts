@@ -1,100 +1,21 @@
-import { fetchPlayerData } from "./api";
-import { Links } from "../types";
-import type { DatabaseItem } from "../types";
-import { grubbyProfileInfo, grubbyTrivia } from "../profiles/grubby";
-import { day9ProfileInfo, day9Trivia } from "../profiles/day9";
-import { deathnoteProfileInfo, deathnoteTrivia } from "../profiles/deathnote";
-import { gunnarProfileInfo, gunnarTrivia } from "../profiles/gunnar";
-import { knoffProfileInfo, knoffTrivia } from "../profiles/knoff";
-import { singsingProfileInfo, singsingTrivia } from "../profiles/singsing";
-import { uthermalProfileInfo, uthermalTrivia } from "../profiles/uthermal";
-import { pigProfileInfo, pigTrivia } from "../profiles/pig";
-import { yamatocannonProfileInfo, yamatocannonTrivia } from "../profiles/yamatocannon";
-import { ahmpyProfileInfo, ahmpyTrivia } from "../profiles/ahmpy";
-import { lowkoProfileInfo, lowkoTrivia } from "../profiles/lowko";
-  
+import { fetchPlayerData, fetchTwitchClips } from "./api";
+import { Links, TwitchIdFromTwitchChannel } from "../types";
+import type { IClipsDbItem, IDatabaseItem } from "../types";
+import { grubbyProfileInfo, grubbyTrivia } from "./profiles/grubby";
+import { day9ProfileInfo, day9Trivia } from "./profiles/day9";
+import { deathnoteProfileInfo, deathnoteTrivia } from "./profiles/deathnote";
+import { gunnarProfileInfo, gunnarTrivia } from "./profiles/gunnar";
+import { knoffProfileInfo, knoffTrivia } from "./profiles/knoff";
+import { singsingProfileInfo, singsingTrivia } from "./profiles/singsing";
+import { uthermalProfileInfo, uthermalTrivia } from "./profiles/uthermal";
+import { pigProfileInfo, pigTrivia } from "./profiles/pig";
+import { yamatocannonProfileInfo, yamatocannonTrivia } from "./profiles/yamatocannon";
+import { ahmpyProfileInfo, ahmpyTrivia } from "./profiles/ahmpy";
+import { lowkoProfileInfo, lowkoTrivia } from "./profiles/lowko";
+
+
 export const initiateListeners = () => {
-  const GrubbyButton = document.querySelector('#GrubbyButton');
-  const Day9Button = document.querySelector('#Day9Button');
-  // const AtriocButton = document.querySelector('#AtriocButton');
-  const DeathnoteButton = document.querySelector('#DeathnoteButton');
-  const GunnarButton = document.querySelector('#GunnarButton');
-  const CooperTVButton = document.querySelector('#CooperTVButton');
-  const KnoffButton = document.querySelector('#KnoffButton');
-  const SingSingButton = document.querySelector('#SingSingButton');
-  const uThermalButton = document.querySelector('#uThermalButton');
-  const PiGButton = document.querySelector('#PiGButton');
-  const YamatoCannonButton = document.querySelector('#YamatoCannonButton');
-  const AhmpyButton = document.querySelector('#AhmpyButton');
-  const LowkoButton = document.querySelector('#LowkoButton');
-
-  const navRatingsButton = document.querySelector("#nav-ratings")
-
-  const deactivateActiveNav = () => {
-    
-    navRatingsButton?.classList.remove("active-page-nav")
-    GrubbyButton?.classList.remove("active-page-nav")
-    Day9Button?.classList.remove("active-page-nav")
-    // AtriocButton?.classList.remove("active-page-nav")
-    DeathnoteButton?.classList.remove("active-page-nav")
-    GunnarButton?.classList.remove("active-page-nav")
-    CooperTVButton?.classList.remove("active-page-nav")
-    KnoffButton?.classList.remove("active-page-nav")
-    SingSingButton?.classList.remove("active-page-nav")
-    uThermalButton?.classList.remove("active-page-nav")
-    PiGButton?.classList.remove("active-page-nav")
-    YamatoCannonButton?.classList.remove("active-page-nav")
-    AhmpyButton?.classList.remove("active-page-nav")
-    LowkoButton?.classList.remove("active-page-nav")
-  }
-
   try {
-    GrubbyButton?.addEventListener('click', () => {
-      deactivateActiveNav()
-    });
-    Day9Button?.addEventListener('click', () => {
-      deactivateActiveNav()
-    });
-    // AtriocButton?.addEventListener('click', () => {
-    //   if(AtriocProfile) activateProfile(AtriocProfile, AtriocButton)
-    // });
-    DeathnoteButton?.addEventListener('click', () => {
-      deactivateActiveNav()
-    });
-    GunnarButton?.addEventListener('click', () => {
-      deactivateActiveNav()
-    });
-    KnoffButton?.addEventListener('click', () => {
-      deactivateActiveNav()
-    });
-    SingSingButton?.addEventListener('click', () => {
-      deactivateActiveNav()
-    });
-    uThermalButton?.addEventListener('click', () => {
-      deactivateActiveNav()
-    });
-    PiGButton?.addEventListener('click', () => {
-      deactivateActiveNav()
-    });
-    YamatoCannonButton?.addEventListener('click', () => {
-      deactivateActiveNav()
-    });
-    AhmpyButton?.addEventListener('click', () => {
-      deactivateActiveNav()
-    });
-    LowkoButton?.addEventListener('click', () => {
-      deactivateActiveNav()
-    });
-
-    navRatingsButton?.addEventListener('click', () => {
-      deactivateActiveNav()
-    })
-    // navHomeButton?.addEventListener('click', () => {
-    //   if(homeContainer) activateMobile(homeContainer)
-    // })
-    // smallScreenNavRatingsButton?.addEventListener('click', () => {
-    //   if(ratingsContainer) activatePage(ratingsContainer)
-    // })
 
     // Click listener attached to the entire table header element group
     document.querySelector('thead')?.addEventListener('click', (event) => {
@@ -112,6 +33,7 @@ export const initiateListeners = () => {
 };
 
 export const insertPlayerData = async () => {
+
   const grubbyProfileInfoElement = document.querySelector("#grubby-profile-info")
   const grubbyTriviaElement = document.querySelector("#grubby-trivia")
   const grubbyMatches = document.querySelector("#grubby-matches")
@@ -193,7 +115,7 @@ export const insertPlayerData = async () => {
   const lowkoWinPercentage = document.querySelector("#lowko-win-percentage")
   const lowkoRating = document.querySelector("#lowko-rating")
   const lowkoStreak = document.querySelector("#lowko-streak")
-  
+
   try {
     const data = await initiatePlayerData()
     fillRatingTable(data)
@@ -286,12 +208,16 @@ export const insertPlayerData = async () => {
 }
 
 export const initiateObservers = () => {
-  const articles = document.querySelectorAll<HTMLElement>(".for-scroll-observer");
-  const navLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-link");
+  const articles = document.querySelectorAll<HTMLElement>(".for-scroll-observer")
+  const navLinks = [...document.querySelectorAll<HTMLAnchorElement>(".nav-link")]
+  const navRating = document.querySelector<HTMLAnchorElement>("#nav-ratings")
+  const navMobileRatings = document.querySelector<HTMLAnchorElement>("#nav-mobile-ratings")
 
+  if(navRating) navLinks.push(navRating)
+  if(navMobileRatings) navLinks.push(navMobileRatings)
   const observerOptions = {
     root: null, // defaults to the browser viewport
-    rootMargin: "-20% 0px -60% 0px", // Triggers when section occupies the sweet spot of the screen
+    rootMargin: "-20% 0px -50% 0px", // Triggers when section occupies the sweet spot of the screen
     threshold: 0, 
   };
  
@@ -301,14 +227,17 @@ export const initiateObservers = () => {
       // We only care if the section is actively intersecting inside our rootMargin bounds
       if (entry.isIntersecting) {
         const activeId = entry.target.getAttribute("id");
-
         // Loop through all links and toggle the 'active' class
         navLinks.forEach((link) => {
-          if (link.getAttribute("href") === `#${activeId}`) {
-            link.classList.add("active-page-nav");
-          } else {
-            link.classList.remove("active-page-nav");
+          if (activeId === 'nav-ratings' && link.getAttribute('id') === 'nav-ratings') {
+            
+            link.classList.add('active-page-nav')
           }
+          else if (link.getAttribute("href") === `#${activeId}`) link.classList.add("active-page-nav")
+          else {
+            link.classList.remove("active-page-nav")
+          }
+          
         });
       }
     });
@@ -319,9 +248,9 @@ export const initiateObservers = () => {
 
 let currentSortColumn: string = 'rating'; 
 let isAscending: boolean = false; // Default to highest rating first (descending)
-let internalPlayerData: Record<string, DatabaseItem> = {};
+let internalPlayerData: Record<string, IDatabaseItem> = {};
 
-export const fillRatingTable = (playerData: Record<string, DatabaseItem>) => {
+export const fillRatingTable = (playerData: Record<string, IDatabaseItem>) => {
   // Store the data globally so our click handlers can access it later
   internalPlayerData = playerData;
   
@@ -347,8 +276,8 @@ const renderEngine = () => {
 
   // Sort the array based on the active state before mapping to HTML strings
   playerArray.sort((a, b) => {
-    let valueA = a[currentSortColumn as keyof DatabaseItem];
-    let valueB = b[currentSortColumn as keyof DatabaseItem];
+    let valueA = a[currentSortColumn as keyof IDatabaseItem];
+    let valueB = b[currentSortColumn as keyof IDatabaseItem];
 
     // 👇 ADD THIS SPECIAL CHECK FOR BOOLEANS
     if (typeof valueA === 'boolean' && typeof valueB === 'boolean') {
@@ -436,3 +365,56 @@ export const initiatePlayerData = async () => {
   }
 }
 
+// For clips page
+const invokeFetchClip = async () => {  
+  try {
+    const data = await fetchTwitchClips()
+    return data
+  } catch (error) {
+    throw error
+  }
+}
+
+const sortClips = (clips: IClipsDbItem[], sortAfter: 'new' | 'popular') => {
+  console.log(new Date(clips[0].clip_created_at))
+  if(sortAfter === 'popular') return [...clips].sort((a, b) => b.view_count - a.view_count)
+  if(sortAfter === 'new') return [...clips].sort((a, b) => new Date(b.clip_created_at).getTime() - new Date(a.clip_created_at).getTime())
+  else throw new Error("sortAfter is neither new or popular")
+}
+
+export const insertClips = async () => {
+  const clips = await invokeFetchClip()
+  const newSortedClips = sortClips(clips, 'new')
+  const clipGrid = document.querySelector<HTMLDivElement>('#clips-grid')
+  if(!clipGrid) return console.error("Clip grid not loaded", clipGrid)
+    for (const clip of newSortedClips) {
+    const card = document.createElement('div')
+    const pastDate = new Date(clip.clip_created_at);
+    const currentDate = new Date();
+
+    // Difference in milliseconds
+    const diffInMs = currentDate.getTime() - pastDate.getTime();
+
+    // Convert ms to days (1000ms * 60s * 60m * 24h = 86,400,000)
+    const daysAgo = Math.floor(diffInMs / (1000 * 60 * 60 * 24))
+    card.innerHTML = 
+      `
+        <div class="clip-card">
+          <button class="thumbnail-wrapper">
+            <img data-clipId="${clip.twitch_clip_id}" class="thumbnail" src="${clip.thumbnail_url}" alt="Clip Thumbnail">
+            <div class="badge view-count">${clip.view_count} views</div>
+            <div class="badge duration">${clip.duration_seconds} s</div>
+            <div class="badge age">${daysAgo}days ago</div>
+          </button>
+          <div class="clip-info">
+            <div class="avatar"><img src="/${Object.keys(TwitchIdFromTwitchChannel).find(key => TwitchIdFromTwitchChannel[key] === clip.profile_id)}-avatar.png"/></div>
+            <div class="details">
+              <h3 class="clip-name" title="${clip.title}">${clip.title}</h3>
+              <p class="broadcaster">${Object.keys(TwitchIdFromTwitchChannel).find(key => TwitchIdFromTwitchChannel[key] === clip.profile_id)}</p>
+            </div>
+          </div>
+        </div>
+      `
+    clipGrid.appendChild(card)
+  }
+}

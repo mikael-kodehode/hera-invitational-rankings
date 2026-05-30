@@ -1,0 +1,202 @@
+
+/*css for gallery*/
+.gallery-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  background-color: var(--twitch-bg);
+  color: var(--twitch-text);
+  font-family: var(--font-stack);
+  padding: 2rem;
+}
+
+.gallery-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Responsive Grid System */
+.clips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Card Structures */
+.clip-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Thumbnail and Overlays */
+.thumbnail-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.15s ease;
+}
+
+/* Twitch Signature Slide/Grow Zoom */
+.clip-card:hover .thumbnail {
+  transform: scale(1.03) translate(2px, -2px);
+}
+
+/* Badges on top of Thumbnail */
+.badge {
+  position: absolute;
+  background-color: var(--twitch-overlay-bg);
+  color: var(--twitch-text);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.view-count {
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
+.duration {
+  bottom: 0.5rem;
+  right: 0.5rem;
+}
+
+.age {
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+/* Meta Info Block below Thumbnail */
+.clip-info {
+  display: flex;
+  margin-top: 0.75rem;
+  gap: 0.75rem;
+}
+
+/* Stand-in for Broadcaster Image Avatar */
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.avatar img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.details {
+  min-width: 0; /* Prevents text blowout from flex items */
+}
+
+.clip-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.2rem;
+  cursor: pointer;
+}
+
+.clip-name:hover {
+  color: var(--twitch-purple);
+}
+
+.broadcaster, .game {
+  font-size: 0.8rem;
+  color: var(--twitch-text-muted);
+  line-height: 1.4;
+}
+
+.broadcaster:hover {
+  color: var(--twitch-purple);
+  cursor: pointer;
+}
+
+/* Dark semi-transparent background covering the entire viewport */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85); /* Smooth dark backdrop */
+  z-index: 9999; /* Ensures it sits on top of all card components */
+  display: none; 
+  justify-content: center;
+  align-items: center;  
+}
+
+/* Becomes visible when this active class is appended via JS */
+.modal-overlay.is-active {
+  display: flex;
+}
+
+/* Container defining the width and constraints of the overlay */
+.modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  
+  /* 💡 ADD THIS: Ensures the player NEVER drops below Twitch's absolute minimum size limits */
+  min-width: 450px; 
+  min-height: 300px;
+  
+  background-color: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* Maintains clean 16:9 widescreen video scaling aspect ratios */
+.iframe-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0;
+}
+
+/* Close Button positioning */
+.modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10000;
+  transition: color 0.1s ease;
+}
+
+.modal-close-btn:hover {
+  color: var(--twitch-purple); /* Reuses your custom Twitch color variable */
+}
