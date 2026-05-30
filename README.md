@@ -21,7 +21,7 @@ I am very much a hobbyist so a lot of the code is repetive for simplicity and ea
 
 *   **Frontend/Runtime:** JavaScript / Node / Supabase Edge Runtime
 *   **Hosting & Deployment:** Vercel (with automated preview and production pipelines)
-*   **Database:** Supabase database
+*   **Database:** Supabase databases
 *   **Data Sources:** Twitch API (Helix Endpoints) and Libre Match API (Worlds edge link - https://librematch.github.io/wiki/rlink)
 
 ---
