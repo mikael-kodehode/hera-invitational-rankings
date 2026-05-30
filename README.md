@@ -19,8 +19,9 @@ I am very much a hobbyist so a lot of the code is repetive for simplicity and ea
 
 ## 🛠️ Tech Stack & Architecture
 
-*   **Frontend/Runtime:** JavaScript / Deno / Supabase Edge Runtime
+*   **Frontend/Runtime:** JavaScript / Node / Supabase Edge Runtime
 *   **Hosting & Deployment:** Vercel (with automated preview and production pipelines)
+*   **Database:** Supabase databases
 *   **Data Sources:** Twitch API (Helix Endpoints) and Libre Match API (Worlds edge link - https://librematch.github.io/wiki/rlink)
 
 ---
@@ -31,6 +32,6 @@ To run this project locally, follow these steps:
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/mikael-kodehode/hera-invitational-rankings.git](https://github.com/mikael-kodehode/hera-invitational-rankings.git)
+git clone https://github.com/mikael-kodehode/hera-invitational-rankings.git
 cd hera-invitational-rankings
 
