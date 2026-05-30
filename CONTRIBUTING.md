@@ -29,7 +29,8 @@ If you're ready to dive into the codebase and write some code:
 
 To keep the codebase clean and consistent, please follow these guidelines:
 
-*   **Code Style:** Please ensure your code is cleanly formatted before submitting.
+*   **Code Style:** Please ensure your code is cleanly formatted before submitting. Use arrowfunctions
+*   **About typescript:** Types are not enforced strictly, but rather used so you can choose to add if you feel like it. I use it for API types and enums (for some reason enums didn't work, so I made a dictionary)
 *   **Environment Safety:** Never, under any circumstances, commit your personal `.env` file or hardcode your Twitch API client secrets. 
 
 ---
