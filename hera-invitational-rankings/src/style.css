@@ -4,6 +4,12 @@
   --primary-color: #10141a; 
   --secondary-color: #222;
   --third-color: #303030;
+  --twitch-bg: #0e0e10;
+  --twitch-text: #efeff1;
+  --twitch-text-muted: #adadb8;
+  --twitch-purple: #9146ff;
+  --twitch-overlay-bg: rgba(0, 0, 0, 0.6);
+  --font-stack: Inter, Roobert, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 body, h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif; /* Applies your loaded Google font */
@@ -46,7 +52,7 @@ CSS
 nav {
   color: white;
 }
-#nav-ratings {
+#nav-ratings, #nav-clips {
   padding: 2.5rem 0 !important;
 }
 .page-nav li p {
@@ -188,7 +194,10 @@ tbody tr:hover {
   background-color: #686e74;
   cursor: pointer;
 }
-
+footer p {
+  padding: 2rem;
+  margin: 0 2rem 4rem;
+}
 .streamer-links-ul img {
   width: 30px;
   height: 30px;
