@@ -8,7 +8,6 @@ const closeBtn = document.querySelector<HTMLButtonElement>("#close-modal")
 const iframeContainer = document.querySelector<HTMLDivElement>("#iframe-container")
 const gallerySection = document.querySelector<HTMLElement>("#gallery-section")
 const modal = document.querySelector<HTMLDivElement>("#video-modal")
-const clipButtons = document.querySelectorAll(".clips-button")
 
 
 window.addEventListener('keydown', (event: KeyboardEvent) => {
