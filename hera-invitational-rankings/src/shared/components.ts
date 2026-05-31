@@ -29,19 +29,14 @@ export const header = `
   </header>
 `
 
-const profileLinks = [
-  { name: 'Grubby', id: 'GrubbyButton', flag: 'nl' },
-  { name: 'Day9', id: 'Day9Button', flag: 'us' },
-  { name: 'Deathnote', id: 'DeathnoteButton', flag: 'kr' },
-  { name: 'Gunnar', id: 'GunnarButton', flag: 'us' },
-  { name: 'Knoff', id: 'KnoffButton', flag: 'us' },
-  { name: 'SingSing', id: 'SingSingButton', flag: 'cn' },
-  { name: 'uThermal', id: 'uThermalButton', flag: 'nl' },
-  { name: 'PiG', id: 'PiGButton', flag: 'au' },
-  { name: 'Ahmpy', id: 'AhmpyButton', flag: 'us' },
-  { name: 'YamatoCannon', id: 'YamatoCannonButton', flag: 'se' },
-  { name: 'Lowko', id: 'LowkoButton', flag: 'nl' },
-]
+import { players } from './players'
+
+const profileLinks = players.map(p => ({
+  name: p.name,
+  key: p.key,
+  flag: p.flag,
+  id: p.key.charAt(0).toUpperCase() + p.key.slice(1) + 'Button'
+}))
 
 export const desktopSidebar = (activePage: 'ratings' | 'clips') => {
   const isRatings = activePage === 'ratings'
@@ -65,7 +60,7 @@ export const desktopSidebar = (activePage: 'ratings' | 'clips') => {
         <div class="text-[10px] uppercase tracking-wider font-semibold text-slate-500 text-center">Profiles</div>
       </div>
       <div class="flex-1 overflow-y-auto w-full px-2 space-y-1">
-        ${profileLinks.map(p => `<a href="${prefix}${p.name}Profile" id="${p.id}" class="streamer-article nav-link flex items-center gap-1.5 py-2 px-2 rounded-md text-xs text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"><span class="fi fi-${p.flag} rounded-sm shrink-0"></span><span>${p.name}</span></a>`).join('\n      ')}
+        ${profileLinks.map(p => `<a href="${prefix}${p.key}Profile" id="${p.id}" class="streamer-article nav-link flex items-center gap-1.5 py-2 px-2 rounded-md text-xs text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"><span class="fi fi-${p.flag} rounded-sm shrink-0"></span><span>${p.name}</span></a>`).join('\n      ')}
       </div>
     </div>
     <button id="sidebar-toggle" class="sidebar-toggle w-7 h-7 rounded-lg bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-slate-400 hover:text-white transition-colors mt-auto mb-1 shrink-0" title="Toggle sidebar">
@@ -92,7 +87,7 @@ export const mobileNav = (activePage: 'ratings' | 'clips') => {
         </div>
         <span class="mt-0.5">Clips</span>
       </a>
-      ${profileLinks.map(p => `<a href="${prefix}${p.name}Profile" class="nav-link ${isRatings ? 'for-scroll-observer ' : ''}flex flex-col items-center px-2 py-1 rounded-md text-[10px] text-slate-300 hover:text-white transition-colors"><span class="fi fi-${p.flag} rounded-sm"></span><span class="mt-0.5">${p.name}</span></a>`).join('\n      ')}
+      ${profileLinks.map(p => `<a href="${prefix}${p.key}Profile" class="nav-link ${isRatings ? 'for-scroll-observer ' : ''}flex flex-col items-center px-2 py-1 rounded-md text-[10px] text-slate-300 hover:text-white transition-colors"><span class="fi fi-${p.flag} rounded-sm"></span><span class="mt-0.5">${p.name}</span></a>`).join('\n      ')}
     </div>
   </nav>`
 }
@@ -104,3 +99,46 @@ export const footer = `
     </p>
   </footer>
 `
+
+const linkHtml = (l: { url: string, title: string, icon?: string, iconColor?: string, img?: string }) =>
+  l.img
+    ? `<a href="${l.url}" target="_blank" title="${l.title}" class="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors text-sm"><img src="${l.img}" class="w-5 h-5 object-contain" alt="${l.title}" /></a>`
+    : `<a href="${l.url}" target="_blank" title="${l.title}" class="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors text-sm"><i class="${l.icon} ${l.iconColor ?? ''}"></i></a>`
+
+export const renderPlayerProfile = (p: { key: string, name: string, image: string, links: { url: string, title: string, icon?: string, iconColor?: string, img?: string }[] }) => `
+  <article id="${p.key}Profile" class="player-profile for-scroll-observer bg-slate-900 rounded-2xl shadow-lg border border-slate-800 overflow-hidden hover:-translate-y-0.5 hover:shadow-xl transition-transform">
+    <div class="p-6 md:p-8">
+      <div class="flex flex-col md:flex-row gap-6">
+        <div class="profile-image-container shrink-0 w-32 md:w-48">
+          <img class="player-profile-picture w-full h-56 object-cover rounded-xl shadow-md" src="${p.image}" alt="${p.name}" />
+        </div>
+        <div class="flex-1 min-w-0">
+          <h3 class="text-2xl font-bold text-white mb-3">${p.name}</h3>
+          <div id="${p.key}-profile-info" class="text-slate-300 leading-relaxed"></div>
+          <ul class="streamer-links-ul flex flex-wrap gap-3 mt-4">
+            ${p.links.map(l => `<li>${linkHtml(l)}</li>`).join('\n            ')}
+          </ul>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+        <div class="text-center p-4 rounded-xl bg-slate-800/50 border border-slate-800">
+          <span id="${p.key}-matches" class="block text-2xl font-bold text-white"></span>
+          <span class="text-xs text-slate-400 uppercase tracking-wide"><i class="fa fa-crosshairs text-slate-500 mr-1.5"></i>Ranked 1v1</span>
+        </div>
+        <div class="text-center p-4 rounded-xl bg-slate-800/50 border border-slate-800">
+          <span id="${p.key}-win-percentage" class="block text-2xl font-bold text-white"></span>
+          <span class="text-xs text-slate-400 uppercase tracking-wide"><i class="fa fa-percentage text-slate-500 mr-1.5"></i>Win Rate</span>
+        </div>
+        <div class="text-center p-4 rounded-xl bg-slate-800/50 border border-slate-800">
+          <span id="${p.key}-rating" class="block text-2xl font-bold text-amber-500"></span>
+          <span class="text-xs text-slate-400 uppercase tracking-wide"><i class="fa fa-star text-slate-500 mr-1.5"></i>Rating</span>
+        </div>
+        <div class="text-center p-4 rounded-xl bg-slate-800/50 border border-slate-800">
+          <span id="${p.key}-streak" class="block text-2xl font-bold"></span>
+          <span class="text-xs text-slate-400 uppercase tracking-wide"><i class="fa fa-bolt text-slate-500 mr-1.5"></i>Streak</span>
+        </div>
+      </div>
+      <h4 class="mt-6 mb-3 text-sm font-semibold text-slate-400 uppercase tracking-wide">Trivia</h4>
+      <div id="${p.key}-trivia" class="player-trivia-container text-slate-300 leading-relaxed"></div>
+    </div>
+  </article>`
