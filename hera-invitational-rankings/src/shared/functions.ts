@@ -1,5 +1,5 @@
 import { fetchPlayerData, fetchTwitchClips } from "./api";
-import { Links, TwitchIdFromTwitchChannel } from "../types";
+import { Links } from "../types";
 import type { IClipsDbItem, IDatabaseItem } from "../types";
 import { grubbyProfileInfo, grubbyTrivia } from "./profiles/grubby";
 import { day9ProfileInfo, day9Trivia } from "./profiles/day9";
@@ -12,6 +12,7 @@ import { pigProfileInfo, pigTrivia } from "./profiles/pig";
 import { yamatocannonProfileInfo, yamatocannonTrivia } from "./profiles/yamatocannon";
 import { ahmpyProfileInfo, ahmpyTrivia } from "./profiles/ahmpy";
 import { lowkoProfileInfo, lowkoTrivia } from "./profiles/lowko";
+import { iyouxinProfileInfo, iyouxinTrivia } from "./profiles/iyouxin";
 
 
 export const initiateListeners = () => {
@@ -115,6 +116,13 @@ export const insertPlayerData = async () => {
   const lowkoWinPercentage = document.querySelector("#lowko-win-percentage")
   const lowkoRating = document.querySelector("#lowko-rating")
   const lowkoStreak = document.querySelector("#lowko-streak")
+  
+  const iyouxinProfileInfoElement = document.querySelector("#iyouxin-profile-info")
+  const iyouxinTriviaElement = document.querySelector("#iyouxin-trivia")
+  const iyouxinMatches = document.querySelector("#iyouxin-matches")
+  const iyouxinWinPercentage = document.querySelector("#iyouxin-win-percentage")
+  const iyouxinRating = document.querySelector("#iyouxin-rating")
+  const iyouxinStreak = document.querySelector("#iyouxin-streak")
 
   try {
     const data = await initiatePlayerData()
@@ -200,6 +208,13 @@ export const insertPlayerData = async () => {
     if(lowkoStreak) lowkoStreak.innerHTML = data['LowKo'].streak.toString()
     if(lowkoRating) lowkoRating.innerHTML = data['LowKo'].rating.toString()
     if(lowkoWinPercentage) lowkoWinPercentage.innerHTML = data['LowKo'].win_percentage.toString()
+
+    if(iyouxinProfileInfoElement) iyouxinProfileInfoElement.innerHTML = iyouxinProfileInfo
+    if(iyouxinTriviaElement) iyouxinTriviaElement.innerHTML = iyouxinTrivia
+    if(iyouxinMatches) iyouxinMatches.innerHTML = data['iyouxin'].matches_played.toString()
+    if(iyouxinStreak) iyouxinStreak.innerHTML = data['iyouxin'].streak.toString()
+    if(iyouxinRating) iyouxinRating.innerHTML = data['iyouxin'].rating.toString()
+    if(iyouxinWinPercentage) iyouxinWinPercentage.innerHTML = data['iyouxin'].win_percentage.toString()
 
   } catch {
     throw new Error("Insert data failed");
@@ -404,13 +419,13 @@ export const insertClips = async () => {
             <img data-clipId="${clip.twitch_clip_id}" class="thumbnail" src="${clip.thumbnail_url}" alt="Clip Thumbnail">
             <div class="badge view-count">${clip.view_count} views</div>
             <div class="badge duration">${clip.duration_seconds} s</div>
-            <div class="badge age">${daysAgo}days ago</div>
+            <div class="badge age">${!daysAgo ? 'Today' : daysAgo === 1 ? 'Yesterday' : `${daysAgo} days ago`}</div>
           </button>
           <div class="clip-info">
-            <div class="avatar"><img src="/${Object.keys(TwitchIdFromTwitchChannel).find(key => TwitchIdFromTwitchChannel[key] === clip.profile_id)}-avatar.png"/></div>
+            <div class="avatar"><img src="/${clip.twitch_name}-avatar.png"/></div>
             <div class="details">
               <h3 class="clip-name" title="${clip.title}">${clip.title}</h3>
-              <p class="broadcaster">${Object.keys(TwitchIdFromTwitchChannel).find(key => TwitchIdFromTwitchChannel[key] === clip.profile_id)}</p>
+              <p class="broadcaster">${clip.twitch_name}</p>
             </div>
           </div>
         </div>
