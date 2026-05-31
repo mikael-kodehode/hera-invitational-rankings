@@ -209,7 +209,7 @@ export const insertPlayerData = async () => {
 
 export const initiateObservers = () => {
   const articles = document.querySelectorAll<HTMLElement>(".for-scroll-observer")
-  const navLinks = [...document.querySelectorAll<HTMLAnchorElement>(".nav-link")]
+  const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>(".nav-link"))
   const navRating = document.querySelector<HTMLAnchorElement>("#nav-ratings")
   const navMobileRatings = document.querySelector<HTMLAnchorElement>("#nav-mobile-ratings")
 
