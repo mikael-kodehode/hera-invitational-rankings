@@ -51,7 +51,7 @@ export const loadClips = () => {
       <a href="/#LowkoProfile" id="LowkoButton" class="streamer-article w3-bar-item w3-button nav-link">
         LOWKO
       </a>
-      <a href="/clips" id="nav-clips" class="w3-bar-item w3-button nav-link active-page-nav" >
+      <a href="/clips.html" id="nav-clips" class="w3-bar-item w3-button nav-link active-page-nav" >
         <i class="fa fa-play w3-xxlarge"></i>
         <br/><br/>
         TWITCH CLIPS
@@ -73,7 +73,7 @@ export const loadClips = () => {
         <a href="/#AhmpyProfile" class="nav-link w3-bar-item" style="width:25% !important">Ahmpy</a>
         <a href="/#YamatoCannonProfile" class="nav-link w3-bar-item" style="width:25% !important">YamatoCannon</a>
         <a href="/#LowkoProfile" class="nav-link w3-bar-item" style="width:25% !important">LowKo</a>
-        <a href="/clips" id="twitch-mobile-clips-button" class=" active-page-nav nav-link w3-bar-item clips-button" style="width:25% !important">Twitch Clips</a>
+        <a href="/clips.html" id="twitch-mobile-clips-button" class=" active-page-nav nav-link w3-bar-item clips-button" style="width:25% !important">Twitch Clips</a>
       </div>
     </nav>
     
