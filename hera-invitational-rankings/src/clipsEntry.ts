@@ -1,10 +1,9 @@
-import { loadClips, insertClips, initiateSortingListeners, invokeFetchClip, sortClips } from "./pages/clips";
+import { loadClips, initiateSortingListeners, invokeFetchClip, sortClips } from "./pages/clips";
 import { initSidebarToggle } from "./shared/functions";
 
 loadClips();
 const clips = await invokeFetchClip()
-const newSortedClips = await sortClips('new-desc', clips) ?? clips
-insertClips(newSortedClips);
+await sortClips(clips)
 initSidebarToggle()
 initiateSortingListeners()
 

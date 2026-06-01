@@ -93,47 +93,52 @@ const filterClips = (sortAfter: SortAfter[], clips: IClipsDbItem[]) => {
   return clips.filter((clip) => sortAfter.includes(clip.twitch_name))
 }
 
-export const sortClips = async (sortAfter: SortAfter[] | 'new-desc' | 'new-asc' | 'popular-desc' | 'popular-asc' | 'random', clips?: IClipsDbItem[]): Promise<IClipsDbItem[] | undefined> => {
+export const sortClips = async (clips?: IClipsDbItem[]) => {
+
   const backupClips: string | null = localStorage.getItem('clips')
-  let clipsForuse: IClipsDbItem[] = []
-  let sort: 'new-desc' | 'new-asc' | 'popular-desc' | 'popular-asc' | 'random' = 'new-desc'
+  
+  const activeFilteredPlayers = document.querySelectorAll('.active-sort')
+  const playerNamesForSorting: SortAfter[] = Array.from(activeFilteredPlayers)
+    .map(node => node.getAttribute('data-sort') as SortAfter | null)
+    .filter((sort): sort is SortAfter => sort !== null);
+
+  let sort: 'new-desc' | 'new-asc' | 'popular-desc' | 'popular-asc' | 'random' | undefined = undefined
+  let clipsForUse: IClipsDbItem[] = []
   if(clips) return [...clips].sort((a, b) => new Date(b.clip_created_at).getTime() - new Date(a.clip_created_at).getTime())
-  else if (backupClips) {
-    if(sortAfter === 'new-desc' || sortAfter==='new-asc' || sortAfter==='popular-desc' || sortAfter === 'popular-asc' || sortAfter === 'random') {
-      sort = sortAfter
-      clipsForuse = JSON.parse(backupClips)
-    } else if (!sortAfter.length) {
-      clipsForuse = JSON.parse(backupClips)
+  if (backupClips) {
+    if (!playerNamesForSorting.length) {
+      clipsForUse = JSON.parse(backupClips)
     } else {
-      clipsForuse = filterClips(sortAfter, JSON.parse(backupClips))
-      const sortAllNewButton = document.querySelector<HTMLDivElement>('#filter-clips-new')
-      const sortAllPopularButton = document.querySelector<HTMLDivElement>('#filter-clips-popular')
-      if (!sortAllNewButton || !sortAllPopularButton) {
-        console.log("Sort all buttons not loaded. Sorting after default: new")
-      } else if (sortAllNewButton.classList.contains('active-sort-all-desc')) sort = 'new-desc'
-      else if (sortAllPopularButton.classList.contains('active-sort-all-desc')) sort = 'popular-desc'
-      else if (sortAllNewButton.classList.contains('active-sort-all-asc')) sort = 'new-asc'
-      else if (sortAllPopularButton.classList.contains('active-sort-all-asc')) sort = 'popular-desc'
-      else sort = 'random'
+      clipsForUse = filterClips(playerNamesForSorting, JSON.parse(backupClips))
     }
   } else {
     console.info("Couldn't find clips. Fetching...")
-    clipsForuse = await fetchTwitchClips()
+    clipsForUse = await fetchTwitchClips()
   }
+  const sortAllNewButton = document.querySelector<HTMLDivElement>('#filter-clips-new')
+  const sortAllPopularButton = document.querySelector<HTMLDivElement>('#filter-clips-popular')
+  if (!sortAllNewButton || !sortAllPopularButton) {
+    console.log("Sort all buttons not loaded. Sorting after default: new")
+  } else if (sortAllNewButton.classList.contains('active-sort-all-desc')) sort = 'new-desc'
+  else if (sortAllPopularButton.classList.contains('active-sort-all-desc')) sort = 'popular-desc'
+  else if (sortAllNewButton.classList.contains('active-sort-all-asc')) sort = 'new-asc'
+  else if (sortAllPopularButton.classList.contains('active-sort-all-asc')) sort = 'popular-asc'
+  else { console.log('random');sort = 'random'}
   switch (sort) {
     case 'new-desc':
-      return [...clipsForuse].sort((a, b) => new Date(b.clip_created_at).getTime() - new Date(a.clip_created_at).getTime())
+      return insertClips([...clipsForUse].sort((a, b) => new Date(b.clip_created_at).getTime() - new Date(a.clip_created_at).getTime()))
     case 'new-asc':
-      return [...clipsForuse].sort((a, b) => new Date(a.clip_created_at).getTime() - new Date(b.clip_created_at).getTime())
+      return insertClips([...clipsForUse].sort((a, b) => new Date(a.clip_created_at).getTime() - new Date(b.clip_created_at).getTime()))
     case 'popular-desc':
-      return [...clipsForuse].sort((a, b) => b.view_count - a.view_count)
+      return insertClips([...clipsForUse].sort((a, b) => b.view_count - a.view_count))
     case 'popular-asc':
-      return [...clipsForuse].sort((a, b) => a.view_count - b.view_count)
+      return insertClips([...clipsForUse].sort((a, b) => a.view_count - b.view_count))
     case 'random':
-      return [...clipsForuse].sort(() => Math.random() - 0.5)
+      return insertClips([...clipsForUse].sort(() => Math.random() - 0.5))
   
-    default: [...clipsForuse].sort(() => Math.random() - 0.5)
-      break;
+    default:
+      console.log('default')
+      return insertClips([...clipsForUse].sort(() => Math.random() - 0.5))
   } 
 }
 
@@ -176,52 +181,36 @@ export const initiateSortingListeners = () => {
   const sortAllNewButton = document.querySelector<HTMLDivElement>('#filter-clips-new')
   const sortAllPopularButton = document.querySelector<HTMLDivElement>('#filter-clips-popular')
 
+
   sortAllClipsButtons.forEach(button => {
-    button.addEventListener('click', async () => {
-      const sort = button.getAttribute('data-sort') as 'new' | 'popular'
-      
+    button.addEventListener('click', () => {
       if(button.classList.contains('active-sort-all-desc')) {
-        const dataSort = button.getAttribute('data-sort') as 'new' | 'popular'
-        const sortedClips = await sortClips(`${dataSort}-asc`)
-        if (!sortedClips) return console.error('clips returned undefined from sorting when getting argument new-asc or popular-asc')
-        await insertClips(sortedClips)
         button.classList.remove('active-sort-all-desc')
+        button.classList.add('active-sort-all-asc')
+        sortClips()
       } else if (button.classList.contains('active-sort-all-asc')) {
-        const clips = await sortClips('random')
-        if (!clips) return console.error('clips returned undefined from sorting when getting argument random')
-        await insertClips(clips)
-        button.classList.contains('active-sort-all-asc')
+        button.classList.remove('active-sort-all-asc')
+        sortClips()
       } else if (!sortAllNewButton || !sortAllPopularButton) {
         console.error('sort all buttons or one of them is undefined')
-        const clips = await sortClips('random')
-        if (!clips) return console.error('sortAll event listener -> one of them undefined -> sorted clips came back undefined')
-        await insertClips(clips)
+        sortClips()
       } else {//if (sortAllNewButton.classList.contains('active-sort-all-desc') || sortAllPopularButton.classList.contains('active-sort-all-desc') || sortAllNewButton.classList.contains('active-sort-all-asc') || sortAllPopularButton.classList.contains('active-sort-all-asc')) {
         sortAllNewButton.classList.remove('active-sort-all-desc')
         sortAllPopularButton?.classList.remove('active-sort-all-desc')
         sortAllNewButton?.classList.remove('active-sort-all-asc')
         sortAllPopularButton?.classList.remove('active-sort-all-asc')
-        console.log(button)
         button.classList.add('active-sort-all-desc')
-        const clips = await sortClips(`${sort}-desc`)
-        if (!clips) return console.error('sortAll event listener -> one of them contains active-sort-all -> sorted clips came back undefined')
-        await insertClips(clips)
+        sortClips()
       }
     })
   })
 
   sortButtons.forEach(element => {
-    element.addEventListener('click', async (event: MouseEvent) => {
+    element.addEventListener('click', (event: MouseEvent) => {
       const target = event.target as HTMLElement
       const button = target.closest(".sortable-clips")
       button?.classList.toggle('active-sort')
-      const activeFilteredPlayers = document.querySelectorAll('.active-sort')
-      const playerNamesForSorting: SortAfter[] = Array.from(activeFilteredPlayers)
-        .map(node => node.getAttribute('data-sort') as SortAfter | null)
-        .filter((sort): sort is SortAfter => sort !== null);
-      const clips = await sortClips(playerNamesForSorting)
-      if(!clips) return console.error("clips from sorting is undefined from event listener", element.getAttribute('data-sort'))
-      await insertClips(clips)
+      sortClips()
     })
   }) 
 }
