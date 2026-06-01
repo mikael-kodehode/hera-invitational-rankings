@@ -15,11 +15,11 @@ export const loadClips = () => {
   ${mobileNav('clips')}
 
     <!-- Main Content -->
-    <div id="main" class="pb-20 md:pb-0 min-h-screen flex flex-col" style="margin-left: 63px;">
+    <div id="main" class="pb-20 md:pb-0 min-h-screen flex flex-col">
       ${header}
       <section id="gallery-section" class="select-none px-4 md:px-8 py-8 flex-1">
         <div class="gallery-container">
-          <div class="relative z-10 flex items-center pb-3 gap-4 flex-wrap w-1/4 items-end">
+          <div id="sort-all-buttons-container" class="relative z-10 flex items-center pb-3 gap-4 flex-wrap items-end">
             <div id="filter-clips-new" data-sort="new" title="New" class="sort-all-clips active-sort-all-desc cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
               <i class="fa-regular fa-clock"></i>
             </div>
@@ -27,42 +27,42 @@ export const loadClips = () => {
               <i class="fa-solid fa-fire"></i>
             </div>
           </div>
-          <div class="justify-center relative z-10 flex items-end pb-3 gap-3 flex-wrap">
+          <div id="sort-players-buttons-container" class="justify-center relative z-10 flex items-end pb-3 gap-3 flex-wrap">
             <div id="filter-clips-Grubby" data-sort="grubby" title="Grubby" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">Grubby</span>
+                <span class="">Grubby</span>
               </div>
             <div id="filter-clips-Day9" data-sort="day9tv" title="Day9" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">Day9</span>
+                <span class="">Day9</span>
               </div>
             <div id="filter-clips-Deathnote" data-sort="followdeathnote" title="Deathnote" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">Deathnote</span>
+                <span class="">Deathnote</span>
               </div>
             <div id="filter-clips-Gunnar" data-sort="gunnar" title="Gunnar" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">Gunnar</span>
+                <span class="">Gunnar</span>
               </div>
             <div id="filter-clips-Knoff" data-sort="knoff" title="Knoff" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">Knoff</span>
+                <span class="">Knoff</span>
               </div>
             <div id="filter-clips-SingSing" data-sort="singsing" title="SingSing" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">SingSing</span>
+                <span class="">SingSing</span>
               </div>
             <div id="filter-clips-uThermal" data-sort="uthermalsc2" title="uThermal" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">uThermal</span>
+                <span class="">uThermal</span>
               </div>
             <div id="filter-clips-PiG" data-sort="x5_pig" title="PiG" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">PiG</span>
+                <span class="">PiG</span>
               </div>
             <div id="filter-clips-Ahmpy" data-sort="ahmpy" title="Ahmpy" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">Ahmpy</span>
+                <span class="">Ahmpy</span>
               </div>
             <div id="filter-clips-YamatoCannon" data-sort="yamatocannon" title="YamatoCannon" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">YamatoCannon</span>
+                <span class="">YamatoCannon</span>
               </div>
             <div id="filter-clips-LowKo" data-sort="lowkotv" title="LowKo" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">LowKo</span>
+                <span class="">LowKo</span>
               </div>
             <div id="filter-clips-iyouxin" data-sort="iyouxin" title="iyouxin" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-              <span class="hidden sm:inline">iyouxin</span>
+              <span class="">iyouxin</span>
             </div>
           </div>
           <div id="clips-grid" class="clips-grid"></div>
