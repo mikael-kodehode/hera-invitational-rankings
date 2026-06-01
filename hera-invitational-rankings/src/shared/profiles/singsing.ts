@@ -1,7 +1,7 @@
 export const singsingProfileInfo = `
   <p>
-    Wehsing "SingSing" Yuen is a Dutch retired solo mid Dota 2 player, now a streamer, who last played for Cloud9. SingSing started off by streaming early when he 
-    received early access to the Dota 2 Beta. His often troll-oriented streaming got the attention of viewers and he became one of the most watched streamers. 
+    Wehsing "SingSing" Yuen is a Dutch retired solo mid Dota 2 player, now a streamer, who last played for Cloud9. SingSing started off by streaming early when he
+    received early access to the Dota 2 Beta. His often troll-oriented streaming got the attention of viewers and he became one of the most watched streamers.
     As a streamer, SingSing plays a variety of games, coming back to Dota 2 every now and then. He occasionally collaborates with other streamers such as Gorgc.
     <br/><br/>
     He seems to learn games very fast and likes the late game of AoE 2 which means he most likely will not give up easy.

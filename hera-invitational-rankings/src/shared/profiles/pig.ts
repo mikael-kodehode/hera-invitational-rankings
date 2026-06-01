@@ -1,7 +1,7 @@
 export const pigProfileInfo = `
   <p>
     Jared "PiG" Krensel is a professional Starcraft 2 player, commentator, coach and streamer from Sydney, Australia. He also supply the community as a host of many
-    Starcraft 2 events like Pigfest and Pig Sty Festival which he hosts up to multiple times a year and doesn't seem to slow down. In 2017 he moved from being a player to 
+    Starcraft 2 events like Pigfest and Pig Sty Festival which he hosts up to multiple times a year and doesn't seem to slow down. In 2017 he moved from being a player to
     being a commentator with great success.
   </p>
 `

@@ -31,8 +31,9 @@ export interface IClipsDbItem {
   clip_created_at: string;
   raw: JSON;
   thumbnail_url: string;
-  twitch_name: number;
+  twitch_name: SortAfter
 }
+export type SortAfter = 'grubby' | 'day9tv' | 'followdeathnote' | 'gunnar' | 'knoff' | 'singsing' | 'uthermalsc2' | 'x5_pig' | 'ahmpy' | 'yamatocannon' | 'lowkotv' | 'iyouxin'
 
 export const Links = {
   aoe2insights: "https://www.aoe2insights.com/user/",
