@@ -16,26 +16,22 @@ window.addEventListener('keydown', (event: KeyboardEvent) => {
 })
 
 gallerySection?.addEventListener('click', (event: MouseEvent) => {
-  const thumbnail = event.target as HTMLElement;
-  if (thumbnail && modal) {
-    const clipId = (thumbnail as HTMLImageElement).dataset.clipid;
-    if(!clipId) return
-    const parentDomain = window.location.hostname;
+  const btn = (event.target as HTMLElement).closest('[data-clip-id]') as HTMLElement | null;
+  if (!btn || !modal || !iframeContainer) return;
 
-    if(!iframeContainer) return
+  const clipId = btn.dataset.clipId;
+  const parentDomain = window.location.hostname;
 
-    modal.classList.add('is-active');
-    if(!clipId) return
-    iframeContainer.innerHTML = `
-      <iframe
-        id="clip-iframe"
-        src="https://clips.twitch.tv/embed?clip=${clipId}&parent=${parentDomain}"
-        height="100%"
-        width="100%"
-        allowfullscreen>
-      </iframe>
-    `
-  }
+  modal.classList.add('is-active');
+  iframeContainer.innerHTML = `
+    <iframe
+      id="clip-iframe"
+      src="https://clips.twitch.tv/embed?clip=${clipId}&parent=${parentDomain}"
+      height="100%"
+      width="100%"
+      allowfullscreen>
+    </iframe>
+  `
 });
 
 export const closeModal = () => {

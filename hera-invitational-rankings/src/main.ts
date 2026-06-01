@@ -5,7 +5,7 @@ import './style.css'
 
 import { desktopSidebar, mobileNav, renderPlayerProfile } from './shared/components'
 import { players } from './shared/players'
-import { initiateListeners, initiateObservers, insertPlayerData, initSidebarToggle } from './shared/functions'
+import { initiateListeners, initiateObservers, insertPlayerData, initSidebarToggle, initMobileStatCycle } from './shared/functions'
 import 'flag-icons/css/flag-icons.min.css';
 
 injectSpeedInsights();
@@ -50,7 +50,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
     <!-- Leaderboard Table -->
     <section id="ratings" class="px-4 md:px-8 mt-8 mb-12">
-      <div class="max-w-5xl mx-auto bg-slate-900 rounded-2xl shadow-xl border border-slate-800 overflow-hidden">
+      <div class="max-w-5xl mx-auto bg-slate-900 rounded-xl shadow-xl border border-slate-800 overflow-hidden">
         <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between">
           <h2 class="text-lg font-semibold text-slate-100 flex items-center gap-2">
             <i class="fa fa-trophy text-amber-500"></i>
@@ -67,17 +67,17 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 <th class="sortable desc px-4 py-3 text-center font-semibold cursor-pointer hover:text-white" data-sort="rating">Rating</th>
                 <th class="sortable collapse-win-percentage px-4 py-3 text-center font-semibold cursor-pointer hover:text-white" data-sort="win_percentage">W%</th>
                 <th class="sortable collapse-streak px-4 py-3 text-center font-semibold cursor-pointer hover:text-white" data-sort="streak">Streak</th>
+                <th class="mobile-var px-4 py-3 text-center font-semibold cursor-pointer hover:text-white text-slate-300 text-xs uppercase tracking-wider" id="mobile-var-th">
+                  <span id="mobile-var-label">Streak</span>
+                </th>
                 <th class="sortable px-4 py-3 text-center font-semibold cursor-pointer hover:text-white" data-sort="matches_played">1v1</th>
                 <th class="sortable px-4 py-3 text-center font-semibold cursor-pointer hover:text-white min-w-[110px]" data-sort="live">Stream</th>
               </tr>
             </thead>
             <tbody id="ratings-table" class="divide-y divide-slate-800">
-              <tr><td colspan="7" class="px-4 py-8 text-center text-slate-400">
-                <div class="animate-pulse flex justify-center gap-2">
-                  <div class="w-2 h-2 bg-slate-400 rounded-full"></div>
-                  <div class="w-2 h-2 bg-slate-400 rounded-full"></div>
-                  <div class="w-2 h-2 bg-slate-400 rounded-full"></div>
-                </div>
+              <tr class="loading-row"><td colspan="7" class="px-4 py-12 text-center text-slate-400">
+                <i class="fa fa-spinner fa-spin text-2xl text-amber-400"></i>
+                <p class="mt-2 text-sm text-slate-500">Loading player data...</p>
               </td></tr>
             </tbody>
           </table>
@@ -103,5 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
   insertPlayerData();
   initiateObservers();
   initSidebarToggle();
+  initMobileStatCycle();
   console.log('loaded')
 });

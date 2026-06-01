@@ -24,29 +24,17 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: var(--color-slate-900);
-  border: 1px solid var(--color-slate-800);
-  border-radius: 1rem;
-  overflow: hidden;
-  padding: 1rem;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.clip-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
 }
 
 /* Thumbnail and Overlays */
 .thumbnail-wrapper {
   position: relative;
-  width: 100%;
   aspect-ratio: 16 / 9;
   background-color: var(--color-slate-950);
   overflow: hidden;
   cursor: pointer;
   display: block;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
 }
 
 .thumbnail {
@@ -168,7 +156,7 @@
   width: 95%;
   max-width: 800px;
   background-color: var(--color-slate-900);
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0,0,0,0.5);
   border: 1px solid var(--color-slate-800);

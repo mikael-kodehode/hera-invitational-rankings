@@ -6,6 +6,10 @@ let currentSortColumn = 'rating';
 let isAscending = false;
 let internalPlayerData: Record<string, IDatabaseItem> = {};
 
+const columnSortDefaults: Record<string, boolean> = {
+  live: true,
+};
+
 export const initiatePlayerData = async () => {
   const playerData = await fetchPlayerData()
   if (!playerData) throw new Error("playerData falsy")
@@ -24,7 +28,7 @@ const renderEngine = () => {
   const ratingTable = document.querySelector("#ratings-table");
   if (!ratingTable) return;
 
-  ratingTable.innerHTML = "";
+  const fragment = document.createDocumentFragment();
   const playerArray = Object.values(internalPlayerData);
 
   playerArray.sort((a, b) => {
@@ -76,6 +80,11 @@ const renderEngine = () => {
           ${player.streak > 0 ? '+' : ''}${player.streak}
         </span>
       </td>
+      <td class="mobile-var mobile-var-value px-4 py-3 text-center text-slate-300" data-player="${player.name}">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${player.streak > 0 ? 'bg-emerald-900/30 text-emerald-400' : player.streak < 0 ? 'bg-red-900/30 text-red-400' : 'bg-slate-800 text-slate-400'}">
+          ${player.streak > 0 ? '+' : ''}${player.streak}
+        </span>
+      </td>
       <td class="px-4 py-3 text-center text-slate-300">${player.matches_played}</td>
       <td class="live-tracker-td px-4 py-3 text-center min-w-[110px] overflow-visible">
         <span class="relative inline-block">
@@ -87,8 +96,11 @@ const renderEngine = () => {
             : ''}
         </span>
       </td>`
-    ratingTable.appendChild(tr);
+    fragment.appendChild(tr);
   }
+
+  ratingTable.innerHTML = "";
+  ratingTable.appendChild(fragment);
 }
 
 export const handleTableSort = (columnKey: string) => {
@@ -96,6 +108,7 @@ export const handleTableSort = (columnKey: string) => {
     isAscending = !isAscending;
   } else {
     currentSortColumn = columnKey;
+    isAscending = columnKey in columnSortDefaults ? columnSortDefaults[columnKey] : false;
   }
   updateHeaderUI(columnKey);
   renderEngine();
@@ -107,6 +120,41 @@ const updateHeaderUI = (activeColumn: string) => {
     if (th.getAttribute('data-sort') === activeColumn) {
       th.classList.add(isAscending ? 'asc' : 'desc');
     }
+  });
+}
+
+const mobileStats = ['streak', 'win_percentage', 'matches_played'] as const;
+const mobileLabels: Record<string, string> = {
+  streak: 'Streak',
+  win_percentage: 'W%',
+  matches_played: '1v1'
+};
+let mobileStatIndex = 0;
+
+export const initMobileStatCycle = () => {
+  document.getElementById('mobile-var-th')?.addEventListener('click', () => {
+    mobileStatIndex = (mobileStatIndex + 1) % mobileStats.length;
+    const stat = mobileStats[mobileStatIndex];
+
+    const label = document.getElementById('mobile-var-label');
+    if (label) label.textContent = mobileLabels[stat];
+
+    document.querySelectorAll<HTMLElement>('.mobile-var-value').forEach(td => {
+      const name = td.getAttribute('data-player');
+      if (!name) return;
+      const player = internalPlayerData[name];
+      if (!player) return;
+      const val = player[stat as keyof IDatabaseItem];
+
+      if (stat === 'streak') {
+        const num = val as number;
+        td.innerHTML = `<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${num > 0 ? 'bg-emerald-900/30 text-emerald-400' : num < 0 ? 'bg-red-900/30 text-red-400' : 'bg-slate-800 text-slate-400'}">${num > 0 ? '+' : ''}${num}</span>`;
+      } else if (stat === 'win_percentage') {
+        td.textContent = `${val}%`;
+      } else {
+        td.textContent = val?.toString() ?? '';
+      }
+    });
   });
 }
 

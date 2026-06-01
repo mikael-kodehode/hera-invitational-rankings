@@ -62,8 +62,8 @@ export const insertClips = async () => {
     card.innerHTML =
       `
         <div class="clip-card">
-          <button class="thumbnail-wrapper">
-            <img data-clipId="${clip.twitch_clip_id}" class="thumbnail" src="${clip.thumbnail_url}" alt="Clip Thumbnail">
+          <button data-clip-id="${clip.twitch_clip_id}" class="thumbnail-wrapper">
+            <img class="thumbnail" src="${clip.thumbnail_url}" alt="Clip Thumbnail">
             <div class="badge view-count">${clip.view_count} views</div>
             <div class="badge duration">${clip.duration_seconds} s</div>
             <div class="badge age">${!daysAgo ? 'Today' : daysAgo === 1 ? 'Yesterday' : `${daysAgo} days ago`}</div>

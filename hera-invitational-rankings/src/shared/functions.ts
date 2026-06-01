@@ -1,4 +1,4 @@
-import { initiatePlayerData, fillRatingTable, initiateListeners } from "./leaderboard";
+import { initiatePlayerData, fillRatingTable, initiateListeners, initMobileStatCycle } from "./leaderboard";
 import { grubbyProfileInfo, grubbyTrivia } from "./profiles/grubby";
 import { day9ProfileInfo, day9Trivia } from "./profiles/day9";
 import { deathnoteProfileInfo, deathnoteTrivia } from "./profiles/deathnote";
@@ -12,7 +12,7 @@ import { ahmpyProfileInfo, ahmpyTrivia } from "./profiles/ahmpy";
 import { lowkoProfileInfo, lowkoTrivia } from "./profiles/lowko";
 import { iyouxinProfileInfo, iyouxinTrivia } from "./profiles/iyouxin";
 
-export { initiateListeners };
+export { initiateListeners, initMobileStatCycle };
 
 export const insertPlayerData = async () => {
   const grubbyProfileInfoElement = document.querySelector("#grubby-profile-info")
@@ -240,8 +240,17 @@ export const initSidebarToggle = () => {
   const collapsed = localStorage.getItem('sidebar-collapsed') === 'true';
   if (collapsed) nav.classList.add('collapsed');
 
-  toggle.addEventListener('click', () => {
+  const toggleCollapsed = () => {
     nav.classList.toggle('collapsed');
     localStorage.setItem('sidebar-collapsed', String(nav.classList.contains('collapsed')));
+  }
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleCollapsed();
+  });
+
+  nav.addEventListener('click', () => {
+    if (nav.classList.contains('collapsed')) toggleCollapsed();
   });
 }

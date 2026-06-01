@@ -44,13 +44,13 @@ export const desktopSidebar = (activePage: 'ratings' | 'clips') => {
   return `
   <nav class="page-nav fixed top-0 left-0 h-full hidden md:flex flex-col items-center py-3 bg-slate-900 border-r border-slate-700 z-50 overflow-hidden">
     <a href="${isRatings ? '#ratings' : '/'}" id="nav-ratings" class="nav-link flex flex-col items-center gap-1.5 py-3 px-2 rounded-lg text-slate-300 hover:text-white transition-colors ${isRatings ? 'active-page-nav' : ''}" title="Ratings">
-      <div class="nav-icon-pill w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400 transition-colors">
+      <div class="nav-icon-pill w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 transition-colors hover:bg-slate-700 hover:text-white">
         <i class="fa fa-trophy"></i>
       </div>
       <span class="text-[10px] uppercase tracking-wider font-medium">Ratings</span>
     </a>
     <a href="/clips.html" id="nav-clips" class="nav-link flex flex-col items-center gap-1.5 py-3 px-2 rounded-lg text-slate-300 hover:text-white transition-colors ${isRatings ? '' : 'active-page-nav'}" title="Twitch Clips">
-      <div class="nav-icon-pill w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400 transition-colors">
+      <div class="nav-icon-pill w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 transition-colors hover:bg-slate-700 hover:text-white">
         <i class="fa fa-play"></i>
       </div>
       <span class="text-[10px] uppercase tracking-wider font-medium">Clips</span>
@@ -106,11 +106,11 @@ const linkHtml = (l: { url: string, title: string, icon?: string, iconColor?: st
     : `<a href="${l.url}" target="_blank" title="${l.title}" class="flex items-center justify-center w-10 h-10 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors text-sm"><i class="${l.icon} ${l.iconColor ?? ''}"></i></a>`
 
 export const renderPlayerProfile = (p: { key: string, name: string, image: string, links: { url: string, title: string, icon?: string, iconColor?: string, img?: string }[] }) => `
-  <article id="${p.key}Profile" class="player-profile for-scroll-observer bg-slate-900 rounded-2xl shadow-lg border border-slate-800 overflow-hidden hover:-translate-y-0.5 hover:shadow-xl transition-transform">
+  <article id="${p.key}Profile" class="player-profile for-scroll-observer bg-slate-900 rounded-xl shadow-lg border border-slate-800 overflow-hidden hover:-translate-y-0.5 hover:shadow-xl transition-transform">
     <div class="p-6 md:p-8">
       <div class="flex flex-col md:flex-row gap-6">
         <div class="profile-image-container shrink-0 w-32 md:w-48">
-          <img class="player-profile-picture w-full h-56 object-cover rounded-xl shadow-md" src="${p.image}" alt="${p.name}" />
+          <img class="player-profile-picture w-full h-56 object-cover rounded-lg shadow-md" src="${p.image}" alt="${p.name}" />
         </div>
         <div class="flex-1 min-w-0">
           <h3 class="text-2xl font-bold text-white mb-3">${p.name}</h3>
@@ -121,19 +121,19 @@ export const renderPlayerProfile = (p: { key: string, name: string, image: strin
         </div>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-        <div class="text-center p-4 rounded-xl bg-slate-800/50 border border-slate-800">
+        <div class="text-center p-4 rounded-lg bg-slate-800/50 border border-slate-800">
           <span id="${p.key}-matches" class="block text-2xl font-bold text-white"></span>
           <span class="text-xs text-slate-400 uppercase tracking-wide"><i class="fa fa-crosshairs text-slate-500 mr-1.5"></i>Ranked 1v1</span>
         </div>
-        <div class="text-center p-4 rounded-xl bg-slate-800/50 border border-slate-800">
+        <div class="text-center p-4 rounded-lg bg-slate-800/50 border border-slate-800">
           <span id="${p.key}-win-percentage" class="block text-2xl font-bold text-white"></span>
           <span class="text-xs text-slate-400 uppercase tracking-wide"><i class="fa fa-percentage text-slate-500 mr-1.5"></i>Win Rate</span>
         </div>
-        <div class="text-center p-4 rounded-xl bg-slate-800/50 border border-slate-800">
+        <div class="text-center p-4 rounded-lg bg-slate-800/50 border border-slate-800">
           <span id="${p.key}-rating" class="block text-2xl font-bold text-amber-500"></span>
           <span class="text-xs text-slate-400 uppercase tracking-wide"><i class="fa fa-star text-slate-500 mr-1.5"></i>Rating</span>
         </div>
-        <div class="text-center p-4 rounded-xl bg-slate-800/50 border border-slate-800">
+        <div class="text-center p-4 rounded-lg bg-slate-800/50 border border-slate-800">
           <span id="${p.key}-streak" class="block text-2xl font-bold"></span>
           <span class="text-xs text-slate-400 uppercase tracking-wide"><i class="fa fa-bolt text-slate-500 mr-1.5"></i>Streak</span>
         </div>
