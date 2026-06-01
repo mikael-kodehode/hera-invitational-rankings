@@ -59,9 +59,9 @@ export const desktopSidebar = (activePage: 'ratings' | 'clips') => {
       <div class="px-3 pt-4 pb-1">
         <div class="text-[10px] uppercase tracking-wider font-semibold text-slate-500 text-center">Profiles</div>
       </div>
-      <div class="flex-1 overflow-y-auto w-full px-2 space-y-1">
+      <section class="flex-1 overflow-y-auto w-full px-2 space-y-1">
         ${profileLinks.map(p => `<a href="${prefix}${p.key}Profile" id="${p.id}" class="streamer-article nav-link flex items-center gap-1.5 py-2 px-2 rounded-md text-xs text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"><span class="fi fi-${p.flag} rounded-sm shrink-0"></span><span>${p.name}</span></a>`).join('\n      ')}
-      </div>
+      </section>
     </div>
     <button id="sidebar-toggle" class="sidebar-toggle w-7 h-7 rounded-lg bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-slate-400 hover:text-white transition-colors mt-auto mb-1 shrink-0" title="Toggle sidebar">
       <i class="fa fa-chevron-left text-xs sidebar-toggle-icon"></i>
