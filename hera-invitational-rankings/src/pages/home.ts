@@ -50,6 +50,9 @@ export const loadHome = () => {
       <a href="#LowkoProfile" id="LowkoButton" class="streamer-article w3-bar-item w3-button nav-link">
         LOWKO
       </a>
+      <a href="#iyouxinProfile" id="iyouxinButton" class="streamer-article w3-bar-item w3-button nav-link">
+        IYOUXIN
+      </a>
       <a href="/clips.html" id="nav-clips" class="w3-bar-item w3-button nav-link clips-button" >
         <i class="fa fa-play w3-xxlarge"></i>
         <br/><br/>
@@ -72,6 +75,7 @@ export const loadHome = () => {
         <a href="#AhmpyProfile" class="nav-link w3-bar-item" style="width:25% !important">Ahmpy</a>
         <a href="#YamatoCannonProfile" class="nav-link w3-bar-item" style="width:25% !important">YamatoCannon</a>
         <a href="#LowkoProfile" class="nav-link w3-bar-item" style="width:25% !important">LowKo</a>
+        <a href="#iyouxinProfile" class="nav-link w3-bar-item" style="width:25% !important">iyouxin</a>
         <a href="/clips.html" id="twitch-mobile-clips-button" class="nav-link w3-bar-item clips-button" style="width:25% !important" onClick="stateChangeClipsButtons" >Twitch Clips</a>
       </div>
     </nav>
@@ -812,6 +816,65 @@ export const loadHome = () => {
           </div>
           <h3>Trivia</h3>
           <div id="lowko-trivia" class="player-trivia-container"></div>
+        </article>
+
+        <article id="iyouxinProfile" class="player-profile for-scroll-observer">
+          <h3>iyouxin</h3>
+          <div class="player-intro-container">
+            <div class="player-info-links-container">
+              <div id="iyouxin-profile-info"></div>
+            </div>
+            <div class="profile-image-container">
+              <img class="player-profile-picture" src="/iyouxin-profile-picture.png"/>
+            </div>
+          </div>
+          <ul class="streamer-links-ul">
+            <li title="https://www.youtube.com/@iyouxin">
+              <a href="https://www.youtube.com/@iyouxin" target="_blank">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+            </li>
+            <li title="https://www.twitch.tv/iyouxin">
+              <a href="https://www.twitch.tv/iyouxin" target="_blank">
+                <i class="fa-brands fa-twitch"></i>
+              </a>
+            </li>
+            <li title="https://www.aoe2insights.com/user/25494761">
+              <a href="https://www.aoe2insights.com/user/25494761" target="_blank">
+                <img  src="/aoeinsights-logo.webp" />
+              </a>
+            </li>
+            <li title="https://discord.gg/hdSufp5ZCA">
+              <a href="https://discord.gg/hdSufp5ZCA" target="_blank">
+                <i class="fa-brands fa-discord"></i> 
+              </a>
+            </li>
+            <li title="http://instagram.com/iyouxin">
+              <a href="http://instagram.com/iyouxin" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+            </li>
+          </ul>
+          <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
+            <div class="w3-quarter w3-section">
+              <span id="iyouxin-matches" class="w3-xlarge"></span><br>
+              Ranked matches 1v1
+            </div>
+            <div class="w3-quarter w3-section">
+              <span id="iyouxin-win-percentage" class="w3-xlarge"></span><span class="w3-xlarge"> %</span><br>
+              Win percentage
+            </div>
+            <div class="w3-quarter w3-section">
+              <span id="iyouxin-rating" class="w3-xlarge"></span><br>
+              Rating
+            </div>
+            <div class="w3-quarter w3-section">
+              <span id="iyouxin-streak" class="w3-xlarge"></span><br>
+              Streak
+            </div>
+          </div>
+          <h3>Trivia</h3>
+          <div id="iyouxin-trivia" class="player-trivia-container"></div>
         </article>
       </div>
       ${footer}
