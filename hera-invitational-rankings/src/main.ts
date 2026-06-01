@@ -86,9 +86,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </section>
 
     <!-- Player Profiles -->
-    <div id="home" class="px-4 md:px-8 space-y-8 max-w-5xl mx-auto pb-8">
+    <section id="home" class="px-4 md:px-8 space-y-8 max-w-5xl mx-auto pb-8">
       ${players.map(renderPlayerProfile).join('\n      ')}
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer class="max-w-5xl mx-auto px-4 md:px-8 py-8 text-center text-slate-500 text-sm">
