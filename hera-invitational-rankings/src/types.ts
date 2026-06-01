@@ -21,7 +21,7 @@ export interface IDatabaseItem {
 export interface IClipsDbItem {
   id: number;
   created_at: string;
-  twitch_id: number;
+  twitch_id: string;
   twitch_clip_id: string;
   title: string;
   url: string;
