@@ -42,7 +42,7 @@ export const players: PlayerProfile[] = [
     ]
   },
   {
-    key: 'deathnote', name: 'Deathnote', flag: 'kr', image: '/deathnote-profile-picture.jpg',
+    key: 'deathnote', name: 'Deathnote', flag: 'ru', image: '/deathnote-profile-picture.jpg',
     links: [
       { url: 'https://www.youtube.com/channel/UChGsaIBM_pEKkdXjYcJdpzA', title: 'YouTube', icon: 'fa-brands fa-youtube', iconColor: 'text-red-500' },
       { url: 'https://www.twitch.tv/followdeathnote', title: 'Twitch', icon: 'fa-brands fa-twitch', iconColor: 'text-purple-500' },
@@ -62,7 +62,7 @@ export const players: PlayerProfile[] = [
     ]
   },
   {
-    key: 'knoff', name: 'Knoff', flag: 'us', image: '/knoff-profile-picture.png',
+    key: 'knoff', name: 'Knoff', flag: 'se', image: '/knoff-profile-picture.png',
     links: [
       { url: 'https://www.youtube.com/@campknoff', title: 'YouTube', icon: 'fa-brands fa-youtube', iconColor: 'text-red-500' },
       { url: 'https://www.twitch.tv/knoff', title: 'Twitch', icon: 'fa-brands fa-twitch', iconColor: 'text-purple-500' },
@@ -74,7 +74,7 @@ export const players: PlayerProfile[] = [
     ]
   },
   {
-    key: 'singsing', name: 'SingSing', flag: 'cn', image: '/singsing-profile-picture.webp',
+    key: 'singsing', name: 'SingSing', flag: 'nl', image: '/singsing-profile-picture.webp',
     links: [
       { url: 'https://www.youtube.com/channel/UC6c3OP2fWzaH5Nq5kh4m_SA', title: 'YouTube', icon: 'fa-brands fa-youtube', iconColor: 'text-red-500' },
       { url: 'https://www.twitch.tv/singsing', title: 'Twitch', icon: 'fa-brands fa-twitch', iconColor: 'text-purple-500' },

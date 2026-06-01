@@ -62,17 +62,17 @@
 }
 
 .view-count {
-  top: 0.5rem;
+  bottom: 0.5rem;
   left: 0.5rem;
 }
 
 .duration {
-  bottom: 0.5rem;
-  right: 0.5rem;
+  top: 0.5rem;
+  left: 0.5rem;
 }
 
 .age {
-  top: 0.5rem;
+  bottom: 0.5rem;
   right: 0.5rem;
 }
 
@@ -195,4 +195,8 @@
 
 .modal-close-btn:hover {
   color: #a78bfa;
+}
+
+.active-sort, .active-sort-all-desc, .active-sort-all-asc {
+  background: linear-gradient(135deg, #f59e0b, #ea580c);
 }
