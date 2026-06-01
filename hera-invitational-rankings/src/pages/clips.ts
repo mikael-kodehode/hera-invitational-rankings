@@ -15,11 +15,11 @@ export const loadClips = () => {
   ${mobileNav('clips')}
 
     <!-- Main Content -->
-    <div id="main" class="pb-20 md:pb-0 min-h-screen flex flex-col" style="margin-left: 63px;">
+    <div id="main" class="pb-20 md:pb-0 min-h-screen flex flex-col">
       ${header}
       <section id="gallery-section" class="select-none px-4 md:px-8 py-8 flex-1">
         <div class="gallery-container">
-          <div class="relative z-10 flex items-center pb-3 gap-4 flex-wrap w-1/4 items-end">
+          <div id="sort-all-buttons-container" class="relative z-10 flex items-center pb-3 gap-4 flex-wrap items-end">
             <div id="filter-clips-new" data-sort="new" title="New" class="sort-all-clips active-sort-all-desc cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
               <i class="fa-regular fa-clock"></i>
             </div>
@@ -27,42 +27,42 @@ export const loadClips = () => {
               <i class="fa-solid fa-fire"></i>
             </div>
           </div>
-          <div class="justify-center relative z-10 flex items-end pb-3 gap-3 flex-wrap">
+          <div id="sort-players-buttons-container" class="justify-center relative z-10 flex items-end pb-3 gap-3 flex-wrap">
             <div id="filter-clips-Grubby" data-sort="grubby" title="Grubby" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">Grubby</span>
+                <span class="">Grubby</span>
               </div>
             <div id="filter-clips-Day9" data-sort="day9tv" title="Day9" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">Day9</span>
+                <span class="">Day9</span>
               </div>
             <div id="filter-clips-Deathnote" data-sort="followdeathnote" title="Deathnote" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">Deathnote</span>
+                <span class="">Deathnote</span>
               </div>
             <div id="filter-clips-Gunnar" data-sort="gunnar" title="Gunnar" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">Gunnar</span>
+                <span class="">Gunnar</span>
               </div>
             <div id="filter-clips-Knoff" data-sort="knoff" title="Knoff" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">Knoff</span>
+                <span class="">Knoff</span>
               </div>
             <div id="filter-clips-SingSing" data-sort="singsing" title="SingSing" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">SingSing</span>
+                <span class="">SingSing</span>
               </div>
             <div id="filter-clips-uThermal" data-sort="uthermalsc2" title="uThermal" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">uThermal</span>
+                <span class="">uThermal</span>
               </div>
             <div id="filter-clips-PiG" data-sort="x5_pig" title="PiG" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">PiG</span>
+                <span class="">PiG</span>
               </div>
             <div id="filter-clips-Ahmpy" data-sort="ahmpy" title="Ahmpy" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">Ahmpy</span>
+                <span class="">Ahmpy</span>
               </div>
             <div id="filter-clips-YamatoCannon" data-sort="yamatocannon" title="YamatoCannon" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">YamatoCannon</span>
+                <span class="">YamatoCannon</span>
               </div>
             <div id="filter-clips-LowKo" data-sort="lowkotv" title="LowKo" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="hidden sm:inline">LowKo</span>
+                <span class="">LowKo</span>
               </div>
             <div id="filter-clips-iyouxin" data-sort="iyouxin" title="iyouxin" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-              <span class="hidden sm:inline">iyouxin</span>
+              <span class="">iyouxin</span>
             </div>
           </div>
           <div id="clips-grid" class="clips-grid"></div>
@@ -88,8 +88,6 @@ export const invokeFetchClip = async () => {
 }
 
 const filterClips = (sortAfter: SortAfter[], clips: IClipsDbItem[]) => {
-  console.log('sortAfter', sortAfter)
-  console.log('clips', clips)
   return clips.filter((clip) => sortAfter.includes(clip.twitch_name))
 }
 
@@ -98,18 +96,18 @@ export const sortClips = async (clips?: IClipsDbItem[]) => {
   const backupClips: string | null = localStorage.getItem('clips')
   
   const activeFilteredPlayers = document.querySelectorAll('.active-sort')
-  const playerNamesForSorting: SortAfter[] = Array.from(activeFilteredPlayers)
+  const playerElementsForSorting = Array.from(activeFilteredPlayers)
     .map(node => node.getAttribute('data-sort') as SortAfter | null)
     .filter((sort): sort is SortAfter => sort !== null);
 
   let sort: 'new-desc' | 'new-asc' | 'popular-desc' | 'popular-asc' | 'random' | undefined = undefined
   let clipsForUse: IClipsDbItem[] = []
-  if(clips) return [...clips].sort((a, b) => new Date(b.clip_created_at).getTime() - new Date(a.clip_created_at).getTime())
+  if(clips) return insertClips([...clips].sort((a, b) => new Date(b.clip_created_at).getTime() - new Date(a.clip_created_at).getTime()))
   if (backupClips) {
-    if (!playerNamesForSorting.length) {
+    if (!playerElementsForSorting.length) {
       clipsForUse = JSON.parse(backupClips)
     } else {
-      clipsForUse = filterClips(playerNamesForSorting, JSON.parse(backupClips))
+      clipsForUse = filterClips(playerElementsForSorting, JSON.parse(backupClips))
     }
   } else {
     console.info("Couldn't find clips. Fetching...")
@@ -118,12 +116,12 @@ export const sortClips = async (clips?: IClipsDbItem[]) => {
   const sortAllNewButton = document.querySelector<HTMLDivElement>('#filter-clips-new')
   const sortAllPopularButton = document.querySelector<HTMLDivElement>('#filter-clips-popular')
   if (!sortAllNewButton || !sortAllPopularButton) {
-    console.log("Sort all buttons not loaded. Sorting after default: new")
+    console.info("Sort all buttons not loaded. Sorting after default: new")
   } else if (sortAllNewButton.classList.contains('active-sort-all-desc')) sort = 'new-desc'
   else if (sortAllPopularButton.classList.contains('active-sort-all-desc')) sort = 'popular-desc'
   else if (sortAllNewButton.classList.contains('active-sort-all-asc')) sort = 'new-asc'
   else if (sortAllPopularButton.classList.contains('active-sort-all-asc')) sort = 'popular-asc'
-  else { console.log('random');sort = 'random'}
+  else sort = 'random'
   switch (sort) {
     case 'new-desc':
       return insertClips([...clipsForUse].sort((a, b) => new Date(b.clip_created_at).getTime() - new Date(a.clip_created_at).getTime()))
@@ -137,7 +135,7 @@ export const sortClips = async (clips?: IClipsDbItem[]) => {
       return insertClips([...clipsForUse].sort(() => Math.random() - 0.5))
   
     default:
-      console.log('default')
+      console.info('Sorting after default')
       return insertClips([...clipsForUse].sort(() => Math.random() - 0.5))
   } 
 }
