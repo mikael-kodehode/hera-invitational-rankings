@@ -127,6 +127,16 @@ export const players: PlayerProfile[] = [
     ]
   },
   {
+    key: 'iyouxin', name: 'iyouxin', flag: 'ua', image: '/iyouxin-profile-picture.png',
+    links: [
+      { url: 'https://www.youtube.com/@iyouxin', title: 'YouTube', icon: 'fa-brands fa-youtube', iconColor: 'text-red-500' },
+      { url: 'https://www.twitch.tv/iyouxin', title: 'Twitch', icon: 'fa-brands fa-twitch', iconColor: 'text-purple-500' },
+      { url: 'https://www.aoe2insights.com/user/25494761', title: 'AoE2 Insights', img: '/aoeinsights-logo.webp' },
+      { url: 'https://discord.gg/hdSufp5ZCA', title: 'Discord', icon: 'fa-brands fa-discord', iconColor: 'text-indigo-500' },
+      { url: 'http://instagram.com/iyouxin', title: 'Instagram', icon: 'fa-brands fa-instagram', iconColor: 'text-pink-500' },
+    ]
+  },
+  {
     key: 'lowko', name: 'LowKo', flag: 'nl', image: '/lowko-profile-picture.jpg',
     links: [
       { url: 'https://www.youtube.com/morelowko', title: 'YouTube', icon: 'fa-brands fa-youtube', iconColor: 'text-red-500' },

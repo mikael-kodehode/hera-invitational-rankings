@@ -1,5 +1,4 @@
 import { fetchTwitchClips } from '../shared/api';
-import { TwitchIdFromTwitchChannel } from '../types';
 import type { IClipsDbItem } from '../types';
 import { footer, header, desktopSidebar, mobileNav } from '../shared/components';
 import '../style.css'
@@ -67,13 +66,13 @@ export const insertClips = async () => {
             <img data-clipId="${clip.twitch_clip_id}" class="thumbnail" src="${clip.thumbnail_url}" alt="Clip Thumbnail">
             <div class="badge view-count">${clip.view_count} views</div>
             <div class="badge duration">${clip.duration_seconds} s</div>
-            <div class="badge age">${daysAgo}days ago</div>
+            <div class="badge age">${!daysAgo ? 'Today' : daysAgo === 1 ? 'Yesterday' : `${daysAgo} days ago`}</div>
           </button>
           <div class="clip-info">
-            <div class="avatar"><img src="/${Object.keys(TwitchIdFromTwitchChannel).find(key => TwitchIdFromTwitchChannel[key] === clip.profile_id)}-avatar.png"/></div>
+            <div class="avatar"><img src="/${clip.twitch_name}-avatar.png"/></div>
             <div class="details">
               <h3 class="clip-name" title="${clip.title}">${clip.title}</h3>
-              <p class="broadcaster">${Object.keys(TwitchIdFromTwitchChannel).find(key => TwitchIdFromTwitchChannel[key] === clip.profile_id)}</p>
+              <p class="broadcaster">${clip.twitch_name}</p>
             </div>
           </div>
         </div>

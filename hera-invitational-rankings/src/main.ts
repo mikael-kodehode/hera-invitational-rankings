@@ -64,7 +64,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
               <tr class="bg-slate-800 text-slate-300 text-xs uppercase tracking-wider">
                 <th class="px-4 py-3 text-center font-semibold w-10">#</th>
                 <th class="px-4 py-3 text-center font-semibold"><div class="inline-block text-left w-[160px]">Player</div></th>
-                <th class="sortable asc px-4 py-3 text-center font-semibold cursor-pointer hover:text-white" data-sort="rating">Rating</th>
+                <th class="sortable desc px-4 py-3 text-center font-semibold cursor-pointer hover:text-white" data-sort="rating">Rating</th>
                 <th class="sortable collapse-win-percentage px-4 py-3 text-center font-semibold cursor-pointer hover:text-white" data-sort="win_percentage">W%</th>
                 <th class="sortable collapse-streak px-4 py-3 text-center font-semibold cursor-pointer hover:text-white" data-sort="streak">Streak</th>
                 <th class="sortable px-4 py-3 text-center font-semibold cursor-pointer hover:text-white" data-sort="matches_played">1v1</th>
