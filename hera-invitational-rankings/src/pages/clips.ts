@@ -20,7 +20,7 @@ export const loadClips = () => {
       <section id="gallery-section" class="select-none px-4 md:px-8 py-8 flex-1">
         <div class="gallery-container">
           <div class="relative z-10 flex items-center pb-3 gap-4 flex-wrap w-1/4 items-end">
-            <div id="filter-clips-new" data-sort="new" title="New" class="sort-all-clips active-sort-all cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
+            <div id="filter-clips-new" data-sort="new" title="New" class="sort-all-clips active-sort-all-desc cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
               <i class="fa-regular fa-clock"></i>
             </div>
             <div id="filter-clips-popular" data-sort="popular" title="Popular" class="sort-all-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
@@ -90,16 +90,16 @@ export const invokeFetchClip = async () => {
 const filterClips = (sortAfter: SortAfter[], clips: IClipsDbItem[]) => {
   console.log('sortAfter', sortAfter)
   console.log('clips', clips)
-  return clips.filter((clip) => sortAfter.includes(clip.profile_id ));
+  return clips.filter((clip) => sortAfter.includes(clip.twitch_name))
 }
 
-export const sortClips = async (sortAfter: SortAfter[] | 'new' | 'popular' | 'random', clips?: IClipsDbItem[]): Promise<IClipsDbItem[] | undefined> => {
+export const sortClips = async (sortAfter: SortAfter[] | 'new-desc' | 'new-asc' | 'popular-desc' | 'popular-asc' | 'random', clips?: IClipsDbItem[]): Promise<IClipsDbItem[] | undefined> => {
   const backupClips: string | null = localStorage.getItem('clips')
   let clipsForuse: IClipsDbItem[] = []
-  let sort: 'new' | 'popular' | 'random' = 'new'
+  let sort: 'new-desc' | 'new-asc' | 'popular-desc' | 'popular-asc' | 'random' = 'new-desc'
   if(clips) return [...clips].sort((a, b) => new Date(b.clip_created_at).getTime() - new Date(a.clip_created_at).getTime())
   else if (backupClips) {
-    if(sortAfter === 'new' || sortAfter === 'popular' || sortAfter === 'random') {
+    if(sortAfter === 'new-desc' || sortAfter==='new-asc' || sortAfter==='popular-desc' || sortAfter === 'popular-asc' || sortAfter === 'random') {
       sort = sortAfter
       clipsForuse = JSON.parse(backupClips)
     } else if (!sortAfter.length) {
@@ -110,8 +110,10 @@ export const sortClips = async (sortAfter: SortAfter[] | 'new' | 'popular' | 'ra
       const sortAllPopularButton = document.querySelector<HTMLDivElement>('#filter-clips-popular')
       if (!sortAllNewButton || !sortAllPopularButton) {
         console.log("Sort all buttons not loaded. Sorting after default: new")
-      } else if(sortAllPopularButton.classList.contains('active-sort-all')) sort = 'popular'
-      // If the new button contains active-sort-all - ignore this check because it's new as default
+      } else if (sortAllNewButton.classList.contains('active-sort-all-desc')) sort = 'new-desc'
+      else if (sortAllPopularButton.classList.contains('active-sort-all-desc')) sort = 'popular-desc'
+      else if (sortAllNewButton.classList.contains('active-sort-all-asc')) sort = 'new-asc'
+      else if (sortAllPopularButton.classList.contains('active-sort-all-asc')) sort = 'popular-desc'
       else sort = 'random'
     }
   } else {
@@ -119,10 +121,14 @@ export const sortClips = async (sortAfter: SortAfter[] | 'new' | 'popular' | 'ra
     clipsForuse = await fetchTwitchClips()
   }
   switch (sort) {
-    case 'new':
+    case 'new-desc':
       return [...clipsForuse].sort((a, b) => new Date(b.clip_created_at).getTime() - new Date(a.clip_created_at).getTime())
-    case 'popular':
+    case 'new-asc':
+      return [...clipsForuse].sort((a, b) => new Date(a.clip_created_at).getTime() - new Date(b.clip_created_at).getTime())
+    case 'popular-desc':
       return [...clipsForuse].sort((a, b) => b.view_count - a.view_count)
+    case 'popular-asc':
+      return [...clipsForuse].sort((a, b) => a.view_count - b.view_count)
     case 'random':
       return [...clipsForuse].sort(() => Math.random() - 0.5)
   
@@ -152,10 +158,10 @@ export const insertClips = async (clips: IClipsDbItem[]) => {
             <div class="badge duration">0:${clip.duration_seconds < 10 ? `0` : ''}${Math.floor(clip.duration_seconds)}</div>
           </button>
           <div class="clip-info">
-            <div class="avatar"><img src="/${clip.twitch_name}-avatar.png"/></div>
+            <div class="avatar"><img src="/${clip.twitch_id}-avatar.png"/></div>
             <div class="details">
               <h3 class="clip-name" title="${clip.title}">${clip.title}</h3>
-              <p class="broadcaster">${clip.twitch_name}</p>
+              <p class="broadcaster">${clip.twitch_id}</p>
             </div>
           </div>
         </div>
@@ -174,28 +180,33 @@ export const initiateSortingListeners = () => {
     button.addEventListener('click', async () => {
       const sort = button.getAttribute('data-sort') as 'new' | 'popular'
       
-      if(button.classList.contains('active-sort-all')) {
-        const sortedClips = await sortClips('random')
-        if(!sortedClips) return console.error('clips returned undefined from sorting when getting argument random')
+      if(button.classList.contains('active-sort-all-desc')) {
+        const dataSort = button.getAttribute('data-sort') as 'new' | 'popular'
+        const sortedClips = await sortClips(`${dataSort}-asc`)
+        if (!sortedClips) return console.error('clips returned undefined from sorting when getting argument new-asc or popular-asc')
         await insertClips(sortedClips)
-        button.classList.remove('active-sort-all')
-      } else if(!sortAllNewButton || !sortAllPopularButton) {
+        button.classList.remove('active-sort-all-desc')
+      } else if (button.classList.contains('active-sort-all-asc')) {
+        const clips = await sortClips('random')
+        if (!clips) return console.error('clips returned undefined from sorting when getting argument random')
+        await insertClips(clips)
+        button.classList.contains('active-sort-all-asc')
+      } else if (!sortAllNewButton || !sortAllPopularButton) {
         console.error('sort all buttons or one of them is undefined')
         const clips = await sortClips('random')
         if (!clips) return console.error('sortAll event listener -> one of them undefined -> sorted clips came back undefined')
         await insertClips(clips)
-      } else if (sortAllNewButton.classList.contains('active-sort-all') || sortAllPopularButton.classList.contains('active-sort-all')) {
-        sortAllNewButton.classList.toggle('active-sort-all')
-        sortAllPopularButton.classList.toggle('active-sort-all')
-        const clips = await sortClips(sort)
+      } else {//if (sortAllNewButton.classList.contains('active-sort-all-desc') || sortAllPopularButton.classList.contains('active-sort-all-desc') || sortAllNewButton.classList.contains('active-sort-all-asc') || sortAllPopularButton.classList.contains('active-sort-all-asc')) {
+        sortAllNewButton.classList.remove('active-sort-all-desc')
+        sortAllPopularButton?.classList.remove('active-sort-all-desc')
+        sortAllNewButton?.classList.remove('active-sort-all-asc')
+        sortAllPopularButton?.classList.remove('active-sort-all-asc')
+        console.log(button)
+        button.classList.add('active-sort-all-desc')
+        const clips = await sortClips(`${sort}-desc`)
         if (!clips) return console.error('sortAll event listener -> one of them contains active-sort-all -> sorted clips came back undefined')
         await insertClips(clips)
-      } else {
-        button.classList.add('active-sort-all')
-        const clips = await sortClips(sort)
-        if (!clips) return console.error('sortAll event listener -> one of them contains active-sort-all -> sorted clips came back undefined')
-        await insertClips(clips)
-      }        
+      }
     })
   })
 

@@ -3,7 +3,7 @@ import { initSidebarToggle } from "./shared/functions";
 
 loadClips();
 const clips = await invokeFetchClip()
-const newSortedClips = await sortClips('new', clips) ?? clips
+const newSortedClips = await sortClips('new-desc', clips) ?? clips
 insertClips(newSortedClips);
 initSidebarToggle()
 initiateSortingListeners()

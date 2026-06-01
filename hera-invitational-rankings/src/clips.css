@@ -197,6 +197,6 @@
   color: #a78bfa;
 }
 
-.active-sort, .active-sort-all {
+.active-sort, .active-sort-all-desc, .active-sort-all-asc {
   background: linear-gradient(135deg, #f59e0b, #ea580c);
 }
