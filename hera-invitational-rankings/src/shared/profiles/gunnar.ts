@@ -2,7 +2,7 @@ export const gunnarProfileInfo = `
   <p>
     Nicolas "Gunnar" Lopez is a professional Dota 2 player and analyst from America. He streams on Twitch mainly Dota 2, but has also streamed some variety games.
     <br/><br/>
-    Gunnar started playing Dota 2 in 2013, when he was 13. He got into the game after challenging another player to a 1v1 in Team Fortress 2, where the winner would get a hat. 
+    Gunnar started playing Dota 2 in 2013, when he was 13. He got into the game after challenging another player to a 1v1 in Team Fortress 2, where the winner would get a hat.
     Gunnar won, but his opponent did not have any good hats, so gave him a beta key for Dota 2 instead.
   </p>
 `

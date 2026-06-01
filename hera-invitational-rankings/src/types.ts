@@ -31,7 +31,7 @@ export interface IClipsDbItem {
   clip_created_at: string;
   raw: JSON;
   thumbnail_url: string;
-  twitch_name: number;
+  twitch_name: string;
 }
 
 export const Links = {
