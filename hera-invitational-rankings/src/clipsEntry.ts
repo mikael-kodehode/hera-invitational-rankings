@@ -1,9 +1,12 @@
-import { loadClips, insertClips } from "./pages/clips";
+import { loadClips, insertClips, initiateSortingListeners, invokeFetchClip, sortClips } from "./pages/clips";
 import { initSidebarToggle } from "./shared/functions";
 
 loadClips();
-insertClips();
+const clips = await invokeFetchClip()
+const newSortedClips = await sortClips('new', clips) ?? clips
+insertClips(newSortedClips);
 initSidebarToggle()
+initiateSortingListeners()
 
 const closeBtn = document.querySelector<HTMLButtonElement>("#close-modal")
 const iframeContainer = document.querySelector<HTMLDivElement>("#iframe-container")
