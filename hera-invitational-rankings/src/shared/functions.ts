@@ -1,6 +1,4 @@
 import { initiatePlayerData, fillRatingTable, initiateListeners, initMobileStatCycle } from "./leaderboard";
-import { fetchTwitchClips } from "./api";
-import type { IClipsDbItem } from "../types";
 import { grubbyProfileInfo, grubbyTrivia } from "./profiles/grubby";
 import { day9ProfileInfo, day9Trivia } from "./profiles/day9";
 import { deathnoteProfileInfo, deathnoteTrivia } from "./profiles/deathnote";
@@ -257,56 +255,3 @@ export const initSidebarToggle = () => {
   });
 };
 
-// For clips page
-const invokeFetchClip = async () => {  
-  try {
-    const data = await fetchTwitchClips()
-    return data
-  } catch (error) {
-    throw error
-  }
-}
-
-const sortClips = (clips: IClipsDbItem[], sortAfter: 'new' | 'popular') => {
-  console.log(new Date(clips[0].clip_created_at))
-  if(sortAfter === 'popular') return [...clips].sort((a, b) => b.view_count - a.view_count)
-  if(sortAfter === 'new') return [...clips].sort((a, b) => new Date(b.clip_created_at).getTime() - new Date(a.clip_created_at).getTime())
-  else throw new Error("sortAfter is neither new or popular")
-}
-
-export const insertClips = async () => {
-  const clips = await invokeFetchClip()
-  const newSortedClips = sortClips(clips, 'new')
-  const clipGrid = document.querySelector<HTMLDivElement>('#clips-grid')
-  if(!clipGrid) return console.error("Clip grid not loaded", clipGrid)
-    for (const clip of newSortedClips) {
-    const card = document.createElement('div')
-    const pastDate = new Date(clip.clip_created_at);
-    const currentDate = new Date();
-
-    // Difference in milliseconds
-    const diffInMs = currentDate.getTime() - pastDate.getTime();
-
-    // Convert ms to days (1000ms * 60s * 60m * 24h = 86,400,000)
-    const daysAgo = Math.floor(diffInMs / (1000 * 60 * 60 * 24))
-    card.innerHTML = 
-      `
-        <div class="clip-card">
-          <button class="thumbnail-wrapper">
-            <img data-clipId="${clip.twitch_clip_id}" class="thumbnail" src="${clip.thumbnail_url}" alt="Clip Thumbnail">
-            <div class="badge view-count">${clip.view_count} views</div>
-            <div class="badge duration">${clip.duration_seconds} s</div>
-            <div class="badge age">${!daysAgo ? 'Today' : daysAgo === 1 ? 'Yesterday' : `${daysAgo} days ago`}</div>
-          </button>
-          <div class="clip-info">
-            <div class="avatar"><img src="/${clip.twitch_name}-avatar.png"/></div>
-            <div class="details">
-              <h3 class="clip-name" title="${clip.title}">${clip.title}</h3>
-              <p class="broadcaster">${clip.twitch_name}</p>
-            </div>
-          </div>
-        </div>
-      `
-    clipGrid.appendChild(card)
-  }
-}

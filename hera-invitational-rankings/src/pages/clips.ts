@@ -88,8 +88,6 @@ export const invokeFetchClip = async () => {
 }
 
 const filterClips = (sortAfter: SortAfter[], clips: IClipsDbItem[]) => {
-  console.log('sortAfter', sortAfter)
-  console.log('clips', clips)
   return clips.filter((clip) => sortAfter.includes(clip.twitch_name))
 }
 
@@ -98,18 +96,18 @@ export const sortClips = async (clips?: IClipsDbItem[]) => {
   const backupClips: string | null = localStorage.getItem('clips')
   
   const activeFilteredPlayers = document.querySelectorAll('.active-sort')
-  const playerNamesForSorting: SortAfter[] = Array.from(activeFilteredPlayers)
+  const playerElementsForSorting = Array.from(activeFilteredPlayers)
     .map(node => node.getAttribute('data-sort') as SortAfter | null)
     .filter((sort): sort is SortAfter => sort !== null);
 
   let sort: 'new-desc' | 'new-asc' | 'popular-desc' | 'popular-asc' | 'random' | undefined = undefined
   let clipsForUse: IClipsDbItem[] = []
-  if(clips) return [...clips].sort((a, b) => new Date(b.clip_created_at).getTime() - new Date(a.clip_created_at).getTime())
+  if(clips) return insertClips([...clips].sort((a, b) => new Date(b.clip_created_at).getTime() - new Date(a.clip_created_at).getTime()))
   if (backupClips) {
-    if (!playerNamesForSorting.length) {
+    if (!playerElementsForSorting.length) {
       clipsForUse = JSON.parse(backupClips)
     } else {
-      clipsForUse = filterClips(playerNamesForSorting, JSON.parse(backupClips))
+      clipsForUse = filterClips(playerElementsForSorting, JSON.parse(backupClips))
     }
   } else {
     console.info("Couldn't find clips. Fetching...")
@@ -118,12 +116,12 @@ export const sortClips = async (clips?: IClipsDbItem[]) => {
   const sortAllNewButton = document.querySelector<HTMLDivElement>('#filter-clips-new')
   const sortAllPopularButton = document.querySelector<HTMLDivElement>('#filter-clips-popular')
   if (!sortAllNewButton || !sortAllPopularButton) {
-    console.log("Sort all buttons not loaded. Sorting after default: new")
+    console.info("Sort all buttons not loaded. Sorting after default: new")
   } else if (sortAllNewButton.classList.contains('active-sort-all-desc')) sort = 'new-desc'
   else if (sortAllPopularButton.classList.contains('active-sort-all-desc')) sort = 'popular-desc'
   else if (sortAllNewButton.classList.contains('active-sort-all-asc')) sort = 'new-asc'
   else if (sortAllPopularButton.classList.contains('active-sort-all-asc')) sort = 'popular-asc'
-  else { console.log('random');sort = 'random'}
+  else sort = 'random'
   switch (sort) {
     case 'new-desc':
       return insertClips([...clipsForUse].sort((a, b) => new Date(b.clip_created_at).getTime() - new Date(a.clip_created_at).getTime()))
@@ -137,7 +135,7 @@ export const sortClips = async (clips?: IClipsDbItem[]) => {
       return insertClips([...clipsForUse].sort(() => Math.random() - 0.5))
   
     default:
-      console.log('default')
+      console.info('Sorting after default')
       return insertClips([...clipsForUse].sort(() => Math.random() - 0.5))
   } 
 }

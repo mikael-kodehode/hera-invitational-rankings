@@ -104,5 +104,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initiateObservers();
   initSidebarToggle();
   initMobileStatCycle();
-  console.log('loaded')
+  console.info('loaded')
 });
