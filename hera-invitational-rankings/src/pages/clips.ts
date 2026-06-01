@@ -161,10 +161,10 @@ export const insertClips = async (clips: IClipsDbItem[]) => {
             <div class="badge duration">0:${clip.duration_seconds < 10 ? `0` : ''}${Math.floor(clip.duration_seconds)}</div>
           </button>
           <div class="clip-info">
-            <div class="avatar"><img src="/${clip.twitch_id}-avatar.png"/></div>
+            <div class="avatar"><img src="/${clip.twitch_name}-avatar.png"/></div>
             <div class="details">
               <h3 class="clip-name" title="${clip.title}">${clip.title}</h3>
-              <p class="broadcaster">${clip.twitch_id}</p>
+              <p class="broadcaster">${clip.twitch_name}</p>
             </div>
           </div>
         </div>
