@@ -210,19 +210,18 @@ export const initiateSortingListeners = () => {
     })
   })
 
-  for (const element of sortButtons) {
+  sortButtons.forEach(element => {
     element.addEventListener('click', async (event: MouseEvent) => {
       const target = event.target as HTMLElement
       const button = target.closest(".sortable-clips")
       button?.classList.toggle('active-sort')
       const activeFilteredPlayers = document.querySelectorAll('.active-sort')
-      const playerNamesForSorting: SortAfter[] = []
-      for (const element of activeFilteredPlayers) {
-        playerNamesForSorting.push(element.getAttribute('data-sort') as SortAfter)
-      }
+      const playerNamesForSorting: SortAfter[] = Array.from(activeFilteredPlayers)
+        .map(node => node.getAttribute('data-sort') as SortAfter | null)
+        .filter((sort): sort is SortAfter => sort !== null);
       const clips = await sortClips(playerNamesForSorting)
       if(!clips) return console.error("clips from sorting is undefined from event listener", element.getAttribute('data-sort'))
       await insertClips(clips)
     })
-  }
+  }) 
 }
