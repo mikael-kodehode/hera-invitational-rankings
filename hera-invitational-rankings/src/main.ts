@@ -25,7 +25,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <!-- Bottom edge glow -->
       <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-400/60 to-transparent"></div>
       <h1 class="relative z-10 text-4xl md:text-5xl font-bold tracking-tight text-white mb-2">
-        <span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-500">Hera's</span> Invitational Rankings
+        <a href="/"><span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-500">Hera's</span> Invitational Rankings<a/>
       </h1>
       <p class="relative z-10 text-slate-400 text-sm mb-6">Track the progress of your favorite players</p>
       <div class="relative z-10 flex items-center justify-center gap-4 flex-wrap">
@@ -54,9 +54,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between">
           <h2 class="text-lg font-semibold text-slate-100 flex items-center gap-2">
             <i class="fa fa-trophy text-amber-500"></i>
-            Leaderboard
-          </h2>
-
+            Leaderboard 
+            </h2>
+            <a class="underline" href="https://aoe2.criticalbit.gg/kings-gauntlet/" target="_blank">Make sure to check out the official website!</a>
         </div>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
