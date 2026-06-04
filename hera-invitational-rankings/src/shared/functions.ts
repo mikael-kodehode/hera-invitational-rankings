@@ -312,7 +312,7 @@ export const insertPlayerData = async () => {
       else if (val < 0) el.classList.add('text-red-400')
       else el.classList.add('text-slate-400')
     })
-
+    document.querySelector('#refresh-leaderboard')?.classList.remove('loading')
   } catch (error) {
     if(error) console.log(error)
     throw new Error("Insert data failed");
