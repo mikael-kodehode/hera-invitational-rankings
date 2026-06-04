@@ -46,7 +46,7 @@ export const loadClips = () => {
             <div id="filter-clips-SingSing" data-sort="singsing" title="SingSing" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
                 <span class="">SingSing</span>
               </div>
-            <div id="filter-clips-uThermal" data-sort="uthermalsc2" title="uThermal" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
+            <div id="filter-clips-uThermal" data-sort="uThermalSC2" title="uThermal" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
                 <span class="">uThermal</span>
               </div>
             <div id="filter-clips-PiG" data-sort="x5_PiG" title="PiG" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
