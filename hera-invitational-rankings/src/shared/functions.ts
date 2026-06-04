@@ -2,7 +2,6 @@ import { initiatePlayerData, fillRatingTable, initiateListeners, initMobileStatC
 import { grubbyProfileInfo, grubbyTrivia } from "./profiles/grubby";
 import { day9ProfileInfo, day9Trivia } from "./profiles/day9";
 import { deathnoteProfileInfo, deathnoteTrivia } from "./profiles/deathnote";
-import { gunnarProfileInfo, gunnarTrivia } from "./profiles/gunnar";
 import { knoffProfileInfo, knoffTrivia } from "./profiles/knoff";
 import { singsingProfileInfo, singsingTrivia } from "./profiles/singsing";
 import { uthermalProfileInfo, uthermalTrivia } from "./profiles/uthermal";
@@ -11,6 +10,15 @@ import { yamatocannonProfileInfo, yamatocannonTrivia } from "./profiles/yamatoca
 import { ahmpyProfileInfo, ahmpyTrivia } from "./profiles/ahmpy";
 import { lowkoProfileInfo, lowkoTrivia } from "./profiles/lowko";
 import { iyouxinProfileInfo, iyouxinTrivia } from "./profiles/iyouxin";
+import { mrllamascProfileInfo, mrllamascTrivia } from "./profiles/mrllamasc";
+import { jaboProfileInfo, jaboTrivia } from "./profiles/jabo";
+import { captainlance9ProfileInfo, captainlance9Trivia } from "./profiles/captainlance9";
+import { thespiffingbritProfileInfo, thespiffingbritTrivia } from "./profiles/thespiffingbrit";
+import { pestilyProfileInfo, pestilyTrivia } from "./profiles/pestily";
+import { ohtofuProfileInfo, ohtofuTrivia } from "./profiles/ohtofu";
+import { aquafpsProfileInfo, aquafpsTrivia } from "./profiles/aquafps";
+import { atriocProfileInfo, atriocTrivia } from "./profiles/atrioc";
+import { wagamamatvProfileInfo, wagamamatvTrivia } from "./profiles/wagamamatv";
 
 export { initiateListeners, initMobileStatCycle };
 
@@ -35,13 +43,6 @@ export const insertPlayerData = async () => {
   const deathnoteWinPercentage = document.querySelector("#deathnote-win-percentage")
   const deathnoteRating = document.querySelector("#deathnote-rating")
   const deathnoteStreak = document.querySelector("#deathnote-streak")
-
-  const gunnarProfileInfoElement = document.querySelector("#gunnar-profile-info")
-  const gunnarTriviaElement = document.querySelector("#gunnar-trivia")
-  const gunnarMatches = document.querySelector("#gunnar-matches")
-  const gunnarWinPercentage = document.querySelector("#gunnar-win-percentage")
-  const gunnarRating = document.querySelector("#gunnar-rating")
-  const gunnarStreak = document.querySelector("#gunnar-streak")
 
   const knoffProfileInfoElement = document.querySelector("#knoff-profile-info")
   const knoffTriviaElement = document.querySelector("#knoff-trivia")
@@ -98,6 +99,69 @@ export const insertPlayerData = async () => {
   const iyouxinWinPercentage = document.querySelector("#iyouxin-win-percentage")
   const iyouxinRating = document.querySelector("#iyouxin-rating")
   const iyouxinStreak = document.querySelector("#iyouxin-streak")
+  
+  const jaboProfileInfoElement = document.querySelector("#jabo-profile-info")
+  const jaboTriviaElement = document.querySelector("#jabo-trivia")
+  const jaboMatches = document.querySelector("#jabo-matches")
+  const jaboWinPercentage = document.querySelector("#jabo-win-percentage")
+  const jabonRating = document.querySelector("#jabo-rating")
+  const jaboStreak = document.querySelector("#jabo-streak")
+  
+  const mrllamascProfileInfoElement = document.querySelector("#mrllamasc-profile-info")
+  const mrllamascTriviaElement = document.querySelector("#mrllamasc-trivia")
+  const mrllamascMatches = document.querySelector("#mrllamasc-matches")
+  const mrllamascWinPercentage = document.querySelector("#mrllamasc-win-percentage")
+  const mrllamascRating = document.querySelector("#mrllamasc-rating")
+  const mrllamascStreak = document.querySelector("#mrllamasc-streak")
+  
+  const captainlance9ProfileInfoElement = document.querySelector("#captainlance9-profile-info")
+  const captainlance9TriviaElement = document.querySelector("#captainlance9-trivia")
+  const captainlance9Matches = document.querySelector("#captainlance9-matches")
+  const captainlance9WinPercentage = document.querySelector("#captainlance9-win-percentage")
+  const captainlance9Rating = document.querySelector("#captainlance9-rating")
+  const captainlance9Streak = document.querySelector("#captainlance9-streak")
+
+  const thespiffingbritProfileInfoElement = document.querySelector("#thespiffingbrit-profile-info")
+  const thespiffingbritTriviaElement = document.querySelector("#thespiffingbrit-trivia")
+  const thespiffingbritMatches = document.querySelector("#thespiffingbrit-matches")
+  const thespiffingbritWinPercentage = document.querySelector("#thespiffingbrit-win-percentage")
+  const thespiffingbritRating = document.querySelector("#thespiffingbrit-rating")
+  const thespiffingbritStreak = document.querySelector("#thespiffingbrit-streak")
+
+  const pestilyProfileInfoElement = document.querySelector("#pestily-profile-info")
+  const pestilyTriviaElement = document.querySelector("#pestily-trivia")
+  const pestilyMatches = document.querySelector("#pestily-matches")
+  const pestilyWinPercentage = document.querySelector("#pestily-win-percentage")
+  const pestilyRating = document.querySelector("#pestily-rating")
+  const pestilyStreak = document.querySelector("#pestily-streak")
+
+  const ohtofuProfileInfoElement = document.querySelector("#ohtofu-profile-info")
+  const ohtofuTriviaElement = document.querySelector("#ohtofu-trivia")
+  const ohtofuMatches = document.querySelector("#ohtofu-matches")
+  const ohtofuWinPercentage = document.querySelector("#ohtofu-win-percentage")
+  const ohtofuRating = document.querySelector("#ohtofu-rating")
+  const ohtofuStreak = document.querySelector("#ohtofu-streak")
+
+  const aquafpsProfileInfoElement = document.querySelector("#aquafps-profile-info")
+  const aquafpsTriviaElement = document.querySelector("#aquafps-trivia")
+  const aquafpsMatches = document.querySelector("#aquafps-matches")
+  const aquafpsWinPercentage = document.querySelector("#aquafps-win-percentage")
+  const aquafpsRating = document.querySelector("#aquafps-rating")
+  const aquafpsStreak = document.querySelector("#aquafps-streak")
+
+  const atriocProfileInfoElement = document.querySelector("#atrioc-profile-info")
+  const atriocTriviaElement = document.querySelector("#atrioc-trivia")
+  const atriocMatches = document.querySelector("#atrioc-matches")
+  const atriocWinPercentage = document.querySelector("#atrioc-win-percentage")
+  const atriocRating = document.querySelector("#atrioc-rating")
+  const atriocStreak = document.querySelector("#atrioc-streak")
+
+  const wagamamatvProfileInfoElement = document.querySelector("#wagamamatv-profile-info")
+  const wagamamatvTriviaElement = document.querySelector("#wagamamatv-trivia")
+  const wagamamatvMatches = document.querySelector("#wagamamatv-matches")
+  const wagamamatvWinPercentage = document.querySelector("#wagamamatv-win-percentage")
+  const wagamamatvRating = document.querySelector("#wagamamatv-rating")
+  const wagamamatvStreak = document.querySelector("#wagamamatv-streak")
 
   try {
     const data = await initiatePlayerData()
@@ -122,13 +186,6 @@ export const insertPlayerData = async () => {
     if(deathnoteStreak) deathnoteStreak.innerHTML = data['Deathnote']?.streak?.toString() ?? ''
     if(deathnoteRating) deathnoteRating.innerHTML = data['Deathnote']?.rating?.toString() ?? ''
     if(deathnoteWinPercentage) deathnoteWinPercentage.innerHTML = data['Deathnote']?.win_percentage?.toString() ?? ''
-
-    if(gunnarProfileInfoElement) gunnarProfileInfoElement.innerHTML = gunnarProfileInfo
-    if(gunnarTriviaElement) gunnarTriviaElement.innerHTML = gunnarTrivia
-    if(gunnarMatches) gunnarMatches.innerHTML = data['Gunnar']?.matches_played?.toString() ?? ''
-    if(gunnarStreak) gunnarStreak.innerHTML = data['Gunnar']?.streak?.toString() ?? ''
-    if(gunnarRating) gunnarRating.innerHTML = data['Gunnar']?.rating?.toString() ?? ''
-    if(gunnarWinPercentage) gunnarWinPercentage.innerHTML = data['Gunnar']?.win_percentage?.toString() ?? ''
 
     if(knoffProfileInfoElement) knoffProfileInfoElement.innerHTML = knoffProfileInfo
     if(knoffTriviaElement) knoffTriviaElement.innerHTML = knoffTrivia
@@ -185,6 +242,69 @@ export const insertPlayerData = async () => {
     if(iyouxinStreak) iyouxinStreak.innerHTML = data['iyouxin']?.streak?.toString() ?? ''
     if(iyouxinRating) iyouxinRating.innerHTML = data['iyouxin']?.rating?.toString() ?? ''
     if(iyouxinWinPercentage) iyouxinWinPercentage.innerHTML = data['iyouxin']?.win_percentage?.toString() ?? ''
+
+    if(jaboProfileInfoElement) jaboProfileInfoElement.innerHTML = jaboProfileInfo
+    if(jaboTriviaElement) jaboTriviaElement.innerHTML = jaboTrivia
+    if(jaboMatches) jaboMatches.innerHTML = data['jabo']?.matches_played?.toString() ?? ''
+    if(jaboWinPercentage) jaboWinPercentage.innerHTML = data['jabo']?.streak?.toString() ?? ''
+    if(jabonRating) jabonRating.innerHTML = data['jabo']?.rating?.toString() ?? ''
+    if(jaboStreak) jaboStreak.innerHTML = data['jabo']?.win_percentage?.toString() ?? ''
+
+    if(mrllamascProfileInfoElement) mrllamascProfileInfoElement.innerHTML = mrllamascProfileInfo
+    if(mrllamascTriviaElement) mrllamascTriviaElement.innerHTML = mrllamascTrivia
+    if(mrllamascMatches) mrllamascMatches.innerHTML = data['mrllamasc']?.matches_played?.toString() ?? ''
+    if(mrllamascWinPercentage) mrllamascWinPercentage.innerHTML = data['mrllamasc']?.streak?.toString() ?? ''
+    if(mrllamascRating) mrllamascRating.innerHTML = data['mrllamasc']?.rating?.toString() ?? ''
+    if(mrllamascStreak) mrllamascStreak.innerHTML = data['mrllamasc']?.win_percentage?.toString() ?? ''
+
+    if(captainlance9ProfileInfoElement) captainlance9ProfileInfoElement.innerHTML = captainlance9ProfileInfo
+    if(captainlance9TriviaElement) captainlance9TriviaElement.innerHTML = captainlance9Trivia
+    if(captainlance9Matches) captainlance9Matches.innerHTML = data['captainlance9']?.matches_played?.toString() ?? ''
+    if(captainlance9WinPercentage) captainlance9WinPercentage.innerHTML = data['captainlance9']?.streak?.toString() ?? ''
+    if(captainlance9Rating) captainlance9Rating.innerHTML = data['captainlance9']?.rating?.toString() ?? ''
+    if(captainlance9Streak) captainlance9Streak.innerHTML = data['captainlance9']?.win_percentage?.toString() ?? ''
+
+    if(thespiffingbritProfileInfoElement) thespiffingbritProfileInfoElement.innerHTML = thespiffingbritProfileInfo
+    if(thespiffingbritTriviaElement) thespiffingbritTriviaElement.innerHTML = thespiffingbritTrivia
+    if(thespiffingbritMatches) thespiffingbritMatches.innerHTML = data['thespiffingbrit']?.matches_played?.toString() ?? ''
+    if(thespiffingbritWinPercentage) thespiffingbritWinPercentage.innerHTML = data['thespiffingbrit']?.streak?.toString() ?? ''
+    if(thespiffingbritRating) thespiffingbritRating.innerHTML = data['thespiffingbrit']?.rating?.toString() ?? ''
+    if(thespiffingbritStreak) thespiffingbritStreak.innerHTML = data['thespiffingbrit']?.win_percentage?.toString() ?? ''
+
+    if(pestilyProfileInfoElement) pestilyProfileInfoElement.innerHTML = pestilyProfileInfo
+    if(pestilyTriviaElement) pestilyTriviaElement.innerHTML = pestilyTrivia
+    if(pestilyMatches) pestilyMatches.innerHTML = data['pestily']?.matches_played?.toString() ?? ''
+    if(pestilyWinPercentage) pestilyWinPercentage.innerHTML = data['pestily']?.streak?.toString() ?? ''
+    if(pestilyRating) pestilyRating.innerHTML = data['pestily']?.rating?.toString() ?? ''
+    if(pestilyStreak) pestilyStreak.innerHTML = data['pestily']?.win_percentage?.toString() ?? ''
+
+    if(ohtofuProfileInfoElement) ohtofuProfileInfoElement.innerHTML = ohtofuProfileInfo
+    if(ohtofuTriviaElement) ohtofuTriviaElement.innerHTML = ohtofuTrivia
+    if(ohtofuMatches) ohtofuMatches.innerHTML = data['ohtofu']?.matches_played?.toString() ?? ''
+    if(ohtofuWinPercentage) ohtofuWinPercentage.innerHTML = data['ohtofu']?.streak?.toString() ?? ''
+    if(ohtofuRating) ohtofuRating.innerHTML = data['ohtofu']?.rating?.toString() ?? ''
+    if(ohtofuStreak) ohtofuStreak.innerHTML = data['ohtofu']?.win_percentage?.toString() ?? ''
+
+    if(aquafpsProfileInfoElement) aquafpsProfileInfoElement.innerHTML = aquafpsProfileInfo
+    if(aquafpsTriviaElement) aquafpsTriviaElement.innerHTML = aquafpsTrivia
+    if(aquafpsMatches) aquafpsMatches.innerHTML = data['aquafps']?.matches_played?.toString() ?? ''
+    if(aquafpsWinPercentage) aquafpsWinPercentage.innerHTML = data['aquafps']?.streak?.toString() ?? ''
+    if(aquafpsRating) aquafpsRating.innerHTML = data['aquafps']?.rating?.toString() ?? ''
+    if(aquafpsStreak) aquafpsStreak.innerHTML = data['aquafps']?.win_percentage?.toString() ?? ''
+
+    if(atriocProfileInfoElement) atriocProfileInfoElement.innerHTML = atriocProfileInfo
+    if(atriocTriviaElement) atriocTriviaElement.innerHTML = atriocTrivia
+    if(atriocMatches) atriocMatches.innerHTML = data['atrioc']?.matches_played?.toString() ?? ''
+    if(atriocWinPercentage) atriocWinPercentage.innerHTML = data['atrioc']?.streak?.toString() ?? ''
+    if(atriocRating) atriocRating.innerHTML = data['atrioc']?.rating?.toString() ?? ''
+    if(atriocStreak) atriocStreak.innerHTML = data['atrioc']?.win_percentage?.toString() ?? ''
+
+    if(wagamamatvProfileInfoElement) wagamamatvProfileInfoElement.innerHTML = wagamamatvProfileInfo
+    if(wagamamatvTriviaElement) wagamamatvTriviaElement.innerHTML = wagamamatvTrivia
+    if(wagamamatvMatches) wagamamatvMatches.innerHTML = data['wagamamatv']?.matches_played?.toString() ?? ''
+    if(wagamamatvWinPercentage) wagamamatvWinPercentage.innerHTML = data['wagamamatv']?.streak?.toString() ?? ''
+    if(wagamamatvRating) wagamamatvRating.innerHTML = data['wagamamatv']?.rating?.toString() ?? ''
+    if(wagamamatvStreak) wagamamatvStreak.innerHTML = data['wagamamatv']?.win_percentage?.toString() ?? ''
 
     document.querySelectorAll('[id$="-streak"]').forEach(el => {
       const val = parseInt(el.textContent || '0', 10)

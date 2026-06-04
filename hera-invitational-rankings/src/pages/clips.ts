@@ -27,20 +27,20 @@ export const loadClips = () => {
               <i class="fa-solid fa-fire"></i>
             </div>
           </div>
-          <div id="sort-players-buttons-container" class="justify-center relative z-10 flex items-end pb-3 gap-3 flex-wrap">
-            <div id="filter-clips-Grubby" data-sort="grubby" title="Grubby" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
+          <div id="sort-players-buttons-container" class="hidden md:flex justify-center relative z-10 flex items-end pb-3 gap-3 flex-wrap">
+            <div id="filter-clips-Grubby" data-sort="Grubby" title="Grubby" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
                 <span class="">Grubby</span>
               </div>
-            <div id="filter-clips-Day9" data-sort="day9tv" title="Day9" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
+            <div id="filter-clips-Day9" data-sort="Day9tv" title="Day9tv" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
                 <span class="">Day9</span>
               </div>
             <div id="filter-clips-Deathnote" data-sort="followdeathnote" title="Deathnote" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
                 <span class="">Deathnote</span>
               </div>
-            <div id="filter-clips-Gunnar" data-sort="gunnar" title="Gunnar" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="">Gunnar</span>
+            <div id="filter-clips-Atrioc" data-sort="Atrioc" title="Atrioc" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
+                <span class="">Atrioc</span>
               </div>
-            <div id="filter-clips-Knoff" data-sort="knoff" title="Knoff" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
+            <div id="filter-clips-Knoff" data-sort="Knoff" title="Knoff" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
                 <span class="">Knoff</span>
               </div>
             <div id="filter-clips-SingSing" data-sort="singsing" title="SingSing" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
@@ -49,20 +49,44 @@ export const loadClips = () => {
             <div id="filter-clips-uThermal" data-sort="uthermalsc2" title="uThermal" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
                 <span class="">uThermal</span>
               </div>
-            <div id="filter-clips-PiG" data-sort="x5_pig" title="PiG" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
+            <div id="filter-clips-PiG" data-sort="x5_PiG" title="PiG" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
                 <span class="">PiG</span>
               </div>
             <div id="filter-clips-Ahmpy" data-sort="ahmpy" title="Ahmpy" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
                 <span class="">Ahmpy</span>
               </div>
-            <div id="filter-clips-YamatoCannon" data-sort="yamatocannon" title="YamatoCannon" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
+            <div id="filter-clips-YamatoCannon" data-sort="YamatoCannon" title="YamatoCannon" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
                 <span class="">YamatoCannon</span>
               </div>
-            <div id="filter-clips-LowKo" data-sort="lowkotv" title="LowKo" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
+            <div id="filter-clips-LowKo" data-sort="LowkoTV" title="LowKo" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
                 <span class="">LowKo</span>
               </div>
             <div id="filter-clips-iyouxin" data-sort="iyouxin" title="iyouxin" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
               <span class="">iyouxin</span>
+            </div>
+            <div id="filter-clips-CaptainLance" data-sort="captainlance9" title="CaptainLance" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
+                <span class="">CaptainLance</span>
+              </div>
+            <div id="filter-clips-The Spiffing Brit" data-sort="thespiffingbrit" title="The Spiffing Brit" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
+                <span class="">The Spiffing Brit</span>
+              </div>
+            <div id="filter-clips-Pestily" data-sort="pestily" title="Pestily" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
+                <span class="">Pestily</span>
+              </div>
+            <div id="filter-clips-OhTofu" data-sort="OhTofu" title="OhTofu" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
+                <span class="">OhTofu</span>
+              </div>
+            <div id="filter-clips-AquaFPS" data-sort="AquaFPS" title="AquaFPS" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
+                <span class="">AquaFPS</span>
+              </div>
+            <div id="filter-clips-MrLlamaSC" data-sort="MrLlamaSC" title="MrLlamaSC" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
+                <span class="">MrLlamaSC</span>
+              </div>
+            <div id="filter-clips-Wagamama" data-sort="wagamamatv" title="Wagamama" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
+                <span class="">Wagamama</span>
+              </div>
+            <div id="filter-clips-Jabo" data-sort="jabo" title="Jabo" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
+              <span class="">Jabo</span>
             </div>
           </div>
           <div id="clips-grid" class="clips-grid"></div>
@@ -83,11 +107,16 @@ export const loadClips = () => {
 
 export const invokeFetchClip = async () => {
   const data = await fetchTwitchClips()
-  localStorage.setItem('clips', JSON.stringify(data))
+  const setClips = {
+    date: Date.now(),
+    clips: data
+  }
+  localStorage.setItem('clips', JSON.stringify(setClips))
   return data
 }
 
 const filterClips = (sortAfter: SortAfter[], clips: IClipsDbItem[]) => {
+  console.log(clips)
   return clips.filter((clip) => sortAfter.includes(clip.twitch_name))
 }
 
@@ -104,10 +133,17 @@ export const sortClips = async (clips?: IClipsDbItem[]) => {
   let clipsForUse: IClipsDbItem[] = []
   if(clips) return insertClips([...clips].sort((a, b) => new Date(b.clip_created_at).getTime() - new Date(a.clip_created_at).getTime()))
   if (backupClips) {
+    const parsedClips = JSON.parse(backupClips)
+    const tenMinutesAgo = new Date(10 * 60 * 1000)
     if (!playerElementsForSorting.length) {
-      clipsForUse = JSON.parse(backupClips)
+      if(parsedClips.date < tenMinutesAgo) clipsForUse = await fetchTwitchClips()
+      else clipsForUse = parsedClips.clips
     } else {
-      clipsForUse = filterClips(playerElementsForSorting, JSON.parse(backupClips))
+      if(parsedClips.date < tenMinutesAgo) {
+        const fetchedClips = await fetchTwitchClips()
+        clipsForUse = filterClips(playerElementsForSorting, fetchedClips)
+      }
+      else clipsForUse = filterClips(playerElementsForSorting, parsedClips.clips)
     }
   } else {
     console.info("Couldn't find clips. Fetching...")
@@ -161,7 +197,7 @@ export const insertClips = async (clips: IClipsDbItem[]) => {
             <div class="badge duration">0:${clip.duration_seconds < 10 ? `0` : ''}${Math.floor(clip.duration_seconds)}</div>
           </button>
           <div class="clip-info">
-            <div class="avatar"><img src="/${clip.twitch_name}-avatar.png"/></div>
+            <div class="avatar"><img src="/${clip.twitch_name.toLowerCase()}-avatar.png"/></div>
             <div class="details">
               <h3 class="clip-name" title="${clip.title}">${clip.title}</h3>
               <p class="broadcaster">${clip.twitch_name}</p>
