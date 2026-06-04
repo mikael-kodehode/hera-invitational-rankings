@@ -17,7 +17,7 @@ export interface IDatabaseItem {
   twitch: string;
   name: string;
   highest_rating: number;
-  team: Text;
+  team: string;
 }
 
 export interface IClipsDbItem {
