@@ -214,7 +214,7 @@ export const players: PlayerProfile[] = [
       { url: 'https://www.twitch.tv/wagamamatv', title: 'Twitch', icon: 'fa-brands fa-twitch', iconColor: 'text-purple-500' },
       { url: 'https://www.aoe2insights.com/user/441819', title: 'AoE2 Insights', img: '/aoeinsights-logo.webp' },
       { url: 'https://liquipedia.net/dota2/Wagamama', title: 'Liquipedia', img: '/liquipedia_icon_menu.png' },
-      { url: 'https://wagamamatv-shop.fourthwall.com/', title: 'Wagamama merch', img: '/wagamamatv-web-logo.webp' },
+      { url: 'https://wagamamatv-shop.fourthwall.com/', title: 'Wagamama merch', img: '/wagamamatv-web-logo.avif' },
     ]
   },
   {
