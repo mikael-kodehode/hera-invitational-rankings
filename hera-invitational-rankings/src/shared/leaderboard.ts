@@ -1,7 +1,6 @@
 import { fetchPlayerData } from "./api";
 import { Links } from "../types";
 import type { IDatabaseItem } from "../types";
-import { insertClips } from "../pages/clips";
 import { insertPlayerData } from "./functions";
 
 let currentSortColumn = 'highest_rating';
