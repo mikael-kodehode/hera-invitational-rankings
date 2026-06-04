@@ -49,22 +49,29 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </header>
 
     <!-- Leaderboard Table -->
-    <section id="ratings" class="px-4 md:px-8 mt-8 mb-12">
+    <section id="ratings" class="for-scroll-observer px-4 md:px-8 mt-8 mb-12">
       <div class="max-w-5xl mx-auto bg-slate-900 rounded-xl shadow-xl border border-slate-800 overflow-hidden">
         <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between">
           <h2 class="text-lg font-semibold text-slate-100 flex items-center gap-2">
             <i class="fa fa-trophy text-amber-500"></i>
             Leaderboard 
             </h2>
-            <a class="underline" href="https://aoe2.criticalbit.gg/kings-gauntlet/" target="_blank">Make sure to check out the official website!</a>
+            <a class="underline hidden sm:block" href="https://aoe2.criticalbit.gg/kings-gauntlet/" target="_blank">Make sure to check out the official website!</a>
         </div>
-        <div class="overflow-x-auto">
+        <div class="w-full overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
               <tr class="bg-slate-800 text-slate-300 text-xs uppercase tracking-wider">
-                <th class="px-4 py-3 text-center font-semibold w-10">#</th>
-                <th class="px-4 py-3 text-center font-semibold"><div class="inline-block text-left w-[160px]">Player</div></th>
-                <th class="sortable desc px-4 py-3 text-center font-semibold cursor-pointer hover:text-white" data-sort="rating">Rating</th>
+                <!-- STICKY HEADER # -->
+                <th class="sticky left-0 z-20 bg-slate-800 px-4 py-3 text-center font-semibold w-10">#</th>
+                
+                <!-- STICKY HEADER PLAYER -->
+                <th class="sticky left-10 z-20 bg-slate-800 px-4 py-3 text-center font-semibold shadow-[4px_0_8px_-4px_rgba(0,0,0,0.3)]">
+                  <div class="inline-block text-left max-w-[120px]">Player</div>
+                </th>
+                
+                <!-- REST OF SCROLLABLE HEADERS -->
+                <th class="sortable desc px-4 py-3 text-center font-semibold cursor-pointer hover:text-white" data-sort="highest_rating">Peak (behind)</th>
                 <th class="sortable collapse-win-percentage px-4 py-3 text-center font-semibold cursor-pointer hover:text-white" data-sort="win_percentage">W%</th>
                 <th class="sortable collapse-streak px-4 py-3 text-center font-semibold cursor-pointer hover:text-white" data-sort="streak">Streak</th>
                 <th class="mobile-var px-4 py-3 text-center font-semibold cursor-pointer hover:text-white text-slate-300 text-xs uppercase tracking-wider" id="mobile-var-th">
@@ -73,7 +80,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 <th class="sortable px-4 py-3 text-center font-semibold cursor-pointer hover:text-white" data-sort="matches_played">1v1</th>
                 <th class="sortable px-4 py-3 text-center font-semibold cursor-pointer hover:text-white min-w-[110px]" data-sort="live">Stream</th>
               </tr>
-            </thead>
+            </thead>            
             <tbody id="ratings-table" class="divide-y divide-slate-800">
               <tr class="loading-row"><td colspan="7" class="px-4 py-12 text-center text-slate-400">
                 <i class="fa fa-spinner fa-spin text-2xl text-amber-400"></i>

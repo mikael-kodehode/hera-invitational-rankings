@@ -16,6 +16,8 @@ export interface IDatabaseItem {
   youtube: string;
   twitch: string;
   name: string;
+  highest_rating: number;
+  team: string;
 }
 
 export interface IClipsDbItem {
