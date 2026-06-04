@@ -1,6 +1,6 @@
 export const iyouxinProfileInfo = `
   <p>
-    Gena (iyouxin) is a Ukranian Twitch streamer known for good vibes playing high level World of Tanks. Together with Gunnar they are the children in the competition
+    Gena (iyouxin) is a Ukranian Twitch streamer known for good vibes playing high level World of Tanks. He is the kid in the competition
     compared to the field sitting at 26 years old. Hold on to your reading glasses and suspenders because these are some wild ones! As it stands they have the least games,
     but that just means the competition won't know what hit them with a Hoang or the lethal Phosphorus.
     <br/><br/>
