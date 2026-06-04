@@ -171,140 +171,140 @@ export const insertPlayerData = async () => {
     if(grubbyMatches) grubbyMatches.innerHTML = data['Grubby']?.matches_played?.toString() ?? ''
     if(grubbyStreak) grubbyStreak.innerHTML = data['Grubby']?.streak?.toString() ?? ''
     if(grubbyRating) grubbyRating.innerHTML = data['Grubby']?.rating?.toString() ?? ''
-    if(grubbyWinPercentage) grubbyWinPercentage.innerHTML = data['Grubby']?.win_percentage?.toString() ?? ''
+    if(grubbyWinPercentage) grubbyWinPercentage.innerHTML = data['Grubby']?.win_percentage?.toFixed(2).toString() ?? ''
 
     if(day9ProfileInfoElement) day9ProfileInfoElement.innerHTML = day9ProfileInfo
     if(day9TriviaElement) day9TriviaElement.innerHTML = day9Trivia
     if(day9Matches) day9Matches.innerHTML = data['Day9']?.matches_played?.toString() ?? ''
     if(day9Streak) day9Streak.innerHTML = data['Day9']?.streak?.toString() ?? ''
     if(day9Rating) day9Rating.innerHTML = data['Day9']?.rating?.toString() ?? ''
-    if(day9WinPercentage) day9WinPercentage.innerHTML = data['Day9']?.win_percentage?.toString() ?? ''
+    if(day9WinPercentage) day9WinPercentage.innerHTML = data['Day9']?.win_percentage?.toFixed(2).toString() ?? ''
 
     if(deathnoteProfileInfoElement) deathnoteProfileInfoElement.innerHTML = deathnoteProfileInfo
     if(deathnoteTriviaElement) deathnoteTriviaElement.innerHTML = deathnoteTrivia
     if(deathnoteMatches) deathnoteMatches.innerHTML = data['Deathnote']?.matches_played?.toString() ?? ''
     if(deathnoteStreak) deathnoteStreak.innerHTML = data['Deathnote']?.streak?.toString() ?? ''
     if(deathnoteRating) deathnoteRating.innerHTML = data['Deathnote']?.rating?.toString() ?? ''
-    if(deathnoteWinPercentage) deathnoteWinPercentage.innerHTML = data['Deathnote']?.win_percentage?.toString() ?? ''
+    if(deathnoteWinPercentage) deathnoteWinPercentage.innerHTML = data['Deathnote']?.win_percentage?.toFixed(2).toString() ?? ''
 
     if(knoffProfileInfoElement) knoffProfileInfoElement.innerHTML = knoffProfileInfo
     if(knoffTriviaElement) knoffTriviaElement.innerHTML = knoffTrivia
     if(knoffMatches) knoffMatches.innerHTML = data['Knoff']?.matches_played?.toString() ?? ''
     if(knoffStreak) knoffStreak.innerHTML = data['Knoff']?.streak?.toString() ?? ''
     if(knoffRating) knoffRating.innerHTML = data['Knoff']?.rating?.toString() ?? ''
-    if(knoffWinPercentage) knoffWinPercentage.innerHTML = data['Knoff']?.win_percentage?.toString() ?? ''
+    if(knoffWinPercentage) knoffWinPercentage.innerHTML = data['Knoff']?.win_percentage?.toFixed(2).toString() ?? ''
 
     if(singsingProfileInfoElement) singsingProfileInfoElement.innerHTML = singsingProfileInfo
     if(singsingTriviaElement) singsingTriviaElement.innerHTML = singsingTrivia
     if(singsingMatches) singsingMatches.innerHTML = data['SingSing']?.matches_played?.toString() ?? ''
     if(singsingStreak) singsingStreak.innerHTML = data['SingSing']?.streak?.toString() ?? ''
     if(singsingRating) singsingRating.innerHTML = data['SingSing']?.rating?.toString() ?? ''
-    if(singsingWinPercentage) singsingWinPercentage.innerHTML = data['SingSing']?.win_percentage?.toString() ?? ''
+    if(singsingWinPercentage) singsingWinPercentage.innerHTML = data['SingSing']?.win_percentage?.toFixed(2).toString() ?? ''
 
     if(uthermalProfileInfoElement) uthermalProfileInfoElement.innerHTML = uthermalProfileInfo
     if(uthermalTriviaElement) uthermalTriviaElement.innerHTML = uthermalTrivia
     if(uthermalMatches) uthermalMatches.innerHTML = data['uThermal']?.matches_played?.toString() ?? ''
     if(uthermalStreak) uthermalStreak.innerHTML = data['uThermal']?.streak?.toString() ?? ''
     if(uthermalRating) uthermalRating.innerHTML = data['uThermal']?.rating?.toString() ?? ''
-    if(uthermalWinPercentage) uthermalWinPercentage.innerHTML = data['uThermal']?.win_percentage?.toString() ?? ''
+    if(uthermalWinPercentage) uthermalWinPercentage.innerHTML = data['uThermal']?.win_percentage?.toFixed(2).toString() ?? ''
 
     if(pigProfileInfoElement) pigProfileInfoElement.innerHTML = pigProfileInfo
     if(pigTriviaElement) pigTriviaElement.innerHTML = pigTrivia
     if(pigMatches) pigMatches.innerHTML = data['PiG']?.matches_played?.toString() ?? ''
     if(pigStreak) pigStreak.innerHTML = data['PiG']?.streak?.toString() ?? ''
     if(pigRating) pigRating.innerHTML = data['PiG']?.rating?.toString() ?? ''
-    if(pigWinPercentage) pigWinPercentage.innerHTML = data['PiG']?.win_percentage?.toString() ?? ''
+    if(pigWinPercentage) pigWinPercentage.innerHTML = data['PiG']?.win_percentage?.toFixed(2).toString() ?? ''
 
     if(yamatocannonProfileInfoElement) yamatocannonProfileInfoElement.innerHTML = yamatocannonProfileInfo
     if(yamatocannonTriviaElement) yamatocannonTriviaElement.innerHTML = yamatocannonTrivia
     if(yamatocannonMatches) yamatocannonMatches.innerHTML = data['YamatoCannon']?.matches_played?.toString() ?? ''
     if(yamatocannonStreak) yamatocannonStreak.innerHTML = data['YamatoCannon']?.streak?.toString() ?? ''
     if(yamatocannonRating) yamatocannonRating.innerHTML = data['YamatoCannon']?.rating?.toString() ?? ''
-    if(yamatocannonWinPercentage) yamatocannonWinPercentage.innerHTML = data['YamatoCannon']?.win_percentage?.toString() ?? ''
+    if(yamatocannonWinPercentage) yamatocannonWinPercentage.innerHTML = data['YamatoCannon']?.win_percentage?.toFixed(2).toString() ?? ''
 
     if(ahmpyProfileInfoElement) ahmpyProfileInfoElement.innerHTML = ahmpyProfileInfo
     if(ahmpyTriviaElement) ahmpyTriviaElement.innerHTML = ahmpyTrivia
     if(ahmpyMatches) ahmpyMatches.innerHTML = data['Ahmpy']?.matches_played?.toString() ?? ''
     if(ahmpyStreak) ahmpyStreak.innerHTML = data['Ahmpy']?.streak?.toString() ?? ''
     if(ahmpyRating) ahmpyRating.innerHTML = data['Ahmpy']?.rating?.toString() ?? ''
-    if(ahmpyWinPercentage) ahmpyWinPercentage.innerHTML = data['Ahmpy']?.win_percentage?.toString() ?? ''
+    if(ahmpyWinPercentage) ahmpyWinPercentage.innerHTML = data['Ahmpy']?.win_percentage?.toFixed(2).toString() ?? ''
 
     if(lowkoProfileInfoElement) lowkoProfileInfoElement.innerHTML = lowkoProfileInfo
     if(lowkoTriviaElement) lowkoTriviaElement.innerHTML = lowkoTrivia
     if(lowkoMatches) lowkoMatches.innerHTML = data['LowKo']?.matches_played?.toString() ?? ''
     if(lowkoStreak) lowkoStreak.innerHTML = data['LowKo']?.streak?.toString() ?? ''
     if(lowkoRating) lowkoRating.innerHTML = data['LowKo']?.rating?.toString() ?? ''
-    if(lowkoWinPercentage) lowkoWinPercentage.innerHTML = data['LowKo']?.win_percentage?.toString() ?? ''
+    if(lowkoWinPercentage) lowkoWinPercentage.innerHTML = data['LowKo']?.win_percentage?.toFixed(2).toString() ?? ''
 
     if(iyouxinProfileInfoElement) iyouxinProfileInfoElement.innerHTML = iyouxinProfileInfo
     if(iyouxinTriviaElement) iyouxinTriviaElement.innerHTML = iyouxinTrivia
     if(iyouxinMatches) iyouxinMatches.innerHTML = data['iyouxin']?.matches_played?.toString() ?? ''
     if(iyouxinStreak) iyouxinStreak.innerHTML = data['iyouxin']?.streak?.toString() ?? ''
     if(iyouxinRating) iyouxinRating.innerHTML = data['iyouxin']?.rating?.toString() ?? ''
-    if(iyouxinWinPercentage) iyouxinWinPercentage.innerHTML = data['iyouxin']?.win_percentage?.toString() ?? ''
+    if(iyouxinWinPercentage) iyouxinWinPercentage.innerHTML = data['iyouxin']?.win_percentage?.toFixed(2).toString() ?? ''
 
     if(jaboProfileInfoElement) jaboProfileInfoElement.innerHTML = jaboProfileInfo
     if(jaboTriviaElement) jaboTriviaElement.innerHTML = jaboTrivia
     if(jaboMatches) jaboMatches.innerHTML = data['jabo']?.matches_played?.toString() ?? ''
-    if(jaboWinPercentage) jaboWinPercentage.innerHTML = data['jabo']?.streak?.toString() ?? ''
+    if(jaboWinPercentage) jaboWinPercentage.innerHTML = data['jabo']?.win_percentage?.toFixed(2).toString() ?? ''
     if(jabonRating) jabonRating.innerHTML = data['jabo']?.rating?.toString() ?? ''
-    if(jaboStreak) jaboStreak.innerHTML = data['jabo']?.win_percentage?.toString() ?? ''
+    if(jaboStreak) jaboStreak.innerHTML = data['jabo']?.streak?.toString() ?? ''
 
     if(mrllamascProfileInfoElement) mrllamascProfileInfoElement.innerHTML = mrllamascProfileInfo
     if(mrllamascTriviaElement) mrllamascTriviaElement.innerHTML = mrllamascTrivia
-    if(mrllamascMatches) mrllamascMatches.innerHTML = data['mrllamasc']?.matches_played?.toString() ?? ''
-    if(mrllamascWinPercentage) mrllamascWinPercentage.innerHTML = data['mrllamasc']?.streak?.toString() ?? ''
-    if(mrllamascRating) mrllamascRating.innerHTML = data['mrllamasc']?.rating?.toString() ?? ''
-    if(mrllamascStreak) mrllamascStreak.innerHTML = data['mrllamasc']?.win_percentage?.toString() ?? ''
+    if(mrllamascMatches) mrllamascMatches.innerHTML = data['MrLlamaSC']?.matches_played?.toString() ?? ''
+    if(mrllamascWinPercentage) mrllamascWinPercentage.innerHTML = data['MrLlamaSC']?.win_percentage?.toFixed(2).toString() ?? ''
+    if(mrllamascRating) mrllamascRating.innerHTML = data['MrLlamaSC']?.rating?.toString() ?? ''
+    if(mrllamascStreak) mrllamascStreak.innerHTML = data['MrLlamaSC']?.streak?.toString() ?? ''
 
     if(captainlance9ProfileInfoElement) captainlance9ProfileInfoElement.innerHTML = captainlance9ProfileInfo
     if(captainlance9TriviaElement) captainlance9TriviaElement.innerHTML = captainlance9Trivia
-    if(captainlance9Matches) captainlance9Matches.innerHTML = data['captainlance9']?.matches_played?.toString() ?? ''
-    if(captainlance9WinPercentage) captainlance9WinPercentage.innerHTML = data['captainlance9']?.streak?.toString() ?? ''
-    if(captainlance9Rating) captainlance9Rating.innerHTML = data['captainlance9']?.rating?.toString() ?? ''
-    if(captainlance9Streak) captainlance9Streak.innerHTML = data['captainlance9']?.win_percentage?.toString() ?? ''
+    if(captainlance9Matches) captainlance9Matches.innerHTML = data['CaptainLance']?.matches_played?.toString() ?? ''
+    if(captainlance9WinPercentage) captainlance9WinPercentage.innerHTML = data['CaptainLance']?.win_percentage?.toFixed(2).toString() ?? ''
+    if(captainlance9Rating) captainlance9Rating.innerHTML = data['CaptainLance']?.rating?.toString() ?? ''
+    if(captainlance9Streak) captainlance9Streak.innerHTML = data['CaptainLance']?.streak?.toString() ?? ''
 
     if(thespiffingbritProfileInfoElement) thespiffingbritProfileInfoElement.innerHTML = thespiffingbritProfileInfo
     if(thespiffingbritTriviaElement) thespiffingbritTriviaElement.innerHTML = thespiffingbritTrivia
-    if(thespiffingbritMatches) thespiffingbritMatches.innerHTML = data['thespiffingbrit']?.matches_played?.toString() ?? ''
-    if(thespiffingbritWinPercentage) thespiffingbritWinPercentage.innerHTML = data['thespiffingbrit']?.streak?.toString() ?? ''
-    if(thespiffingbritRating) thespiffingbritRating.innerHTML = data['thespiffingbrit']?.rating?.toString() ?? ''
-    if(thespiffingbritStreak) thespiffingbritStreak.innerHTML = data['thespiffingbrit']?.win_percentage?.toString() ?? ''
+    if(thespiffingbritMatches) thespiffingbritMatches.innerHTML = data['The Spiffing Brit']?.matches_played?.toString() ?? ''
+    if(thespiffingbritWinPercentage) thespiffingbritWinPercentage.innerHTML = data['The Spiffing Brit']?.win_percentage?.toFixed(2).toString() ?? ''
+    if(thespiffingbritRating) thespiffingbritRating.innerHTML = data['The Spiffing Brit']?.rating?.toString() ?? ''
+    if(thespiffingbritStreak) thespiffingbritStreak.innerHTML = data['The Spiffing Brit']?.streak?.toString() ?? ''
 
     if(pestilyProfileInfoElement) pestilyProfileInfoElement.innerHTML = pestilyProfileInfo
     if(pestilyTriviaElement) pestilyTriviaElement.innerHTML = pestilyTrivia
-    if(pestilyMatches) pestilyMatches.innerHTML = data['pestily']?.matches_played?.toString() ?? ''
-    if(pestilyWinPercentage) pestilyWinPercentage.innerHTML = data['pestily']?.streak?.toString() ?? ''
-    if(pestilyRating) pestilyRating.innerHTML = data['pestily']?.rating?.toString() ?? ''
-    if(pestilyStreak) pestilyStreak.innerHTML = data['pestily']?.win_percentage?.toString() ?? ''
+    if(pestilyMatches) pestilyMatches.innerHTML = data['Pestily']?.matches_played?.toString() ?? ''
+    if(pestilyWinPercentage) pestilyWinPercentage.innerHTML = data['Pestily']?.win_percentage?.toFixed(2).toString() ?? ''
+    if(pestilyRating) pestilyRating.innerHTML = data['Pestily']?.rating?.toString() ?? ''
+    if(pestilyStreak) pestilyStreak.innerHTML = data['Pestily']?.streak?.toString() ?? ''
 
     if(ohtofuProfileInfoElement) ohtofuProfileInfoElement.innerHTML = ohtofuProfileInfo
     if(ohtofuTriviaElement) ohtofuTriviaElement.innerHTML = ohtofuTrivia
-    if(ohtofuMatches) ohtofuMatches.innerHTML = data['ohtofu']?.matches_played?.toString() ?? ''
-    if(ohtofuWinPercentage) ohtofuWinPercentage.innerHTML = data['ohtofu']?.streak?.toString() ?? ''
-    if(ohtofuRating) ohtofuRating.innerHTML = data['ohtofu']?.rating?.toString() ?? ''
-    if(ohtofuStreak) ohtofuStreak.innerHTML = data['ohtofu']?.win_percentage?.toString() ?? ''
+    if(ohtofuMatches) ohtofuMatches.innerHTML = data['OhTofu']?.matches_played?.toString() ?? ''
+    if(ohtofuWinPercentage) ohtofuWinPercentage.innerHTML = data['OhTofu']?.win_percentage?.toFixed(2).toString() ?? ''
+    if(ohtofuRating) ohtofuRating.innerHTML = data['OhTofu']?.rating?.toString() ?? ''
+    if(ohtofuStreak) ohtofuStreak.innerHTML = data['OhTofu']?.streak?.toString() ?? ''
 
     if(aquafpsProfileInfoElement) aquafpsProfileInfoElement.innerHTML = aquafpsProfileInfo
     if(aquafpsTriviaElement) aquafpsTriviaElement.innerHTML = aquafpsTrivia
-    if(aquafpsMatches) aquafpsMatches.innerHTML = data['aquafps']?.matches_played?.toString() ?? ''
-    if(aquafpsWinPercentage) aquafpsWinPercentage.innerHTML = data['aquafps']?.streak?.toString() ?? ''
-    if(aquafpsRating) aquafpsRating.innerHTML = data['aquafps']?.rating?.toString() ?? ''
-    if(aquafpsStreak) aquafpsStreak.innerHTML = data['aquafps']?.win_percentage?.toString() ?? ''
+    if(aquafpsMatches) aquafpsMatches.innerHTML = data['AquaFPS']?.matches_played?.toString() ?? ''
+    if(aquafpsWinPercentage) aquafpsWinPercentage.innerHTML = data['AquaFPS']?.win_percentage?.toFixed(2).toString() ?? ''
+    if(aquafpsRating) aquafpsRating.innerHTML = data['AquaFPS']?.rating?.toString() ?? ''
+    if(aquafpsStreak) aquafpsStreak.innerHTML = data['AquaFPS']?.streak?.toString() ?? ''
 
     if(atriocProfileInfoElement) atriocProfileInfoElement.innerHTML = atriocProfileInfo
     if(atriocTriviaElement) atriocTriviaElement.innerHTML = atriocTrivia
-    if(atriocMatches) atriocMatches.innerHTML = data['atrioc']?.matches_played?.toString() ?? ''
-    if(atriocWinPercentage) atriocWinPercentage.innerHTML = data['atrioc']?.streak?.toString() ?? ''
-    if(atriocRating) atriocRating.innerHTML = data['atrioc']?.rating?.toString() ?? ''
-    if(atriocStreak) atriocStreak.innerHTML = data['atrioc']?.win_percentage?.toString() ?? ''
+    if(atriocMatches) atriocMatches.innerHTML = data['Atrioc']?.matches_played?.toString() ?? ''
+    if(atriocWinPercentage) atriocWinPercentage.innerHTML = data['Atrioc']?.win_percentage?.toFixed(2).toString() ?? ''
+    if(atriocRating) atriocRating.innerHTML = data['Atrioc']?.rating?.toString() ?? ''
+    if(atriocStreak) atriocStreak.innerHTML = data['Atrioc']?.streak?.toString() ?? ''
 
     if(wagamamatvProfileInfoElement) wagamamatvProfileInfoElement.innerHTML = wagamamatvProfileInfo
     if(wagamamatvTriviaElement) wagamamatvTriviaElement.innerHTML = wagamamatvTrivia
-    if(wagamamatvMatches) wagamamatvMatches.innerHTML = data['wagamamatv']?.matches_played?.toString() ?? ''
-    if(wagamamatvWinPercentage) wagamamatvWinPercentage.innerHTML = data['wagamamatv']?.streak?.toString() ?? ''
-    if(wagamamatvRating) wagamamatvRating.innerHTML = data['wagamamatv']?.rating?.toString() ?? ''
-    if(wagamamatvStreak) wagamamatvStreak.innerHTML = data['wagamamatv']?.win_percentage?.toString() ?? ''
+    if(wagamamatvMatches) wagamamatvMatches.innerHTML = data['Wagamama']?.matches_played?.toString() ?? ''
+    if(wagamamatvWinPercentage) wagamamatvWinPercentage.innerHTML = data['Wagamama']?.win_percentage?.toFixed(2).toString() ?? ''
+    if(wagamamatvRating) wagamamatvRating.innerHTML = data['Wagamama']?.rating?.toString() ?? ''
+    if(wagamamatvStreak) wagamamatvStreak.innerHTML = data['Wagamama']?.streak?.toString() ?? ''
 
     document.querySelectorAll('[id$="-streak"]').forEach(el => {
       const val = parseInt(el.textContent || '0', 10)
@@ -313,7 +313,8 @@ export const insertPlayerData = async () => {
       else el.classList.add('text-slate-400')
     })
 
-  } catch {
+  } catch (error) {
+    if(error) console.log(error)
     throw new Error("Insert data failed");
   }
 }

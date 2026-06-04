@@ -2,7 +2,7 @@ import { fetchPlayerData } from "./api";
 import { Links } from "../types";
 import type { IDatabaseItem } from "../types";
 
-let currentSortColumn = 'rating';
+let currentSortColumn = 'highest_rating';
 let isAscending = false;
 let internalPlayerData: Record<string, IDatabaseItem> = {};
 
@@ -44,11 +44,22 @@ const renderEngine = () => {
     }
     if (valueA < valueB) return isAscending ? -1 : 1;
     if (valueA > valueB) return isAscending ? 1 : -1;
-    return 0;
+    return 0
   });
 
+  
   for (let i = 0; i < playerArray.length; i++) {
+    
     const player = playerArray[i];
+    const current = player.rating
+    const peak = player.highest_rating
+    const gap = peak - current;
+
+    let status =
+      gap <= 50 ? "good" :
+      gap <= 100 ? "medium" :
+      "bad";
+    const progress = `${gap}%`;
     const tr = document.createElement("tr");
     const rank = i + 1;
     const rankHtml = rank === 1
@@ -58,44 +69,60 @@ const renderEngine = () => {
       : rank === 3
       ? '<span class="text-amber-700 font-bold" title="3rd"><i class="fa fa-medal"></i></span>'
       : `<span class="text-slate-400 font-medium">${rank}</span>`
-
-    tr.className = 'hover:bg-slate-800/50 transition-colors border-b border-slate-800 last:border-b-0';
+    const winPercentage = player.win_percentage
+    let shortenedWP = '0'
+    console.log(winPercentage)
+    if(winPercentage) shortenedWP = winPercentage.toFixed(2)
+    const team = player.team
+    tr.className = `${team} hover:bg-slate-800/40 transition-colors`;
     tr.innerHTML = `
-      <td class="px-4 py-3 text-center text-sm w-10">${rankHtml}</td>
-      <td class="rating-table-name-column px-4 py-3 text-center">
-        <div class="inline-block text-left w-[160px]">
-          <div class="flex items-center gap-2">
-            <span class="fi fi-${player.nationality} rounded-sm shadow-sm"></span>
-            <div class="truncate">
-              <div class="font-semibold text-slate-100 truncate">${player.name}</div>
-              <div class="text-xs text-slate-400 truncate">${player.username}</div>
+      <td class="sticky left-0 z-10 bg-slate-900 px-4 py-3 text-center text-sm w-10 border-b border-slate-800">${rankHtml}</td>
+        
+        <!-- COLUMN 2: PLAYER NAME (Sticky left-10) -->
+        <td class="rating-table-name-column sticky left-10 z-10 bg-slate-900 px-4 py-3 border-b border-slate-800 shadow-[4px_0_8px_-4px_rgba(0,0,0,0.3)]">
+          <div class="inline-block text-left max-w-[120px]">
+            <div class="flex items-center gap-2">
+              <span class="fi fi-${player.nationality} rounded-sm shadow-sm"></span>
+              <div class="truncate">
+                <div class="font-semibold text-slate-100 truncate">${player.name}</div>
+                <div class="text-xs text-slate-400 truncate">${player.username}</div>
+              </div>
             </div>
           </div>
-        </div>
-      </td>
-      <td class="px-4 py-3 text-center font-bold text-amber-400">${player.rating}</td>
-      <td class="collapse-win-percentage px-4 py-3 text-center text-slate-300">${player.win_percentage}%</td>
-      <td class="collapse-streak px-4 py-3 text-center">
-        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${player.streak > 0 ? 'bg-emerald-900/30 text-emerald-400' : player.streak < 0 ? 'bg-red-900/30 text-red-400' : 'bg-slate-800 text-slate-400'}">
-          ${player.streak > 0 ? '+' : ''}${player.streak}
-        </span>
-      </td>
-      <td class="mobile-var mobile-var-value px-4 py-3 text-center text-slate-300" data-player="${player.name}">
-        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${player.streak > 0 ? 'bg-emerald-900/30 text-emerald-400' : player.streak < 0 ? 'bg-red-900/30 text-red-400' : 'bg-slate-800 text-slate-400'}">
-          ${player.streak > 0 ? '+' : ''}${player.streak}
-        </span>
-      </td>
-      <td class="px-4 py-3 text-center text-slate-300">${player.matches_played}</td>
-      <td class="live-tracker-td px-4 py-3 text-center min-w-[110px] overflow-visible">
-        <span class="relative inline-block">
-          <a href='${Links.twitch}${player.twitch}' target='_blank' title="Watch ${player.name} on Twitch" class="text-slate-400 hover:text-purple-400 transition-colors">
-            <i class="fa-brands fa-twitch text-lg"></i>
-          </a>
-          ${player.live
-            ? `<span class="absolute left-full top-1/2 -translate-y-1/2 ml-3 inline-flex items-center gap-1 text-red-500 text-[10px] font-bold whitespace-nowrap"><span class="live-dot"></span>LIVE</span>`
-            : ''}
-        </span>
-      </td>`
+        </td>
+        
+        <!-- COLUMN 3+: REST OF SCROLLABLE DATA (Unchanged) -->
+        <td class="px-4 py-3 text-center font-bold">
+          <div class="rating-pill ${status}" style="--progress:${progress} overflow-auto">
+            <span class="peak">${peak}</span>
+            <div>
+              (-${peak-current}) 
+            </div>
+            ${peak-current < 25 ? `<span class="peak-badge"><i class="fa-solid fa-fire fire-icon"></i></span>` : ""}
+          </div>
+        </td>
+        <td class="collapse-win-percentage px-4 py-3 text-center text-slate-300">${shortenedWP}%</td>
+        <td class="collapse-streak px-4 py-3 text-center">
+          <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${player.streak > 0 ? 'bg-emerald-900/30 text-emerald-400' : player.streak < 0 ? 'bg-red-900/30 text-red-400' : 'bg-slate-800 text-slate-400'}">
+            ${player.streak > 0 ? '+' : ''}${player.streak}
+          </span>
+        </td>
+        <td class="mobile-var mobile-var-value px-4 py-3 text-center text-slate-300" data-player="${player.name}">
+          <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${player.streak > 0 ? 'bg-emerald-900/30 text-emerald-400' : player.streak < 0 ? 'bg-red-900/30 text-red-400' : 'bg-slate-800 text-slate-400'}">
+            ${player.streak > 0 ? '+' : ''}${player.streak}
+          </span>
+        </td>
+        <td class="px-4 py-3 text-center text-slate-300">${player.matches_played}</td>
+        <td class="live-tracker-td px-4 py-3 text-center min-w-[110px] overflow-visible">
+          <span class="relative inline-block">
+            <a href='${Links.twitch}${player.twitch}' target='_blank' title="Watch ${player.name} on Twitch" class="text-slate-400 hover:text-purple-400 transition-colors">
+              <i class="fa-brands fa-twitch text-lg"></i>
+            </a>
+            ${player.live
+              ? `<span class="absolute left-full top-1/2 -translate-y-1/2 ml-3 inline-flex items-center gap-1 text-red-500 text-[10px] font-bold whitespace-nowrap"><span class="live-dot"></span>LIVE</span>`
+              : ''}
+          </span>
+        </td>`
     fragment.appendChild(tr);
   }
 
