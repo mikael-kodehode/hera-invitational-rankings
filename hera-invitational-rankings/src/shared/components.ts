@@ -73,23 +73,32 @@ export const mobileNav = (activePage: 'ratings' | 'clips') => {
   const isRatings = activePage === 'ratings'
   const prefix = isRatings ? '#' : '/#'
   return `
-  <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-slate-950 border-t border-slate-800 z-50 overflow-x-auto">
-    <div class="flex items-center justify-around min-w-max px-2 py-1.5 gap-1">
-      <a href="${isRatings ? '#ratings' : '/'}" ${isRatings ? 'id="small-screen-nav-home"' : ''} class="nav-link ${isRatings ? 'for-scroll-observer ' : ''}flex flex-col items-center px-2 py-1 rounded-md text-[10px] text-slate-300 hover:text-white transition-colors">
-        <div class="nav-icon-pill w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 transition-colors ${isRatings ? 'bg-amber-500/20 text-amber-400' : ''}">
-          <i class="fa fa-trophy text-xs"></i>
-        </div>
-        <span class="mt-0.5">Ratings</span>
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-slate-950 border-t border-slate-800 z-50 overflow-x-auto">
+  <div class="flex items-center min-w-max px-2 py-1.5 gap-1">
+    
+    <a href="${isRatings ? '#ratings' : '/'}" ${isRatings ? 'id="small-screen-nav-home"' : ''} class="sticky left-0 z-10 bg-slate-950/95 backdrop-blur-sm nav-link ${isRatings ? 'for-scroll-observer ' : ''}flex flex-col items-center px-2 py-1 rounded-md text-[10px] text-slate-300 hover:text-white transition-colors w-[56px] shrink-0">
+      <div class="nav-icon-pill w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 transition-colors ${isRatings ? 'bg-amber-500/20 text-amber-400' : ''}">
+        <i class="fa fa-trophy text-xs"></i>
+      </div>
+      <span class="mt-0.5">Ratings</span>
+    </a>
+    
+    <a href="/clips.html" id="nav-mobile-clips" class="sticky left-[56px] z-10 bg-slate-950/95 backdrop-blur-sm nav-link ${isRatings ? '' : 'active-page-nav '}flex flex-col items-center px-2 py-1 rounded-md text-[10px] text-slate-300 hover:text-white transition-colors w-[56px] shrink-0 shadow-[4px_0_8px_-4px_rgba(0,0,0,0.5)] mr-1">
+      <div class="nav-icon-pill w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 transition-colors ${isRatings ? '' : 'bg-amber-500/20 text-amber-400'}">
+        <i class="fa fa-play text-xs"></i>
+      </div>
+      <span class="mt-0.5">Clips</span>
+    </a>
+    
+    ${profileLinks.map(p => `
+      <a href="${prefix}${p.key}Profile" class="nav-link ${isRatings ? 'for-scroll-observer ' : ''}flex flex-col items-center justify-center px-2 py-1 rounded-md text-[10px] text-slate-300 hover:text-white transition-colors min-w-[52px] shrink-0">
+        <span class="fi fi-${p.flag} rounded-sm shadow-sm"></span>
+        <span class="mt-1 truncate max-w-[48px] text-center">${p.name}</span>
       </a>
-      <a href="/clips.html" id="nav-mobile-clips" class="nav-link ${isRatings ? '' : 'active-page-nav '}flex flex-col items-center px-2 py-1 rounded-md text-[10px] text-slate-300 hover:text-white transition-colors">
-        <div class="nav-icon-pill w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 transition-colors ${isRatings ? '' : 'bg-amber-500/20 text-amber-400'}">
-          <i class="fa fa-play text-xs"></i>
-        </div>
-        <span class="mt-0.5">Clips</span>
-      </a>
-      ${profileLinks.map(p => `<a href="${prefix}${p.key}Profile" class="nav-link ${isRatings ? 'for-scroll-observer ' : ''}flex flex-col items-center px-2 py-1 rounded-md text-[10px] text-slate-300 hover:text-white transition-colors"><span class="fi fi-${p.flag} rounded-sm"></span><span class="mt-0.5">${p.name}</span></a>`).join('\n      ')}
-    </div>
-  </nav>`
+    `).join('\n')}
+
+  </div>
+</nav>`
 }
 
 export const footer = `
