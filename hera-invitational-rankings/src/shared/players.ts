@@ -138,7 +138,7 @@ export const players: PlayerProfile[] = [
     ]
   },
   {
-    key: 'mrllamasc', name: 'MrLlamaSC', flag: 'us', image: '/mrllamasc-profile-picture.jpg',
+    key: 'mrllamasc', name: 'MrLlamaSC', flag: 'us', image: '/mrllamasc-profile-picture.webp',
     links: [
       { url: 'https://www.youtube.com/mrllamasc', title: 'YouTube', icon: 'fa-brands fa-youtube', iconColor: 'text-red-500' },
       { url: 'https://www.twitch.tv/mrllamasc', title: 'Twitch', icon: 'fa-brands fa-twitch', iconColor: 'text-purple-500' },
@@ -158,7 +158,7 @@ export const players: PlayerProfile[] = [
     ]
   },
   {
-    key: 'thespiffingbrit', name: 'The Spiffing Brit', flag: 'gb', image: '/thespiffingbrit-profile-picture.jpg',
+    key: 'thespiffingbrit', name: 'The Spiffing Brit', flag: 'gb', image: '/the-spiffing-brit-profile-picture.webp',
     links: [
       { url: 'https://www.youtube.com/@thespiffingbrit', title: 'YouTube', icon: 'fa-brands fa-youtube', iconColor: 'text-red-500' },
       { url: 'https://www.twitch.tv/thespiffingbrit', title: 'Twitch', icon: 'fa-brands fa-twitch', iconColor: 'text-purple-500' },
@@ -187,7 +187,7 @@ export const players: PlayerProfile[] = [
     ]
   },
   {
-    key: 'aquafps', name: 'AquaFPS', flag: 'us', image: '/aquafps-profile-picture.jpg',
+    key: 'aquafps', name: 'AquaFPS', flag: 'us', image: '/aquafps-profile-picture.webp',
     links: [
       { url: 'https://www.youtube.com/Aquafps', title: 'YouTube', icon: 'fa-brands fa-youtube', iconColor: 'text-red-500' },
       { url: 'https://www.twitch.tv/aquafps', title: 'Twitch', icon: 'fa-brands fa-twitch', iconColor: 'text-purple-500' },
@@ -198,7 +198,7 @@ export const players: PlayerProfile[] = [
     ]
   },
   {
-    key: 'atrioc', name: 'Atrioc', flag: 'us', image: '/atrioc-profile-picture.jpg',
+    key: 'atrioc', name: 'Atrioc', flag: 'us', image: '/atrioc-profile-picture.webp',
     links: [
       { url: 'https://www.youtube.com/atrioc', title: 'YouTube', icon: 'fa-brands fa-youtube', iconColor: 'text-red-500' },
       { url: 'https://www.twitch.tv/atrioc', title: 'Twitch', icon: 'fa-brands fa-twitch', iconColor: 'text-purple-500' },
@@ -208,11 +208,12 @@ export const players: PlayerProfile[] = [
     ]
   },
   {
-    key: 'wagamamatv', name: 'Wagamama', flag: 'se', image: '/wagamamatv-profile-picture.jpg',
+    key: 'wagamamatv', name: 'Wagamama', flag: 'se', image: '/wagamama-profile-picture.jpg',
     links: [
       { url: 'https://www.youtube.com/@wagamamatv', title: 'YouTube', icon: 'fa-brands fa-youtube', iconColor: 'text-red-500' },
       { url: 'https://www.twitch.tv/wagamamatv', title: 'Twitch', icon: 'fa-brands fa-twitch', iconColor: 'text-purple-500' },
       { url: 'https://www.aoe2insights.com/user/441819', title: 'AoE2 Insights', img: '/aoeinsights-logo.webp' },
+      { url: 'https://liquipedia.net/dota2/Wagamama', title: 'Liquipedia', img: '/liquipedia_icon_menu.png' },
       { url: 'https://wagamamatv-shop.fourthwall.com/', title: 'Wagamama merch', img: '/wagamamatv-web-logo.webp' },
     ]
   },
