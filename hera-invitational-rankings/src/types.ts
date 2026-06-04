@@ -35,7 +35,7 @@ export interface IClipsDbItem {
   thumbnail_url: string;
   twitch_name: SortAfter
 }
-export type SortAfter = 'Grubby' | 'Day9tv' | 'followdeathnote' | 'Atrioc' | 'Knoff' | 'singsing' | 'uThermalSC2' | 'x5_PiG' | 'ahmpy' | 'YamatoCannon' | 'Lowkotv' | 'iyouxin' | 'captainlance9' | 'Pestily' | 'wagamamatv' | 'OhTofu' | 'AquaFPS' | 'jabo' | 'thespiffingbrit' | 'MrLlamaSC'
+export type SortAfter = 'Hera' | 'Grubby' | 'Day9tv' | 'followdeathnote' | 'Atrioc' | 'Knoff' | 'singsing' | 'uThermalSC2' | 'x5_PiG' | 'ahmpy' | 'YamatoCannon' | 'Lowkotv' | 'iyouxin' | 'captainlance9' | 'Pestily' | 'wagamamatv' | 'OhTofu' | 'AquaFPS' | 'jabo' | 'thespiffingbrit' | 'MrLlamaSC'
 
 export const Links = {
   aoe2insights: "https://www.aoe2insights.com/user/",

@@ -28,6 +28,9 @@ export const loadClips = () => {
             </div>
           </div>
           <div id="sort-players-buttons-container" class="hidden md:flex justify-center relative z-10 flex items-end pb-3 gap-3 flex-wrap">
+            <div id="filter-clips-Hera" data-sort="Hera" title="Hera" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
+                <span class="">Hera</span>
+              </div>
             <div id="filter-clips-Grubby" data-sort="Grubby" title="Grubby" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
                 <span class="">Grubby</span>
               </div>
