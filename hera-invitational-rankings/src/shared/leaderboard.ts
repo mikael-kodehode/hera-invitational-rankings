@@ -1,6 +1,7 @@
 import { fetchPlayerData } from "./api";
 import { Links } from "../types";
 import type { IDatabaseItem } from "../types";
+import { insertPlayerData } from "./functions";
 
 let currentSortColumn = 'highest_rating';
 let isAscending = false;
@@ -71,7 +72,6 @@ const renderEngine = () => {
       : `<span class="text-slate-400 font-medium">${rank}</span>`
     const winPercentage = player.win_percentage
     let shortenedWP = '0'
-    console.log(winPercentage)
     if(winPercentage) shortenedWP = winPercentage.toFixed(2)
     const team = player.team
     tr.className = `${team} hover:bg-slate-800/40 transition-colors`;
@@ -84,7 +84,7 @@ const renderEngine = () => {
             <div class="flex items-center gap-2">
               <span class="fi fi-${player.nationality} rounded-sm shadow-sm"></span>
               <div class="truncate">
-                <div class="font-semibold text-slate-100 truncate">${player.name}</div>
+                <div class="font-semibold text-slate-100 truncate"><a href=#${player.twitch}>${player.name}</a></div>
                 <div class="text-xs text-slate-400 truncate">${player.username}</div>
               </div>
             </div>
@@ -190,4 +190,9 @@ export const initiateListeners = () => {
     const sortKey = (event.target as HTMLElement).getAttribute('data-sort');
     if (sortKey) handleTableSort(sortKey);
   });
+  document.querySelector('#refresh-leaderboard')?.addEventListener('click', (event) => {
+    const el = event.target as HTMLElement
+    el.classList.add('loading')
+    insertPlayerData()
+  })
 }
