@@ -80,13 +80,21 @@ const renderEngine = () => {
         
         <!-- COLUMN 2: PLAYER NAME (Sticky left-10) -->
         <td class="rating-table-name-column sticky left-10 z-10 bg-slate-900 px-4 py-3 border-b border-slate-800 shadow-[4px_0_8px_-4px_rgba(0,0,0,0.3)]">
-          <div class="inline-block text-left max-w-[120px]">
-            <div class="flex items-center gap-2">
+          <div class="inline-block text-left max-w-[130px] lg:max-w-[100%]">
+            <div class="truncate whitespace-nowrap flex items-center gap-2">
               <span class="fi fi-${player.nationality} rounded-sm shadow-sm"></span>
-              <div class="truncate">
+              <div class="">
                 <div class="font-semibold text-slate-100 truncate"><a href=#${player.twitch}>${player.name}</a></div>
-                <div class="text-xs text-slate-400 truncate">${player.username}</div>
+                <div class="text-xs text-slate-400">${player.username}</div>
               </div>
+              ${player.live
+              ? 
+              `<div>
+                <div class="text-red-500 text-[10px] font-bold whitespace-nowrap"><span class="live-dot"></span>${player.last_game_streamed}</div>
+                <div class="hidden lg:block text-[10px] font-bold whitespace-nowrap">${player.last_stream_title}</span>
+              </div>`
+              : ''}
+
             </div>
           </div>
         </td>
@@ -118,9 +126,6 @@ const renderEngine = () => {
             <a href='${Links.twitch}${player.twitch}' target='_blank' title="Watch ${player.name} on Twitch" class="text-slate-400 hover:text-purple-400 transition-colors">
               <i class="fa-brands fa-twitch text-lg"></i>
             </a>
-            ${player.live
-              ? `<span class="absolute left-full top-1/2 -translate-y-1/2 ml-3 inline-flex items-center gap-1 text-red-500 text-[10px] font-bold whitespace-nowrap"><span class="live-dot"></span>LIVE</span>`
-              : ''}
           </span>
         </td>`
     fragment.appendChild(tr);
