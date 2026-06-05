@@ -245,10 +245,10 @@ export const insertPlayerData = async () => {
 
     if(jaboProfileInfoElement) jaboProfileInfoElement.innerHTML = jaboProfileInfo
     if(jaboTriviaElement) jaboTriviaElement.innerHTML = jaboTrivia
-    if(jaboMatches) jaboMatches.innerHTML = data['jabo']?.matches_played?.toString() ?? ''
-    if(jaboWinPercentage) jaboWinPercentage.innerHTML = data['jabo']?.win_percentage?.toFixed(2).toString() ?? ''
-    if(jabonRating) jabonRating.innerHTML = data['jabo']?.rating?.toString() ?? ''
-    if(jaboStreak) jaboStreak.innerHTML = data['jabo']?.streak?.toString() ?? ''
+    if(jaboMatches) jaboMatches.innerHTML = data['Jabo']?.matches_played?.toString() ?? ''
+    if(jaboWinPercentage) jaboWinPercentage.innerHTML = data['Jabo']?.win_percentage?.toFixed(2).toString() ?? ''
+    if(jabonRating) jabonRating.innerHTML = data['Jabo']?.rating?.toString() ?? ''
+    if(jaboStreak) jaboStreak.innerHTML = data['Jabo']?.streak?.toString() ?? ''
 
     if(mrllamascProfileInfoElement) mrllamascProfileInfoElement.innerHTML = mrllamascProfileInfo
     if(mrllamascTriviaElement) mrllamascTriviaElement.innerHTML = mrllamascTrivia
