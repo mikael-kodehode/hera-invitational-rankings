@@ -82,7 +82,7 @@ const renderEngine = () => {
         <td class="rating-table-name-column sticky left-10 z-10 bg-slate-900 px-4 py-3 border-b border-slate-800 shadow-[4px_0_8px_-4px_rgba(0,0,0,0.3)]">
           <div class="inline-block text-left max-w-[130px] lg:max-w-[100%]">
             <div class="truncate whitespace-nowrap flex items-center gap-2">
-              <span class="fi fi-${player.nationality} rounded-sm shadow-sm"></span>
+              <span class="fi fi-${player.nationality} rounded-sm shadow-sm" min-w-[18.66px]></span>
               <div class="">
                 <div class="font-semibold text-slate-100 truncate"><a href=#${player.twitch}>${player.name}</a></div>
                 <div class="text-xs text-slate-400">${player.username}</div>
