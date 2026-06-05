@@ -18,6 +18,8 @@ export interface IDatabaseItem {
   name: string;
   highest_rating: number;
   team: string;
+  last_game_streamed: string;
+  last_stream_title: string;
 }
 
 export interface IClipsDbItem {
