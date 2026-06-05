@@ -92,7 +92,7 @@ const renderEngine = () => {
         </td>
         
         <!-- COLUMN 3+: REST OF SCROLLABLE DATA (Unchanged) -->
-        <td class="px-4 py-3 text-center font-bold">
+        <td class="primary-stat px-4 py-3 text-center font-bold">
           <div class="rating-pill ${status}" style="--progress:${progress} overflow-auto">
             <span class="peak">${peak}</span>
             <div>
@@ -101,25 +101,30 @@ const renderEngine = () => {
             ${peak-current < 25 ? `<span class="peak-badge"><i class="fa-solid fa-fire fire-icon"></i></span>` : ""}
           </div>
         </td>
-        <td class="collapse-win-percentage px-4 py-3 text-center text-slate-300">${shortenedWP}%</td>
-        <td class="collapse-streak px-4 py-3 text-center">
+        <td class="primary-stat collapse-win-percentage px-4 py-3 text-center text-slate-300">${shortenedWP}%</td>
+        <td class="primary-stat collapse-streak px-4 py-3 text-center">
           <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${player.streak > 0 ? 'bg-emerald-900/30 text-emerald-400' : player.streak < 0 ? 'bg-red-900/30 text-red-400' : 'bg-slate-800 text-slate-400'}">
             ${player.streak > 0 ? '+' : ''}${player.streak}
           </span>
         </td>
-        <td class="mobile-var mobile-var-value px-4 py-3 text-center text-slate-300" data-player="${player.name}">
+        <td class="primary-stat mobile-var mobile-var-value px-4 py-3 text-center text-slate-300" data-player="${player.name}">
           <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${player.streak > 0 ? 'bg-emerald-900/30 text-emerald-400' : player.streak < 0 ? 'bg-red-900/30 text-red-400' : 'bg-slate-800 text-slate-400'}">
             ${player.streak > 0 ? '+' : ''}${player.streak}
           </span>
         </td>
-        <td class="px-4 py-3 text-center text-slate-300">${player.matches_played}</td>
+        <td class="primary-stat px-4 py-3 text-center text-slate-300">${player.matches_played}</td>
+        <!-- SECONDARY STATS -->
+        
+        <td class="secondary-stat hidden px-4 py-3 text-center text-slate-300"><img src="/wei-logo.png" />: 20</td>
+        <td class="secondary-stat hidden px-4 py-3 text-center text-slate-300">Wei: 80 %</td>
+        <td class="secondary-stat hidden px-4 py-3 text-center text-slate-300">Arena</td>
         <td class="live-tracker-td px-4 py-3 text-center min-w-[110px] overflow-visible">
           <span class="relative inline-block">
             <a href='${Links.twitch}${player.twitch}' target='_blank' title="Watch ${player.name} on Twitch" class="text-slate-400 hover:text-purple-400 transition-colors">
               <i class="fa-brands fa-twitch text-lg"></i>
             </a>
             ${player.live
-              ? `<span class="absolute left-full top-1/2 -translate-y-1/2 ml-3 inline-flex items-center gap-1 text-red-500 text-[10px] font-bold whitespace-nowrap"><span class="live-dot"></span>LIVE</span>`
+              ? `<span class="absolute left-full top-1/2 -translate-y-1/2 ml-3 inline-flex items-center gap-1 text-red-500 text-[10px] font-bold whitespace-nowrap"><span class="live-dot"></span><span class="collapse-win-percentage">LIVE</span></span>`
               : ''}
           </span>
         </td>`
@@ -186,6 +191,7 @@ export const initMobileStatCycle = () => {
 }
 
 export const initiateListeners = () => {
+  const statToggle = document.querySelector('#holo-toggle')
   document.querySelector('thead')?.addEventListener('click', (event) => {
     const sortKey = (event.target as HTMLElement).getAttribute('data-sort');
     if (sortKey) handleTableSort(sortKey);
@@ -194,5 +200,12 @@ export const initiateListeners = () => {
     const el = event.target as HTMLElement
     el.classList.add('loading')
     insertPlayerData()
+  })
+  statToggle?.addEventListener('change', () => {
+    const primaryStats = document.querySelectorAll('.primary-stat')
+    const secondaryStat = document.querySelectorAll('.secondary-stat')
+
+    primaryStats.forEach(element => element.classList.toggle('hidden'))
+    secondaryStat.forEach(element => element.classList.toggle('hidden'))
   })
 }

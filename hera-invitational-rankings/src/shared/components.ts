@@ -106,6 +106,7 @@ export const footer = `
     <p>
       *This is an unofficial fan site and is not affiliated with Hera, Hera's Invitational, or the event organizers.
     </p>
+    <a class="underline hidden sm:block" href="https://aoe2.criticalbit.gg/kings-gauntlet/" target="_blank">Make sure to check out the official website!</a>
   </footer>
 `
 
@@ -151,3 +152,54 @@ export const renderPlayerProfile = (p: { key: string, name: string, image: strin
       <div id="${p.key}-trivia" class="player-trivia-container text-slate-300 leading-relaxed"></div>
     </div>
   </article>`
+
+export const toggleButton = `
+<div class="toggle-container">
+  <div class="toggle-wrap">
+    <input class="toggle-input" id="holo-toggle" type="checkbox" />
+    <label class="toggle-track" for="holo-toggle">
+      <div class="track-lines">
+        <div class="track-line"></div>
+      </div>
+
+      <div class="toggle-thumb">
+        <div class="thumb-core"></div>
+        <div class="thumb-inner"></div>
+        <div class="thumb-scan"></div>
+        <div class="thumb-particles">
+          <div class="thumb-particle"></div>
+          <div class="thumb-particle"></div>
+          <div class="thumb-particle"></div>
+          <div class="thumb-particle"></div>
+          <div class="thumb-particle"></div>
+        </div>
+      </div>
+
+      <div class="toggle-data">
+        <div class="data-text off"></div>
+        <div class="data-text on"></div>
+        <div class="status-indicator off"></div>
+        <div class="status-indicator on"></div>
+      </div>
+
+      <div class="energy-rings">
+        <div class="energy-ring"></div>
+        <div class="energy-ring"></div>
+        <div class="energy-ring"></div>
+      </div>
+
+      <div class="interface-lines">
+        <div class="interface-line"></div>
+        <div class="interface-line"></div>
+        <div class="interface-line"></div>
+        <div class="interface-line"></div>
+        <div class="interface-line"></div>
+        <div class="interface-line"></div>
+      </div>
+
+      <div class="toggle-reflection"></div>
+      <div class="holo-glow"></div>
+    </label>
+  </div>
+</div>
+`
