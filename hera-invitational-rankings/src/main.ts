@@ -50,7 +50,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
     <!-- Leaderboard Table -->
     <section id="ratings" class="for-scroll-observer px-4 md:px-8 mt-8 mb-12">
-      <div class="max-w-5xl mx-auto bg-slate-900 rounded-xl shadow-xl border border-slate-800 overflow-hidden">
+      <div class="max-w-7xl mx-auto bg-slate-900 rounded-xl shadow-xl border border-slate-800 overflow-hidden">
         <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between">
           <div class="flex">  
             <h2 class="text-lg font-semibold text-slate-100 flex items-center gap-2">
