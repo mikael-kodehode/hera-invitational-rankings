@@ -83,7 +83,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 </th>
                 <th class="primary-stat sortable px-4 py-3 text-center font-semibold cursor-pointer hover:text-white" data-sort="matches_played">1v1</th>
                 <!-- SECONDARY STATS -->
-                <th class="primary-stat hidden sortable px-4 py-3 text-center font-semibold cursor-pointer hover:text-white">Fav Civ</th>
+                <th class="primary-stat hidden sortable px-4 py-3 text-center font-semibold cursor-pointer hover:text-white">Fav Civs</th>
                 <th class="primary-stat hidden sortable px-4 py-3 text-center font-semibold cursor-pointer hover:text-white">Best Civ</th>
                 <th class="primary-stat hidden sortable px-4 py-3 text-center font-semibold cursor-pointer hover:text-white">Best Map</th>
                 <th class="sortable px-4 py-3 text-center font-semibold cursor-pointer hover:text-white min-w-[110px]" data-sort="live">Stream</th>

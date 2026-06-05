@@ -922,3 +922,7 @@ body {
     0 0 20px rgba(0, 255, 150, 0.3),
     inset 0 0 10px rgba(0, 0, 0, 0.8);
 }
+
+#fav-civ img {
+  width: 30px
+}

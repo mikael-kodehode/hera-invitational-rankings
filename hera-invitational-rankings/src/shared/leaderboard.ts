@@ -115,7 +115,20 @@ const renderEngine = () => {
         <td class="primary-stat px-4 py-3 text-center text-slate-300">${player.matches_played}</td>
         <!-- SECONDARY STATS -->
         
-        <td class="secondary-stat hidden px-4 py-3 text-center text-slate-300"><img src="/wei-logo.png" />: 20</td>
+        <td id="fav-civ" class="secondary-stat hidden flex justify-center px-4 py-3 text-center text-slate-300">
+          <div class="flex">
+            <img src="/${playerStat[player.username].favCivs[0].name}-logo.webp" />
+            <div class="self-center">${playerStat[player.username].favCivs[0].gamesPlayed}</div>
+          </div>
+          <div class="flex">
+            <img src="/${playerStat[player.username].favCivs[1].name}-logo.webp" />
+            <div class="self-center">${playerStat[player.username].favCivs[1].gamesPlayed}</div>
+          </div>
+          <div class="flex">
+            <img src="/${playerStat[player.username].favCivs[2].name}-logo.webp" />
+            <div class="self-center">${playerStat[player.username].favCivs[2].gamesPlayed}</div>
+          <div>
+        </td>
         <td class="secondary-stat hidden px-4 py-3 text-center text-slate-300">Wei: 80 %</td>
         <td class="secondary-stat hidden px-4 py-3 text-center text-slate-300">Arena</td>
         <td class="live-tracker-td px-4 py-3 text-center min-w-[110px] overflow-visible">

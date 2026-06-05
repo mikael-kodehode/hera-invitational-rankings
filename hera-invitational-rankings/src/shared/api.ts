@@ -99,3 +99,11 @@ export const fetchTwitchClips = async (): Promise<IClipsDbItem[]> => {
     return [];
   }
 };
+
+export const getCivStats = () => {
+  if (!supabaseClient) {
+    console.warn('Missing VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY. Using mock clip data.');
+    return mockClipsData;
+  }
+  
+}
