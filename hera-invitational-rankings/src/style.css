@@ -74,6 +74,7 @@ body {
   height: 0.625rem;
   background-color: var(--color-red-500);
   border-radius: 9999px;
+  margin-right: 8px
 }
 
 .live-dot::after {
