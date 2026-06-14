@@ -8,6 +8,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
         clips: resolve(__dirname, "clips.html"),
+        statistics: resolve(__dirname, "statistics.html")
       },
     },
   },

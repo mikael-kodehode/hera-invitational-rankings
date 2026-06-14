@@ -1,0 +1,24 @@
+.heatmap {
+  border-collapse: collapse;
+  width: 100%;
+  color: white;
+  font-family: sans-serif;
+}
+
+.heatmap th,
+.heatmap td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* heat cell */
+.cell {
+  background: hsl(
+    calc(var(--v) * 120),
+    70%,
+    50%
+  );
+  color: black;
+  font-weight: bold;
+} 
