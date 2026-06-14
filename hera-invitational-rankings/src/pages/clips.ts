@@ -119,7 +119,6 @@ export const invokeFetchClip = async () => {
 }
 
 const filterClips = (sortAfter: SortAfter[], clips: IClipsDbItem[]) => {
-  console.log(clips)
   return clips.filter((clip) => sortAfter.includes(clip.twitch_name))
 }
 
