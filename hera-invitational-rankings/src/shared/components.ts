@@ -35,9 +35,11 @@ export const footer = `
       *This is an unofficial fan site and is not affiliated with Hera, Hera's Invitational, or the event organizers.
     </p>
     <a class="underline hidden sm:block" href="https://aoe2.criticalbit.gg/kings-gauntlet/" target="_blank">Make sure to check out the official website!</a>
+    <p class="hidden sm:block">Feel free to send me an email: <a class="underline hidden sm:inline" href="mailto:mikael-kodehode@gmail.com" target="_blank" >mikael-kodehode@gmail.com</a></p>
   </footer>
 `
 
+import type { IPlayerStatDBItem } from '../types'
 import { players } from './players'
 
 const profileLinks = players.map(p => ({
@@ -196,25 +198,39 @@ export const playerStatPage = () => {
   `
 }
 
-// const loadPlayerDropdown = (players: IPlayerStatDBItem[]) => {
-//   return `
-//     <div class="relative inline-block group">
-//       <button class="px-4 py-2 bg-slate-800 text-white rounded-lg">
-//         Players
-//       </button>
+export const loadPlayerDropdown = (playerStats: IPlayerStatDBItem[]) => {
+  return `
+    <div class="relative inline-block">
+      <button
+        id="players-dropdown-btn"
+        class="inline-flex cursor-pointer items-center gap-2 px-4 py-2 bg-slate-800 text-white rounded-lg hover:bg-slate-700"
+      >
+        Players
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
 
-//       <div class="absolute mt-2 w-56 bg-slate-900 border border-slate-700 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition z-50">
-//         <ul class="py-2 text-sm text-slate-200">
-//           ${players.map(p => `
-//             <li>
-//               <a href="/players/${p.id}"
-//                  class="block px-4 py-2 hover:bg-slate-800">
-//                 ${p.name}
-//               </a>
-//             </li>
-//           `).join("")}
-//         </ul>
-//       </div>
-//     </div>
-//   `
-// }
+      <div
+        id="players-dropdown-menu"
+        class="hidden absolute left-0 mt-2 w-56 bg-slate-900 border border-slate-700 rounded-lg shadow-lg z-50"
+      >
+        <ul class="py-2 text-sm text-slate-200">
+          ${playerStats.map(p => `
+            <li class="cursor-pointer ">
+              <a id="${p.id}"
+                class="stat-nav-link block px-4 py-2 hover:bg-slate-800">
+                ${p.name}
+              </a>
+            </li>
+          `).join("")}
+        </ul>
+      </div>
+    </div>
+  `
+}
