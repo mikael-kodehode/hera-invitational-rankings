@@ -1,7 +1,7 @@
-import { loadClips, initiateSortingListeners, invokeFetchClip, sortClips } from "./pages/clips";
+import { loadClipPage, initiateSortingListeners, invokeFetchClip, sortClips } from "./pages/clips";
 import { initSidebarToggle } from "./shared/functions";
 
-loadClips();
+loadClipPage();
 const clips = await invokeFetchClip()
 await sortClips(clips)
 initSidebarToggle()

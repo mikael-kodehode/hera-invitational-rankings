@@ -29,6 +29,15 @@ export const header = `
   </header>
 `
 
+export const footer = `
+  <footer class="px-6 py-12 text-center text-slate-500 text-sm">
+    <p>
+      *This is an unofficial fan site and is not affiliated with Hera, Hera's Invitational, or the event organizers.
+    </p>
+    <a class="underline hidden sm:block" href="https://aoe2.criticalbit.gg/kings-gauntlet/" target="_blank">Make sure to check out the official website!</a>
+  </footer>
+`
+
 import { players } from './players'
 
 const profileLinks = players.map(p => ({
@@ -38,77 +47,81 @@ const profileLinks = players.map(p => ({
   id: p.key.charAt(0).toUpperCase() + p.key.slice(1) + 'Button'
 }))
 
-export const desktopSidebar = (activePage: 'ratings' | 'clips') => {
-  const isRatings = activePage === 'ratings'
-  const prefix = isRatings ? '#' : '/#'
+export const desktopSidebar = (activePage: 'ratings' | 'clips' | 'stats') => {
+  const prefix = activePage === 'ratings' ? '#' : '/#'
   return `
-  <nav class="page-nav fixed top-0 left-0 h-full hidden md:flex flex-col items-center py-3 bg-slate-900 border-r border-slate-700 z-50 overflow-hidden">
-    <a href="${isRatings ? '#ratings' : '/'}" id="nav-ratings" class="nav-link flex flex-col items-center gap-1.5 py-3 px-2 rounded-lg text-slate-300 hover:text-white transition-colors ${isRatings ? 'active-page-nav' : ''}" title="Ratings">
-      <div class="nav-icon-pill w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 transition-colors hover:bg-slate-700 hover:text-white">
-        <i class="fa fa-trophy"></i>
-      </div>
-      <span class="text-[10px] uppercase tracking-wider font-medium">Ratings</span>
-    </a>
-    <a href="/clips.html" id="nav-clips" class="nav-link flex flex-col items-center gap-1.5 py-3 px-2 rounded-lg text-slate-300 hover:text-white transition-colors ${isRatings ? '' : 'active-page-nav'}" title="Twitch Clips">
-      <div class="nav-icon-pill w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 transition-colors hover:bg-slate-700 hover:text-white">
-        <i class="fa fa-play"></i>
-      </div>
-      <span class="text-[10px] uppercase tracking-wider font-medium">Clips</span>
-    </a>
-    <div class="nav-profiles w-full flex flex-col flex-1 min-h-0">
-      <div class="px-3 pt-4 pb-1">
-        <div class="text-[10px] uppercase tracking-wider font-semibold text-slate-500 text-center">Profiles</div>
-      </div>
-      <section class="flex-1 overflow-y-auto w-full px-2 space-y-1">
-        ${profileLinks.map(p => `<a href="${prefix}${p.key}Profile" id="${p.id}" class="streamer-article nav-link flex items-center gap-1.5 py-2 px-2 rounded-md text-xs text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"><span class="fi fi-${p.flag} rounded-sm shrink-0"></span><span>${p.name}</span></a>`).join('\n      ')}
-      </section>
-    </div>
-    <button id="sidebar-toggle" class="sidebar-toggle w-7 h-7 rounded-lg bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-slate-400 hover:text-white transition-colors mt-auto mb-1 shrink-0" title="Toggle sidebar">
-      <i class="fa fa-chevron-left text-xs sidebar-toggle-icon"></i>
-    </button>
-  </nav>`
-}
-
-export const mobileNav = (activePage: 'ratings' | 'clips') => {
-  const isRatings = activePage === 'ratings'
-  const prefix = isRatings ? '#' : '/#'
-  return `
-<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-slate-950 border-t border-slate-800 z-50 overflow-x-auto">
-  <div class="flex items-center min-w-max px-2 py-1.5 gap-1">
-    
-    <a href="${isRatings ? '#ratings' : '/'}" ${isRatings ? 'id="small-screen-nav-home"' : ''} class="sticky left-0 z-10 bg-slate-950/95 backdrop-blur-sm nav-link ${isRatings ? 'for-scroll-observer ' : ''}flex flex-col items-center px-2 py-1 rounded-md text-[10px] text-slate-300 hover:text-white transition-colors w-[56px] shrink-0">
-      <div class="nav-icon-pill w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 transition-colors ${isRatings ? 'bg-amber-500/20 text-amber-400' : ''}">
-        <i class="fa fa-trophy text-xs"></i>
-      </div>
-      <span class="mt-0.5">Ratings</span>
-    </a>
-    
-    <a href="/clips.html" id="nav-mobile-clips" class="sticky left-[56px] z-10 bg-slate-950/95 backdrop-blur-sm nav-link ${isRatings ? '' : 'active-page-nav '}flex flex-col items-center px-2 py-1 rounded-md text-[10px] text-slate-300 hover:text-white transition-colors w-[56px] shrink-0 shadow-[4px_0_8px_-4px_rgba(0,0,0,0.5)] mr-1">
-      <div class="nav-icon-pill w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 transition-colors ${isRatings ? '' : 'bg-amber-500/20 text-amber-400'}">
-        <i class="fa fa-play text-xs"></i>
-      </div>
-      <span class="mt-0.5">Clips</span>
-    </a>
-    
-    ${profileLinks.map(p => `
-      <a href="${prefix}${p.key}Profile" class="nav-link ${isRatings ? 'for-scroll-observer ' : ''}flex flex-col items-center justify-center px-2 py-1 rounded-md text-[10px] text-slate-300 hover:text-white transition-colors min-w-[52px] shrink-0">
-        <span class="fi fi-${p.flag} rounded-sm shadow-sm"></span>
-        <span class="mt-1 truncate max-w-[48px] text-center">${p.name}</span>
+    <nav class="page-nav fixed top-0 left-0 h-full hidden md:flex flex-col items-center py-3 bg-slate-900 border-r border-slate-700 z-50 overflow-hidden">
+      <a href="${activePage === 'ratings' ? '#ratings' : '/'}" id="nav-ratings" class="nav-link flex flex-col items-center gap-1.5 py-3 px-2 rounded-lg text-slate-300 hover:text-white transition-colors ${activePage === 'ratings' ? 'active-page-nav' : ''}" title="Ratings">
+        <div class="nav-icon-pill w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 transition-colors hover:bg-slate-700 hover:text-white">
+          <i class="fa fa-trophy"></i>
+        </div>
+        <span class="text-[10px] uppercase tracking-wider font-medium">Ratings</span>
       </a>
-    `).join('\n')}
-
-  </div>
-</nav>`
+      <a href="/clips.html" id="nav-clips" class="nav-link flex flex-col items-center gap-1.5 py-3 px-2 rounded-lg text-slate-300 hover:text-white transition-colors ${activePage === 'clips' ? 'active-page-nav' : ''}" title="Twitch Clips">
+        <div class="nav-icon-pill w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 transition-colors hover:bg-slate-700 hover:text-white">
+          <i class="fa fa-play"></i>
+        </div>
+        <span class="text-[10px] uppercase tracking-wider font-medium">Clips</span>
+      </a>
+      <a href="/statistics.html" id="nav-stats" class="nav-link flex flex-col items-center gap-1.5 py-3 px-2 rounded-lg text-slate-300 hover:text-white transition-colors ${activePage === 'stats' ? 'active-page-nav' : ''}" title="Statistics">
+        <div class="nav-icon-pill w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 transition-colors hover:bg-slate-700 hover:text-white">
+          <i class="fa fa-chart-simple"></i>
+        </div>
+        <span class="text-[10px] uppercase tracking-wider font-medium">Statistics</span>
+      </a>
+      <div class="nav-profiles w-full flex flex-col flex-1 min-h-0">
+        <div class="px-3 pt-4 pb-1">
+          <div class="text-[10px] uppercase tracking-wider font-semibold text-slate-500 text-center">Profiles</div>
+        </div>
+        <section class="flex-1 overflow-y-auto w-full px-2 space-y-1">
+          ${profileLinks.map(p => `<a href="${prefix}${p.key}Profile" id="${p.id}" class="streamer-article nav-link flex items-center gap-1.5 py-2 px-2 rounded-md text-xs text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"><span class="fi fi-${p.flag} rounded-sm shrink-0"></span><span>${p.name}</span></a>`).join('\n      ')}
+        </section>
+      </div>
+      <button id="sidebar-toggle" class="sidebar-toggle w-7 h-7 rounded-lg bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-slate-400 hover:text-white transition-colors mt-auto mb-1 shrink-0" title="Toggle sidebar">
+        <i class="fa fa-chevron-left text-xs sidebar-toggle-icon"></i>
+      </button>
+    </nav>
+  `
 }
 
-export const footer = `
-  <footer class="px-6 py-12 text-center text-slate-500 text-sm">
-    <p>
-      *This is an unofficial fan site and is not affiliated with Hera, Hera's Invitational, or the event organizers.
-    </p>
-    <a class="underline hidden sm:block" href="https://aoe2.criticalbit.gg/kings-gauntlet/" target="_blank">Make sure to check out the official website!</a>
-  </footer>
-`
+export const mobileNav = (activePage: 'ratings' | 'clips' | 'stats') => {
+  const isRatings = activePage === 'ratings'
+  const prefix = isRatings ? '#' : '/#'
+  return `
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-slate-950 border-t border-slate-800 z-50 overflow-x-auto">
+      <div class="flex items-center min-w-max px-2 py-1.5 gap-1">
+        
+        <a href="${isRatings ? '#ratings' : '<s/'}" ${isRatings ? 'id="small-screen-nav-home"' : ''} class="sticky left-0 z-10 bg-slate-950/95 backdrop-blur-sm nav-link ${isRatings ? 'for-scroll-observer ' : ''}flex flex-col items-center px-2 py-1 rounded-md text-[10px] text-slate-300 hover:text-white transition-colors w-[56px] shrink-0">
+          <div class="nav-icon-pill w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 transition-colors ${isRatings ? 'bg-amber-500/20 text-amber-400' : ''}">
+            <i class="fa fa-trophy text-xs"></i>
+          </div>
+          <span class="mt-0.5">Ratings</span>
+        </a>
+        
+        <a href="/clips.html" id="nav-mobile-clips" class="sticky left-[56px] z-10 bg-slate-950/95 backdrop-blur-sm nav-link ${isRatings ? '' : 'active-page-nav '}flex flex-col items-center px-2 py-1 rounded-md text-[10px] text-slate-300 hover:text-white transition-colors w-[56px] shrink-0 shadow-[4px_0_8px_-4px_rgba(0,0,0,0.5)] mr-1">
+          <div class="nav-icon-pill w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 transition-colors ${isRatings ? '' : 'bg-amber-500/20 text-amber-400'}">
+            <i class="fa fa-play text-xs"></i>
+          </div>
+          <span class="mt-0.5">Clips</span>
+        </a>
+        
+        <a href="/statistics.html" id="nav-mobile-stats" class="sticky left-[56px] z-10 bg-slate-950/95 backdrop-blur-sm nav-link ${isRatings ? '' : 'active-page-nav '}flex flex-col items-center px-2 py-1 rounded-md text-[10px] text-slate-300 hover:text-white transition-colors w-[56px] shrink-0 shadow-[4px_0_8px_-4px_rgba(0,0,0,0.5)] mr-1">
+          <div class="nav-icon-pill w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 transition-colors ${isRatings ? '' : 'bg-amber-500/20 text-amber-400'}">
+            <i class="fa fa-chart-simple text-xs"></i>
+          </div>
+          <span class="mt-0.5">Stats</span>
+        </a>
+        ${profileLinks.map(p => `
+          <a href="${prefix}${p.key}Profile" class="nav-link ${isRatings ? 'for-scroll-observer ' : ''}flex flex-col items-center justify-center px-2 py-1 rounded-md text-[10px] text-slate-300 hover:text-white transition-colors min-w-[52px] shrink-0">
+            <span class="fi fi-${p.flag} rounded-sm shadow-sm"></span>
+            <span class="mt-1 truncate max-w-[48px] text-center">${p.name}</span>
+          </a>
+        `).join('\n')}
+
+      </div>
+    </nav>
+  `
+}
 
 const linkHtml = (l: { url: string, title: string, icon?: string, iconColor?: string, img?: string }) =>
   l.img
@@ -151,55 +164,57 @@ export const renderPlayerProfile = (p: { key: string, name: string, image: strin
       <h4 class="mt-6 mb-3 text-sm font-semibold text-slate-400 uppercase tracking-wide">Trivia</h4>
       <div id="${p.key}-trivia" class="player-trivia-container text-slate-300 leading-relaxed"></div>
     </div>
-  </article>`
+  </article>
+`
 
-export const toggleButton = `
-<div class="toggle-container">
-  <div class="toggle-wrap">
-    <input class="toggle-input" id="holo-toggle" type="checkbox" />
-    <label class="toggle-track" for="holo-toggle">
-      <div class="track-lines">
-        <div class="track-line"></div>
-      </div>
+export const overallStatCard  = (title: string, stat: string | number, secondaryStat?: string | number) => {
+  return `
+    <div class="rounded-xl bg-zinc-900 p-4 flex justify-between flex-col">
+      <p class="text-zinc-400">${title}</p>
+      <p class="text-3xl font-bold">${stat}</p>
+      ${secondaryStat ? 
+        `<p class="text-3xl font-bold">${secondaryStat}</p>`
+        :
+        ''
+      }
+    </div>
+  `
+}
 
-      <div class="toggle-thumb">
-        <div class="thumb-core"></div>
-        <div class="thumb-inner"></div>
-        <div class="thumb-scan"></div>
-        <div class="thumb-particles">
-          <div class="thumb-particle"></div>
-          <div class="thumb-particle"></div>
-          <div class="thumb-particle"></div>
-          <div class="thumb-particle"></div>
-          <div class="thumb-particle"></div>
+export const playerStatPage = () => {
+  return `
+    <div class="flex items-center gap-4 p-6 bg-zinc-900 rounded-xl">
+      <div class="w-16 h-16 rounded-full bg-zinc-700"></div>
+
+      <div>
+        <h1 class="text-2xl font-bold">Viper</h1>
+        <div class="text-sm text-zinc-400">
+          Rank #1 · 198 games · 65% WR
         </div>
       </div>
+    </div>
+  `
+}
 
-      <div class="toggle-data">
-        <div class="data-text off"></div>
-        <div class="data-text on"></div>
-        <div class="status-indicator off"></div>
-        <div class="status-indicator on"></div>
-      </div>
+// const loadPlayerDropdown = (players: IPlayerStatDBItem[]) => {
+//   return `
+//     <div class="relative inline-block group">
+//       <button class="px-4 py-2 bg-slate-800 text-white rounded-lg">
+//         Players
+//       </button>
 
-      <div class="energy-rings">
-        <div class="energy-ring"></div>
-        <div class="energy-ring"></div>
-        <div class="energy-ring"></div>
-      </div>
-
-      <div class="interface-lines">
-        <div class="interface-line"></div>
-        <div class="interface-line"></div>
-        <div class="interface-line"></div>
-        <div class="interface-line"></div>
-        <div class="interface-line"></div>
-        <div class="interface-line"></div>
-      </div>
-
-      <div class="toggle-reflection"></div>
-      <div class="holo-glow"></div>
-    </label>
-  </div>
-</div>
-`
+//       <div class="absolute mt-2 w-56 bg-slate-900 border border-slate-700 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition z-50">
+//         <ul class="py-2 text-sm text-slate-200">
+//           ${players.map(p => `
+//             <li>
+//               <a href="/players/${p.id}"
+//                  class="block px-4 py-2 hover:bg-slate-800">
+//                 ${p.name}
+//               </a>
+//             </li>
+//           `).join("")}
+//         </ul>
+//       </div>
+//     </div>
+//   `
+// }

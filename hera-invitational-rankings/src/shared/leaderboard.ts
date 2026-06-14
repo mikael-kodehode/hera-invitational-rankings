@@ -106,7 +106,7 @@ const renderEngine = () => {
             <div>
               (-${peak-current}) 
             </div>
-            ${peak-current < 25 ? `<span class="peak-badge"><i class="fa-solid fa-fire fire-icon"></i></span>` : ""}
+            ${peak-current === 0 ? `<span class="peak-badge"><i class="fa-solid fa-fire fire-icon"></i></span>` : ""}
           </div>
         </td>
         <td class="primary-stat collapse-win-percentage px-4 py-3 text-center text-slate-300">${shortenedWP}%</td>
@@ -121,24 +121,6 @@ const renderEngine = () => {
           </span>
         </td>
         <td class="primary-stat px-4 py-3 text-center text-slate-300">${player.matches_played}</td>
-        <!-- SECONDARY STATS -->
-        
-        <td id="fav-civ" class="secondary-stat hidden flex justify-center px-4 py-3 text-center text-slate-300">
-          <div class="flex">
-            <img src="/${playerStat[player.username].favCivs[0].name}-logo.webp" />
-            <div class="self-center">${playerStat[player.username].favCivs[0].gamesPlayed}</div>
-          </div>
-          <div class="flex">
-            <img src="/${playerStat[player.username].favCivs[1].name}-logo.webp" />
-            <div class="self-center">${playerStat[player.username].favCivs[1].gamesPlayed}</div>
-          </div>
-          <div class="flex">
-            <img src="/${playerStat[player.username].favCivs[2].name}-logo.webp" />
-            <div class="self-center">${playerStat[player.username].favCivs[2].gamesPlayed}</div>
-          <div>
-        </td>
-        <td class="secondary-stat hidden px-4 py-3 text-center text-slate-300">Wei: 80 %</td>
-        <td class="secondary-stat hidden px-4 py-3 text-center text-slate-300">Arena</td>
         <td class="live-tracker-td px-4 py-3 text-center min-w-[110px] overflow-visible">
           <span class="relative inline-block">
             <a href='${Links.twitch}${player.twitch}' target='_blank' title="Watch ${player.name} on Twitch" class="text-slate-400 hover:text-purple-400 transition-colors">
@@ -209,7 +191,6 @@ export const initMobileStatCycle = () => {
 }
 
 export const initiateListeners = () => {
-  const statToggle = document.querySelector('#holo-toggle')
   document.querySelector('thead')?.addEventListener('click', (event) => {
     const sortKey = (event.target as HTMLElement).getAttribute('data-sort');
     if (sortKey) handleTableSort(sortKey);
@@ -218,12 +199,5 @@ export const initiateListeners = () => {
     const el = event.target as HTMLElement
     el.classList.add('loading')
     insertPlayerData()
-  })
-  statToggle?.addEventListener('change', () => {
-    const primaryStats = document.querySelectorAll('.primary-stat')
-    const secondaryStat = document.querySelectorAll('.secondary-stat')
-
-    primaryStats.forEach(element => element.classList.toggle('hidden'))
-    secondaryStat.forEach(element => element.classList.toggle('hidden'))
   })
 }

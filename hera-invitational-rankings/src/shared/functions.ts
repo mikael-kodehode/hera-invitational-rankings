@@ -19,6 +19,8 @@ import { ohtofuProfileInfo, ohtofuTrivia } from "./profiles/ohtofu";
 import { aquafpsProfileInfo, aquafpsTrivia } from "./profiles/aquafps";
 import { atriocProfileInfo, atriocTrivia } from "./profiles/atrioc";
 import { wagamamatvProfileInfo, wagamamatvTrivia } from "./profiles/wagamamatv";
+import type { IPlayerCivStats, IPlayerStatDBItem } from "../types";
+import Chart from "chart.js/auto";
 
 export { initiateListeners, initMobileStatCycle };
 
@@ -245,10 +247,10 @@ export const insertPlayerData = async () => {
 
     if(jaboProfileInfoElement) jaboProfileInfoElement.innerHTML = jaboProfileInfo
     if(jaboTriviaElement) jaboTriviaElement.innerHTML = jaboTrivia
-    if(jaboMatches) jaboMatches.innerHTML = data['Jabo']?.matches_played?.toString() ?? ''
-    if(jaboWinPercentage) jaboWinPercentage.innerHTML = data['Jabo']?.win_percentage?.toFixed(2).toString() ?? ''
-    if(jabonRating) jabonRating.innerHTML = data['Jabo']?.rating?.toString() ?? ''
-    if(jaboStreak) jaboStreak.innerHTML = data['Jabo']?.streak?.toString() ?? ''
+    if(jaboMatches) jaboMatches.innerHTML = data['jabo']?.matches_played?.toString() ?? ''
+    if(jaboWinPercentage) jaboWinPercentage.innerHTML = data['jabo']?.win_percentage?.toFixed(2).toString() ?? ''
+    if(jabonRating) jabonRating.innerHTML = data['jabo']?.rating?.toString() ?? ''
+    if(jaboStreak) jaboStreak.innerHTML = data['jabo']?.streak?.toString() ?? ''
 
     if(mrllamascProfileInfoElement) mrllamascProfileInfoElement.innerHTML = mrllamascProfileInfo
     if(mrllamascTriviaElement) mrllamascTriviaElement.innerHTML = mrllamascTrivia
@@ -376,3 +378,178 @@ export const initSidebarToggle = () => {
   });
 };
 
+export const getListOfCivsPicked = (playerStats: IPlayerStatDBItem[]) => {
+  const playerPicksList = playerStats.map(player => player.player_civ_stats).flat()
+  const accumulatedCivList: IPlayerCivStats[] = Object.values(
+    playerPicksList.reduce<Record<string, IPlayerCivStats>>((acc, item) => {
+      const key = item.civilizations.name;
+
+      if (!acc[key]) {
+        acc[key] = { ...item };
+      } else {
+        acc[key].games_played += item.games_played;
+        acc[key].wins += item.wins;
+      }
+
+      return acc;
+    }, {})
+  );
+  return accumulatedCivList
+}
+
+export const findTopCiv = (accumulatedCivList: IPlayerCivStats[], type: 'win%' | 'games played' | 'wins') => {
+  if (type === 'win%') {
+    const qualifiedCivs = accumulatedCivList.filter(civ => civ.games_played >= 10)
+    return qualifiedCivs.sort((a, b) => {
+      const rateA = a.games_played > 0 ? (a.wins / a.games_played) : 0
+      const rateB = b.games_played > 0 ? (b.wins / b.games_played) : 0
+      
+      if (rateB === rateA) return b.games_played - a.games_played
+      
+      return rateB - rateA
+    })[0]
+  }
+  else if(type === 'games played') return accumulatedCivList.sort((a,b) => b.games_played - a.games_played)[0]
+  else if(type === 'wins') return accumulatedCivList.sort((a,b) => b.wins - a.wins)[0]
+}
+
+export const createCharts = (playerStats: IPlayerStatDBItem) => {
+
+  const civList = playerStats.player_civ_stats
+  const mapList = playerStats.player_map_stats
+  const ctx = document.querySelector<HTMLCanvasElement>("#pie-chart-civ-usage")
+  const barCivChart = document.querySelector<HTMLCanvasElement>("#bar-chart-civ-winrate")
+  const mtx = document.querySelector<HTMLCanvasElement>("#pie-chart-map-matches")
+  const barMapChart = document.querySelector<HTMLCanvasElement>("#bar-chart-map-winrate")
+  
+  const barOptions = {
+    indexAxis: "y" as 'y',
+    plugins: {
+      legend: {
+        labels: {
+          color: "#ffffff"
+        }
+      }
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: "#fff"
+        }
+      },
+      y: {
+        ticks: {
+          color: "#fff"
+        }
+      }
+    }
+  }
+  const pieOptions = {
+    plugins: {
+      legend: {
+        labels: {
+          color: "#ffffff"
+        }
+      }
+    }
+  }
+  
+  if(ctx && barCivChart) {
+    new Chart(ctx, {
+      type: "pie",
+      data: {
+        labels: civList.map(civ => civ.civilizations.name),
+        datasets: [
+          {
+            label: 'Games played',
+            data: civList.map(civ => civ.games_played)
+          }
+        ]
+      },
+      options: pieOptions
+    })
+  
+    new Chart(barCivChart, {
+      type: 'bar',
+      data: {
+        labels: civList.map(civ => civ.civilizations.name),
+        datasets: [
+          {
+            label: 'Winrate %',
+            data: civList.map(civ => ((civ.wins / civ.games_played)*100).toFixed(1))
+          }
+        ]
+      },
+      options: barOptions
+    })
+    
+  } else {
+    console.warn("Canvas not rendered. Couldn't create civ charts")
+  }
+
+  if(mtx && barMapChart) {
+    new Chart(mtx, {
+      type: "pie",
+      data: {
+        labels: mapList.map(map => map.maps.name.replace('_', ' ')),
+        datasets: [
+          {
+            label: 'Games played',
+            data: mapList.map(map => map.games_played)
+          }
+        ]
+      },
+      options: pieOptions
+    })
+  
+    new Chart(barMapChart, {
+      type: 'bar',
+      data: {
+        labels: mapList.map(map => map.maps.name.replace('_', ' ')),
+        datasets: [
+          {
+            label: 'Winrate %',
+            data: mapList.map(map => ((map.wins / map.games_played)*100).toFixed(1))
+          }
+        ]
+      },
+      options: barOptions
+    })
+    
+  } else {
+    console.warn("Canvas not rendered. Couldn't create map charts")
+  }
+}
+
+export const bayesianWinrate = (winrate: number, games: number, baseline = 50, k = 20) => {
+  const wins = games * (winrate / 100);
+  const adjustedWinrate = ((wins + k * (baseline / 100)) / (games + k))*100
+  return adjustedWinrate
+}
+
+
+// const heatmap = {};
+
+// for (const row of data) {
+//   if (!heatmap[row.civ_name]) {
+//     heatmap[row.civ_name] = {};
+//   }
+
+//   heatmap[row.civ_name][row.map_name] = {
+//     winrate: row.winrate,
+//     games: row.games_played
+//   };
+// }
+// function getColor(winrate) {
+//   if (winrate > 60) return "bg-green-500/70";
+//   if (winrate > 50) return "bg-green-300/50";
+//   if (winrate > 45) return "bg-yellow-500/40";
+//   return "bg-red-500/40";
+// }
+// export const findBestCivMapCombo = (playerStats: IPlayerStatDBItem[], name: PlayerNames): IPlayerCivMapViewStats[] => {
+
+//   return playerStats
+// }
+// getListOfCivsPicked(playerStats)
+// console.log(findTopCiv(getListOfCivsPicked(playerStats), 'win%'))
+// console.log(findBestCivMapCombo(playerStats))

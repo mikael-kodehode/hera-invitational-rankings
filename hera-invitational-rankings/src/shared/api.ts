@@ -1,6 +1,6 @@
 // supabaseClient.ts
 import { createClient } from '@supabase/supabase-js';
-import type { IDatabaseItem, IClipsDbItem } from '../types.ts';
+import type { IDatabaseItem, IClipsDbItem, IPlayerStatDBItem, IOverallStats } from '../types.ts';
 
 // Vite requires 'import.meta.env' for environment variables.
 // Adding 'as string' ensures TypeScript doesn't complain about them being undefined.
@@ -17,7 +17,7 @@ export const supabaseClient = (supabaseUrl && supabaseAnonKey)
  */
 const mockPlayerData: IDatabaseItem[] = [
   { id: 1, created_at: '2025-01-01', profile_id: 1, matches_played: 120, win_percentage: 58, leaderboard_rank: 1, username: 'Grubby', nationality: 'nl', wins: 70, losses: 50, streak: 3, rating: 1850, live: true, youtube: 'FollowGrubby', twitch: 'grubby', name: 'Grubby', highest_rating: 1323, team: 'pig', last_game_streamed: 'Age of Empires: II', last_stream_title: 'Hello' },
-  { id: 2, created_at: '2025-01-01', profile_id: 2, matches_played: 95, win_percentage: 52, leaderboard_rank: 2, username: 'Day9', nationality: 'us', wins: 49, losses: 46, streak: 1, rating: 1720, live: false, youtube: 'day9tv', twitch: 'day9', name: 'Day9', highest_rating: 1323, team: 'lance', last_game_streamed: 'Age of Empires: II', last_stream_title: 'Hello' },
+  { id: 2, created_at: '2025-01-01', profile_id: 2, matches_played: 95, win_percentage: 52, leaderboard_rank: 2, username: 'Day9', nationality: 'us', wins: 49, losses: 46, streak: 1, rating: 1720, live: false, youtube: 'day9tv', twitch: 'day9tv', name: 'Day9', highest_rating: 1323, team: 'lance', last_game_streamed: 'Age of Empires: II', last_stream_title: 'Hello' },
   { id: 3, created_at: '2025-01-01', profile_id: 3, matches_played: 80, win_percentage: 48, leaderboard_rank: 3, username: 'Deathnote', nationality: 'de', wins: 38, losses: 42, streak: -2, rating: 1680, live: false, youtube: '', twitch: 'followdeathnote', name: 'Deathnote', highest_rating: 1323, team: 'lance', last_game_streamed: 'Age of Empires: II', last_stream_title: 'Hello' },
   { id: 5, created_at: '2025-01-01', profile_id: 5, matches_played: 140, win_percentage: 60, leaderboard_rank: 5, username: 'Knoff', nationality: 'se', wins: 84, losses: 56, streak: 4, rating: 1800, live: false, youtube: 'campknoff', twitch: 'knoff', name: 'Knoff', highest_rating: 1323, team: 'pig', last_game_streamed: 'Age of Empires: II', last_stream_title: 'Hello' },
   { id: 6, created_at: '2025-01-01', profile_id: 6, matches_played: 75, win_percentage: 45, leaderboard_rank: 6, username: 'SingSing', nationality: 'nl', wins: 34, losses: 41, streak: -1, rating: 1650, live: false, youtube: '', twitch: 'singsing', name: 'SingSing', highest_rating: 1323, team: 'grubby', last_game_streamed: 'Age of Empires: II', last_stream_title: 'Hello' },
@@ -100,10 +100,227 @@ export const fetchTwitchClips = async (): Promise<IClipsDbItem[]> => {
   }
 };
 
-export const getCivStats = () => {
+// export const dummyPlayerStatsItem: IPlayerStatDBItem[] = [
+//   {
+//     id: "sdgtghbdzfg",
+//     profile_id: 467398,
+//     name: 'yamatocannon',
+//     PlayerStatistics: {twitch: 'ahmpy'},
+//     player_games: [{
+//       player_id: 'sdgtghbdzfg',
+//       match_id: 7654462,
+//       won: true,
+//       played_at: 6545676454,
+//       maps: {id: 4,name: 'sjdhisrihgo'},
+//       civilizations: {civ_id: 50, name: 'Goths'}
+//     }],
+//     player_map_stats: [
+//       {
+//         player_id: 'whfiwsydifs',
+//         map_id: 4,
+//         games_played: 64,
+//         wins: 43,
+//         maps: {
+//           id: 4,
+//           name: 'Kilimanjaro'
+//         }
+//       }
+//     ],
+//     player_civ_stats: [
+//       {
+//         civilizations: {name: 'Goth', civ_id: 27},
+//         games_played: 10,
+//         wins: 3
+//       },
+//       {
+//         civilizations: {name: 'Burgundians', civ_id: 3},
+//         games_played: 7,
+//         wins: 3
+//       }
+//     ],
+//     player_civ_map_stats_view: [
+//       {
+//         civ_id: 27,
+//         civ_name: "Magyars",
+//         games_played: 12,
+//         map_id: 1,
+//         map_name: "Kilimanjaro",
+//         player_id: 'fsejuhfhjis',
+//         player_name: 'hdfisd',
+//         wins: 3,
+//         winrate: 34
+//       },
+//       {
+//         civ_id: 23,
+//         civ_name: "Goths",
+//         games_played: 3,
+//         map_id: 1,
+//         map_name: "Kilimanjaro",
+//         player_id: 'fsejuhfhjis',
+//         player_name: 'hdfisd',
+//         wins: 3,
+//         winrate: 100
+//       },
+//     ],
+//   },
+  
+//   {
+//     id: "sdgtghbdzfg",
+//     profile_id: 467398,
+//     name: 'yamatocannon',
+//     PlayerStatistics: {twitch: 'ahmpy'},
+//     player_games: [{
+//       player_id: 'sdgtghbdzfg',
+//       match_id: 7654462,
+//       won: true,
+//       played_at: 6545676454,
+//       maps: {id: 4,name: 'sjdhisrihgo'},
+//       civilizations: {civ_id: 50, name: 'Goths'}
+//     }],
+//     player_map_stats: [
+//       {
+//         player_id: 'whfiwsydifs',
+//         map_id: 4,
+//         games_played: 64,
+//         wins: 43,
+//         maps: {
+//           id: 4,
+//           name: 'Kilimanjaro'
+//         }
+//       }
+//     ],
+//     player_civ_stats: [
+//       {
+//         civilizations: {name: 'Goth', civ_id: 27},
+//         games_played: 10,
+//         wins: 3
+//       },
+//       {
+//         civilizations: {name: 'Burgundians', civ_id: 3},
+//         games_played: 7,
+//         wins: 3
+//       }
+//     ],
+//     player_civ_map_stats_view: [
+//       {
+//         civ_id: 27,
+//         civ_name: "Magyars",
+//         games_played: 12,
+//         map_id: 1,
+//         map_name: "Kilimanjaro",
+//         player_id: 'fsejuhfhjis',
+//         player_name: 'hdfisd',
+//         wins: 3,
+//         winrate: 34
+//       },
+//       {
+//         civ_id: 23,
+//         civ_name: "Goths",
+//         games_played: 3,
+//         map_id: 1,
+//         map_name: "Kilimanjaro",
+//         player_id: 'fsejuhfhjis',
+//         player_name: 'hdfisd',
+//         wins: 3,
+//         winrate: 100
+//       },
+//     ],
+//   }
+// ]
+
+export const getOverallStats = async () => {
+  try {
+    if(!supabaseClient) throw new Error('supabaseClient falsy')
+    const { data, error } = await supabaseClient
+      .from('overall_stats')
+      .select(`*`)
+
+    if(error) throw error
+    if(data) console.log(data[0])
+    return data[0] as IOverallStats
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export const getCivStats = async () => {
   if (!supabaseClient) {
     console.warn('Missing VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY. Using mock clip data.');
-    return mockClipsData;
+    // return dummyPlayerStatsItem
+    return;
   }
-  
+  try {
+    const { data, error } = await supabaseClient
+      .from("players")
+    .select(`
+      id,
+      profile_id,
+      name,
+      PlayerStatistics (*),
+      player_best_civ (
+        *,
+        civilizations (name)
+      ),
+      player_best_map (
+      *,
+      maps (name)
+      ),
+      player_games (
+        player_id,
+        match_id,
+        maps (id, name),
+        civilizations (civ_id, name),
+        won,
+        played_at
+      ),
+      player_map_stats (
+        player_id,
+        map_id,
+        games_played,
+        wins,
+        maps (
+          id,
+          name
+        )
+      ),
+      player_civ_stats (
+        civilizations (name, civ_id),
+        games_played,
+        wins
+      ),
+      player_civ_map_stats_view (
+        player_id,
+        player_name,
+        map_id,
+        map_name,
+        civ_id,
+        civ_name,
+        games_played,
+        wins,
+        winrate
+      )
+    `);
+    if(error) throw error
+    if(data) console.log(data)
+    return data as unknown as IPlayerStatDBItem[]
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const loadHeatmap = async (playerId?: string) => {
+  if(!supabaseClient) {
+    console.warn('Supabase client not loaded. Cannot fetch heatmap')
+    return
+  }
+  const { data, error } = await supabaseClient.rpc("civ_map_heatmap", {
+    p_player: playerId ?? null
+  });
+
+  if (error) {
+    console.error(error);
+    return [];
+  }
+
+  return data;
 }
