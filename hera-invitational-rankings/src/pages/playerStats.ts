@@ -84,6 +84,7 @@ const loadPlayerStatPage = (playerStat: IPlayerStatDBItem, heatmap: IPlayerHeatm
         </a>
       </h1>
       <p class="relative z-10 text-slate-400 text-sm mb-6">Statistics between June 1st to present</p>
+      <p class="relative z-10 text-slate-400 text-sm mb-6">This is a preview, but complete stats for Day9. Working on the rest...</p>
     </header>
     <section class="px-4 md:px-8 mt-4 space-y-8 max-w-5xl mx-auto pb-8">
 
