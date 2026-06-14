@@ -108,11 +108,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </div>
 `
 
-document.addEventListener('DOMContentLoaded', () => {
-  initiateListeners();
-  insertPlayerData();
-  initiateObservers();
-  initSidebarToggle();
-  initMobileStatCycle();
-  console.info('loaded')
-});
+initiateListeners();
+insertPlayerData();
+initiateObservers();
+initSidebarToggle();
+initMobileStatCycle();

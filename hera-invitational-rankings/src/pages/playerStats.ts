@@ -1,16 +1,19 @@
-import { footer } from "../shared/components"
+import { loadHeatmap } from "../shared/api"
+import { footer, loadPlayerDropdown } from "../shared/components"
+import { initStatDropdownListeners, renderCharts } from "../shared/functions"
 import '../stats.css'
 import '../style.css'
 import type { IPlayerHeatmapSource, IPlayerStatDBItem } from "../types"
 
-const loadPlayerStatPage = (playerStat: IPlayerStatDBItem, heatmap: IPlayerHeatmapSource[]) => {
-  console.log(playerStat)
-  const mostPlayedCiv = playerStat.player_civ_stats.reduce((best, civ) => civ.games_played > best.games_played ? civ : best)
-  const mostPlayedCivWinrate = ((mostPlayedCiv.wins / mostPlayedCiv.games_played)*100).toFixed(1)
-  const mostPlayedCivMaps = playerStat.player_civ_map_stats_view.filter(combo => combo.civ_name === mostPlayedCiv.civilizations.name)
-  const bestMapForMostPlayedCiv = mostPlayedCivMaps.reduce((map, best) => map.winrate > best.winrate ? map : best).map_name.replace('_', ' ')
-  const bestCivMaaps = playerStat.player_civ_map_stats_view.filter(combo => combo.civ_name === playerStat.player_best_civ[0].civilizations.name)
-  const bestMapForBestCiv = bestCivMaaps.reduce((map,best) => map.winrate > best.winrate ? map : best).map_name.replace('_', ' ')
+const loadPlayerStatPage = async (playerStat: IPlayerStatDBItem, playerStats: IPlayerStatDBItem[]) => {
+  const mainStatElement = document.querySelector('#statistics-main')
+  const heatmap: IPlayerHeatmapSource[] = await loadHeatmap(playerStat.id)
+  const mostPlayedCiv = playerStat.player_civ_stats.length ? playerStat.player_civ_stats.reduce((best, civ) => civ.games_played > best.games_played ? civ : best) : undefined
+  const mostPlayedCivWinrate = !mostPlayedCiv ? 0 : ((mostPlayedCiv.wins / mostPlayedCiv.games_played)*100).toFixed(1)
+  const mostPlayedCivMaps = playerStat.player_civ_map_stats_view.length && mostPlayedCiv ? playerStat.player_civ_map_stats_view.filter(combo => combo.civ_name === mostPlayedCiv.civilizations.name) : ''
+  const bestMapForMostPlayedCiv = mostPlayedCivMaps ? mostPlayedCivMaps.reduce((map, best) => map.winrate > best.winrate ? map : best).map_name.replace('_', ' ') : ''
+  const bestCivMaps = playerStat.player_best_civ.length ? playerStat.player_civ_map_stats_view.filter(combo => combo.civ_name === playerStat.player_best_civ[0].civilizations.name) : ''
+  const bestMapForBestCiv = bestCivMaps ? bestCivMaps.reduce((map,best) => map.winrate > best.winrate ? map : best).map_name.replace('_', ' ') : ''
   const lookup = new Map();
   
   for (const row of heatmap) {
@@ -69,8 +72,9 @@ const loadPlayerStatPage = (playerStat: IPlayerStatDBItem, heatmap: IPlayerHeatm
 
     return { bg, text };  
   }
+  if(!mainStatElement) return console.error('Could not render stats because main wrapper is undefined')
 
-  return `
+  mainStatElement.innerHTML = `
     <header id="header" class="relative pt-12 pb-10 px-6 text-center bg-gradient-to-b from-slate-800 to-slate-900 overflow-hidden">
       <!-- Subtle dot pattern overlay -->
       <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 20px 20px;"></div>
@@ -84,10 +88,10 @@ const loadPlayerStatPage = (playerStat: IPlayerStatDBItem, heatmap: IPlayerHeatm
         </a>
       </h1>
       <p class="relative z-10 text-slate-400 text-sm mb-6">Statistics between June 1st to present</p>
-      <p class="relative z-10 text-slate-400 text-sm mb-6">This is a preview, but complete stats for Day9. Working on the rest...</p>
+      <p class="relative z-10 text-slate-400 text-sm mb-6">Some db issues duplicated some maps which affected some stats.</p>
     </header>
     <section class="px-4 md:px-8 mt-4 space-y-8 max-w-5xl mx-auto pb-8">
-
+      ${loadPlayerDropdown(playerStats)}
       <article class="bg-slate-900 rounded-xl shadow-lg border border-slate-800 overflow-hidden hover:-translate-y-0.5 hover:shadow-xl transition-transform">
         <div class="p-6 md:p-8">
           <div class="flex flex-col md:flex-row gap-6">
@@ -101,11 +105,11 @@ const loadPlayerStatPage = (playerStat: IPlayerStatDBItem, heatmap: IPlayerHeatm
           </div>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
             <div class="text-center p-4 rounded-lg bg-slate-800/50 border border-slate-800">
-              <span class="block text-2xl font-bold text-amber-500">${mostPlayedCiv.civilizations.name}</span>
+              <span class="block text-2xl font-bold text-amber-500">${mostPlayedCiv?.civilizations.name}</span>
               <span class="text-xs text-slate-400 uppercase tracking-wide"><i class="fa fa-star text-slate-500 mr-1.5"></i>Most played Civ</span>
             </div>
             <div class="text-center p-4 rounded-lg bg-slate-800/50 border border-slate-800">
-              <span class="block text-2xl font-bold text-white">${mostPlayedCiv.games_played}</span>
+              <span class="block text-2xl font-bold text-white">${mostPlayedCiv?.games_played}</span>
               <span class="text-xs text-slate-400 uppercase tracking-wide"><i class="fa fa-crosshairs text-slate-500 mr-1.5"></i>Ranked 1v1</span>
             </div>
             <div class="text-center p-4 rounded-lg bg-slate-800/50 border border-slate-800">
@@ -119,15 +123,15 @@ const loadPlayerStatPage = (playerStat: IPlayerStatDBItem, heatmap: IPlayerHeatm
           </div>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
             <div class="text-center p-4 rounded-lg bg-slate-800/50 border border-slate-800">
-              <span class="block text-2xl font-bold text-amber-500">${playerStat.player_best_civ[0].civilizations.name}</span>
+              <span class="block text-2xl font-bold text-amber-500">${playerStat.player_best_civ[0]?.civilizations.name ?? '-'}</span>
               <span class="text-xs text-slate-400 uppercase tracking-wide"><i class="fa fa-star text-slate-500 mr-1.5"></i>Best Civ</span>
             </div>
             <div class="text-center p-4 rounded-lg bg-slate-800/50 border border-slate-800">
-              <span class="block text-2xl font-bold text-white">${playerStat.player_best_civ[0].games_played}</span>
+              <span class="block text-2xl font-bold text-white">${playerStat.player_best_civ[0]?.games_played ?? '-'}</span>
               <span class="text-xs text-slate-400 uppercase tracking-wide"><i class="fa fa-crosshairs text-slate-500 mr-1.5"></i>Ranked 1v1</span>
             </div>
             <div class="text-center p-4 rounded-lg bg-slate-800/50 border border-slate-800">
-              <span class="block text-2xl font-bold text-white">${playerStat.player_best_civ[0].winrate} %</span>
+              <span class="block text-2xl font-bold text-white">${playerStat.player_best_civ[0]?.winrate ?? '0'} %</span>
               <span class="text-xs text-slate-400 uppercase tracking-wide"><i class="fa fa-percentage text-slate-500 mr-1.5"></i>Win Rate</span>
             </div>
             <div class="text-center p-4 rounded-lg bg-slate-800/50 border border-slate-800">
@@ -159,7 +163,7 @@ const loadPlayerStatPage = (playerStat: IPlayerStatDBItem, heatmap: IPlayerHeatm
       </article>
     </section>
     <section class="px-4 md:px-8 mt-4 space-y-8 max-w-5xl mx-auto pb-8">
-      <article class="bg-slate-900 p-8 flex justify-center rounded-xl shadow-lg border border-slate-800 overflow-hidden hover:-translate-y-0.5 hover:shadow-xl transition-transform">
+      <article class="overflow-x-auto bg-slate-900 p-8 rounded-xl shadow-lg border border-slate-800 overflow-hidden hover:-translate-y-0.5 hover:shadow-xl transition-transform">
         <table class="heatmap">
           <thead>
             <tr>
@@ -195,9 +199,10 @@ const loadPlayerStatPage = (playerStat: IPlayerStatDBItem, heatmap: IPlayerHeatm
       </article>
     </section>
     ${footer}
-  `
+    `
+  renderCharts(playerStat)
+  initStatDropdownListeners(playerStats)
 }
-
 export default loadPlayerStatPage
 
 const imageUrls = {
