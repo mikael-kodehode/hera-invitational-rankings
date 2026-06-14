@@ -21,6 +21,7 @@ import { atriocProfileInfo, atriocTrivia } from "./profiles/atrioc";
 import { wagamamatvProfileInfo, wagamamatvTrivia } from "./profiles/wagamamatv";
 import type { IPlayerCivStats, IPlayerStatDBItem } from "../types";
 import Chart from "chart.js/auto";
+import loadPlayerStatPage from "../pages/playerStats";
 
 export { initiateListeners, initMobileStatCycle };
 
@@ -414,6 +415,15 @@ export const findTopCiv = (accumulatedCivList: IPlayerCivStats[], type: 'win%' |
 }
 
 export const createCharts = (playerStats: IPlayerStatDBItem) => {
+  const pie1 = Chart.getChart("pie-chart-civ-usage");
+  const bar1 = Chart.getChart('bar-chart-civ-winrate')
+  const pie2 = Chart.getChart('pie-chart-map-matches')
+  const bar2 = Chart.getChart('bar-chart-map-winrate')
+  // 2. If it exists, destroy it!
+  if (pie1) pie1.destroy();
+  if (bar1) bar1.destroy();
+  if (pie2) pie2.destroy();
+  if (bar2) bar2.destroy();
 
   const civList = playerStats.player_civ_stats
   const mapList = playerStats.player_map_stats
@@ -525,6 +535,36 @@ export const bayesianWinrate = (winrate: number, games: number, baseline = 50, k
   const wins = games * (winrate / 100);
   const adjustedWinrate = ((wins + k * (baseline / 100)) / (games + k))*100
   return adjustedWinrate
+}
+
+export const renderCharts = (playerStat: IPlayerStatDBItem) => {
+  requestAnimationFrame(() => {
+    createCharts(playerStat);
+  });
+}
+
+export const initStatDropdownListeners = (playerStats: IPlayerStatDBItem[]) => {
+  const button = document.querySelector("#players-dropdown-btn");
+  const menu = document.querySelector("#players-dropdown-menu");
+  const statNavLinks = document.querySelectorAll('.stat-nav-link')
+  statNavLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const id = (e.target as HTMLElement).getAttribute('id')
+      const activePlayer = playerStats.find(player => player.id === id)
+      if(!activePlayer) return console.error('Player not found. Could not render stats')
+      loadPlayerStatPage(activePlayer, playerStats)
+      createCharts(activePlayer)
+   })
+  })
+  button?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu?.classList.toggle("hidden");
+  });
+
+  document.addEventListener("click", () => {
+    menu?.classList.add("hidden");
+  });
+  return ''
 }
 
 
