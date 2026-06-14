@@ -1,5 +1,6 @@
 import { footer } from "../shared/components"
 import '../stats.css'
+import '../style.css'
 import type { IPlayerHeatmapSource, IPlayerStatDBItem } from "../types"
 
 const loadPlayerStatPage = (playerStat: IPlayerStatDBItem, heatmap: IPlayerHeatmapSource[]) => {
