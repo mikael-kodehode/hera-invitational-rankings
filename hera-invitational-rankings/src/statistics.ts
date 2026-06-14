@@ -4,6 +4,8 @@ import { getCivStats, loadHeatmap } from "./shared/api";
 import { desktopSidebar, mobileNav } from "./shared/components";
 import { createCharts, initSidebarToggle } from "./shared/functions";
 import type { IPlayerStatDBItem } from "./types";
+import './style.css'
+import './stats.css'
 
 const playerStats = await getCivStats() as IPlayerStatDBItem[]
 // const overallStats = await getOverallStats()
