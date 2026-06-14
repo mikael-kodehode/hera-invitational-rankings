@@ -76,6 +76,7 @@ body {
   height: 0.625rem;
   background-color: var(--color-red-500);
   border-radius: 9999px;
+  margin-right: 8px
 }
 
 .live-dot::after {
@@ -263,4 +264,8 @@ body {
     -o-animation: rotating 1.2s linear infinite;
     animation: rotating 1.2s linear infinite;
   }
+}
+
+#fav-civ img {
+  width: 30px
 }

@@ -13,7 +13,6 @@ export interface PlayerProfile {
   image: string
   links: PlayerLink[]
 }
-
 export const players: PlayerProfile[] = [
   {
     key: 'grubby', name: 'Grubby', flag: 'nl', image: '/grubby-profile-picture.jpg',
@@ -29,7 +28,7 @@ export const players: PlayerProfile[] = [
     ]
   },
   {
-    key: 'day9', name: 'Day9', flag: 'us', image: '/day9-profile-picture.webp',
+    key: 'day9', name: 'Day9', flag: 'us', image: '/day9tv-profile-picture.webp',
     links: [
       { url: 'https://www.youtube.com/day9tv', title: 'YouTube', icon: 'fa-brands fa-youtube', iconColor: 'text-red-500' },
       { url: 'https://www.twitch.tv/day9', title: 'Twitch', icon: 'fa-brands fa-twitch', iconColor: 'text-purple-500' },
@@ -42,11 +41,11 @@ export const players: PlayerProfile[] = [
     ]
   },
   {
-    key: 'deathnote', name: 'Deathnote', flag: 'ru', image: '/deathnote-profile-picture.jpg',
+    key: 'deathnote', name: 'Deathnote', flag: 'ru', image: '/followdeathnote-profile-picture.jpg',
     links: [
       { url: 'https://www.youtube.com/channel/UChGsaIBM_pEKkdXjYcJdpzA', title: 'YouTube', icon: 'fa-brands fa-youtube', iconColor: 'text-red-500' },
       { url: 'https://www.twitch.tv/followdeathnote', title: 'Twitch', icon: 'fa-brands fa-twitch', iconColor: 'text-purple-500' },
-      { url: 'https://www.aoe2insights.com/user/6481045', title: 'AoE2 Insights', img: '/aoeinsights-logo.webp' },
+      { url: 'https://www.aoe2insights.com/user/13667542', title: 'AoE2 Insights', img: '/aoeinsights-logo.webp' },
       { url: 'https://liquipedia.net/warcraft/Deathnote', title: 'Liquipedia', img: '/liquipedia_icon_menu.png' },
     ]
   },
@@ -74,7 +73,7 @@ export const players: PlayerProfile[] = [
     ]
   },
   {
-    key: 'uthermal', name: 'uThermal', flag: 'nl', image: '/uthermal-profile-picture.jpg',
+    key: 'uthermal', name: 'uThermal', flag: 'nl', image: '/uthermalsc2-profile-picture.jpg',
     links: [
       { url: 'https://www.youtube.com/uthermal', title: 'YouTube', icon: 'fa-brands fa-youtube', iconColor: 'text-red-500' },
       { url: 'https://www.twitch.tv/uthermalsc2', title: 'Twitch', icon: 'fa-brands fa-twitch', iconColor: 'text-purple-500' },
@@ -85,7 +84,7 @@ export const players: PlayerProfile[] = [
     ]
   },
   {
-    key: 'pig', name: 'PiG', flag: 'au', image: '/pig-profile-picture.jpg',
+    key: 'pig', name: 'PiG', flag: 'au', image: '/x5_pig-profile-picture.jpg',
     links: [
       { url: 'https://www.youtube.com/PiGstarcraft', title: 'YouTube', icon: 'fa-brands fa-youtube', iconColor: 'text-red-500' },
       { url: 'https://www.twitch.tv/x5_pig', title: 'Twitch', icon: 'fa-brands fa-twitch', iconColor: 'text-purple-500' },
@@ -101,7 +100,7 @@ export const players: PlayerProfile[] = [
     links: [
       { url: 'https://www.youtube.com/@Ahmpy', title: 'YouTube', icon: 'fa-brands fa-youtube', iconColor: 'text-red-500' },
       { url: 'https://www.twitch.tv/ahmpy', title: 'Twitch', icon: 'fa-brands fa-twitch', iconColor: 'text-purple-500' },
-      { url: 'https://www.aoe2insights.com/user/25478303', title: 'AoE2 Insights', img: '/aoeinsights-logo.webp' },
+      { url: 'https://www.aoe2insights.com/user/13670593', title: 'AoE2 Insights', img: '/aoeinsights-logo.webp' },
     ]
   },
   {
@@ -109,7 +108,7 @@ export const players: PlayerProfile[] = [
     links: [
       { url: 'https://www.youtube.com/channel/UCRRfSRlDq2ma7xp_8HYvYeA', title: 'YouTube', icon: 'fa-brands fa-youtube', iconColor: 'text-red-500' },
       { url: 'https://www.twitch.tv/yamatocannon', title: 'Twitch', icon: 'fa-brands fa-twitch', iconColor: 'text-purple-500' },
-      { url: 'https://www.aoe2insights.com/user/25503675', title: 'AoE2 Insights', img: '/aoeinsights-logo.webp' },
+      { url: 'https://www.aoe2insights.com/user/13674490', title: 'AoE2 Insights', img: '/aoeinsights-logo.webp' },
       { url: 'https://liquipedia.net/leagueoflegends/YamatoCannon', title: 'Liquipedia', img: '/liquipedia_icon_menu.png' },
       { url: 'https://discord.gg/ycsdVJJuFP', title: 'Discord', icon: 'fa-brands fa-discord', iconColor: 'text-indigo-500' },
       { url: 'https://www.instagram.com/yamatocannon1/', title: 'Instagram', icon: 'fa-brands fa-instagram', iconColor: 'text-pink-500' },
@@ -120,17 +119,17 @@ export const players: PlayerProfile[] = [
     links: [
       { url: 'https://www.youtube.com/@iyouxin', title: 'YouTube', icon: 'fa-brands fa-youtube', iconColor: 'text-red-500' },
       { url: 'https://www.twitch.tv/iyouxin', title: 'Twitch', icon: 'fa-brands fa-twitch', iconColor: 'text-purple-500' },
-      { url: 'https://www.aoe2insights.com/user/25494761', title: 'AoE2 Insights', img: '/aoeinsights-logo.webp' },
+      { url: 'https://www.aoe2insights.com/user/13678393', title: 'AoE2 Insights', img: '/aoeinsights-logo.webp' },
       { url: 'https://discord.gg/hdSufp5ZCA', title: 'Discord', icon: 'fa-brands fa-discord', iconColor: 'text-indigo-500' },
       { url: 'http://instagram.com/iyouxin', title: 'Instagram', icon: 'fa-brands fa-instagram', iconColor: 'text-pink-500' },
     ]
   },
   {
-    key: 'lowko', name: 'LowKo', flag: 'nl', image: '/lowko-profile-picture.jpg',
+    key: 'lowko', name: 'LowKo', flag: 'nl', image: '/lowkotv-profile-picture.jpg',
     links: [
       { url: 'https://www.youtube.com/morelowko', title: 'YouTube', icon: 'fa-brands fa-youtube', iconColor: 'text-red-500' },
       { url: 'https://www.twitch.tv/lowkotv', title: 'Twitch', icon: 'fa-brands fa-twitch', iconColor: 'text-purple-500' },
-      { url: 'https://www.aoe2insights.com/user/338838', title: 'AoE2 Insights', img: '/aoeinsights-logo.webp' },
+      { url: 'https://www.aoe2insights.com/user/13674304', title: 'AoE2 Insights', img: '/aoeinsights-logo.webp' },
       { url: 'https://liquipedia.net/starcraft2/Lowko', title: 'Liquipedia', img: '/liquipedia_icon_menu.png' },
       { url: 'http://patreon.com/lowkotv', title: 'Patreon', icon: 'fa-brands fa-patreon', iconColor: 'text-orange-500' },
       { url: 'https://discord.gg/lowkotv', title: 'Discord', icon: 'fa-brands fa-discord', iconColor: 'text-indigo-500' },
@@ -158,7 +157,7 @@ export const players: PlayerProfile[] = [
     ]
   },
   {
-    key: 'thespiffingbrit', name: 'The Spiffing Brit', flag: 'gb', image: '/the-spiffing-brit-profile-picture.webp',
+    key: 'thespiffingbrit', name: 'The Spiffing Brit', flag: 'gb', image: '/thespiffingbrit-profile-picture.webp',
     links: [
       { url: 'https://www.youtube.com/@thespiffingbrit', title: 'YouTube', icon: 'fa-brands fa-youtube', iconColor: 'text-red-500' },
       { url: 'https://www.twitch.tv/thespiffingbrit', title: 'Twitch', icon: 'fa-brands fa-twitch', iconColor: 'text-purple-500' },
@@ -208,7 +207,7 @@ export const players: PlayerProfile[] = [
     ]
   },
   {
-    key: 'wagamamatv', name: 'Wagamama', flag: 'se', image: '/wagamama-profile-picture.jpg',
+    key: 'wagamamatv', name: 'Wagamama', flag: 'se', image: '/wagamamatv-profile-picture.jpg',
     links: [
       { url: 'https://www.youtube.com/@wagamamatv', title: 'YouTube', icon: 'fa-brands fa-youtube', iconColor: 'text-red-500' },
       { url: 'https://www.twitch.tv/wagamamatv', title: 'Twitch', icon: 'fa-brands fa-twitch', iconColor: 'text-purple-500' },
@@ -222,6 +221,7 @@ export const players: PlayerProfile[] = [
     links: [
       { url: 'https://www.youtube.com/@ItsJabo', title: 'YouTube', icon: 'fa-brands fa-youtube', iconColor: 'text-red-500' },
       { url: 'https://www.twitch.tv/jabo', title: 'Twitch', icon: 'fa-brands fa-twitch', iconColor: 'text-purple-500' },
+      { url: 'https://www.aoe2insights.com/user/5690677', title: 'AoE2 Insights', img: '/aoeinsights-logo.webp' },
     ]
   },
 ]

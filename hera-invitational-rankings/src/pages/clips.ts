@@ -5,7 +5,7 @@ import '../style.css'
 import '../clips.css'
 import 'flag-icons/css/flag-icons.min.css';
 
-export const loadClips = () => {
+export const loadClipPage = () => {
   const root = document.querySelector("#clips-app");
 
   if (!root) return;
