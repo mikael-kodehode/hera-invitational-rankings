@@ -1,14 +1,13 @@
 import { inject } from '@vercel/analytics';
-import { injectSpeedInsights } from '@vercel/speed-insights';
 
 import './style.css'
 
 import { desktopSidebar, mobileNav, renderPlayerProfile } from './shared/components'
 import { players } from './shared/players'
-import { initiateListeners, initiateObservers, insertPlayerData, initSidebarToggle, initMobileStatCycle } from './shared/functions'
+import { initiateListeners, initiateObservers, insertPlayerData, initSidebarToggle } from './shared/functions'
 import 'flag-icons/css/flag-icons.min.css';
+import { initMobileStatCycle } from './shared/leaderboard';
 
-injectSpeedInsights();
 inject()
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `

@@ -25,6 +25,7 @@ export interface IDatabaseItem {
 export type SortAfter = 'Hera' | 'Grubby' | 'Day9tv' | 'followdeathnote' | 'Atrioc' | 'Knoff' | 'singsing' | 'uThermalSC2' | 'x5_PiG' | 'ahmpy' | 'YamatoCannon' | 'Lowkotv' | 'iyouxin' | 'captainlance9' | 'Pestily' | 'wagamamatv' | 'OhTofu' | 'AquaFPS' | 'jabo' | 'thespiffingbrit' | 'MrLlamaSC'
 export type twitchNames = 'grubby' | 'day9tv' | 'followdeathnote' | 'atrioc' | 'knoff' | 'singsing' | 'uthermalsc2' | 'x5_pig' | 'ahmpy' | 'yamatocannon' | 'lowkotv' | 'iyouxin' | 'captainlance9' | 'pestily' | 'wagamamatv' | 'ohtofu' | 'aquafps' | 'jabo' | 'thespiffingbrit' | 'mrllamasc'
 export type PlayerNames = Omit<SortAfter,'Hera'>
+export type MapNames = '' | 'Kilimanjaro' | 'Arabia' | 'Gold_Rush' | 'Arena' | 'EM Runestones' | 'Border Dispute' | 'megarandom2' | 'FourLakes' | 'Black_Forest' | 'Marketplace' | 'AfricanClearing' | 'Runestones' | 'Glade'
 export interface IClipsDbItem {
   id: number;
   created_at: string;
@@ -52,7 +53,7 @@ interface IPlayerMapStats {
   map_id: number;
   games_played: number; 
   wins: number;
-  maps: {name: string; id: number};
+  maps: {name: MapNames; id: number};
 }
 
 export interface IPlayerStatDBItem {
@@ -72,7 +73,7 @@ export interface IPlayerCivMapViewStats {
   player_id: string; // uuid
   player_name: string;
   map_id: number;
-  map_name: string;
+  map_name: MapNames;
   civ_id: number;
   civ_name: string;
   games_played: number;
@@ -85,7 +86,7 @@ export interface IPlayerGames {
   match_id: number;
   won: boolean;
   played_at: number;
-  maps: {id: number;name: string;};
+  maps: {id: number;name: MapNames;};
   civilizations: {civ_id: number; name: string};
 }
 
@@ -102,6 +103,20 @@ export interface IOverallStats {
   most_played_map_games: number;
 }
 
+export interface ICivStatsView {
+  civ_id: number;
+  civ_name: string;
+  games_played: number;
+  wins: number;
+  unique_players: number;
+  winrate: number;
+}
+
+export interface IOverallStatsCallResponse {
+  overallStatsPerCiv: ICivStatsView[];
+  overallStats: IOverallStats;
+}
+
 export interface IPlayerBestCiv {
   player_id: string;
   civ_id: number;
@@ -114,7 +129,7 @@ export interface IPlayerBestCiv {
 export interface IPlayerBestMap {
   player_id: string;
   map_id: number;
-  maps: {name: string}
+  maps: {name: MapNames}
   games_played: number;
   wins: number;
   winrate: number;
@@ -125,7 +140,7 @@ export interface IPlayerHeatmapSource {
     civ_name: string;
     games_played: number;
     map_id: number;
-    map_name: string;
+    map_name: MapNames;
     winrate: number;
 }
 

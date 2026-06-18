@@ -1,19 +1,26 @@
-import { loadHeatmap } from "../shared/api"
-import { footer, loadPlayerDropdown } from "../shared/components"
-import { initStatDropdownListeners, renderCharts } from "../shared/functions"
+import { getCivStats, loadHeatmap } from "../shared/api"
+import { footer, loadErrorPage } from "../shared/components"
+import { normalizeMapName, renderCharts } from "../shared/functions"
 import '../stats.css'
 import '../style.css'
 import type { IPlayerHeatmapSource, IPlayerStatDBItem } from "../types"
 
-const loadPlayerStatPage = async (playerStat: IPlayerStatDBItem, playerStats: IPlayerStatDBItem[]) => {
+const loadPlayerStatPage = async (playerStat?: IPlayerStatDBItem) => {
+  let stats: IPlayerStatDBItem;
+  if(!playerStat) {
+    const res = await getCivStats()
+    if(res) {stats = res[0]}
+    else return loadErrorPage()
+  }
+  else {stats = playerStat}
   const mainStatElement = document.querySelector('#statistics-main')
-  const heatmap: IPlayerHeatmapSource[] = await loadHeatmap(playerStat.id)
-  const mostPlayedCiv = playerStat.player_civ_stats.length ? playerStat.player_civ_stats.reduce((best, civ) => civ.games_played > best.games_played ? civ : best) : undefined
+  const heatmap: IPlayerHeatmapSource[] = await loadHeatmap(stats.id)
+  const mostPlayedCiv = stats.player_civ_stats.length ? stats.player_civ_stats.reduce((best, civ) => civ.games_played > best.games_played ? civ : best) : undefined
   const mostPlayedCivWinrate = !mostPlayedCiv ? 0 : ((mostPlayedCiv.wins / mostPlayedCiv.games_played)*100).toFixed(1)
-  const mostPlayedCivMaps = playerStat.player_civ_map_stats_view.length && mostPlayedCiv ? playerStat.player_civ_map_stats_view.filter(combo => combo.civ_name === mostPlayedCiv.civilizations.name) : ''
-  const bestMapForMostPlayedCiv = mostPlayedCivMaps ? mostPlayedCivMaps.reduce((map, best) => map.winrate > best.winrate ? map : best).map_name.replace('_', ' ') : ''
-  const bestCivMaps = playerStat.player_best_civ.length ? playerStat.player_civ_map_stats_view.filter(combo => combo.civ_name === playerStat.player_best_civ[0].civilizations.name) : ''
-  const bestMapForBestCiv = bestCivMaps ? bestCivMaps.reduce((map,best) => map.winrate > best.winrate ? map : best).map_name.replace('_', ' ') : ''
+  const mostPlayedCivMaps = stats.player_civ_map_stats_view.length && mostPlayedCiv ? stats.player_civ_map_stats_view.filter(combo => combo.civ_name === mostPlayedCiv.civilizations.name) : ''
+  const bestMapForMostPlayedCiv = normalizeMapName(mostPlayedCivMaps ? mostPlayedCivMaps.reduce((map, best) => map.winrate > best.winrate ? map : best).map_name: '')
+  const bestCivMaps = stats.player_best_civ.length ? stats.player_civ_map_stats_view.filter(combo => combo.civ_name === stats.player_best_civ[0].civilizations.name) : ''
+  const bestMapForBestCiv = normalizeMapName(bestCivMaps ? bestCivMaps.reduce((map,best) => map.winrate > best.winrate ? map : best).map_name : '')
   const lookup = new Map();
   
   for (const row of heatmap) {
@@ -21,7 +28,6 @@ const loadPlayerStatPage = async (playerStat: IPlayerStatDBItem, playerStats: IP
   }
   const civs = [...new Set(heatmap.map(r => r.civ_name))];
   const maps = [...new Set(heatmap.map(r => r.map_name))];
-
   
   // *These functions are for when every player has a good amount of games on so that the confidence don't make everything red*
   // const maxGames = Math.max(...heatmap.map(c => c.games_played));
@@ -83,23 +89,21 @@ const loadPlayerStatPage = async (playerStat: IPlayerStatDBItem, playerStats: IP
       <h1 class="relative z-10 text-4xl md:text-5xl font-bold tracking-tight text-white mb-2">
         <a href="/statistics.html">
           <span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-500">
-            ${playerStat.name}
+            ${stats.name}
           </span> Statistics
         </a>
       </h1>
       <p class="relative z-10 text-slate-400 text-sm mb-6">Statistics between June 1st to present</p>
-      <p class="relative z-10 text-slate-400 text-sm mb-6">Some db issues duplicated some maps which affected some stats.</p>
     </header>
     <section class="px-4 md:px-8 mt-4 space-y-8 max-w-5xl mx-auto pb-8">
-      ${loadPlayerDropdown(playerStats)}
       <article class="bg-slate-900 rounded-xl shadow-lg border border-slate-800 overflow-hidden hover:-translate-y-0.5 hover:shadow-xl transition-transform">
         <div class="p-6 md:p-8">
           <div class="flex flex-col md:flex-row gap-6">
             <div class="profile-image-container shrink-0 w-32 md:w-48">
-              <img class="player-profile-picture w-full h-56 object-cover rounded-full shadow-md" src="${imageUrls[playerStat.PlayerStatistics.twitch]}" alt="${playerStat.name}" />
+              <img class="player-profile-picture w-full h-56 object-cover rounded-full shadow-md" src="${imageUrls[stats.PlayerStatistics.twitch]}" alt="${stats.name}" />
             </div>
             <div class="flex-1 flex justify-center items-center min-w-0">
-              <h2 class="text-4xl font-bold text-white mb-3">${playerStat.PlayerStatistics.username}</h2>
+              <h2 class="text-4xl font-bold text-white mb-3">${stats.PlayerStatistics.username}</h2>
               </ul>
             </div>
           </div>
@@ -123,15 +127,15 @@ const loadPlayerStatPage = async (playerStat: IPlayerStatDBItem, playerStats: IP
           </div>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
             <div class="text-center p-4 rounded-lg bg-slate-800/50 border border-slate-800">
-              <span class="block text-2xl font-bold text-amber-500">${playerStat.player_best_civ[0]?.civilizations.name ?? '-'}</span>
+              <span class="block text-2xl font-bold text-amber-500">${stats.player_best_civ[0]?.civilizations.name ?? '-'}</span>
               <span class="text-xs text-slate-400 uppercase tracking-wide"><i class="fa fa-star text-slate-500 mr-1.5"></i>Best Civ</span>
             </div>
             <div class="text-center p-4 rounded-lg bg-slate-800/50 border border-slate-800">
-              <span class="block text-2xl font-bold text-white">${playerStat.player_best_civ[0]?.games_played ?? '-'}</span>
+              <span class="block text-2xl font-bold text-white">${stats.player_best_civ[0]?.games_played ?? '-'}</span>
               <span class="text-xs text-slate-400 uppercase tracking-wide"><i class="fa fa-crosshairs text-slate-500 mr-1.5"></i>Ranked 1v1</span>
             </div>
             <div class="text-center p-4 rounded-lg bg-slate-800/50 border border-slate-800">
-              <span class="block text-2xl font-bold text-white">${playerStat.player_best_civ[0]?.winrate ?? '0'} %</span>
+              <span class="block text-2xl font-bold text-white">${stats.player_best_civ[0]?.winrate ?? '0'} %</span>
               <span class="text-xs text-slate-400 uppercase tracking-wide"><i class="fa fa-percentage text-slate-500 mr-1.5"></i>Win Rate</span>
             </div>
             <div class="text-center p-4 rounded-lg bg-slate-800/50 border border-slate-800">
@@ -168,7 +172,7 @@ const loadPlayerStatPage = async (playerStat: IPlayerStatDBItem, playerStats: IP
           <thead>
             <tr>
               <th>Civ / Map</th>
-              ${maps.map(m => `<th>${m.replace('_', ' ')}</th>`).join("")}
+              ${maps.map(m => `<th>${normalizeMapName(m)}</th>`).join("")}
             </tr>
           </thead>
 
@@ -200,11 +204,11 @@ const loadPlayerStatPage = async (playerStat: IPlayerStatDBItem, playerStats: IP
     </section>
     ${footer}
     `
-  renderCharts(playerStat)
-  initStatDropdownListeners(playerStats)
+  renderCharts(stats)
 }
 export default loadPlayerStatPage
 
+// NEEDED because the pictures are different formats
 const imageUrls = {
   'grubby': '/grubby-profile-picture.jpg',
   'day9tv': '/day9tv-profile-picture.webp',
