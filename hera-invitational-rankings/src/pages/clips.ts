@@ -29,65 +29,65 @@ export const loadClipPage = () => {
           </div>
           <div id="sort-players-buttons-container" class="hidden md:flex justify-center relative z-10 flex items-end pb-3 gap-3 flex-wrap">
             <div id="filter-clips-Hera" data-sort="Hera" title="Hera" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="">Hera</span>
-              </div>
+              <span class="">Hera</span>
+            </div>
             <div id="filter-clips-Grubby" data-sort="Grubby" title="Grubby" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="">Grubby</span>
-              </div>
+              <span class="">Grubby</span>
+            </div>
             <div id="filter-clips-Day9" data-sort="Day9tv" title="Day9tv" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="">Day9</span>
-              </div>
+              <span class="">Day9</span>
+            </div>
             <div id="filter-clips-Deathnote" data-sort="followdeathnote" title="Deathnote" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="">Deathnote</span>
-              </div>
+              <span class="">Deathnote</span>
+            </div>
             <div id="filter-clips-Atrioc" data-sort="Atrioc" title="Atrioc" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="">Atrioc</span>
-              </div>
+              <span class="">Atrioc</span>
+            </div>
             <div id="filter-clips-Knoff" data-sort="Knoff" title="Knoff" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="">Knoff</span>
-              </div>
+              <span class="">Knoff</span>
+            </div>
             <div id="filter-clips-SingSing" data-sort="singsing" title="SingSing" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="">SingSing</span>
-              </div>
+              <span class="">SingSing</span>
+            </div>
             <div id="filter-clips-uThermal" data-sort="uThermalSC2" title="uThermal" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="">uThermal</span>
-              </div>
+              <span class="">uThermal</span>
+            </div>
             <div id="filter-clips-PiG" data-sort="x5_PiG" title="PiG" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="">PiG</span>
-              </div>
+              <span class="">PiG</span>
+            </div>
             <div id="filter-clips-Ahmpy" data-sort="ahmpy" title="Ahmpy" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="">Ahmpy</span>
-              </div>
+              <span class="">Ahmpy</span>
+            </div>
             <div id="filter-clips-YamatoCannon" data-sort="YamatoCannon" title="YamatoCannon" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="">YamatoCannon</span>
-              </div>
+              <span class="">YamatoCannon</span>
+            </div>
             <div id="filter-clips-LowKo" data-sort="LowkoTV" title="LowKo" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="">LowKo</span>
-              </div>
+              <span class="">LowKo</span>
+            </div>
             <div id="filter-clips-iyouxin" data-sort="iyouxin" title="iyouxin" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
               <span class="">iyouxin</span>
             </div>
             <div id="filter-clips-CaptainLance" data-sort="captainlance9" title="CaptainLance" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="">CaptainLance</span>
-              </div>
+              <span class="">CaptainLance</span>
+            </div>
             <div id="filter-clips-The Spiffing Brit" data-sort="thespiffingbrit" title="The Spiffing Brit" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="">The Spiffing Brit</span>
-              </div>
+              <span class="">The Spiffing Brit</span>
+            </div>
             <div id="filter-clips-Pestily" data-sort="pestily" title="Pestily" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="">Pestily</span>
-              </div>
+              <span class="">Pestily</span>
+            </div>
             <div id="filter-clips-OhTofu" data-sort="OhTofu" title="OhTofu" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="">OhTofu</span>
-              </div>
+              <span class="">OhTofu</span>
+            </div>
             <div id="filter-clips-AquaFPS" data-sort="AquaFPS" title="AquaFPS" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="">AquaFPS</span>
-              </div>
+              <span class="">AquaFPS</span>
+            </div>
             <div id="filter-clips-MrLlamaSC" data-sort="MrLlamaSC" title="MrLlamaSC" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="">MrLlamaSC</span>
-              </div>
+              <span class="">MrLlamaSC</span>
+            </div>
             <div id="filter-clips-Wagamama" data-sort="wagamamatv" title="Wagamama" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
-                <span class="">Wagamama</span>
-              </div>
+              <span class="">Wagamama</span>
+            </div>
             <div id="filter-clips-Jabo" data-sort="jabo" title="Jabo" class="sortable-clips cursor-pointer flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
               <span class="">Jabo</span>
             </div>

@@ -1,6 +1,6 @@
 // supabaseClient.ts
 import { createClient } from '@supabase/supabase-js';
-import type { IDatabaseItem, IClipsDbItem, IPlayerStatDBItem, IOverallStats } from '../types.ts';
+import type { IDatabaseItem, IClipsDbItem, IPlayerStatDBItem, IOverallStatsCallResponse } from '../types.ts';
 
 // Vite requires 'import.meta.env' for environment variables.
 // Adding 'as string' ensures TypeScript doesn't complain about them being undefined.
@@ -230,14 +230,15 @@ export const fetchTwitchClips = async (): Promise<IClipsDbItem[]> => {
 
 export const getOverallStats = async () => {
   try {
+    console.log('trying to fetch overallstats')
     if(!supabaseClient) throw new Error('supabaseClient falsy')
-    const { data, error } = await supabaseClient
-      .from('overall_stats')
-      .select(`*`)
-
-    if(error) throw error
-    if(data) console.log(data[0])
-    return data[0] as IOverallStats
+    const [overallStats, overallStatsPerCiv] = await Promise.all([
+      supabaseClient.from('overall_stats').select('*'),
+      supabaseClient.from('civ_stats_view').select('*')
+    ]);
+    if(!overallStats || !overallStatsPerCiv) throw new Error('Either overall stats aor player games missing from response')
+    if(!overallStats.data || !overallStats.data.length)  throw new Error('Data of overallStats is empty')
+    return { overallStats: overallStats.data[0], overallStatsPerCiv: overallStatsPerCiv.data } as IOverallStatsCallResponse
   } catch (error) {
     console.error(error)
   }
@@ -301,7 +302,8 @@ export const getCivStats = async () => {
       )
     `);
     if(error) throw error
-    if(data) console.log(data)
+    if(!data) throw new Error("Data is falsy");
+    
     return data as unknown as IPlayerStatDBItem[]
   } catch (error) {
     console.log(error)
