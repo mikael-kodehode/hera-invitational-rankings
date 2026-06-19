@@ -21,4 +21,8 @@
   );
   color: black;
   font-weight: bold;
-} 
+}
+
+#overall-bar-games {
+  height: 928px;
+}

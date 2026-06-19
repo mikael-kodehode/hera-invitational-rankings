@@ -1,7 +1,6 @@
 import { fetchPlayerData } from "./api";
 import { Links } from "../types";
 import type { IDatabaseItem } from "../types";
-import { insertPlayerData } from "./functions";
 
 let currentSortColumn = 'highest_rating';
 let isAscending = false;
@@ -188,16 +187,4 @@ export const initMobileStatCycle = () => {
       }
     });
   });
-}
-
-export const initiateListeners = () => {
-  document.querySelector('thead')?.addEventListener('click', (event) => {
-    const sortKey = (event.target as HTMLElement).getAttribute('data-sort');
-    if (sortKey) handleTableSort(sortKey);
-  });
-  document.querySelector('#refresh-leaderboard')?.addEventListener('click', (event) => {
-    const el = event.target as HTMLElement
-    el.classList.add('loading')
-    insertPlayerData()
-  })
 }

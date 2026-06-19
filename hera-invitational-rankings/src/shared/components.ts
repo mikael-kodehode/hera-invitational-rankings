@@ -1,3 +1,5 @@
+import { players } from './players'
+
 export const header = `
   <header class="relative pt-12 pb-10 px-6 text-center bg-gradient-to-b from-slate-800 to-slate-900 overflow-hidden">
     <!-- Subtle dot pattern overlay -->
@@ -6,41 +8,38 @@ export const header = `
     <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-400/60 to-transparent"></div>
     <h1 class="relative z-10 text-4xl md:text-5xl font-bold tracking-tight text-white mb-2">
       <span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-500">Hera's</span> Invitational Rankings
-    </h1>
+    </h1>  
     <p class="relative z-10 text-slate-400 text-sm mb-6">Track the progress of your favorite players</p>
     <div class="relative z-10 flex items-center justify-center gap-4 flex-wrap">
       <a href="https://www.youtube.com/channel/UCeqc9aYVAZcRQq9Ey0x26AQ" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
         <i class="fa-brands fa-youtube text-red-500"></i>
         <span class="hidden sm:inline">YouTube</span>
-      </a>
+      </a>  
       <a href="https://twitch.tv/hera" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
         <i class="fa-brands fa-twitch text-purple-400"></i>
         <span class="hidden sm:inline">Twitch</span>
-      </a>
+      </a>  
       <a href="https://discord.gg/invite/fpheyyUCg9" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
         <i class="fa-brands fa-discord text-indigo-400"></i>
         <span class="hidden sm:inline">Discord</span>
-      </a>
+      </a>  
       <a href="https://x.com/Hera_Aoe" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors border border-slate-700 text-sm">
         <i class="fa-brands fa-x-twitter"></i>
         <span class="hidden sm:inline">@Hera_Aoe</span>
-      </a>
-    </div>
-  </header>
-`
+      </a>  
+    </div>  
+  </header>  
+`  
 
 export const footer = `
   <footer class="px-6 py-12 text-center text-slate-500 text-sm">
     <p>
       *This is an unofficial fan site and is not affiliated with Hera, Hera's Invitational, or the event organizers.
-    </p>
+    </p>  
     <a class="underline hidden sm:block" href="https://aoe2.criticalbit.gg/kings-gauntlet/" target="_blank">Make sure to check out the official website!</a>
     <p class="hidden sm:block">Feel free to send me an email: <a class="underline hidden sm:inline" href="mailto:mikael-kodehode@gmail.com" target="_blank" >mikael-kodehode@gmail.com</a></p>
-  </footer>
-`
-
-import type { IPlayerStatDBItem } from '../types'
-import { players } from './players'
+  </footer>  
+`  
 
 const profileLinks = players.map(p => ({
   name: p.name,
@@ -93,21 +92,21 @@ export const mobileNav = (activePage: 'ratings' | 'clips' | 'stats') => {
     <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-slate-950 border-t border-slate-800 z-50 overflow-x-auto">
       <div class="flex items-center min-w-max px-2 py-1.5 gap-1">
         
-        <a href="${isRatings ? '#ratings' : '<s/'}" ${isRatings ? 'id="small-screen-nav-home"' : ''} class="sticky left-0 z-10 bg-slate-950/95 backdrop-blur-sm nav-link ${isRatings ? 'for-scroll-observer ' : ''}flex flex-col items-center px-2 py-1 rounded-md text-[10px] text-slate-300 hover:text-white transition-colors w-[56px] shrink-0">
+        <a href="${isRatings ? '#ratings' : '<s/'}" ${isRatings ? 'id="small-screen-nav-home"' : ''} class="sticky left-0 z-10 bg-slate-950/95 backdrop-blur-sm nav-link ${isRatings ? 'for-scroll-observer ' : ''}${activePage === 'ratings' ? 'active-page-nav' : ''}flex flex-col items-center px-2 py-1 rounded-md text-[10px] text-slate-300 hover:text-white transition-colors w-[56px] shrink-0">
           <div class="nav-icon-pill w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 transition-colors ${isRatings ? 'bg-amber-500/20 text-amber-400' : ''}">
             <i class="fa fa-trophy text-xs"></i>
           </div>
           <span class="mt-0.5">Ratings</span>
         </a>
         
-        <a href="/clips.html" id="nav-mobile-clips" class="sticky left-[56px] z-10 bg-slate-950/95 backdrop-blur-sm nav-link ${isRatings ? '' : 'active-page-nav '}flex flex-col items-center px-2 py-1 rounded-md text-[10px] text-slate-300 hover:text-white transition-colors w-[56px] shrink-0 shadow-[4px_0_8px_-4px_rgba(0,0,0,0.5)] mr-1">
+        <a href="/clips.html" id="nav-mobile-clips" class="sticky left-[56px] z-10 bg-slate-950/95 backdrop-blur-sm nav-link ${activePage === 'clips' ? 'active-page-nav' : ''}flex flex-col items-center px-2 py-1 rounded-md text-[10px] text-slate-300 hover:text-white transition-colors w-[56px] shrink-0 shadow-[4px_0_8px_-4px_rgba(0,0,0,0.5)] mr-1">
           <div class="nav-icon-pill w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 transition-colors ${isRatings ? '' : 'bg-amber-500/20 text-amber-400'}">
             <i class="fa fa-play text-xs"></i>
           </div>
           <span class="mt-0.5">Clips</span>
         </a>
         
-        <a href="/statistics.html" id="nav-mobile-stats" class="sticky left-[56px] z-10 bg-slate-950/95 backdrop-blur-sm nav-link ${isRatings ? '' : 'active-page-nav '}flex flex-col items-center px-2 py-1 rounded-md text-[10px] text-slate-300 hover:text-white transition-colors w-[56px] shrink-0 shadow-[4px_0_8px_-4px_rgba(0,0,0,0.5)] mr-1">
+        <a href="/statistics.html" id="nav-mobile-stats" class="sticky left-[56px] z-10 bg-slate-950/95 backdrop-blur-sm nav-link ${activePage === 'stats' ? 'active-page-nav' : ''}flex flex-col items-center px-2 py-1 rounded-md text-[10px] text-slate-300 hover:text-white transition-colors w-[56px] shrink-0 shadow-[4px_0_8px_-4px_rgba(0,0,0,0.5)] mr-1">
           <div class="nav-icon-pill w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 transition-colors ${isRatings ? '' : 'bg-amber-500/20 text-amber-400'}">
             <i class="fa fa-chart-simple text-xs"></i>
           </div>
@@ -169,20 +168,6 @@ export const renderPlayerProfile = (p: { key: string, name: string, image: strin
   </article>
 `
 
-export const overallStatCard  = (title: string, stat: string | number, secondaryStat?: string | number) => {
-  return `
-    <div class="rounded-xl bg-zinc-900 p-4 flex justify-between flex-col">
-      <p class="text-zinc-400">${title}</p>
-      <p class="text-3xl font-bold">${stat}</p>
-      ${secondaryStat ? 
-        `<p class="text-3xl font-bold">${secondaryStat}</p>`
-        :
-        ''
-      }
-    </div>
-  `
-}
-
 export const playerStatPage = () => {
   return `
     <div class="flex items-center gap-4 p-6 bg-zinc-900 rounded-xl">
@@ -198,39 +183,8 @@ export const playerStatPage = () => {
   `
 }
 
-export const loadPlayerDropdown = (playerStats: IPlayerStatDBItem[]) => {
+export const loadErrorPage = () => {
   return `
-    <div class="relative inline-block">
-      <button
-        id="players-dropdown-btn"
-        class="inline-flex cursor-pointer items-center gap-2 px-4 py-2 bg-slate-800 text-white rounded-lg hover:bg-slate-700"
-      >
-        Players
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-      </button>
-
-      <div
-        id="players-dropdown-menu"
-        class="hidden absolute left-0 mt-2 w-56 bg-slate-900 border border-slate-700 rounded-lg shadow-lg z-50"
-      >
-        <ul class="py-2 text-sm text-slate-200">
-          ${playerStats.map(p => `
-            <li class="cursor-pointer ">
-              <a id="${p.id}"
-                class="stat-nav-link block px-4 py-2 hover:bg-slate-800">
-                ${p.name}
-              </a>
-            </li>
-          `).join("")}
-        </ul>
-      </div>
-    </div>
+    <h2>Database had issues delivering the precious data. You can try to refresh. We are working on fixing it. Thank you!</h2>
   `
 }
